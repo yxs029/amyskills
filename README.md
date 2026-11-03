@@ -126,7 +126,7 @@
 
 | 技能 | 位置 | 简介 |
 | --- | --- | --- |
-| [xlsx-to-docx](./我做的测试领域skills/xlsx-to-docx/) | 我做的测试领域skills | ✍️ 自研：多 Sheet xlsx（含图片）转 Word docx，图片自动提取与位置锚定 |
+| [xlsx-to-docx](./我做的测试领域skills/xlsx-to-docx/) | ✍️ 自研：多 Sheet xlsx（含图片）转 Word docx，图片自动提取与位置锚定 |
 | test-patterns 1.0.0 | [市面上的测试领域skills/](./市面上的测试领域skills/) | 多语言测试基础框架（Node/Python/Go/Rust），🔴 高优必装 |
 | test-runner | [市面上的测试领域skills/](./市面上的测试领域skills/) | 单元 / 集成 / E2E 测试执行管理 |
 | test-driven-development 1.1.0 | [市面上的测试领域skills/](./市面上的测试领域skills/) | 完整 TDD 流程指导 |
