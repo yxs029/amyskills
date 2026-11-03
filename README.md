@@ -3,7 +3,7 @@
 > 个人 Agent Skills 收藏与创作库。覆盖 **微信公众号写作、软件测试工程、知识萃取与复盘、浏览器自动化、金融分析、内容采集** 等场景。
 > 所有技能均遵循通用 Agent Skills 规范（含 `SKILL.md`），兼容 Claude Skills / OpenClaw / Codex / autoClaw 等主流 Agent 平台。
 
-📊 **规模**：74 个技能目录（`SKILL.md`）+ 60+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11-03
+📊 **规模**：75 个技能目录（`SKILL.md`）+ 70+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11-03
 
 ---
 
@@ -23,6 +23,7 @@
 | [未分类收集skills](./未分类收集skills/) | 2 | 新闻聚合、AI 味去除等零散收藏 |
 | [codex的skill](./codex的skill/) | 0（1 个 zip） | Codex 侧技能（feishu2slide 便携版） |
 | [QClaw的skill库](./QClaw的skill库/) | 0（1 个 zip） | QClaw 技能合集包 |
+| [toamyskillhub](./toamyskillhub/) | 1 | 🔧 技能库发布工具：一键生成 README 清单 + 排除超大文件 + 代理回退推送 |
 
 ---
 
@@ -190,6 +191,14 @@
 | [skill-vetter](./autoclaw常用技能/skill-vetter/) | 技能安装前安检元技能：红旗、权限范围、可疑模式检查 |
 
 > 注：feishu-doc 的本机 cache/ 目录含私有飞书文档内容，未随库上传；pptx-swarm 的 249.6MB pyz 维持库内既有约定不传。
+
+### 1️⃣1️⃣ toamyskillhub（1 个）
+
+| 技能 | 简介 |
+| --- | --- |
+| [toamyskillhub](./toamyskillhub/) | 技能库一键发布到 GitHub：自动生成 README 技能清单（解析 SKILL.md frontmatter）、暂存复制（排除 >100MB 超限文件 / `__pycache__` / 嵌套 `.git`）、git 初始化提交、直连失败自动切系统代理重试、远端分叉自动 rebase、推送后 SHA 校验。附踩坑手册与跨平台手工步骤 |
+
+---
 
 ## 📦 安装使用
 
