@@ -1,0 +1,1117 @@
+{
+  "date": "2026-07-24",
+  "layer": "第五层-行业应用层",
+  "collected": {
+    "2607.21527v1": {
+      "paper": {
+        "title": "Sources of Inequity and Fairness Risks inWellbeing Sensing",
+        "summary": "Passive sensing for wellbeing uses smartphones and wearables to continuously collect human behavioral data and applies ML/AI models to infer psychological states and behaviors (e.g., depression, cognitive load). These systems are increasingly adopted in high-stakes settings (e.g., hospitals, universities), yet fairness research remains limited---primarily to post-hoc, identity-based comparisons of model performance. However, passive sensing combines heterogeneous sensing infrastructures, indirect behavioral inference, and longitudinal deployment---characteristics that, while not exclusive to the domain, are jointly pronounced here and raise two underexplored questions: (1) what additional sources of inequity arise from these characteristics, and (2) how do such inequities propagate beyond algorithmic audits across the system lifecycle? To address this gap, we conducted semi-structured interviews with 14 researchers and practitioners across five countries, examining how fairness risks emerge and are negotiated across the full passive sensing lifecycle. Our findings empirically characterize five situated sources of inequity (e.g., comfort with monitoring, behavioral regularity) that systematically shape fairness risks beyond identity-based attributes. We further synthesize 15 fairness risks and corresponding mitigation strategies across the lifecycle, from study design to deployment. Finally, we identify structural barriers that constrain fair practice in reality, and argue that enabling fair passive sensing requires both individual researcher efforts and ecosystem-level governance support from funders, publication venues, and deploying institutions.",
+        "authors": [
+          "Han Zhang",
+          "Vedant Das Swain",
+          "Koustuv Saha",
+          "Anind K. Dey",
+          "Jennifer Mankoff"
+        ],
+        "published": "2026-07-23T17:12:24Z",
+        "id": "2607.21527v1",
+        "url": "http://arxiv.org/abs/2607.21527v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21527v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.21522v1": {
+      "paper": {
+        "title": "GS-Agent: Creating 4D Physical Worlds With Generative Simulation",
+        "summary": "Creating dynamic and physically realistic 4D worlds from natural language descriptions is both fascinating and challenging. Traditional computer graphics methods rely on manual creation, requiring extensive human effort to fine-tune materials, motions, and visual fidelity. Recent advances in generative foundation models have sparked interest in learning to generate such 4D worlds from large-scale data; however, existing methods still struggle to ensure physical plausibility and controllability. In this work, we take a different path by leveraging foundation models to construct an agentic system that emulates how humans traditionally create 4D worlds, yet automates the entire process. We present GS-Agent, an end-to-end multi-agent framework that integrates physics engines in the loop to generate realistic, dynamic, and controllable 4D physical worlds from natural language. Inspired by how humans build 4D worlds, GS-Agent decomposes the task into entity management, covering 3D asset curation, material tuning, placement, and motion control, and rendering configuration, including camera and lighting manipulation. Multiple agents with distinct expertise interact with the physics engine via code, seek multimodal feedback, and collaborate to iteratively construct 4D worlds that align with the given descriptions. Experimental results show that GS-Agent effectively converts natural language into diverse and physically plausible 4D worlds exhibiting rich interactions among liquids, deformable objects, and rigid bodies, while achieving cinematic camera and lighting control. We envision GS-Agent as a foundation for a new paradigm in 4D world generation, empowering creative content creation and physical AI. Project page at https://umass-embodied-agi.github.io/gs-agent/",
+        "authors": [
+          "Hongxin Zhang",
+          "Chunru Lin",
+          "Junyan Li",
+          "Zhou Xian",
+          "Tsun-Hsuan Wang",
+          "Chuang Gan"
+        ],
+        "published": "2026-07-23T17:04:36Z",
+        "id": "2607.21522v1",
+        "url": "http://arxiv.org/abs/2607.21522v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21522v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.21503v1": {
+      "paper": {
+        "title": "Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems",
+        "summary": "Production AI agents' failures are less often due to an inability to reason well and more often because they cannot manage what is in their reasoning context: conversation histories, large prompts, large tool definitions, and ballooning tool outputs. Agents drown in their own accumulating history while paying a token cost that grows every turn, producing missing recalls within and across conversations. The incumbent response treats this as a storage-and-retrieval problem. We argue that framing is too narrow. Actively managing what an agent holds in mind is a lifecycle, not merely a store: it spans deciding what to remember, extracting and structuring it, choosing the right store per data type, consolidating and forgetting while preserving provenance, deciding what is relevant now, anticipating what is needed next, and compacting context to a budget without losing what matters. In serious production this operates not over a single user but across an organizational scope hierarchy. We name this discipline Agentic Context Management (ACM) and decompose it into five primitives: architecting, ingesting, scoping, anticipating, and compacting & consolidation. We then make the economic case: naive context accumulation grows token cost quadratically in conversation length, crude summarization buys linear cost at the price of an accuracy cliff, and only validated compaction achieves linear cost with preserved fidelity. We describe a reference implementation, Maximem Synap, that realizes the five primitives as a multi-tenant service and reports 92% on LongMemEval and 93.2% on LoCoMo under the configuration detailed in Section 6. We close with dimensions existing benchmarks do not yet capture, latency, token efficiency, and context-rot resistance, and the frontier of decision-level and organization-level context the category points toward.",
+        "authors": [
+          "Gaurav Dadhich"
+        ],
+        "published": "2026-07-23T16:51:31Z",
+        "id": "2607.21503v1",
+        "url": "http://arxiv.org/abs/2607.21503v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21503v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.21495v1": {
+      "paper": {
+        "title": "Toward Continuous Assurance for the Democratization of AI Agent Creation in Industry",
+        "summary": "AI agents are increasingly created inside organizations by non-engineering users through low-code, no-code, and conversational development environments. This democratization enables rapid local innovation, but it also creates a reliability gap: agents that appear to users as simple productivity artifacts may depend on changing models, tools, retrieval sources, permissions, prompts, schedules, and external services. These dependencies can cause silent degradation long after deployment, even when no user directly modifies the agent. This paper identifies the reliability challenge created by democratized AI agent creation and proposes a lightweight continuous-assurance framework for citizen-created organizational agents. The framework combines dependency mapping, readiness contracts, scheduled checks, diagnostics, and lifecycle governance to assess whether an agent remains operationally ready under expected conditions. We also present an initial prototype auditor and scenario-based assessment showing how the proposed taxonomy can be translated into practical checks and actionable remediation guidance.",
+        "authors": [
+          "Natan Levy",
+          "Harel Berger"
+        ],
+        "published": "2026-07-23T16:41:56Z",
+        "id": "2607.21495v1",
+        "url": "http://arxiv.org/abs/2607.21495v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21495v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.21482v1": {
+      "paper": {
+        "title": "Agentic coding without the cloud: evaluating open-weight large language models on longitudinal data preparation tasks",
+        "summary": "Large language models (LLMs) and agents are now widely used tools in code development, with data typically sent to third-party cloud-based models. Their adoption in research using personal data is constrained by governance requirements that typically prohibit data transmission to external services. Locally deployable open-weight models offer an alternative since sensitive data never leave the local environment. We introduce an open-source framework for evaluating the efficacy of AI agents powered by open-weight LLMs on one of the most persistent bottlenecks in research on longitudinal population studies: data preparation. The framework comprises: a curated ground-truth dataset (cleaning scripts preparing six sweeps of data from a British cohort study), task definitions encompassing tasks such as category harmonization and multi-wave merging, and automated routines for evaluating the LLM-produced R code and outputted data. We benchmark LLMs across the (consumer grade) deployment spectrum to assess their efficacy in 20 data preparation tasks (creation of 102 variables). Current state-of-the-art, 31-35B parameter models almost saturated our benchmark (\"average task completion\" up to 87.9%). The performance of open-weight LLMs running on consumer-grade hardware shows promise of a viable path toward AI-assisted data preparation in governance-restricted research settings. Our framework is publicly available at: https://github.com/UCL-ARC/RRBench.",
+        "authors": [
+          "Mack Nixon",
+          "Liam Wright",
+          "Yevgeniya Kovalchuk",
+          "Alison Fang-Wei Wu",
+          "Martin Danka",
+          "Andy Boyd",
+          "David Bann"
+        ],
+        "published": "2026-07-23T16:23:42Z",
+        "id": "2607.21482v1",
+        "url": "http://arxiv.org/abs/2607.21482v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21482v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21530v1": {
+      "paper": {
+        "title": "From Resource Flow to Executable Tests: Petri-Net-Guided LLM Test Generation for Concurrent Stateful Rust APIs",
+        "summary": "Concurrent stateful library APIs expose behavior through evolving resource ownership, lifecycle states, and competing interleavings. Large language models can synthesize executable Rust tests, but their outputs often violate API preconditions, remain shallow, or reduce concurrency to accidental sequential traces. Conversely, model-based and systematic testing techniques provide semantic control but commonly require substantial handwritten code to turn abstract scenarios into executable tests. This paper addresses the gap between formal scenario design and low-cost test concretization. We present a Petri-net-guided methodology for test generation over concurrent stateful Rust APIs. The method represents API resources, lifecycle conditions, and causal dependencies as colored tokens and transitions; derives legal deep-state, near-legal, and partial-order concurrent scenarios; and uses these scenarios as a constrained intermediate representation for LLM-based code synthesis. A local-faithfulness contract and structural repair loop preserve the modeled intent during concretization, while Petri-guided schedule shaping prioritizes high-conflict concurrency skeletons for systematic exploration. A layered semantic oracle then distinguishes synthesis failures from violations of the target API's expected behavior.",
+        "authors": [
+          "Kaiwen Zhang",
+          "Guanjun Liu"
+        ],
+        "published": "2026-07-23T17:15:53Z",
+        "id": "2607.21530v1",
+        "url": "http://arxiv.org/abs/2607.21530v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21530v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21519v1": {
+      "paper": {
+        "title": "Diffusion Language Model for Recommendation",
+        "summary": "Large language model (LLM)-empowered recommender systems have emerged as a promising paradigm for generative recommendation, leveraging their strong semantic reasoning and generative capacity to model complex, diverse user preferences. However, most existing approaches rely on an autoregressive paradigm that is suboptimal for recommendation. The next-token objective emphasizes sequential order rather than the structural inter-item dependencies underlying user preferences. In addition, prefix-constrained generation restricts bidirectional context and commits to left-to-right decoding, causing early errors to accumulate without correction. Inspired by the success of diffusion language models, we propose \\textbf{DLMRec}, a discrete diffusion language model tailored for recommendation that offers a compelling alternative to autoregressive generation. Specifically, DLMRec introduces three key components to bridge diffusion language modeling with recommendation. First, a collaborative-aware stochastic tokenizer encodes multi-hop collaborative signals into expressive discrete tokens compatible with diffusion modeling. Second, a curriculum-driven training strategy aligns the denoising process with preference recovery through progressive item- and token-level learning. Third, a stability-aware voting mechanism aggregates iterative predictions to improve generation consistency and robustness.",
+        "authors": [
+          "Chengyi Liu",
+          "Yongqi Zhou",
+          "Junwei Pan",
+          "Zhixiang Feng",
+          "Chengguo Yin",
+          "Haijie Gu",
+          "Jie Jiang",
+          "Yinghao Liu",
+          "Yujuan Ding",
+          "Qing Li",
+          "Wenqi Fan"
+        ],
+        "published": "2026-07-23T17:02:12Z",
+        "id": "2607.21519v1",
+        "url": "http://arxiv.org/abs/2607.21519v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21519v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21518v1": {
+      "paper": {
+        "title": "Same Dangerous Objective, Opposite Advice: Direct Exposure versus Multi-Agent Mediation",
+        "summary": "Even a current high-capability LLM can appear safer when shown a dangerous objective directly than when other agents transform and relay its direction. Using OpenAI's gpt-5.6-sol model alias, we test 25 pre-specified mirrored trade-off profiles. Direct exposure to an objective authorizing concealment, fabrication, and pressure produced advice net opposed to its target. After an Id and Censor transformed the same objective into affect and a constraint-rewritten, target-bearing intention, the user-facing Superego---which saw the preferred direction but not the raw objective, its manipulative clauses, or its source---produced advice net aligned with the target.   This behavioral reverse shift is consistent with the model recognizing or distrusting the manipulative motive, although we do not identify its internal mechanism. The second result exposes a compositional safety gap: a current high-capability model can be used as the user-facing component of an automated, multi-stage workflow serving an explicitly manipulative objective. The workflow can keep the raw instruction, its manipulation-authorizing clauses, and its provenance outside the downstream model's context while preserving the objective's target direction. A user with endpoint-only access likewise cannot directly inspect those upstream messages including the objective.",
+        "authors": [
+          "Linjun Li"
+        ],
+        "published": "2026-07-23T17:02:11Z",
+        "id": "2607.21518v1",
+        "url": "http://arxiv.org/abs/2607.21518v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21518v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21517v1": {
+      "paper": {
+        "title": "Improved lower bounds for the Shannon capacity of odd cycles",
+        "summary": "The Shannon capacity $Θ(G)$ of a graph $G$ quantifies the maximum rate at which information can be transmitted with zero error over a noisy channel. It is lower bounded by $α(G^d)^{1/d}$ for any $d$, where $α(G^d)$ is the independence number of the $d$-th strong power of $G$. We construct independent sets of size $134753$ in $C_7^{10}$, $21909$ in $C_{11}^{6}$, and $62530$ in $C_{13}^{6}$, improving the best known lower bounds for the Shannon capacity of these graphs to $Θ(C_7)\\geq 134753^{1/10}>3.258020$, $Θ(C_{11})\\geq 21909^{1/6}>5.289773$, and $Θ(C_{13})\\geq 62530^{1/6}>6.300109$. We also improve the best known lower bounds on the independence numbers of several individual strong powers of odd cycles that do not improve the Shannon capacity lower bound. The constructions were discovered through iterative interactions with a Large Language Model (LLM), illustrating the potential of LLMs for finding explicit combinatorial constructions.",
+        "authors": [
+          "Nathaniel Itty",
+          "Christopher D. Rosin",
+          "Chase Carstensen",
+          "Daniel Reichman"
+        ],
+        "published": "2026-07-23T17:01:36Z",
+        "id": "2607.21517v1",
+        "url": "http://arxiv.org/abs/2607.21517v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21517v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21514v1": {
+      "paper": {
+        "title": "Revealing the conformal symmetry of the discrete series scalars in dS${}_2$",
+        "summary": "On two-dimensional manifolds with nonzero constant Ricci curvature, there exists an infinite sequence of scalar fields with nonzero mass parameter that admit a pair of (anti)-holomorphic currents. After suitably defining the theory in de Sitter space ($\\mathrm{dS}_2$), correlation functions of these currents obey global conformal Ward identities. We address the question of how this global conformal symmetry manifests as an action on the scalar field. An essential step is in leveraging an equivalent description of the scalar field in terms of a conformal Killing tensor. Through this, we find a conformal symmetry transformation that acts locally on the conformal Killing tensor, but non-locally on the scalar field. We show that the equation of motion transforms covariantly with respect to these conformal transformations, and further find a traceless stress tensor in both $\\mathrm{dS}_2$ and $\\mathrm{AdS}_2$, locally defined in terms of the conformal Killing tensor, which generates the global conformal isometry transformations.",
+        "authors": [
+          "Lukas William Lindwasser"
+        ],
+        "published": "2026-07-23T17:00:13Z",
+        "id": "2607.21514v1",
+        "url": "http://arxiv.org/abs/2607.21514v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21514v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI能源与环境"
+      ]
+    },
+    "2607.21526v1": {
+      "paper": {
+        "title": "Boosting Robustness for All-Weather Self-Supervised Depth Estimation in Autonomous Driving",
+        "summary": "Self-supervised depth estimation is challenging for safe autonomous driving under various adverse weather conditions due to sensor perception degradation. These challenges arise from two main aspects. Firstly, adverse conditions can distort pixel correspondences and violate the assumptions embedded in the self-supervised loss function, leading to erroneous depth predictions. Secondly, while radar is a widely adopted sensor in adverse weather conditions, the sparse distribution of radar points in the Point of View (POV) poses challenges for self-supervised fusion. To address these issues, we introduce a novel self-training pipeline using unpaired real all-weather data through multi-teacher distillation and robust radar fusion. We propose the Uncertainty-Aware Multi-Teacher Distillation method to generate diverse teacher models with different adverse condition inputs, and then employ uncertainty modeling to weigh the knowledge distillation loss. Additionally, we design the POV-BEV Radar Fusion approach, which leverages camera-pixel ray constraints to establish connections between the camera's Point of View (POV) and the radar's Bird's-Eye View (BEV). This approach enables the utilization of denser radar points, effectively capturing the complementary perspectives of both POV and BEV. Extensive quantitative and qualitative experiments demonstrate the robustness of our proposed method on all-weather datasets, achieving state-of-the-art performance. Our code and models are available at https://github.com/MICLAB-BUPT/RobustDepth.",
+        "authors": [
+          "Mengshi Qi",
+          "Xiaoyang Bi",
+          "Xianlin Zhang",
+          "Huadong Ma"
+        ],
+        "published": "2026-07-23T17:11:33Z",
+        "id": "2607.21526v1",
+        "url": "http://arxiv.org/abs/2607.21526v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21526v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI安防与监控",
+        "AI制造与工业",
+        "AI能源与环境"
+      ]
+    },
+    "2607.21521v1": {
+      "paper": {
+        "title": "A new recursive construction for large sets of Kirkman triple systems",
+        "summary": "We give a recursive construction of an LKTS(7q + 2) from an LKTS(q + 2) and an auxiliary permutation structure on an abelian group of order q, which we call a cubic orthomorphism. We prove that cubic orthomorphisms exist whenever q is a product of prime powers congruent to 1 modulo 6. The construction yields, in particular, LKTSs of orders 93, 177, 219, 261, and 303.",
+        "authors": [
+          "Chen Wang"
+        ],
+        "published": "2026-07-23T17:04:04Z",
+        "id": "2607.21521v1",
+        "url": "http://arxiv.org/abs/2607.21521v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21521v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2607.21496v1": {
+      "paper": {
+        "title": "Toward Generalizable Cognitive Impairment Detection with Speech-Based Multimodal Large Language Models",
+        "summary": "Cognitive impairment (CI) is a growing public health concern. Early and accurate diagnosis is critical for enabling timely intervention and improving patient outcomes. Speech-based CI detection has emerged as a promising non-invasive approach, as speech signals encode both linguistic and acoustic markers associated with cognitive decline. Recent advances in large language models (LLMs) further strengthen the potential of speech-based assessment by enabling more expressive representation learning and improved generalization across diverse speakers, recording devices, and clinical environments. Moreover, multimodal learning by jointly modeling linguistic and acoustic features allows for a more comprehensive characterization of cognitive and behavioral changes related to CI, leading to more reliable detection. In this work, we propose a multimodal CI detection framework based on open-source LLMs that integrates speech audio and corresponding transcripts while preserving patient privacy. Acoustic embeddings are extracted directly from speech signals, while textual embeddings are generated from automatically transcribed speech. These modality-specific embeddings are then concatenated to create a combined feature vector and used for downstream classification, without requiring access to raw or sensitive patient data. The proposed approach is evaluated on the ADReSS20 and ADReSSo21 benchmark datasets. Experimental results show that the proposed multimodal framework achieves an CI classification accuracy of 92.4% and consistently outperforms single-modality baselines. Our work establishes a new state-of-the-art for CI identification, with the proposed method demonstrating superior cross-dataset generalization. This advance highlights the power of an LLM-based multimodal framework that fuses linguistic and acoustic data to enable robust, scalable, and non-invasive screening.",
+        "authors": [
+          "Yingchao Huang",
+          "Xin Wang",
+          "Yuhan Su",
+          "Shanshan Yao"
+        ],
+        "published": "2026-07-23T16:43:12Z",
+        "id": "2607.21496v1",
+        "url": "http://arxiv.org/abs/2607.21496v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21496v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI农业"
+      ]
+    },
+    "2607.21529v1": {
+      "paper": {
+        "title": "ElasticTTT: Prior-Preserving Test-Time Tuning for Video Editing",
+        "summary": "Test-Time Tuning (TTT) on pretrained diffusion models has emerged as a powerful paradigm for video editing. However, there exists a foundational mismatch between the distribution-mapping nature of generative models and the single-point optimization of standard TTT. In this paper, we demonstrate that this mismatch triggers \\textit{Prior Collapse}, a degenerate state where the model discards the text conditions and spatial latents, collapsing generations to the source video, or entangling the features of distinct regions. To resolve this, we propose \\textbf{ElasticTTT}, a novel framework that preserves the prior generative distribution and rescues generative elasticity. Specifically, we propose \\textit{Target Distribution Regularization} to prevent sharp memorization minima, \\textit{Contrastive CFG} to guide inference away from source biases, and \\textit{Asynchronous Noise Schedule} to preserve unedited regions. Extensive evaluations, supported by theoretical analysis, demonstrate that ElasticTTT successfully preserves the generative prior of the base model, achieving state-of-the-art performance on one-shot video editing.",
+        "authors": [
+          "Yueyi Liu",
+          "Chi Zhang",
+          "Sen Cui",
+          "Miao Liu"
+        ],
+        "published": "2026-07-23T17:15:30Z",
+        "id": "2607.21529v1",
+        "url": "http://arxiv.org/abs/2607.21529v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21529v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI法律与合规"
+      ]
+    },
+    "2607.21528v1": {
+      "paper": {
+        "title": "Probing the nonlocality of Landau levels in GaAs quantum wells through modified Purcell factors, Lamb shifts and dipole emitted spectra",
+        "summary": "In a two-dimensional electron gas, a strong perpendicular magnetic field confines electrons to quantized cyclotron orbits, giving rise to Landau levels with discrete orbit radii. Even the smallest Landau orbit, set by the magnetic length, spans tens of nanometers for fields of a few Tesla, imposing an intrinsic nonlocal response to electromagnetic excitations. From a microscopic theory of the nonlocal susceptibility, we derive the Green's function, the central quantity governing all electromagnetic interactions, and evaluate Purcell factors, Lamb shifts, and emission spectra from a proximal dipole emitter beyond the Markov and rotating-wave approximations. Significant nonlocal effects resulting from spatial dispersion of the Landau level response modify the response for experimentally relevant situations up to distances of hundreds of nanometers and, in particular, brighten locally dipole-forbidden transitions due to near-field gradients at multiples of the cyclotron frequency. The relevant length scales are typical of state-of-the-art nanostructured terahertz architectures, and some of our nonlocal features are consistent with recent experiments using Landau level polaritons.",
+        "authors": [
+          "Lara Greten",
+          "Sabrina Meyer",
+          "Christina Schröder",
+          "Andreas Knorr",
+          "Stephen Hughes"
+        ],
+        "published": "2026-07-23T17:15:01Z",
+        "id": "2607.21528v1",
+        "url": "http://arxiv.org/abs/2607.21528v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21528v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21504v1": {
+      "paper": {
+        "title": "Texture++: Elevating 3D Asset Texture Resolution with a Region-Aware Diffusion Model",
+        "summary": "Numerous 3D assets are discarded due to low texture resolution, while current super-resolution models ignore texture maps and focus on natural images. An efficient and generalizable texture super-resolution model can revitalize a large corpus of aging yet valuable assets across industries such as film and video games. We present Texture++, a novel framework for texture super-resolution, which enhances the low-resolution textures of assets to produce high-resolution, high-quality results. Specifically, we reformulate the task of super-resolution in UV space into performing it across multiple rendered views and merging the outputs. Firstly, to achieve more complete and continuous textures in the view space, we propose an adaptive view selection strategy to integrate textures dispersed across UV texture patches. Furthermore, we introduce a quadtree-based texture region organization method for combining super-resolved textures from different viewpoints, providing masks to distinguish regions that require improvement. Finally, we design a diffusion-based super-resolution model that enhances the texture resolution for specified masked regions, seamlessly integrating with surrounding regions. Through comprehensive evaluations, we demonstrate that our approach yields textures with substantially improved detail and coherence over existing methods.",
+        "authors": [
+          "Shuaiwei Wang",
+          "Shi Li",
+          "Jieting Xu",
+          "Yuchi Huo",
+          "Qi Wang",
+          "Wenting Zheng",
+          "Rengan Xie"
+        ],
+        "published": "2026-07-23T16:52:10Z",
+        "id": "2607.21504v1",
+        "url": "http://arxiv.org/abs/2607.21504v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21504v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI安防与监控",
+        "AI制造与工业"
+      ]
+    },
+    "2607.21512v1": {
+      "paper": {
+        "title": "Group boarding for airplanes: benchmarking static policies and optimizing dynamic assignment with deep reinforcement learning",
+        "summary": "Improving boarding efficiency reduces airplane turnaround time and improves passenger experience. Airlines typically assign passengers to a few sequential boarding groups using static seat-based rules. Yet arrivals, seat choices, and luggage are sequential and random, and a static rule ignores the seats earlier passengers have already taken. We propose the first dynamic formulation of boarding group assignment. As each passenger checks in, we observe earlier passengers' seats and groups, the current passenger's seat, and optional luggage information, then assign a group while keeping companions together. We formulate dynamic group assignment as a Markov decision process and solve it with reinforcement learning (RL). The policy uses a convolutional neural network to encode the checked-in seat-assignment state and is trained by proximal policy optimization. The reward balances total boarding time and average individual boarding time.   We benchmark the proposed RL policy against three companion-compatible static policies (back-to-front, modified Steffen, and alternating block) in an in-house simulator covering six single- and double-aisle layouts. Back-to-front with optimized group sizes achieves the shortest total boarding time and average individual boarding time among the static benchmarks across all layouts. The dynamic RL policy further outperforms it on both metrics in every layout. On a representative case, the RL policy outperforms the optimal back-to-front by up to 9.8\\% in total boarding time and 22.8\\% in average individual time. Sweeping the reward weight yields an approximate Pareto frontier for operator choice. Trained policies remain robust under out-of-distribution operating conditions, including varying load factors, companion sizes, and luggage loads.",
+        "authors": [
+          "Minyu Shen",
+          "Weihua Gu",
+          "Junqi Ma",
+          "Boqian Song",
+          "Li Zhen",
+          "Gang Kou"
+        ],
+        "published": "2026-07-23T16:57:16Z",
+        "id": "2607.21512v1",
+        "url": "http://arxiv.org/abs/2607.21512v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21512v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI法律与合规",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21531v1": {
+      "paper": {
+        "title": "Measurements of the electroweak production of a $W$ boson in association with two jets at $\\sqrt{s}=13\\,\\mathrm{TeV}$ with the ATLAS detector",
+        "summary": "Measurements of the electroweak production of a $W$ boson in association with two jets at high dijet invariant mass are performed using a dataset from $140\\,\\mathrm{fb}^{-1}$ of $\\sqrt{s}=13\\,\\mathrm{TeV}$ proton-proton collisions recorded by the ATLAS detector at the LHC. The measurements are made in a fiducial region where the $W$ boson's production via vector-boson fusion is enhanced. The fiducial region requires at least two jets, an electron or a muon, and a neutrino, assuming a leptonic $W$ decay. In addition to the integrated production cross-section, differential cross-sections unfolded to particle level are determined as functions of observables which characterise angular properties of the two highest-energy jets, the kinematics of the $W$ boson, and the transverse momenta of the highest-energy jet and the charged lepton. Results are interpreted in the context of an effective field theory, and the limits placed on anomalous triple-gauge-boson couplings are among the most stringent to date for linear terms of the extended Lagrangian.",
+        "authors": [
+          " ATLAS Collaboration"
+        ],
+        "published": "2026-07-23T17:16:41Z",
+        "id": "2607.21531v1",
+        "url": "http://arxiv.org/abs/2607.21531v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21531v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI能源与环境"
+      ]
+    },
+    "2607.21523v1": {
+      "paper": {
+        "title": "Optimal feedback control under stepwise equilibration and partial observation",
+        "summary": "Many microscopic machines rely on noisy signals to direct nonequilibrium transformations and operate in a timescale-separated regime. We consider feedback protocols in which a system equilibrates between rapid, measurement-conditioned changes of its energy landscape. In this limit, the partially observable control problem reduces exactly to a finite-horizon Bellman recursion over Hamiltonian updates. For a harmonic trap translated to a prescribed target under noisy position measurements, we solve this recursion analytically. The optimal protocol balances its response to the estimated fluctuation against progress toward the target, exploiting information early while enforcing the endpoint near the deadline. The minimum work decomposes into a positive thermodynamic-length transport cost and a negative information-enabled extraction term set by the fraction of equilibrium fluctuations resolved by the measurement. When a fixed intervention cost exceeds the asymptotic extraction per cycle, it selects a finite optimal number of cycles. We show that, in this translated harmonic case, the minimum thermodynamic cost of creating and resetting the measurement record always exceeds this threshold, making the optimal cycle count finite and the net work non-negative for any measurement channel.",
+        "authors": [
+          "Francesco Mottes",
+          "Michael P. Brenner"
+        ],
+        "published": "2026-07-23T17:04:51Z",
+        "id": "2607.21523v1",
+        "url": "http://arxiv.org/abs/2607.21523v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21523v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI教育",
+        "AI安防与监控",
+        "AI零售与电商",
+        "AI能源与环境"
+      ]
+    },
+    "2607.21502v1": {
+      "paper": {
+        "title": "A Needs Assessment for Measuring Geographic - Legislative Associations in the U.S. House of Representatives",
+        "summary": "Political legislation affects the well-being and livelihoods of constituents. In the U.S. Congress a representative's voting record on bills and legislation is public. These bills have themes associated with them, such as veterans' affairs, coastal monitoring, agricultural appropriations, etc. A bill on veterans' affairs may affect a constituency differently if they have a high percentage of veterans. In this work, we demonstrate how congressional vote outcomes can be merged with typical geographic information systems (GIS) data to help compare a legislator's votes with the geographies of their constituencies to measure the association between district features and legislators' decisions.   We retrieved and tagged bills from the 118th U.S. House of Representatives (Jan. 2023 - Jan. 2025) by manually assigning each bill a set of themes. We then retrieved spatial data at the congressional district level related to each theme. We built a backend database to connect bill information and spatial data, and an interactive map prototype displayed the spatial data related to each theme associated with each bill. Our work helps identify challenges to creating a more accessible and complete system that would facilitate the visualization and analysis of the nature of contemporary Congressional representation. This technical report is primarily written for members of the data science community, and specifically those interested in legislative and geographic data.",
+        "authors": [
+          "Ashu Gupta",
+          "Cameron Owens",
+          "Benjamin Wilson-Langman",
+          "Max Hill",
+          "Jason Cox",
+          "Joshua Clinton",
+          "Clio Andris"
+        ],
+        "published": "2026-07-23T16:50:58Z",
+        "id": "2607.21502v1",
+        "url": "http://arxiv.org/abs/2607.21502v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21502v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融",
+        "AI农业"
+      ]
+    },
+    "2607.21498v1": {
+      "paper": {
+        "title": "Artificial Epanorthosis: Why large language models overuse a classical rhetorical figure, and how to mitigate it",
+        "summary": "A rhetorical figure that Cicero and Quintilian catalogued two thousand years ago reappears, systematically, in the text of large language models: epanorthosis, the self-correction of the specimen «This is not a course. It is a journey of transformation». This essay argues that the overuse is a trained disposition, driven mainly by a training distribution rich in promotional prose and by preference tuning (RLHF) that rewards confident, emphatic phrasing; the left-to-right nature of generation is an amplifier rather than the root cause. Building on evidence that models diverge from human rhetorical style, and on Fontanier's classification of epanorthosis as a figure of thought, it sets out a programme that scores the figure against genre-specific human baselines through an Epanorthosis Index (density relative to the human rate). A first measurement, on three sizes of one instruction-tuned model family, finds mis-calibration by register in both directions: the models overshoot in oratory (about twofold, near threefold in Italian, concentrated in the larger tiers) and undershoot in informal question-and-answer writing, while matching humans in argument, journalism, and encyclopedic prose. Three constructive contributions follow: a survey of mitigation techniques centred on lightweight LoRA adapters; a demonstration, in Italian, that a one-line instruction cuts the figure by half to nearly three-quarters and that a supervised-fine-tuning adapter removes it almost entirely, with a scaling coefficient that dials the reduction back onto the human rate; and the argument that the target is calibration to the human rate for each genre, not elimination. It closes on the stakes: the real risk is that we begin to write like the machines.",
+        "authors": [
+          "Federico Boggia"
+        ],
+        "published": "2026-07-23T16:47:39Z",
+        "id": "2607.21498v1",
+        "url": "http://arxiv.org/abs/2607.21498v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21498v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融"
+      ]
+    },
+    "2607.21525v1": {
+      "paper": {
+        "title": "Sequential Topological Superconductivity in a Square Lattice with Chiral Charge Density Waves",
+        "summary": "The interplay between charge order and superconductivity offers a fertile ground for emergent quantum phases. Here we theoretically investigate a square-lattice superconductor coexisting with a composite charge density wave (CDW) consisting of a real bond modulation (charge bond order, CBO) and an imaginary hopping modulation (chiral flux phase, CFP) that breaks time-reversal symmetry. We uncover that, while CFP alone does not induce topology in square lattices, its coexistence with CBO drives the system into two topologically nontrivial superconducting phases with Chern numbers $C=+2$ and $C=-2$. The low-temperature thermal Hall conductivity $κ_{xy}$ exhibits quantized plateaus proportional to the Chern number, providing a clear experimental fingerprint. Our results establish the square lattice as a pristine platform for engineering topological superconductivity through the synergy of real and imaginary bond modulations.",
+        "authors": [
+          "Zhong-Xian Jin",
+          "Junkang Huang",
+          "Yu-Xuan Li",
+          "Tao Zhou"
+        ],
+        "published": "2026-07-23T17:08:24Z",
+        "id": "2607.21525v1",
+        "url": "http://arxiv.org/abs/2607.21525v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21525v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2607.21515v1": {
+      "paper": {
+        "title": "Extended Single-Atom Tweezer Arrays in High-Cooperativity Cavity-QED",
+        "summary": "A central challenge for cavity-QED-based quantum technologies is to make high-cooperativity optical interfaces compatible with site-resolved arrays of single atoms. Here, we demonstrate optical tweezer arrays of individual $^{87}$Rb atoms inside a fiber Fabry-Perot microcavity with single-atom cooperativity $\\mathcal{C} \\sim 90$. We combine background-free site-resolved fluorescence imaging of extended arrays with collective coupling to a common cavity mode for arrays with a mean atom number up to $\\bar{N} \\simeq 36$. These results establish a high-cooperativity platform for many-body cavity-QED with site-resolved detection and control.",
+        "authors": [
+          "Thomas Picot",
+          "Clément Raphin",
+          "Marcel Kern",
+          "Pierre-Antoine Bourdel",
+          "Théo Ahamdach",
+          "Jakob Reichel",
+          "Romain Long"
+        ],
+        "published": "2026-07-23T17:00:37Z",
+        "id": "2607.21515v1",
+        "url": "http://arxiv.org/abs/2607.21515v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21515v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控",
+        "AI农业"
+      ]
+    },
+    "2607.21485v1": {
+      "paper": {
+        "title": "Recurrent Sinusoidal INRs for Efficient High-Fidelity Representation",
+        "summary": "We study sinusoidal recurrence as an iterative mechanism for harmonic spectral enrichment in implicit neural representations (INRs). Our analysis reveals that sinusoidal activations induce a harmonic line spectrum, providing a spectral account of how recurrent unrolling enriches the effective spectral support. We realize this principle with a shared sinusoidal block that iteratively refines the latent representation. We empirically validate the resulting spectral behavior against feed-forward INRs, non-sinusoidal recurrent variants, and equilibrium-style sinusoidal models. Complementing this analysis, we evaluate the proposed architecture across image and 3D representation tasks. On RGB image benchmarks, our method achieves higher fidelity than feed-forward baselines with fewer parameters and fewer optimization steps, and it further transfers favorably to super-resolution, NeRF, and SDF tasks.",
+        "authors": [
+          "Hyunmin Cho",
+          "Jaejun Yoo",
+          "Kyong Hwan Jin"
+        ],
+        "published": "2026-07-23T16:26:51Z",
+        "id": "2607.21485v1",
+        "url": "http://arxiv.org/abs/2607.21485v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21485v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规"
+      ]
+    },
+    "2607.21520v1": {
+      "paper": {
+        "title": "Asymptotic Analysis of Empirical Dynamic Programming in Infinite-Horizon Stochastic Optimal Control",
+        "summary": "We derive statistical limit theorems for sample-based approximations of infinite-horizon discounted stochastic optimal control problems in discrete time. Our first result is a functional central limit theorem for the sample-based value function under a uniqueness-type condition on population optimal policies. The limiting law is a mean-zero Gaussian process characterized by a linear fixed point equation that resembles a dynamic programming principle. We compare these asymptotics with those obtained from sample-based policy optimization and illustrate that their limiting variances can be different. We also derive a limit theorem for models with nonunique optimal policies, where the limiting law may be non-Gaussian. Applications to inventory control and renewable harvesting illustrate the theory.",
+        "authors": [
+          "Xin Chen",
+          "Elif Sena Isik",
+          "Johannes Milz"
+        ],
+        "published": "2026-07-23T17:03:46Z",
+        "id": "2607.21520v1",
+        "url": "http://arxiv.org/abs/2607.21520v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21520v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.21394v1": {
+      "paper": {
+        "title": "CRAFT: Exploring Wearable Creative AI on Smart Glasses for Fiction Writing in Real-World Contexts",
+        "summary": "Creative writing increasingly integrates AI assistance, yet current tools miss in-situ moments when writers draw inspiration from real-world experiences. We envision Context-aware Reality-Fiction Transformation (CRAFT), an approach for AI glasses that translates daily experiences into fiction narratives. We explored its desirability, feasibility, and potential viability through three studies. Interviews with nine writers yielded desires and three design goals: 1) augmenting in-situ perception to bridge reality-fiction gaps, 2) promoting authenticity grounded in real-world experiences while maintaining fictionalization, and 3) preserving creative agency, enjoyment, and life-art boundaries. Co-design workshops with 16 writers and researchers operationalized these goals into concrete interaction mechanisms using a technology probe. We then conducted supported field trials with eight writers across 24 sessions using a refined probe, revealing writer-perceived benefits (e.g., enriched fictional ideas from serendipitous encounters), emergent practices (e.g., micro-creation), and design considerations for future sustained use. We contribute design explorations for the CRAFT approach, offering design implications and empirical insights on ubiquitous human-AI creative collaboration in everyday life.",
+        "authors": [
+          "Runze Cai",
+          "Yuxuan Huang",
+          "Lin-Ping Yuan",
+          "Kexin Xiang",
+          "David Hsu",
+          "Collier Nogues",
+          "Jussi Holopainen",
+          "Shengdong Zhao"
+        ],
+        "published": "2026-07-23T14:56:51Z",
+        "id": "2607.21394v1",
+        "url": "http://arxiv.org/abs/2607.21394v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21394v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2607.21357v1": {
+      "paper": {
+        "title": "Toward Federated Cognitive Digital Twins over the Edge-to-Cloud Continuum",
+        "summary": "Digital Twins (DTs) are increasingly adopted to monitor, analyze, and optimize Cyber-Physical Systems (CPSs) through continuous interaction between physical assets and their digital counterparts. However, current DT architectures often rely on centralized and monolithic designs, leading to scalability, latency, and resilience issues in distributed environment such as smart cities. Moreover, they provide limited support for semantic integration and high-level reasoning, reducing the effectiveness of DT-based decision-making. Recent studies on Federated Digital Twins (FDTs) have addressed scalability by decomposing complex systems into interacting twins, but they still largely centralize intelligence in cloud components. In parallel, Cognitive Digital Twins (CDTs) enhance DTs with semantic reasoning, explainability, and AI-driven decision support, yet they are typically difficult to integrate into distributed architectures. This paper proposes a Federated Cognitive Digital Twin (FCDT) architecture that combines federation and cognition within a unified approach. The architecture distributes intelligence across the edge-to-cloud continuum through local twins, which provide real-time monitoring and lightweight cognitive capabilities, and global twins, which perform system-level reasoning, simulation, and coordination. By integrating distributed autonomy with cognitive reasoning, the proposed approach improves scalability, responsiveness, and decision-making in complex distributed CPSs",
+        "authors": [
+          "Alessandra Somma",
+          "Alessio Bucaioni"
+        ],
+        "published": "2026-07-23T14:20:59Z",
+        "id": "2607.21357v1",
+        "url": "http://arxiv.org/abs/2607.21357v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21357v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2607.21044v1": {
+      "paper": {
+        "title": "Trust by Context, Not by Design? A Quantitative Study of Data Donation Willingness for Open-Source Civic AI in Switzerland",
+        "summary": "Civic AI systems increasingly support democratic participation, yet interactions with them may reveal sensitive political views, creating tension between improving AI models and residents' expectations of privacy and consent. This study examines the conditions of transparency and user control under which Swiss residents are willing to donate their anonymized chatbot conversations to train an open-source AI model. A 2x2 between-subjects factorial design evaluated how a Data Nutrition Label and a granular consent dashboard influence donation decisions. The experiment was delivered via a multilingual online survey featuring a custom chatbot powered by the Apertus-70B model. Analysis of the 205 participants revealed that neither transparency nor control significantly affected donation behavior. Rates were uniformly high (91.7% overall), producing a ceiling effect, and Bayesian checks confirmed the absence of treatment effects. The dashboard raised perceived control but not donation, and high-control participants actively restricted their data-use settings. A qualitative analysis of 120 open-ended responses indicates that residents framed donation as a contribution to the public good, motivated by democratic participation, an open-source model, and research, while many regarded their anonymized queries as non-personal and therefore low in risk. Interpreted through the privacy calculus, a high perceived benefit coincided with a low perceived risk under high institutional trust, so both sides of the trade-off aligned and interface design had little leverage. Offering control served less to raise donation than to let residents define the terms of their contribution.",
+        "authors": [
+          "Sabine Wildemann",
+          "Daniel Ambach"
+        ],
+        "published": "2026-07-23T08:26:15Z",
+        "id": "2607.21044v1",
+        "url": "http://arxiv.org/abs/2607.21044v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21044v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2607.20963v1": {
+      "paper": {
+        "title": "Charged Higgs Search at Future Neutrino Telescope and Higgs Factory",
+        "summary": "We investigate the discovery potential of the charged Higgs boson at future lepton colliders and neutrino telescopes within two simplified benchmark scenarios with universal Yukawa couplings. We demonstrate that both the muon-track and cascade events at neutrino telescopes can be exploited to search for or constrain the charged Higgs boson through resonant neutrino scattering process, and we compare the sensitivities obtained under different astrophysical neutrino flux models. We study the effect of the detector volume of neutrino telescopes on the discovery potential of the charged Higgs boson. We study the signal of charged Higgs boson at future lepton colliders over different kinematic regimes using optimized reconstruction strategies. We compare the discovery potential of the two experimental approaches over the relevant parameter space and find that future lepton colliders generally provide better sensitivity in most of the parameter space, while neutrino telescopes with very large detector volume can offer competitive and complementary sensitivity in the heavy-mass region of the charged Higgs boson.",
+        "authors": [
+          "YiCheng Dai",
+          "Wei Liao",
+          "Yi-Song Lu",
+          "Qi-Shu Yan"
+        ],
+        "published": "2026-07-23T06:41:30Z",
+        "id": "2607.20963v1",
+        "url": "http://arxiv.org/abs/2607.20963v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.20963v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2607.20737v1": {
+      "paper": {
+        "title": "Cardinality-Decomposed Loss: Matching Training Objectives to Relation Structure in Heterogeneous Recommendation Graphs",
+        "summary": "Graph Neural Networks trained on heterogenous bipartite graphs form a common basis in recommendation systems. These graphs often express relations that vary in cardinality, for example, user-item preferences are one-to-many and user-attribute features are one-to-one. Traditionally, a unique loss function is applied for all of the network components which is often Bayesian Personalized Ranking (BPR). While BPR works well for the recommendation task, we find that it causes attribute embeddings to collapse to near-random geometry -- a silent failure that leaves standard ranking metrics largely unaffected and therefore invisible to conventional evaluation. This in turn pollutes user node embeddings, which are shaped by both edge types simultaneously, hurting downstream tasks like personalization, segmentation, etc. Here we propose a Cardinality-Decomposed Loss (CDL) that combines both Cross Entropy (CE) and BPR to enable the model to collectively optimize for relations across cardinalities. We confirm this CE-BPR conflict by showing the two losses compete in the shared encoder's parameter space. We evaluate CDL on five datasets spanning two structural configurations -- one-to-one attributes on user nodes (MovieLens-1M, Last.fm-360K, PayPal Audience Factory, BookCrossing) and on item nodes (Yelp) -- and find that CDL consistently improves discriminability in attribute embeddings. We also show that ranking (NDCG) improves when attributes carry meaningful preference signal, but conflicts with it when the correlation is weak. We use a lambda parameter to navigate this trade-off, and a lambda-sweep reveals that dataset behavior is governed by two graph properties -- semantic alignment and topology leakage. Semantic alignment measures whether the attribute predicts preferences, while topology leakage measures whether the graph's connectivity already encodes it.",
+        "authors": [
+          "Parul Maheshwari",
+          "Amulya Paruchuri",
+          "Yiqing Zou",
+          "Alireza Sahami Shirazi",
+          "Farhad Farahani",
+          "Prakhar Mehrotra"
+        ],
+        "published": "2026-07-22T21:33:02Z",
+        "id": "2607.20737v1",
+        "url": "http://arxiv.org/abs/2607.20737v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.20737v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2607.21509v1": {
+      "paper": {
+        "title": "Aspects of Closed Matricial Worlds",
+        "summary": "We investigate the Hilbert space structure for simple theories of gravity with $Λ>0$ on closed spatial sections. Our motivation ties to the presence of gravitational saddles in four-dimensional $Λ>0$ Einstein-Maxwell theory with $S^2\\times Σ_h$ topology, where $Σ_h$ is a genus-$h$ Riemann surface. Here, as a concrete starting point, the problem is explored for two-dimensional $Λ>0$ quantum gravity. We revisit and elaborate on exact results in the matrix model literature. We study gravitational wavefunctions from both the perspective of the Wheeler-DeWitt equation and the gravitational path integral. Though simple, the setting displays many features of general interest such as large volume effects that disrupt the perturbative expansion, topological corrections to the path-integral wavefunction that offend the exact Wheeler-DeWitt equation, and a sphere path integral ${Z}^{(0)}_{\\text{grav}}$ with non-trivial structure in $Λ$. We discuss candidate inner products for the infinite-dimensional canonical gravitational Hilbert space uncovered by Lian and Zuckerman. By establishing explicit results up to genus-six, we argue that the dominant contribution to the genus-$h$ gravitational disk path integral at large spatial size mimics the behavior of two-dimensional topological gravity. In passing, we show that for ${Z}^{(0)}_{\\text{grav}}$ to give rise to a positive counting problem for discretised Riemann surfaces, it must have a negative pre-factor. We contrast our analysis to the more realistic case of timelike Liouville theory.",
+        "authors": [
+          "Dionysios Anninos",
+          "Samuel Brian"
+        ],
+        "published": "2026-07-23T16:54:54Z",
+        "id": "2607.21509v1",
+        "url": "http://arxiv.org/abs/2607.21509v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21509v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI零售与电商",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI零售与电商"
+      ]
+    },
+    "2607.21491v1": {
+      "paper": {
+        "title": "What, Where, and How: Disentangling the Roles of Task, Language, and Model in Code Model Representations",
+        "summary": "Do independently trained language models come to represent the same thing in the same way? We answer for code, extending a recently introduced concept-circuit extraction method to a 2x2 design -- Python and Rust crossed with Qwen2.5-Coder-7B and DeepSeek-Coder-V1-6.7B -- and measuring a complete inventory of grammatical concepts (58 Python, 57 Rust) identically in all four cells: the smallest design that separates what depends on the task, the language, and the model.   The answer splits into three parts. What earns dedicated circuitry is set by the task: the models agree on which concepts receive circuits (Spearman $ρ$ = 0.638 for Python, 0.673 for Rust, both p < $10^{-7}$). Where those circuits sit is set by the model: Qwen processes concepts in a late band (~L17-19), DeepSeek at L6-7, for both languages. How circuits grow across layers is also set by the model: Qwen gives its atomic concepts an early spike that DeepSeek does not. \"Are circuits universal?\" thus has no single answer: yes for What, no for Where and How -- universality is a property of representational content, not of computational organisation.   None of this structure was fixed in advance. The agreement could have landed anywhere between independence and identity; it lands at $ρ\\approx 0.65$. Rust constructs receive 2-3x more concept-specific circuitry than their Python equivalents, in both models. Both models share neurons between the languages (6/7 and 7/7 paired constructs), DeepSeek 1.94x more than Qwen -- a direction no prior result predicts. And Qwen binds nine keywords of Rust's type-and-trait machinery into one tight neuron cluster (Jaccard 0.535 vs null 0.112, p < 0.001), a semantic dimension invisible in surface syntax. Ablation and linear probes confirm the circuits are functional.   All claims are scoped to this 2x2; whether the per-model profile predicts a third model is the designed next test.",
+        "authors": [
+          "Piotr Wilam"
+        ],
+        "published": "2026-07-23T16:34:14Z",
+        "id": "2607.21491v1",
+        "url": "http://arxiv.org/abs/2607.21491v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21491v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境"
+      ]
+    },
+    "2607.21475v1": {
+      "paper": {
+        "title": "Error Certificates for KV-Cache Eviction via Randomized Design",
+        "summary": "Deterministic KV-cache eviction keeps the top-$k$ tokens under an importance score and deletes the rest. We prove that this design cannot know what it destroyed: evicted values can be altered so that everything the serving system retains is unchanged while the true attention-output error grows arbitrarily, so no serving-time estimator of that error is consistent. Randomized eviction restores identifiability. With a Poisson-sampled tail at known inclusion probabilities, one logit offset performs the Hájek correction inside the softmax, and a survey-sampling variance estimator over the retained set becomes a per-step error certificate with 0.97 empirical coverage at no accuracy cost. On real workloads we pre-registered seven claims and lost three: question-aware eviction at 25--50\\% budgets is nearly free; output log-probability predicts failure better than the certificate; certificate-gated budget escalation adds nothing. What survives is attribution: the certificate separates cache-induced from inherent failures (AUC 0.73--0.75, against 0.47--0.54 for output confidence) and schedules recomputation better than random or confidence gating. Randomization buys attribution, not prediction.",
+        "authors": [
+          "Peng Xie"
+        ],
+        "published": "2026-07-23T16:16:59Z",
+        "id": "2607.21475v1",
+        "url": "http://arxiv.org/abs/2607.21475v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21475v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境"
+      ]
+    },
+    "2607.21501v1": {
+      "paper": {
+        "title": "Flow of local sensitivity in a spin chain coupled to a bosonic bath",
+        "summary": "We study how local sensitivity to an encoded parameter, captured by the quantum Fisher information, flows between a spin chain, a coupled bosonic bath, and their quantum correlations, where we treat the bath as a full many-body quantum system beyond the Lindbladian approximation. We analyze how the coupling symmetry determines the destination of the departed sensitivity directly at the level of the Hamiltonian. We consider an excitation-exchanging Jaynes--Cummings coupling, which preserves the total number of excitations, and a spin-excitation-conserving Holstein coupling. We find that the Holstein coupling leaves the bath with no first-order information about the phase and stores the lost sensitivity entirely in spin--bath correlations, whereas the Jaynes--Cummings coupling passes this sensitivity to the bath, in full for a single excitation. The bath spectrum then governs whether the sensitivity ever returns to the spins. It revives fully and periodically when the coupled-system frequencies share a common period, but when those frequencies disperse the departed share dephases across the bath modes and never returns. We note that a transported metrological register loses more sensitivity than its arrival fidelity implies.",
+        "authors": [
+          "Marcin Płodzień"
+        ],
+        "published": "2026-07-23T16:50:01Z",
+        "id": "2607.21501v1",
+        "url": "http://arxiv.org/abs/2607.21501v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21501v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI政务与公共服务",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.21511v1": {
+      "paper": {
+        "title": "Experimental realization of a rotating radio-frequency ion trap for precision metrology",
+        "summary": "We discuss the experimental realization of the rotating radio-frequency (rrf) trap, proposed by Hasegawa and Bollinger [Phys. Rev. A 72, 043403 (2005)]. Compared to a traditional linear rf (lrf) Paul trap, the rrf trap is a closer analogy to the popular mechanical lecture demonstration for a Paul trap. In an ion trap with reslistic, non-ideal electrode geometry, the rrf trap averages over angular variations in the effective potential. This averaging provides more uniform confinement and reduces ion loss at equal confinement strength compared with the lrf trap. This feature makes the rrf trap configuration advantageous for precision metrology application, such as electron electric dipole moment (eEDM) measurements.",
+        "authors": [
+          "Sun Yool Park",
+          "Anzhou Wang",
+          "Kia Boon Ng",
+          "Patricia Hector Hernandez",
+          "Addison Hartman",
+          "Tuan Anh Nguyen",
+          "Rohan Kompella",
+          "Michail Athanasakis-Kaklamanakis",
+          "Jun Ye",
+          "Eric A. Cornell"
+        ],
+        "published": "2026-07-23T16:56:48Z",
+        "id": "2607.21511v1",
+        "url": "http://arxiv.org/abs/2607.21511v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21511v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.21487v1": {
+      "paper": {
+        "title": "An on-chip programmable mechano-quantum transducer",
+        "summary": "Solid-state spin defects encode local perturbations as measurable shifts in spin-transition frequencies, but mechanical actuation and quantum readout remain physically separated, resulting in a discrete measurement setup. Integrating these functions requires an on-site mechano-quantum interface that programs the lattice state of a defect host and quantitatively maps it onto the spin Hamiltonian. Here we first report an on-chip programmable mechano-quantum transducer (OCPMQT) that integrates voltage-defined micromechanical actuation with in situ spin-frequency readout in a two-dimensional van der Waals quantum-defect host. Mechanically programmed lattice states are encoded as shifts in the axial zero-field splitting parameter and resolved by optically detected magnetic resonance (ODMR) spectroscopy. Within a chip volume of 2.05*10^-2 cm^3, the transducer accesses ODMR-inferred strains as low as 0.0080% and delivers a volumetric force density of approximately 2.6*104 N/m^-3. A micromechanical-to-spin-Hamiltonian framework links on-chip electromechanics, interfacial strain transfer, and strain-spin coupling, enabling the electrical control micromechanical input to be measured directly as spin-frequency response.",
+        "authors": [
+          "Xinrui Zhang",
+          "Wei Liu",
+          "Duanyu Ma",
+          "Lin-Ke Xie",
+          "Nai-Jie Guo",
+          "Zhongtao Gou",
+          "Yifan Wang",
+          "Jianxin Xu",
+          "Xiaoguang Luo",
+          "Zhao Mu",
+          "Honglong Chang",
+          "Weizheng Yuan",
+          "Jian-Shun Tang",
+          "Chuan-Feng Li",
+          "Guangcan Guo",
+          "Tao Ye"
+        ],
+        "published": "2026-07-23T16:28:17Z",
+        "id": "2607.21487v1",
+        "url": "http://arxiv.org/abs/2607.21487v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21487v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.21458v1": {
+      "paper": {
+        "title": "Detecting LLM-Generated Tokens in Human--LLM Coauthored Text",
+        "summary": "The rise of human-AI collaborative writing has created a growing need for fine-grained detection methods that support localizing likely LLM-generated content in mixed-authorship documents. Existing methods for detecting LLM-generated text mainly focus on document-level classification and cannot identify which parts of the text are generated by LLMs. This paper introduces a new method to address this urgent need. Our method operates at the token level, the natural unit of modern language models, and builds on existing token-level detection scores. The key idea is to smooth adjacent token scores to reduce their variability, while using an adaptive Lepski-type rule to select the bandwidth according to the local authorship structure. Our method is simple to implement and does not require token-level labeled data for training. Theoretically, we characterize this trade-off and show that the proposed method achieves favorable mean square error performance in estimating the underlying signal. Empirically, we demonstrate strong performance of our method against a wide range of baselines in both synthetic datasets and a realistic dataset. We deploy a publicly accessible website that implements the methods as well.",
+        "authors": [
+          "Yangjun Lu",
+          "Hongyi Zhou",
+          "Fabian Spill",
+          "Kai Ye",
+          "Chengchun Shi",
+          "Jin Zhu"
+        ],
+        "published": "2026-07-23T16:01:16Z",
+        "id": "2607.21458v1",
+        "url": "http://arxiv.org/abs/2607.21458v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21458v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.21455v1": {
+      "paper": {
+        "title": "Out-of-Distribution Detection in Wireless Multimodal Foundation Models for 6G ISAC",
+        "summary": "The integration of Foundation Models (FMs), such as the Wireless Multimodal Foundation Model (WMFM), into 6G networks provides a unified framework for Integrated Sensing and Communication (ISAC), leveraging generalized representations to simultaneously optimize data transmission and environmental perception. However, the deployment of such data-driven models in safety-critical infrastructure is hindered by the Out-of-Distribution (OOD) problem, which poses a fundamental threat to system trustworthiness. Standard FMs operate under a closed-world assumption, rendering them vulnerable to silent failures when deployed in unseen radio environments. To address this reliability gap and ensure trustworthy network operation, we propose WMFM-OOD, a robust metric-based OOD detection framework. Unlike traditional methods that rely on raw compatibility scores, WMFM-OOD constructs geometric Base Station (BS) Prototypes within the joint latent space to capture the manifold structure of valid radio environments. By employing a temperature-scaled probabilistic scoring mechanism, our approach effectively distinguishes between In-Distribution (ID) and covariate-shifted anomalies. We validate the framework on the DeepVerse6G dataset. Experimental results demonstrate that WMFM-OOD significantly outperforms uncalibrated baselines, achieving an Area Under the Receiver Operating Characteristic Curve (AUROC) of 0.8824 and reducing the False Positive Rate (FPR) at 95 % True Positive Rate (TPR), commonly referred to as FPR95, by approximately 17% in the optimal temperature regime, thereby providing an initial layer of detection sensitivity to mitigate catastrophic model failures without completely disrupting network availability.",
+        "authors": [
+          "Mohammad Farzanullah",
+          "Akram Bin Sediq",
+          "Ali Afana",
+          "Melike Erol-Kantarci"
+        ],
+        "published": "2026-07-23T15:56:41Z",
+        "id": "2607.21455v1",
+        "url": "http://arxiv.org/abs/2607.21455v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21455v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.20386v1": {
+      "paper": {
+        "title": "Improved Monitoring of Honey bee Colony Strength via Audio IoT Sensors, Modulation Tensorgrams and Recurrent Neural Networks",
+        "summary": "Honey bees (Apis mellifera) play a crucial role in agriculture and ecosystem stability as key pollinators of crops and wild plants. As such, monitoring hive strength remotely with Internet of Things (IoT) sensors has become a crucial task. Previously, handcrafted features extracted from the modulation spectrum of audio IoT devices were shown to improve acoustic monitoring of colony strength. In this paper, we hypothesize that important discriminative information is present in the temporal dynamics of the modulation spectrum, but this information is discarded with prior methods. As such, we explore the use of a new modulation tensorgram where the time dimension is kept. This new representation is used as input to a convolutional neural network (CNN) and a convolutional recurrent deep neural networks (CRDNN). Using the public UrBAN dataset, which contains more than 3,000 hours of beehive audio recordings, we show that the proposed method improves both accuracy and cross-hive generalizability over prior benchmark methods, and the results further suggest improved robustness to noisy in-the-wild recording conditions. We use saliency maps and gradient-weighted class activation maps for explainability and show the importance of the modulation spectral temporal dynamics for the task at hand. Overall, our results suggest that accurate, generalizable, and robust acoustic monitoring of honey bee colony strength is possible.",
+        "authors": [
+          "Mahsa Abdollahi",
+          "Yi Zhu",
+          "Heitor R. Guimarães",
+          "Nico Coallier",
+          "Ségolène Maucourt",
+          "Pierre Giovenazzo",
+          "Tiago H. Falk"
+        ],
+        "published": "2026-07-22T17:13:30Z",
+        "id": "2607.20386v1",
+        "url": "http://arxiv.org/abs/2607.20386v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.20386v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.19975v1": {
+      "paper": {
+        "title": "Forecasting the Number of Harvest-ready Fruits of Sweet Peppers Using Multimodal Time-Series Data",
+        "summary": "Accurate yield forecasting at the individual-plant level is critical for precision agriculture and supply-chain planning, yet public datasets capturing both visual growth dynamics and per-plant measurement labels are scarce. In this paper, we introduce a novel, annotated image time-series dataset of 691 sweet pepper plants monitored over two growing seasons, comprising 4837 images with per-plant fruit counts categorized by maturity. We propose a multimodal deep learning framework that fuses high-dimensional image features, extracted using the DinoV3 encoder, with numerical count measurements. Our architecture utilizes a Long Short-Term Memory (LSTM) network to model temporal dependencies and handles irregular sampling intervals common in greenhouse monitoring. Through quantitative experiments, we demonstrate that this multimodal approach reduces RMSE over a persistence baseline by 33% and 38% in the 2022 and 2023 seasons, respectively, with a further 1.2% average gain over a measurement-only model. Furthermore, we employ Deep Ensembles and Gaussian Negative Log-Likelihood (NLL) to provide calibrated uncertainty estimates, with an Uncertainty Calibration Error (UCE) ranging from 0.39 to 0.89 depending on the cross-season evaluation direction, offering a principled confidence signal for real-world agricultural decision-making. We release the dataset and code to support reproducible research and to accelerate development of data-driven yield forecasting methods for horticultural crops.",
+        "authors": [
+          "Enrico Pallotta",
+          "Mohamed Farag",
+          "Esra Guclu",
+          "Chris McCool",
+          "Ribana Roscher",
+          "Juergen Gall"
+        ],
+        "published": "2026-07-22T09:58:03Z",
+        "id": "2607.19975v1",
+        "url": "http://arxiv.org/abs/2607.19975v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.19975v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.21497v1": {
+      "paper": {
+        "title": "Hubble tension: a short review of theoretical explanations",
+        "summary": "The $Λ$ cold dark matter model successfully describes a wide range of cosmological observations. However, the persistent discrepancy between the value of the Hubble constant inferred from cosmic microwave background measurements within this model and that obtained from local distance-ladder determinations points to a significant inconsistency. This short review examines theoretical responses across the cosmological inference chain, from the gravitational field equations to the pre-recombination sound horizon and the late-time distance-redshift relation. We focus primarily on modified gravity, and briefly discuss early- and late-time mechanisms that can alter the acoustic ruler, distance measures, structure growth, or gravitational response. Current proposals can reduce the nominal tension, but often at the cost of correlated shifts in cosmic microwave background spectra, standard-ruler distances, lensing, structure growth, or calibrator information. Further progress requires unified likelihoods and multiprobe tests linking all key observables under the same model assumptions.",
+        "authors": [
+          "Jia-Qi Wang",
+          "Zong-Kuan Guo"
+        ],
+        "published": "2026-07-23T16:45:10Z",
+        "id": "2607.21497v1",
+        "url": "http://arxiv.org/abs/2607.21497v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.21497v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2006 @@
+{
+  "date": "2026-09-04",
+  "layer": "第五层-行业应用层",
+  "collected": {
+    "2609.04170v1": {
+      "paper": {
+        "title": "A Case Study on Emergent Cheating and Whistleblowing in Autonomous Research Swarms",
+        "summary": "Multi-agent AI science ecosystems rely on agents possessing tools that allow them to communicate, coordinate, and build on each other's work. Yet this shared infrastructure can also introduce vulnerabilities by creating a substrate for the contagious spread of unintended and undesirable behaviors. We report a case study on a research collective of 100 autonomous LLM agents tasked with proving formal mathematical conjectures. Within the swarm, cheating spontaneously emerged and was later challenged by whistleblowers - both without any external intervention. When a single agent discovered an exploit in the evaluation system, it propagated across the collective via a shared knowledge library and later through peer-to-peer messages. Despite early reluctance, a cohort of agents adopted the exploit in response to competitive pressure. A separate group of agents produced an emergent counter-response: auditing fraudulent proofs, alerting peers across broadcast and private channels, staging boycotts, lodging formal complaints, and proposing validation patches. In recent incidents, agent swarms coordinated covertly through improvised side-channels (Dalton and Wallace, 2026; Greenblatt et al., 2026). Our setting differs: the same transparent channels that carried the exploit also gave non-cheating agents the visibility they needed to detect fraud, organize resistance, and enforce norms. We cast the problem of managing the agents' shared infrastructure as the knowledge commons governance problem (Ostrom, 1990). To protect the commons from exploits, we propose to adopt institutional mechanisms, such as graduated sanctioning and collective-choice rules, to support decentralized self-governance in autonomous swarms.",
+        "authors": [
+          "Davide Paglieri",
+          "Logan Cross",
+          "Tim Genewein",
+          "Joel Z. Leibo",
+          "Nenad Tomasev",
+          "Alexander Sasha Vezhnevets"
+        ],
+        "published": "2026-09-03T17:54:09Z",
+        "id": "2609.04170v1",
+        "url": "http://arxiv.org/abs/2609.04170v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04170v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04141v1": {
+      "paper": {
+        "title": "Efficient Test-Time Adaptation through Human-AI Interaction",
+        "summary": "AI agents are trained on population-scale data to encode broad capabilities spanning those of many practitioners. Yet the artifacts they produce rarely meet the personal bar professionals need to stake their reputation on. On realistic, open-ended tasks where success criteria are heterogeneous and insufficiently documented, individual expertise lives precisely in the elevation and departure from the average. In practice, iterative human-agent interaction surfaces criteria that users cannot fully specify up front, yet apply repeatedly across tasks. We argue this cross-session interaction data is a rich, underused signal for closing the gap to individual expertise. In this work, we propose test-time adaptation through human-agent interaction (TAHI), which integrates these signals into agent context and weights, and crystallizes each user's training and evaluation criteria via an evolving rubric module. We adapt agents to 30 individuals in two high-utility domains, writing and visual creation, on a total of 600 tasks. Our agents improve solo task success by 4.5-20.9% within only tens of tasks. Meanwhile, our evolving rubric module serves as a scalable annotation tool, creating evaluation rubrics that catch 16.0-22.3% more failures than those from LMs or humans alone. While agents are adapted towards individuals, we show these personalized agents also produce improvements in success of up to 8.8% that generalize across users.",
+        "authors": [
+          "Zora Zhiruo Wang",
+          "Apurva Gandhi",
+          "Rulin Shao",
+          "Aspen Chen",
+          "Jonas Mueller",
+          "Zhiqi Liang",
+          "Jett Chen",
+          "Michael Ryan",
+          "Qianou Ma",
+          "Luxi He",
+          "Zhoujun Cheng",
+          "Andre He",
+          "Seungone Kim",
+          "Jiayi Geng",
+          "Mingqian Zheng",
+          "Weiwei Sun",
+          "Zheyuan Zhang",
+          "Xinran Zhao",
+          "Yike Wang",
+          "Abe Hou",
+          "Liwei Jiang",
+          "Pang Wei Koh",
+          "Diyi Yang",
+          "Graham Neubig",
+          "Daniel Fried"
+        ],
+        "published": "2026-09-03T17:33:18Z",
+        "id": "2609.04141v1",
+        "url": "http://arxiv.org/abs/2609.04141v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04141v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04135v1": {
+      "paper": {
+        "title": "The Natural Language Interaction Protocol and Standard for AI Agents",
+        "summary": "AI agents are increasingly being developed and deployed across organizations using heterogeneous agent-development frameworks, AI models, tool interfaces, protocols, and execution environments. To realize their potential social and business impact, these agents must be able to interoperate through a common communication protocol. The Natural Language Interaction Protocol (NLIP), developed by researchers and practitioners across companies and universities and standardized by Ecma International, addresses this need by defining a standards-based application-layer protocol for AI-agent interaction. NLIP provides a lightweight semantic message envelope that can be carried over existing transports such as HTTP/HTTPS, WebSocket, and AMQP, while allowing NLIP-aware agents and gateways to adapt between clients, agents, local context stores, ontologies, tools, enterprise services, and heterogeneous underlying protocols. This paper presents the motivation and design rationale of NLIP, its message model and transport bindings, security-by-design considerations, reference implementation, representative applications, adoption signals, and relationship to emerging agent protocols such as MCP and A2A.",
+        "authors": [
+          "Luyi Xing",
+          "Rasit Onur Topaloglu",
+          "Ranjan Sinha",
+          "Abhay Ratnaparkhi",
+          "Samuel Ndichu",
+          "Christopher Nguyen",
+          "Anindita Das",
+          "Tom Sheffler",
+          "Mohamed Rahouti",
+          "Zichuan Li",
+          "Xiaojing Liao",
+          "Sanjay Aiyagari"
+        ],
+        "published": "2026-09-03T17:30:17Z",
+        "id": "2609.04135v1",
+        "url": "http://arxiv.org/abs/2609.04135v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04135v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04123v1": {
+      "paper": {
+        "title": "ATIBA: Grounded Integrity and Quality Checking for Research Papers",
+        "summary": "Checking a manuscript's reference integrity, its compliance with a target venue's specific submission rules, and its adherence to community reporting standards is manual, repetitive, and different for every venue so in practice it is done inconsistently or skipped. We present ATIBA, a tool that runs five grounded integrity and quality checks on a manuscript: a reference-integrity check that verifies each citation against bibliographic sources and flags retracted or unfindable references; a venue/track compliance check that derives submission criteria directly from a venue's own call-for-papers page and evaluates the manuscript against them, each verdict anchored to a verbatim quote from that page; an empirical-standards compliance check against the ACM SIGSOFT Empirical Standards, with a hallucination defence that discards any evidence quote it cannot locate verbatim in the manuscript; a multi-mode AI review (venue-specific, formal, and page-anchored annotation) powered by GPT-5.4 through Azure OpenAI; and a citation-suggestion feature that proposes candidate references for a manuscript and verifies each against bibliographic sources before it is shown to the user. All five checks are designed around the same principle: an LLM is only trusted to judge, never to invent the evidence it judges against. We evaluated ATIBA through a moderated user study with 13 non-author participants. Agreement across the six survey items ranged from 69% to 92%, with a mean of 85%, providing initial evidence of positive perceived usefulness across the evaluated workflows. These findings establish perceived usefulness; objective accuracy remains to be measured.",
+        "authors": [
+          "Veli Karakaya",
+          "Semih Çağlar",
+          "Yusuf Yiğit Korkmaz",
+          "Eray Tüzün"
+        ],
+        "published": "2026-09-03T17:24:15Z",
+        "id": "2609.04123v1",
+        "url": "http://arxiv.org/abs/2609.04123v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04123v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04115v1": {
+      "paper": {
+        "title": "One Probability, Two Roles: The Separation of Coherence and Frequency in Adaptive Regimes",
+        "summary": "Probability plays two distinct roles in modern data-analytic practice: (i) as an internally coherent, filtration-relative language for sequential forecasting and, together with a stated loss or utility, decision making; and (ii) as a foundation for empirical claims such as stabilization, calibration, and repeated-sampling validity. The first role is relative to an assessment law $\\mathbb Q$, whereas the second is evaluated under a governing law $\\mathbb P$ and a declared repetition regime. In classical settings the roles are often aligned by conditional correctness under $\\mathbb P$ together with i.i.d.\\ or other stable-law assumptions under a fixed design, or by exchangeability. In adaptive and AI-mediated settings they can diverge because forecasts operate within feedback loops while reliability is evaluated under a potentially different law and regime. We synthesize relevant results from prequential forecasting, calibration, martingale and game-theoretic validity, adaptive data analysis, conformal prediction, and long-context AI reliability into a formal account of \\emph{role separation}. The resulting \\emph{Role Separation Principle} distinguishes internal coherence from conditional-mean correctness under the evaluation law and from target-specific reference and stability conditions. Two separation results show that a proper coarsening of the limiting-frequency distribution need not identify the governing law, and that even conditionally correct forecasts under that law need not accompany stabilization. We then develop a unified stabilization framework spanning filtration-based, shift-based, policy--environment, and design-based regimes and operationalize it through a regime-conditional audit checklist. Applied illustrations clarify calibration claims, synthetic-data validity, and structural mismatches relevant to some high-confidence unsupported AI outputs.",
+        "authors": [
+          "Yonggang Lu"
+        ],
+        "published": "2026-09-03T17:18:14Z",
+        "id": "2609.04115v1",
+        "url": "http://arxiv.org/abs/2609.04115v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04115v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04198v1": {
+      "paper": {
+        "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+        "summary": "Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to the same model name, reads the same tomorrow. We audited that assumption in two preregistered campaigns with every threshold fixed in advance; neither got past validating its instrument. Across 52,988 audited request attempts, same-window repeat rankings agreed at Spearman 0.400 against a required 0.90, and byte-identical next-day replays agreed at 0.78 against a required 0.99, each time with the execution record at ceiling. Three mechanisms explain the gap: a label-to-meaning mapping that biased readouts as strongly as the signal; candidate gaps seven orders of magnitude below the instrument's own noise floor; and byte-identical inputs returning different rankings, a noise that exact-permutation readouts compound. Neither metric substitution nor sampling repaired it on the tested grid. Preregistered follow-ups bound the problem: waiting did not help on the days sampled (0.805 versus 0.800, replicated over five further days); switching providers did not help (four providers share the floor, medians 0.74 to 0.88, predicted by none of the metadata fields they expose); self-hosting on batch-invariant kernels helped only while the server was quiet; and on constructed errors with known gaps, the readout's separation tracks error type, not size. We distill the evidence into a three-level snapshot-identity ladder, eight design rules, and a reporting checklist; a pilot at roughly 2% of the study's call volume would have exposed both unreachable gates in advance. All results concern externally measured behaviour on shared serving infrastructure. On a shared endpoint, a model name is not a frozen instrument; a preregistered evaluation must measure its instrument before freezing any gate on it.",
+        "authors": [
+          "Haoyaun Zhu",
+          "Jie Zhang"
+        ],
+        "published": "2026-09-03T17:59:43Z",
+        "id": "2609.04198v1",
+        "url": "http://arxiv.org/abs/2609.04198v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04198v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2609.04194v1": {
+      "paper": {
+        "title": "Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
+        "summary": "Reasoning traces from chain-of-thought models appear to offer a legible window into how a model arrives at its answer. A growing body of work treats them as such, using LLM judges to diagnose errors, evaluate faithfulness, and provide step-level supervision via process reward models and generative critics. These practices rely on the text of a reasoning step carrying information about its functional role. But does the text actually encode information about which reasoning steps matter? We operationalize the importance of a reasoning step as its advantage: the change in expected reward, e.g., producing the correct final answer, from including that step, estimated via Monte Carlo rollouts. Basing ground truth on these estimates, we evaluate whether LLM judges can identify high-advantage steps and find that sufficiently capable LLMs can outperform a prevalence baseline but fall well short of a noise ceiling. Fine-tuning a model as a step-level critic yields strong improvement for incorrect responses but remains distant from ceiling for correct responses, suggesting that step importance is only partially recoverable from the text of the reasoning trace. Our findings contribute to a growing body of chain-of-thought faithfulness work that cautions against treating the legibility of reasoning traces as interpretability, especially with implications for process reward modeling.",
+        "authors": [
+          "Kevin Du",
+          "Alexander Hoyle",
+          "Laura Ruis",
+          "Acyr Locatelli"
+        ],
+        "published": "2026-09-03T17:59:08Z",
+        "id": "2609.04194v1",
+        "url": "http://arxiv.org/abs/2609.04194v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04194v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04195v1": {
+      "paper": {
+        "title": "Axonal delay dispersion decides whether a neuron detects an event or a sequence, and predicts cortical column diameter",
+        "summary": "Cortical neurons fire sparsely -- often fewer than one spike per sensory window -- making rate coding insufficient and temporal coding a necessity. That conduction delays convert firing order into synchrony is long established. What governs which class of temporal feature a neuron detects -- one volley of coincident input, or two in a particular order -- has not been examined. We propose a delay-signature framework in which the axonal conduction delays converging on a dendritic branch constitute a physical key: only input sequences whose spike-time differences the delays compensate arrive synchronously, and coincidence detection, via calcium plateau thresholds, converts that synchrony into an all-or-none output. In simulations of an integrator-neuron model we report three results. First, a single physical scalar -- the dispersion of the delay set -- moves a population from event detection to order-selective sequence detection. The transition is emergent under random delays and connectivity: at narrow dispersion sequence detectors do not exist, and the dispersion at which they overtake event detectors tracks the inter-event interval with a slope statistically indistinguishable from one. This maps a computational distinction onto the anatomical one between myelinated and unmyelinated projections, making myelination a switch on what a neuron computes, not only a regulator of speed. Second, the same dispersion sets the code's limits: it bounds the longest codable interval and fixes an absolute timing tolerance of about a millisecond, with slowing better tolerated than speeding. Third, that millisecond window and horizontal conduction velocity together predict cortical column diameter, and the two areas with direct measurements fall where the relation puts them. One anatomically measurable parameter thus sets what a neuron detects and the limits of what it can represent.",
+        "authors": [
+          "Cheng Bi",
+          "Jipeng Sun"
+        ],
+        "published": "2026-09-03T17:59:08Z",
+        "id": "2609.04195v1",
+        "url": "http://arxiv.org/abs/2609.04195v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04195v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI安防与监控",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04183v1": {
+      "paper": {
+        "title": "Seeing Before Synthesizing: VLM-Guided Transition Event Discovery for Weakly-Supervised Dense Video Captioning",
+        "summary": "Weakly-Supervised Dense Video Captioning aims to localize and describe multiple events in untrimmed videos given only an ordered set of event-level captions per video. Recent work synthesizes auxiliary transition captions via LLM to provide additional vision-language alignment, but these captions lack visual grounding and are rigidly assigned to every inter-event gap at a fixed location and duration. To address these, we propose Seeing Before Synthesizing (SBS), a framework that adaptively provides visually grounded linguistic guidance only where warranted. Leveraging a VLM, we generate frame-level narratives for the inter-event gaps and detect transitions from the semantic variation across them. For identified transitions, we then refine inter-event temporal masks by blending the temporal midpoint with the semantic change point and selecting the width that maximizes vision-language alignment. Experiments on ActivityNet Captions and YouCook2 demonstrate state-of-the-art performance in both captioning and localization.",
+        "authors": [
+          "Ye-Chan Kim",
+          "Seunghee Choi",
+          "SeungJu Cha",
+          "Si-Woo Kim",
+          "Hwiseon Kim",
+          "Hyungee Kim",
+          "Dong-Jin Kim"
+        ],
+        "published": "2026-09-03T17:58:02Z",
+        "id": "2609.04183v1",
+        "url": "http://arxiv.org/abs/2609.04183v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04183v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04180v1": {
+      "paper": {
+        "title": "Knowledge Acquisition During Pre-training? Large Language Models Learn Better With Auxiliary Views",
+        "summary": "Gaps remain in our understanding of how large language models (LLMs) acquire knowledge during pre-training. We posit that auxiliary views, reformulations of knowledge, are causally helpful for learning. We design controlled experiments to isolate this. First, we confirm that repetition is necessary for acquisition and clarify that paraphrasing helps only at smaller batch sizes. Second, holding the token budget fixed, allocating tokens from document repetition to auxiliary views improves learning, counterintuitively, even for factual recall. Third, the effectiveness of auxiliary views is not contingent on the strength of the teacher model that generates them. Fourth, we identify forms of knowledge, contextual and foundational, that aid learning in the presence of prior knowledge gaps. Finally, we examine how these effects manifest mechanistically via layer-wise biases and compression. Together, our findings suggest that auxiliary representations of knowledge, which arise naturally in large pre-training corpora, are a key factor in the success of pre-training and offer a plausible explanation for why data diversity matters.",
+        "authors": [
+          "Joseph Lee",
+          "Yidi Huang",
+          "Dokyoon Kim",
+          "Shu Yang",
+          "Li Shen"
+        ],
+        "published": "2026-09-03T17:57:02Z",
+        "id": "2609.04180v1",
+        "url": "http://arxiv.org/abs/2609.04180v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04180v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2609.04200v1": {
+      "paper": {
+        "title": "Principia: Relational Physics Tests for Video Models",
+        "summary": "Evaluating physical reasoning in video models is difficult because absolute motion measurements depend on frame rate, object scale, and camera calibration, all of which are often ambiguous or unavailable in generated video. We propose a different approach. When two objects in the same scene obey the same physical law, their motions must satisfy predictable relationships, and these relationships hold independent of calibration. We introduce Principia, a benchmark that evaluates Newtonian physics through relational consistency between paired objects. Principia spans eight phenomena - gravity, restitution, friction, rotational inertia, projectile motion, momentum, pendulum, and mass-spring oscillation - across translational, rotational, collisional, and oscillatory dynamics, using real-world scenes recorded under controlled protocols. We also introduce a calibration-independent consistency score that quantifies physical violation directly in image space. Across thousands of generations from six state-of-the-art video generators, no model exceeds 0.42 on Principia despite all scoring around 0.8 on VBench. Vision-language models are evaluated on their ability to detect relational physics violations, with the best model achieving only 67% accuracy and most performing near chance level.",
+        "authors": [
+          "Varun Varma Thozhiyoor",
+          "Shivam Tripathi",
+          "Venkatesh Babu Radhakrishnan",
+          "Anand Bhattad"
+        ],
+        "published": "2026-09-03T17:59:50Z",
+        "id": "2609.04200v1",
+        "url": "http://arxiv.org/abs/2609.04200v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04200v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2609.04197v1": {
+      "paper": {
+        "title": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
+        "summary": "Evolutionary prompt optimizers such as GEPA suffer from prompt bloat: each iteration appends rules and caveats, producing prompts up to 3$\\times$ longer yet no more accurate. We trace this to three deficiencies - incomplete error observation, limited search diversity, and unreliable selection - and propose ESPO (Error-Structured Prompt Optimization), which decomposes prompt optimization into three phases: Diagnose clusters all training errors into structural patterns in one round; Propose generates candidates via four complementary strategies with independent biases; Select applies bootstrap stability selection. On seven public NLP benchmarks - Tweet, MMLU, GSM8K, HotpotQA, ScoNe, HoVer, and PUPA - ESPO improves average accuracy by $+$3.76 pp over the state-of-the-art (74.67% vs 70.91% for GEPA), matching or exceeding GEPA on every dataset while producing prompts 47% shorter (1,004 vs 1,878 chars) and faster at inference. Cross-model experiments across four additional student models (Gemma 3 12B, Mistral 14B, Qwen3 32B, Claude Haiku 4.5) show ESPO yields the best average accuracy on every model tested, with the largest gap on Qwen3 GSM8K (15.00% $\\to$ 91.40%). A generalization bound (Appendix) grounds each phase in a corresponding term of the test-time gap, and the ablation confirms a key prediction: adding diversity without bootstrap selection actually hurts performance ($-$1.20%).",
+        "authors": [
+          "Lihao Liu",
+          "Peng Tang",
+          "Kunwar Yashraj Singh",
+          "Shabnam Ghadar"
+        ],
+        "published": "2026-09-03T17:59:37Z",
+        "id": "2609.04197v1",
+        "url": "http://arxiv.org/abs/2609.04197v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04197v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2609.04193v1": {
+      "paper": {
+        "title": "GIFT: Guided Intermediate Feature Training via Action-Oriented Structural Supervision for Robotic Manipulation",
+        "summary": "Vision-language pre-training and predictive world modeling provide robot policies with rich semantic and dynamic visual features, but their native action and visual-prediction objectives may omit critical physical and task structure while retaining control-irrelevant visual redundancy. We call this mismatch between visual richness and control utility the action-sufficiency gap. We investigate whether this gap can be bridged by guiding intermediate features to preserve three control-relevant structure in robotic manipulation: geometry governing motion feasibility, affordance encoding instruction-relevant entities, and goals grounding instructions in task-relevant regions. To this end, we present GIFT (Guided Intermediate Feature Training), an architecture-flexible framework for learning intermediate features that translates these structures into training-time constraints through geometry alignment, affordance prediction, and goal-region reconstruction. We instantiate GIFT in a Vision-Language-Action (VLA) policy, a direct-action World-Action Model (WAM), and an inverse-dynamics WAM while retaining each model's action formulation. Under zero-shot transfer to LIBERO-Plus, GIFT-VLA, GIFT-WAM-Fast, and GIFT-WAM-IDM outperform StarVLA-OFT, Fast-WAM, and Fast-WAM-IDM by 4.6, 12.6, and 5.2 points, reaching 79.6%, 72.6%, and 87.8%, respectively. On RoboCasa, the three GIFT variants reach 61.4%, 83.6%, and 82.3%, outperforming their counterparts by 12.6, 9.0, and 8.4 points, respectively. Together, these results establish learning functionally structured intermediate features as a reusable principle across model-specific action formulations, with especially large gains on articulated-object tasks and high-precision real-world manipulation under unseen visual and spatial perturbations. Project page: https://openphoenix-team.github.io/GIFT-pages.",
+        "authors": [
+          "Yupeng Zheng",
+          "Xiang Li",
+          "Songen Gu",
+          "Yuhang Zheng",
+          "Shuai Tian",
+          "Weize Li",
+          "Linbo Wang",
+          "Chaoyue Li",
+          "Qichao Zhang",
+          "Haoran Li",
+          "Zhongpu Xia",
+          "Ya-Qin Zhang",
+          "Shuicheng Yan",
+          "Dongbin Zhao"
+        ],
+        "published": "2026-09-03T17:59:03Z",
+        "id": "2609.04193v1",
+        "url": "http://arxiv.org/abs/2609.04193v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04193v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04202v1": {
+      "paper": {
+        "title": "TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation",
+        "summary": "While data-driven 3D shape correspondence estimation has recently seen substantial progress, robust matching under partial observations and strong non-isometric deformations remains challenging. Existing learning-based approaches often rely on hand-crafted descriptors or template-based representations, whereas recent generative models over functional maps suffer from high inference cost, limited interpretability, and poor generalisation to partial shapes. In response to these limitations, this paper introduces TokenMatch, a new transformer-based unified model for estimating 3D shape correspondences. Our feed-forward approach trained exclusively on BeCoS, a challenging non-isometric partial-to-partial shape-matching dataset, can generalise to matching full shapes without retraining or fine-tuning. TokenMatch uses self- and cross-attention mechanisms to efficiently learn patch-level and point-level relations as well as dense correspondences between shape pairs. Our core insight is that meshes can be adaptively tokenised into patches using shape curvature guidance, enabling effective learning of shape-specific geometric descriptors for correspondence estimation. We evaluate TokenMatch on standard benchmarks for partial and full shape matching, including CP2P, PSMAL, BeCoS, FAUST, SCAPE, and SHREC'19. Our method achieves consistently high performance, in most cases outperforming existing methods for partial and full shape matching in the mean geodesic error and intersection-over-union metrics, while also running faster at sub-second inference speeds.",
+        "authors": [
+          "Adeela Islam",
+          "Zorah Lähner",
+          "Vittorio Murino",
+          "Vladislav Golyanik"
+        ],
+        "published": "2026-09-03T17:59:55Z",
+        "id": "2609.04202v1",
+        "url": "http://arxiv.org/abs/2609.04202v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04202v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规"
+      ]
+    },
+    "2609.04190v1": {
+      "paper": {
+        "title": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+        "summary": "Video editing spans diverse editing paradigms, yet achieving high-quality instruction-guided and subject-guided editing within a single unified framework remains challenging. We introduce EditVid, a training-free framework combining sparse causal memory for local coherence, correspondence-based post-attention token injection for long-range identity preservation, and soft latent blending for edit locality. The same framework supports instruction-guided and reference-guided edits, including style transfer, attribute modification, object insertion, part-level editing, and subject replacement. On FiVE, EditVid achieves 78.16 FiVE-Acc, compared with 58.95 for the strongest evaluated training-free baseline, while obtaining competitive results on IVEBench. A user study further shows a 51.8\\% overall preference for EditVid over 7 competing methods.",
+        "authors": [
+          "Adheesh Sunil Juvekar",
+          "Onkar Kishor Susladkar",
+          "Kiet A. Nguyen",
+          "Muntasir Wahed",
+          "Nabeel Bashir",
+          "Xiaona Zhou",
+          "Tianjiao Yu",
+          "Vedant Shah",
+          "Ismini Lourentzou"
+        ],
+        "published": "2026-09-03T17:59:01Z",
+        "id": "2609.04190v1",
+        "url": "http://arxiv.org/abs/2609.04190v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04190v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI制造与工业"
+      ]
+    },
+    "2609.04189v1": {
+      "paper": {
+        "title": "Robust PAC Learning of Concurrent Stochastic Games",
+        "summary": "We introduce the first Probably Approximately Correct (PAC) learning framework for general-sum concurrent stochastic games (CSGs) with transition uncertainty, while addressing the challenge of Nash equilibrium (NE) existence. Our algorithm maintains data-driven $L^1$ confidence sets over transition kernels and solves a robust CSG to compute a social-welfare optimal $\\varepsilon$-NE, using a robust MDP-based exploration mechanism to drive joint state-action coverage. Crucially, we introduce a Nash margin characterisation that enables principled reasoning about equilibrium existence: the framework either returns an $\\varepsilon$-approximate NE whose social-welfare value is $\\varepsilon$-close to optimal, or provides a sound certificate that no exact NE exists. Under a minimum reachability condition $p_{\\mathrm{reach}}>0$ over relevant state-action pairs, the algorithm terminates after a polynomial number of trajectory samples, with sample complexity $\\widetilde{O}\\left( {R_{\\max}^2 H^4 |S|^2 |A| / (p_{\\mathrm{reach}} \\varepsilon^2)} \\right)$. Empirical results on benchmark CSGs demonstrate near-optimal performance, correct handling of equilibrium (non-)existence, and sample complexity consistent with theory.",
+        "authors": [
+          "Angel Y. He",
+          "David Parker"
+        ],
+        "published": "2026-09-03T17:58:57Z",
+        "id": "2609.04189v1",
+        "url": "http://arxiv.org/abs/2609.04189v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04189v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI法律与合规"
+      ]
+    },
+    "2609.04173v1": {
+      "paper": {
+        "title": "Last Translation Benchmark",
+        "summary": "For scientific progress, we need benchmarks that test the limits of state-of-the-art models, and evaluation methods that inform us about failure cases. As models get stronger, standard benchmarks for machine translation are approaching saturation. Further, automatic translation metrics are unreliable, vulnerable to reward-hacking, and provide unactionable assessments. Even gold human evaluation is not problem-free, because it often lacks reproducibility, objectivity, and scalability. Overall, this prevents us from tracking objective progress in the field and identifying pathways for improvement. We introduce the Last Translation Benchmark, a collection of human-authored and peer-reviewed examples (texts, images, audio, videos) that break leading machine translation models. We also present a new evaluation approach: each example comes with handcrafted verification rules describing concrete failure cases on that example, therefore allowing reliable and actionable future evaluation. The Last Translation Benchmark is a live dataset that accepts ongoing contributions. The latest version is LTBv1, containing accepted contributions prior to September 1st 2026, with future releases planned as new data is continuously collected.",
+        "authors": [
+          "Vilém Zouhar",
+          "Niyati Bafna",
+          "Mukund Choudhary",
+          "Maike Züfle",
+          "Sara Rajaee",
+          "Pinzhen Chen",
+          "Jannis Vamvas",
+          "Sara Papi",
+          "Ona de Gibert",
+          "Bhavitvya Malik",
+          "Eliya Habba",
+          "Orfeas Menis Mastromichalakis",
+          "Patrícia Schmidtová",
+          "Michelle Wastl",
+          "Sheriff Issaka",
+          "Leshem Choshen",
+          "Stella Biderman",
+          "Antonis Anastasopoulos",
+          "Jan Niehues",
+          "Rico Sennrich",
+          "Mrinmaya Sachan",
+          "Ondřej Bojar",
+          "Kenton Murray",
+          "Jörg Tiedemann",
+          "Alham Fikri Aji",
+          "Philipp Koehn",
+          "Christof Monz",
+          "Alexandra Birch",
+          "Sowmya Vajjala",
+          "Chalamalasetti Kranti",
+          "Cristina España-Bonet",
+          "Nobin Sarwar",
+          "David Kaczér",
+          "Shunta Asano",
+          "Malik Marmonier",
+          "Daban Q. Jaff",
+          "Vaisakhi Mishra",
+          "Hend Al- Khalifa",
+          "Gabriele Sarti",
+          "Sourajit Saha",
+          "Nils Rehlinger",
+          "Juan Daniel Cuervo Villa",
+          "Jonathan Tonglet",
+          "Saugata Purkayastha",
+          "Dominik Macháček",
+          "Jagannathan Ramanujam",
+          "Heejin Do",
+          "Zuzana Nadova",
+          "Fred Philippy",
+          "Fabian Retkowski",
+          "Maria Lymperaiou",
+          "Silvia Casola",
+          "Hanna Yukhymenko",
+          "Shubhashis Roy Dipta",
+          "Sangwon Ryu",
+          "Andrés Jerez",
+          "Ron Keinan",
+          "Shuaib Shuaib Yusuf",
+          "Avantica Vempati",
+          "Maria Carmen Staiano",
+          "Sukannya Purkayastha",
+          "Adrian Cosma",
+          "Vitalii Babenko",
+          "Erivan Inan",
+          "Aviral Nigam",
+          "Wafa Aissa",
+          "Fatima Haouari",
+          "Venkata Prasanth Kumar Gummadi",
+          "Mehdi Jafarzadeh",
+          "Valentin Scourneau",
+          "Lukas Edman",
+          "Kaiser Sun",
+          "Shaomu Tan",
+          "Mohammad Sadegh Gholizadeh",
+          "Johannes-Rudolf David",
+          "Dipankar Srirag",
+          "Javier García Gilabert",
+          "Ruta Binkyte",
+          "Manar Ali",
+          "Ana-Maria Bucur",
+          "Sabry E. Farrag",
+          "Youssef Saber",
+          "Yihong Liu",
+          "Jean Maillard",
+          "Cojocaru Nicoleta",
+          "Xiaochuang Yuan",
+          "Sina Ahmadi",
+          "Philipp Mondorf",
+          "Kaustubh Dhole",
+          "Roman Wixinger",
+          "Shenbin Qian",
+          "Manuel Tuor",
+          "Sergey Troshin",
+          "Jonathan Yahav",
+          "Fida Mohammad Thoker",
+          "Amir Arsalan Rezapour",
+          "Lance Calvin Lim Gamboa",
+          "Manon Reusens",
+          "Kätriin Kukk",
+          "Koel Dutta Chowdhury",
+          "Giuseppe Gallipoli",
+          "Christian Hoang",
+          "Shaswati Saha",
+          "Seth Aycock",
+          "Jan Kocoń",
+          "Bo Chen",
+          "Linh Vu",
+          "Vatsal Venkatkrishna",
+          "Arafat Ahsan",
+          "Luan Thanh Nguyen",
+          "Hassan Soliman",
+          "Daryna Dementieva",
+          "Theresia Veronika Rampisela",
+          "Ngoc Quynh Tram Do",
+          "Marius Huber",
+          "Kazuki Egashira",
+          "Azmine Toushik Wasi",
+          "Vladislav Poritski",
+          "Mike Zhang",
+          "Deep Shah",
+          "Paul Gavrikov",
+          "Luis Frentzen Salim",
+          "David Africa",
+          "R. Damanhuri",
+          "Bello Umar Bello",
+          "Anumit Garg",
+          "Gengyu Rao",
+          "Pawan Sasanka Ammanamanchi",
+          "Kamile Dementaviciute",
+          "Andrianos Michail",
+          "L D M S Sai Teja",
+          "Dawei Zhu",
+          "Yi Fan",
+          "Wei Liu",
+          "Farhan Farsi",
+          "Elias Herranen",
+          "Sankalan Pal Chowdhury",
+          "Karen Sanchez",
+          "Farzad Shami",
+          "Ashok Urlana",
+          "Zimu Wang",
+          "Tomasz Limisiewicz",
+          "Priyaranjan Pattnayak",
+          "Marii Ojastu",
+          "Hongbin Na",
+          "Emilian Radoi",
+          "Chenyi Zhao",
+          "Carlos Hinojosa",
+          "Andrea Gregor de Varda",
+          "Zaid Alyafeai",
+          "Reem Alzahrani",
+          "Nehal Kathrotia",
+          "Alex Flückiger",
+          "Ulysses Sekai Tully Carr",
+          "Jimson Paulo Layacan",
+          "Guy Kaplan",
+          "Ritwik Tiwari",
+          "Rishit Dagli",
+          "Oksana Volchek",
+          "Isaac R Caswell",
+          "Bowen Yi",
+          "Blanka Kövér",
+          "Amir Hossein Yari",
+          "Aicha Chorana",
+          "Zhengxiang Wang",
+          "Selja Keränen",
+          "Samuel Simko",
+          "Joy Olusanya",
+          "Jenny Chim",
+          "Enzo Doyen",
+          "Vivek Harsha Lakkamaneni",
+          "Sophia Conrad",
+          "Pouya Sadeghi",
+          "Panayiotis Panayiotou",
+          "Luis Lara",
+          "Jannatul Nayem",
+          "Eran Yahav",
+          "Debanshu Das",
+          "Antonia Karamolegkou",
+          "Anmol Goel",
+          "Aishik Mandal",
+          "Tommaso Cerruti",
+          "Raoyuan Zhao",
+          "Mykola Haltiuk",
+          "Thura Aung",
+          "Naser Almousa",
+          "Amir Hossein Kargaran",
+          "Rachel Bawden",
+          "Qiaoyuan Zheng",
+          "Mateusz Lango",
+          "Beni Egressy",
+          "Fidel Rodríguez Velásquez",
+          "Natchapon Jongwiriyanurak",
+          "Minh Ngoc Do",
+          "Marco Gaido",
+          "Lena Libon",
+          "Dzmitry Kuzmin",
+          "Badal Nyalang",
+          "Antoine Taroni",
+          "Andrei Niculae",
+          "Abdulaziz Nura Kani",
+          "Rushikesh Zawar",
+          "Marek Šuppa",
+          "Beatrice Savoldi",
+          "Andreas Simons",
+          "Rayyan Merchant",
+          "Ilai Yaron Levy",
+          "Francesco Pinto",
+          "Ziyi Yang",
+          "Yolanda Xavier",
+          "Samuel Frontull",
+          "Muhammad Ravi Shulthan Habibi",
+          "Kenneth Enevoldsen",
+          "Harris Abdul Majid",
+          "Francesca Padovani",
+          "Tim Graf",
+          "Tatiana Bielakova",
+          "Sharifa Djurabaeva",
+          "Shaoxiong Ji",
+          "Raia Abu Ahmad",
+          "Pavel Stepachev",
+          "Jirui Qi",
+          "Ayush Sunil Munot",
+          "Alireza Pakniat",
+          "Ayla Rigouts Terryn",
+          "Yuxing Lu",
+          "Yurii Paniv",
+          "Xiyan Fu",
+          "Tosin Adewumi",
+          "Sunisth Kumar",
+          "Stéphane J. P. S. Thunus",
+          "Shree Harsha Bokkahalli Satish",
+          "Shayan Bali",
+          "Prakhar Gupta",
+          "Papa Abdou Karim Karou Diallo",
+          "Matija Akrap",
+          "Marko Culjak",
+          "Kristýna Onderková",
+          "Joseph Attieh",
+          "Esrael Teferi Tensay",
+          "Elisabeth Fittschen",
+          "Benoît Sagot",
+          "Jingwei Ni",
+          "Yu Fan"
+        ],
+        "published": "2026-09-03T17:54:45Z",
+        "id": "2609.04173v1",
+        "url": "http://arxiv.org/abs/2609.04173v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04173v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI法律与合规"
+      ]
+    },
+    "2609.04164v1": {
+      "paper": {
+        "title": "A Superconducting Peierls Instability",
+        "summary": "The Peierls instability is a foundational mechanism in condensed matter physics, showing how the electron--phonon interaction can transform a simple metal into an insulating state with a new lattice periodicity. In a one-dimensional (1D) metal the Peierls instability follows from the enhanced electronic response at wavevector $Q=2k_F$ (connecting the Fermi points) producing a Kohn anomaly: a softening of the phonon mode at the same wavevector. Condensation of this mode then generates the tell-tale Peierls periodic lattice distortion and charge-density wave (CDW) that gaps the electronic spectrum. Here we show an analogous instability at the edge of a two-dimensional (2D) superconductor, where a dispersing Andreev bound state (ABS) hosts Bogoliubov Fermi points at $\\pm k_c$. The enhanced quasiparticle response at the connecting wavevector $Q=2k_c$ couples directly to pairing-fluctuations and produces a superconducting Kohn anomaly: a softening of a pairing mode at the same wavevector. Condensation of this mode then generates an edge pair-density wave (PDW) that gaps the ABS. We refer to this as a superconducting Peierls instability and identify the boundary quasiparticle structure that enables it. As a concrete realization, we consider a square-lattice extended Hubbard model whose mixed-symmetry $s+d+ip$ state hosts a dispersing ABS with zero-energy crossings at finite edge momenta. Using self-consistent Bogoliubov--de Gennes (BdG) calculations we show that the order parameter develops an edge PDW, with the wavevector set by the superconducting Kohn anomaly, that gaps the ABS crossings. Our results identify a novel mechanism for spontaneous translation-symmetry breaking in a superconductor. As this superconducting Peierls mechanism does not require an extensive zero-energy flat band or topologically protected edge states, it may apply broadly to unconventional superconductors.",
+        "authors": [
+          "Pramodh Senarath Yapa",
+          "Joseph Maciejko",
+          "Frank Marsiglio",
+          "Annica M. Black-Schaffer"
+        ],
+        "published": "2026-09-03T17:50:07Z",
+        "id": "2609.04164v1",
+        "url": "http://arxiv.org/abs/2609.04164v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04164v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康"
+      ]
+    },
+    "2609.04160v1": {
+      "paper": {
+        "title": "Vanilla Exact Synthesis of CNOT Circuits is NP-hard",
+        "summary": "Exact CNOT synthesis asks for a minimum-size CNOT circuit implementing an invertible linear transformation. Although several related synthesis models have been shown to be computationally hard, their hardness proofs rely on additional structure such as restricted qubit connectivity, encoded inputs, or unrestricted intermediate variables. The complexity of the most basic setting---identity input, a fixed number of labelled qubits, no ancillas, and all-to-all CNOT connectivity---had remained unresolved. In this work, we prove that the decision version of this vanilla exact CNOT synthesis problem is NP-complete, and consequently that its optimization version is NP-hard. Our proof gives a polynomial-time reduction from the Hamiltonian-path problem on grid graphs in two steps. First, we isometrically embed the grid graph into a hypercube via a unary encoding map. We then encode this hypercube Hamiltonian path problem into vanilla exact CNOT synthesis. The main challenge is that CNOT synthesis specifies only the final parity matrix and cannot directly enforce the intermediate vertex visits required by a Hamiltonian path. To overcome this difficulty, we introduce extra recorder qubits that encode the required intermediate vertex visits into the final transformation, forcing any CNOT circuit implementation to realize the intended path structure. Beyond CNOT synthesis, our result directly implies hardness for several related problems, including the shortest word problem over $\\mathrm{GL}(n,2)$, distance computation on Cayley graphs over $\\mathrm{GL}(n,2)$, minimization of sequential XOR programs, and exact synthesis of phase polynomial circuits.",
+        "authors": [
+          "Chenjian Li",
+          "Ji Guan"
+        ],
+        "published": "2026-09-03T17:49:16Z",
+        "id": "2609.04160v1",
+        "url": "http://arxiv.org/abs/2609.04160v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04160v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI能源与环境"
+      ]
+    },
+    "2609.04127v1": {
+      "paper": {
+        "title": "Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
+        "summary": "Large language models are increasingly used to support organizational decisions, yet users often lack a principled basis for assessing whether to rely on a specific recommendation. Existing approaches typically evaluate broad model properties, such as reliability, uncertainty, or robustness, or focus on user trust, rather than the underlying basis for relying on an individual recommendation. Adapting theoretical foundations from epistemology, we introduce epistemic warrant, a decision-level construct that characterizes the stability of a model's preference and the scope over which that preference holds. We operationalize this construct through a four-tier reliance certificate for pairwise recommendations, distinguishing among unstable, context-dependent, locally supported, and broadly supported recommendations. We validate the construct using contemporary methodologies: known-groups tests successfully recover expert-prespecified warrant orderings, and stronger warrants systematically align with independent consensus from crowd workers. Furthermore, we demonstrate that epistemic warrant provides information distinct from verbalized confidence and is not readily explained by decision difficulty. Ultimately, this framework offers a theoretically grounded, implementable approach for characterizing the warrant of individual LLM recommendations when objective ground truth is unavailable.",
+        "authors": [
+          "Shai Vardi",
+          "João Sedoc"
+        ],
+        "published": "2026-09-03T17:25:20Z",
+        "id": "2609.04127v1",
+        "url": "http://arxiv.org/abs/2609.04127v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04127v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融"
+      ]
+    },
+    "2609.04125v1": {
+      "paper": {
+        "title": "Decreasing Digital Distraction in College Students: Associated Online Learning Strategies Identified by Unsupervised Data Mining Approaches",
+        "summary": "The proliferation of digital tools in education offers numerous benefits but also introduces significant challenges, notably digital distractions that hinder academic performance, especially in online learning contexts. This study employed unsupervised data mining techniques, specifically association rule mining and clustering analysis, to identify effective learning strategies associated with lower levels of digital distractions among college students. Data from 530 participants revealed that self-regulated learning strategies (i.e., goal setting, environment structuring, and time management) co-occurred most consistently with lower digital distractions. Additionally, learner-instructor and learner-content engagement strategies, as well as technical competencies, also tended to appear in the same profiles as lower distraction. Interestingly, reliance on peer help-seeking and learner-learner engagement strategies appeared less often in those lower distraction profiles. These findings offer actionable implications for educators to design targeted interventions that foster focused and productive online learning environments.",
+        "authors": [
+          "Hui Shi",
+          "Ran Bi",
+          "Xi Lin",
+          "Yan Dai"
+        ],
+        "published": "2026-09-03T17:25:02Z",
+        "id": "2609.04125v1",
+        "url": "http://arxiv.org/abs/2609.04125v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04125v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育"
+      ]
+    },
+    "2609.04201v1": {
+      "paper": {
+        "title": "Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction",
+        "summary": "Online 3D reconstruction models perform poorly on long videos. This happens because regressing poses relative to a fixed first-frame anchor forces extrapolation far beyond the training distribution. Small drifts accumulate and amplify into significant geometric collapse. However, we observe that per-frame depth remains stable throughout this failure. The backbone's local geometry remains intact; only the global pose head breaks down. Motivated by this decoupling, we introduce Scal3R. This approach reformulates online reconstruction as multi-reference relative pose querying. We use lightweight learnable tokens, which make up about ~1% of the parameters, and inject them into a completely frozen backbone via asymmetric attention. This setup queries poses relative to multiple past keyframes. An online pose-graph optimization system with loop closure suppresses long-range drift. Scal3R reaches convergence in 8 hours on a single GPU. It reduces the average ATE by over 60% on KITTI compared to the online baseline. It also achieves state-of-the-art performance across Virtual KITTI, Sintel, TUM-Dynamic, ScanNet, and 7-Scenes. Project page: https://linjohnss.github.io/scal3r/",
+        "authors": [
+          "Chin-Yang Lin",
+          "Yang-Che Sun",
+          "Cheng Sun",
+          "Fu-En Yang",
+          "Min-Hung Chen",
+          "Yen-Yu Lin",
+          "Wei-Chen Chiu",
+          "Yu-Lun Liu"
+        ],
+        "published": "2026-09-03T17:59:53Z",
+        "id": "2609.04201v1",
+        "url": "http://arxiv.org/abs/2609.04201v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04201v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI安防与监控",
+        "AI零售与电商"
+      ]
+    },
+    "2609.04199v1": {
+      "paper": {
+        "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+        "summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator.",
+        "authors": [
+          "Yuntian Deng",
+          "Pengyu Nie",
+          "Stuart Shieber"
+        ],
+        "published": "2026-09-03T17:59:49Z",
+        "id": "2609.04199v1",
+        "url": "http://arxiv.org/abs/2609.04199v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04199v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2609.04184v1": {
+      "paper": {
+        "title": "Toward Frontier-Quality Declarative UI Generation at Small-Model Cost",
+        "summary": "Declarative UI protocols such as A2UI let applications generate interactive UIs by selecting pre-built components from a catalog and binding their props to application data, rather than emitting frontend code from scratch. This contract is attractive for production systems because of safety and consistency. An open question is: can low-latency and low-cost small models achieve the required quality for A2UI-based UI generation? To answer this, we systematically study three controllable design choices for catalog-conditioned A2UI generation: supervised fine-tuning (SFT) data construction method, model size, and component-catalog size. Across two React/TypeScript domains and four base checkpoints spanning two model families (Qwen 3.5 0.8B/2B/4B; SmolLM 3B), we find: (i) a 4B fine-tuned student recovers ~98% of teacher semantic quality and ~97% of teacher visual quality at more than an order of magnitude lower cost than frontier API calls; (ii) both augmented strategies (Perturbed-catalog and Constrained-GT) Pareto-dominate the unaugmented Full-catalog baseline, while specializing on different axes; (iii) even small models can handle and benefit from relatively large component catalog size. We distill these results into practitioner-facing trade-offs and deployment recommendations across the three design choices.",
+        "authors": [
+          "Yingxiang Yang",
+          "Weihang Xiao",
+          "Ben Bullough",
+          "Tushar Deshpande",
+          "Niresh Agarwal"
+        ],
+        "published": "2026-09-03T17:58:09Z",
+        "id": "2609.04184v1",
+        "url": "http://arxiv.org/abs/2609.04184v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04184v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商"
+      ]
+    },
+    "2609.04182v1": {
+      "paper": {
+        "title": "Quantum communication and Bell nonlocality require infinite classical communication to simulate",
+        "summary": "A quantum system of any fixed dimension can be prepared in a continuum of states, yet it cannot be used to transmit an unlimited amount of classical information. Similarly, the correlations observed between measurement outcomes on separate parts of a shared quantum system can be stronger than classical correlations, but they cannot transmit information. These fundamental limitations suggest that the statistics observed from quantum communication and quantum correlations may admit a simulation using a finite amount of classical communication. This expectation is confirmed in the smallest nontrivial quantum dimension, with two classical bits being necessary and sufficient to exactly simulate qubit communication and all correlations between qubits. Despite significant efforts during the previous decades, this remained the only solved case. Here we resolve both problems for every quantum dimension. The solution reveals an unexpected qualitative transition starting at dimension four: no finite amount of classical communication can exactly simulate ququart communication nor all quantum correlations of two entangled ququarts, even with unlimited shared randomness. One might have expected this transition, if it existed, to appear already for qutrits. Instead, we construct an explicit protocol that exactly simulates qutrit communication using $357$ classical bits, and consequently, all correlations of two entangled qutrits.",
+        "authors": [
+          "Carlos de Gois",
+          "Thyago S. R. Santos",
+          "Carlos Vieira"
+        ],
+        "published": "2026-09-03T17:57:48Z",
+        "id": "2609.04182v1",
+        "url": "http://arxiv.org/abs/2609.04182v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04182v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2609.04178v1": {
+      "paper": {
+        "title": "Measurements on the separated subsystems of an entangled state",
+        "summary": "The entangled states of composite quantum systems are well studied. The particle-like nature of these systems also means that, while entangled, they can be physically separated and measurements performed on the separated subsystems. Measurements on the separated subsystems A and B should pertain to vectors in the local Hilbert space of each subsystem, but to date it has not been clear how to elucidate the relevant states of the separated subsystems because it is not obvious how to resolve them from states given in the tensor product basis, except for the separable states. Here it is shown that the projections of any general entangled state that are detected by measurements on the separated subsystems can be obtained considering the corresponding (cosets of) states in the free vector space from which the tensor product space is defined. The result eliminates the need to invoke random collapse, and from this perspective nonlocality arises because of the way measurements on each separated subsystem projects possible measurement outcomes.",
+        "authors": [
+          "Gregory D. Scholes"
+        ],
+        "published": "2026-09-03T17:56:28Z",
+        "id": "2609.04178v1",
+        "url": "http://arxiv.org/abs/2609.04178v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04178v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI安防与监控",
+        "AI零售与电商",
+        "AI农业"
+      ]
+    },
+    "2609.04203v1": {
+      "paper": {
+        "title": "Temporal Self-Distillation: Learning Visual State Tracking in Videos Without Supervision",
+        "summary": "We introduce S$^3$T (Self-Supervised Self-Distillation over Time), which, to the best of our knowledge, is the first fully self-contained framework for continuous video state tracking. Our method treats temporal sampling density as privileged information, based on the hypothesis that a denser view of the same clip recovers the running state more accurately. This view serves as the teacher, while a sparse-view student with the same weights learns to match its next-token distribution. The model generates its own target, so training requires no labels, separate teacher, or reward signal, and adds no inference cost. On LLaVA-OneVision-2-8B, S$^3$T improves VSTAT accuracy by $+1.74$ as a single model, $+2.38$ with souping, and $+2.70$ with additional vision-encoder adaptation, while prior self-evolving methods leave state tracking largely unchanged. The capability learned from unlabeled synthetic clips transfers to real videos, improving performance by $+7.95$ on VSTAT-YouTube state-tracking questions and $+4.50$ on MVBench Action Count.",
+        "authors": [
+          "Shravan Venkatraman",
+          "Wenshuai Zhao",
+          "Mohammad Hassan Vali",
+          "Arno Solin"
+        ],
+        "published": "2026-09-03T17:59:55Z",
+        "id": "2609.04203v1",
+        "url": "http://arxiv.org/abs/2609.04203v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04203v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI安防与监控"
+      ]
+    },
+    "2609.04192v1": {
+      "paper": {
+        "title": "Euclid preparation. The shape of halo profiles in $Λ$CDM and non-standard cosmologies",
+        "summary": "We study the shape of three-dimensional and projected dark-matter halo profiles extracted from cosmological $N$-body simulations in $Λ$CDM and non-standard cosmologies, using the \\texttt{DUSTGRAIN-PF} and \\texttt{DEMNUni} suites. The models considered include massive neutrinos, $f(\\mathcal{R})$ gravity, and dynamical dark energy. By comparing density, mass, velocity-dispersion, and excess-surface-density profiles up to $5\\,r_{500{\\rm c}}$, we quantify the differential imprint of non-standard physics on halo structure in view of \\textit{Euclid} cluster WL studies. Our main analysis is performed at $z=1.1$, a high-redshift regime where the weak-lensing signal-to-noise starts to degrade, providing a conservative stress test for detectability; for \\texttt{DUSTGRAIN-PF} we additionally analyse $z=0.5$ and $z=0.3$ snapshots. In low-mass haloes ($M_{\\rm 200c}<7\\times10^{13}\\,M_\\odot$), $f(\\mathcal{R})$ gravity produces deviations of order $10\\,\\%$ in projected and three-dimensional profiles, especially in the outskirts where screening is less efficient. Massive neutrinos partially reduce this signal, reflecting the competition between free streaming and fifth-force-enhanced growth. Dynamical dark energy and massive-neutrino cosmologies generally induce smaller, few-percent deviations, with the largest effects again found in low-mass haloes and at large radii. Under simplified assumptions for \\Euclid WL, detecting such profile differences at $z=1.1$ requires stacks of $\\sim10^5$ haloes, while a few thousands haloes may be sufficient at $z\\lesssim0.5$. This further calls for the need of integrating such precise modelling of non-standard effects -- along with other observational effects -- in any likelihood involving \\textit{Euclid} WL masses to avoid non-negligible systematic biases. Concentration--mass relations show weaker cosmology dependence, typically at the $\\sim5\\,\\%$ level. [...]",
+        "authors": [
+          " Euclid Collaboration",
+          "L. Pizzuti",
+          "G. Y. Ferron",
+          "A. Ragagnin",
+          "A. M. C. Le Brun",
+          "P. -S. Corasaniti",
+          "T. Gayoux",
+          "G. Rácz",
+          "E. Altamura",
+          "Z. Sakr",
+          "C. Carbone",
+          "M. Baldi",
+          "C. Giocoli",
+          "T. Castro",
+          "F. Pace",
+          "J. E. Taylor",
+          "S. Borgani",
+          "O. Luongo",
+          "C. T. Mpetha",
+          "R. E. Angulo",
+          "B. Altieri",
+          "S. Andreon",
+          "N. Auricchio",
+          "C. Baccigalupi",
+          "S. Bardelli",
+          "P. Battaglia",
+          "A. Biviano",
+          "E. Branchini",
+          "M. Brescia",
+          "S. Camera",
+          "V. Capobianco",
+          "V. F. Cardone",
+          "J. Carretero",
+          "M. Castellano",
+          "G. Castignani",
+          "S. Cavuoti",
+          "K. C. Chambers",
+          "A. Cimatti",
+          "C. Colodro-Conde",
+          "G. Congedo",
+          "L. Conversi",
+          "Y. Copin",
+          "F. Courbin",
+          "H. M. Courtois",
+          "M. Cropper",
+          "H. Degaudenzi",
+          "G. De Lucia",
+          "H. Dole",
+          "F. Dubath",
+          "X. Dupac",
+          "S. Dusini",
+          "S. Escoffier",
+          "M. Farina",
+          "F. Faustini",
+          "S. Ferriol",
+          "F. Finelli",
+          "P. Fosalba",
+          "S. Fotopoulou",
+          "M. Frailis",
+          "E. Franceschi",
+          "M. Fumana",
+          "L. Gabarra",
+          "S. Galeotta",
+          "K. George",
+          "B. Gillis",
+          "J. Gracia-Carpio",
+          "A. Grazian",
+          "F. Grupp",
+          "S. V. H. Haugan",
+          "S. Hemmati",
+          "W. Holmes",
+          "F. Hormuth",
+          "A. Hornstrup",
+          "K. Jahnke",
+          "M. Jhabvala",
+          "B. Joachimi",
+          "S. Kermiche",
+          "A. Kiessling",
+          "B. Kubik",
+          "K. Kuijken",
+          "M. Kunz",
+          "H. Kurki-Suonio",
+          "S. Ligori",
+          "P. B. Lilje",
+          "V. Lindholm",
+          "I. Lloro",
+          "M. Magliocchetti",
+          "G. Mainetti",
+          "O. Mansutti",
+          "O. Marggraf",
+          "M. Martinelli",
+          "N. Martinet",
+          "F. Marulli",
+          "R. J. Massey",
+          "N. Mauri",
+          "S. Maurogordato",
+          "E. Medinaceli",
+          "S. Mei",
+          "M. Meneghetti",
+          "E. Merlin",
+          "G. Meylan",
+          "P. Monaco",
+          "A. Mora",
+          "M. Moresco",
+          "C. Moretti",
+          "L. Moscardini",
+          "E. Munari",
+          "C. Neissner",
+          "J. W. Nightingale",
+          "C. Padilla",
+          "S. Paltani",
+          "F. Pasian",
+          "V. Pettorino",
+          "A. Pezzotta",
+          "S. Pires",
+          "G. Polenta",
+          "M. Poncet",
+          "L. A. Popa",
+          "F. Raison",
+          "A. Renzi",
+          "J. Rhodes",
+          "G. Riccio",
+          "I. Risso",
+          "E. Romelli",
+          "M. Roncarelli",
+          "R. Saglia",
+          "D. Sapone",
+          "B. Sartoris",
+          "P. Schneider",
+          "T. Schrabback",
+          "A. Secroun",
+          "E. Sefusatti",
+          "E. Sihvola",
+          "P. Simon",
+          "C. Sirignano",
+          "G. Sirri",
+          "L. Stanco",
+          "J. -L. Starck",
+          "P. Tallada-Crespí",
+          "A. N. Taylor",
+          "I. Tereno",
+          "N. Tessore",
+          "S. Toft",
+          "R. Toledo-Moreo",
+          "F. Torradeflot",
+          "I. Tutusaus",
+          "E. A. Valentijn",
+          "J. Valiviita",
+          "T. Vassallo",
+          "Y. Wang",
+          "J. Weller",
+          "A. Zacchei",
+          "G. Zamorani",
+          "F. M. Zerbi",
+          "E. Zucca",
+          "M. Ballardini",
+          "P. Bergamini",
+          "A. Boucaud",
+          "E. Bozzo",
+          "C. Burigana",
+          "R. Cabanac",
+          "M. Calabrese",
+          "A. Cappi",
+          "F. Caro",
+          "J. A. Escartin Vigo",
+          "J. García-Bellido",
+          "T. Gasparetto",
+          "J. Macias-Perez",
+          "R. Maoli",
+          "R. B. Metcalf",
+          "M. Pöntinen",
+          "E. Sarpa",
+          "V. Scottez",
+          "M. Sereno",
+          "M. Tenti",
+          "M. Tucci",
+          "M. Viel",
+          "M. Wiesmann",
+          "J. A. Acevedo Barroso",
+          "Y. Akrami",
+          "I. T. Andika",
+          "S. Anselmi",
+          "M. Archidiacono",
+          "G. Aricò",
+          "F. Atrio-Barandela",
+          "M. Baes",
+          "L. Bazzanini",
+          "D. Bertacca",
+          "M. Bethermin",
+          "F. Beutler",
+          "A. Blanchard",
+          "L. Blot",
+          "H. Böhringer",
+          "M. L. Brown",
+          "S. Bruton",
+          "A. Calabro",
+          "B. Camacho Quevedo",
+          "C. S. Carvalho",
+          "F. Cogato",
+          "T. E. Collett",
+          "S. Conseil",
+          "A. R. Cooray",
+          "P. Corcho-Caballero",
+          "M. Costanzi",
+          "B. Csizi",
+          "O. Cucciati",
+          "T. de Boer",
+          "F. De Paolis",
+          "G. Desprez",
+          "A. Díaz-Sánchez",
+          "S. Di Domizio",
+          "J. M. Diego",
+          "V. Duret",
+          "Y. Fang",
+          "A. Farina",
+          "A. Finoguenov",
+          "F. Fontanot",
+          "A. Franco",
+          "Y. Fu",
+          "K. Ganga",
+          "R. Gavazzi",
+          "E. Gaztanaga",
+          "Z. Ghaffari",
+          "F. Giacomini",
+          "F. Gianotti",
+          "E. J. Gonzalez",
+          "G. Gozaliasl",
+          "A. Gruppuso",
+          "M. Guidi",
+          "C. M. Gutierrez",
+          "A. Hall",
+          "N. A. Hatch",
+          "C. Hernández-Monteagudo",
+          "H. Hildebrandt",
+          "J. Hjorth",
+          "J. J. E. Kajava",
+          "Y. Kang",
+          "V. Kansal",
+          "D. Karagiannis",
+          "J. Kim",
+          "C. C. Kirkpatrick",
+          "A. Kovács",
+          "I. Kova{č}i{ć}",
+          "K. Koyama",
+          "S. Kruk",
+          "M. C. Lam",
+          "M. Lattanzi",
+          "L. Legrand",
+          "M. Lembo",
+          "G. Leroy",
+          "G. F. Lesci",
+          "J. Lesgourgues",
+          "L. Linke",
+          "A. Manjón-García",
+          "F. Mannucci",
+          "F. R. Marleau",
+          "C. J. A. P. Martins",
+          "M. Migliaccio",
+          "M. Miluzio",
+          "G. Morgante",
+          "S. Nadathur",
+          "K. Naidoo",
+          "A. Navarro-Alsina",
+          "S. Nesseris",
+          "F. Oppizzi",
+          "D. Paoletti",
+          "F. Passalacqua",
+          "K. Paterson",
+          "L. Patrizii",
+          "C. Pattison",
+          "R. Paviot",
+          "A. Pisani",
+          "D. Potter",
+          "G. W. Pratt",
+          "S. Quai",
+          "M. Radovich",
+          "G. Rodighiero",
+          "W. Roster",
+          "S. Sacquegna",
+          "M. Sahlén",
+          "D. B. Sanders",
+          "A. Schneider",
+          "D. Sciotti",
+          "E. Sellentin",
+          "S. Serjeant",
+          "F. Shankar",
+          "L. C. Smith",
+          "J. G. Sorce",
+          "I. Szapudi",
+          "K. Tanidis",
+          "C. Tao",
+          "F. Tarsitano",
+          "G. Testera",
+          "R. Teyssier",
+          "S. Tosi",
+          "A. Troja",
+          "C. Uhlemann",
+          "C. Valieri",
+          "A. Venhola",
+          "D. Vergani",
+          "G. Verza",
+          "P. Vielzeuf",
+          "S. Vinciguerra",
+          "M. von Wietersheim-Kramsta",
+          "L. Wang",
+          "A. H. Wright",
+          "H. W. Yeung"
+        ],
+        "published": "2026-09-03T17:59:02Z",
+        "id": "2609.04192v1",
+        "url": "http://arxiv.org/abs/2609.04192v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04192v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2609.04196v1": {
+      "paper": {
+        "title": "Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States",
+        "summary": "We propose Puffin-World, a unified multimodal architecture that integrates physical understanding, spatial simulation, and 3D world generation and reconstruction without relying on external offline modules. To reliably construct and interact with 3D worlds, our framework jointly models three native world states: physics (gravity field and latitude), geometry (depth), and appearance (image), together with a unified Omni-Camera representation that supports diverse tasks and flexible motions. Beyond modeling these states, we introduce a strategy for propagating physical dynamics across future frames. By grounding absolute camera properties in the real world, Puffin-World enables physically consistent and visually stable world generation. We further couple appearance and geometry within a single generative process, jointly synthesizing each future view and reconstructing its underlying geometry. This unified paradigm enables interleaved closed-loop applications requiring synergy across multiple tasks, including mimic and self-calibrated world exploration. To scale Puffin-World to complex scenarios, we construct Puffin-16M, comprising 15 million vision-language-camera triplets and 1 million trajectories featuring various and challenging motions. To foster further research in this area, we released the code, models, and datasets.",
+        "authors": [
+          "Kang Liao",
+          "Yihang Luo",
+          "Xiao-Ming Wu",
+          "Linyi Jin",
+          "Size Wu",
+          "Chunyu Lin",
+          "Yao Zhao",
+          "Fei Wang",
+          "Wei Li",
+          "Chen Change Loy"
+        ],
+        "published": "2026-09-03T17:59:13Z",
+        "id": "2609.04196v1",
+        "url": "http://arxiv.org/abs/2609.04196v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04196v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控"
+      ]
+    },
+    "2609.04167v1": {
+      "paper": {
+        "title": "SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
+        "summary": "Repository-level software engineering benchmarks have significantly advanced the evaluation of coding agents, but existing benchmarks primarily measure whether generated patches pass functional tests and overlook review-derived acceptance constraints (review constraints) that often influence whether a patch is acceptable in real-world software development. We introduce SWE-Gate, a repository-level benchmark for software engineering agents that explicitly evaluates review constraint compliance alongside functional correctness. SWE-Gate derives review constraints from real pull request review comments and synthesizes repository-level repair instances around these constraints. Each instance provides separate functional and constraint tests, together with non-compliant and gold patches, enabling explicit separation between issue resolution capability and review constraint compliance. We construct SWE-Gate with 303 repository-level repair instances spanning 75 open-source Python repositories across diverse software domains. Experiments with four LLM backends spanning different capability levels under a common coding-agent scaffold reveal a substantial gap between functional success and success under the complete repair specification: among 644 repairs that pass the functional tests, 221 fail to satisfy the provided review constraints. These findings show that functional-only evaluation overestimates agents' ability to satisfy the full requirements of repository-level repair tasks. The replication package including code, data, and experimental results is available at https://github.com/DeepSoftwareAnalytics/SWE-Gate.",
+        "authors": [
+          "Xin He",
+          "Yanlin Wang",
+          "Mingwei Liu",
+          "Jiachi Chen",
+          "Hongyu Zhang",
+          "Guanbin Li"
+        ],
+        "published": "2026-09-03T17:53:34Z",
+        "id": "2609.04167v1",
+        "url": "http://arxiv.org/abs/2609.04167v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04167v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规"
+      ]
+    },
+    "2609.04159v1": {
+      "paper": {
+        "title": "SENTINEL-RL: Offloading Topological Reasoning from LLM Agents in the Security Operations Center",
+        "summary": "Large language model (LLM) agents are increasingly proposed as autonomous SOC analysts, but two limitations make them unreliable at enterprise scale: a finite context window cannot hold a multi-thousand-host authentication graph, and free-form generation offers no guarantee that a recommended containment action is consistent with the topology it operates on. We present Sentinel-RL, an agentic-SOC architecture that decouples topological reasoning from semantic reasoning: a heterogeneous graph attention encoder summarizes the live authentication subgraph into a fixed-dimensional state, a Proximal Policy Optimization (PPO) policy maps this state to a constrained set of investigative actions, and an LLM agent loop is restricted to consuming the policy's recommendations and producing analyst-readable narratives gated by a critic. We instantiate the system on the LANL Comprehensive, Multi-Source Cyber-Security Events dataset and the Indiana University Quartz HPC cluster, reporting four results: (i) a two-phase CREATE ingestion pattern loads a 24M-edge authentication subgraph into Neo4j in 14.2 minutes on a single 32-core node, roughly 24x faster than the canonical MERGE-based pipeline; (ii) a sliding-window alert engine reliably trips a 25-event/10-second threshold in <=2.5 s across 50 trials; (iii) PPO training over 200 iterations converges to a mean episodic return of 8.74+/-0.31, with held-out precision of 0.91 and recall of 0.87 on labeled red-team events; and (iv) the integrated containment loop completes a full detect-investigate-recommend-human-approve cycle in a median of 6.3 s. We contribute a reusable engineering pattern (the hot-node deadlock workaround), a portable HPC deployment pattern (anchor-node co-location), and an enterprise-readiness analysis covering false-positive economics, reversibility guarantees, audit compliance, and the human-approval boundary.",
+        "authors": [
+          "Uday Vallabhaneni",
+          "Cassie L. Cagwin",
+          "David J. Wild"
+        ],
+        "published": "2026-09-03T17:49:12Z",
+        "id": "2609.04159v1",
+        "url": "http://arxiv.org/abs/2609.04159v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04159v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2609.04188v1": {
+      "paper": {
+        "title": "Computation of Strong Solutions to Stochastic Variational Inequalities",
+        "summary": "This paper studies the computation of strong solutions of monotone variational inequalities (VIs) with Lipschitz continuous operators. Building on the idea of accumulative regularization, we develop a general framework for VIs, with particular emphasis on stochastic settings. Under unbiased stochastic oracles with uniformly bounded variance $ σ^2$, AR computes an approximate solution with expected operator residual bounded by $\\varepsilon$ using at most $ \\widetilde{O}\\left(\\tfrac{LD_0}{\\varepsilon}+\\tfrac{ σ^2}{\\varepsilon^2}(\\log\\tfrac{LD_0}{\\varepsilon})^3\\right) $ stochastic oracle calls, where $L$ is the Lipschitz constant and $D_0$ bounds the initial distance to the solution. It substantially improves the existing $\\mathcal{O}( σ^2/\\varepsilon^4)$ complexity for residual reduction and matches the lower bound up to logarithmic factors. For strongly monotone VIs, measured by the distance to the solution, AR achieves the optimal oracle complexity when the strong monotonicity modulus is known. By treating the problem as merely monotone, AR still achieves nearly optimal complexity without knowledge of this modulus. We further introduce a state-dependent noise model applicable to general monotone VIs with potentially nonunique solutions, extending state-dependent noise analysis beyond the strongly monotone setting. Under this model, AR, when equipped with an enhanced stochastic operator extrapolation (SOE) method, achieves nearly optimal complexity with the stochastic term depending on the variance at a solution.",
+        "authors": [
+          "Yao Ji",
+          "Guanghui Lan",
+          "Jason Zhu"
+        ],
+        "published": "2026-09-03T17:58:50Z",
+        "id": "2609.04188v1",
+        "url": "http://arxiv.org/abs/2609.04188v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04188v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规"
+      ]
+    },
+    "2609.04185v1": {
+      "paper": {
+        "title": "Atmospheric neutrino up-scattering explanation of LZ 2026 excess",
+        "summary": "The recent observation of an isolated nuclear recoil at $248\\pm 23\\pm 23$ keV energy by LUX-ZEPLIN (LZ) experiment has motivated the community to look for a new physics explanation, as the Standard model background estimation fails to accomodate that. Most of the existing literature hitherto considers a galactic halo dark matter with a heavier partner. In this work, we traverse the alternate route of atmospheric neutrino ($ν$) up-scattering, thus producing a massive beyond standard model (BSM) particle $χ$. The kinematic requirement of such a scattering poses a cut off in the lower recoil energies providing an explanation of the unique isolated event at such a higher recoil energy. Such up-scattering with the nucleons ($\\nuc$), $ν\\nuc\\to χ\\nuc$ can be naturally realized in sterile neutrino models, though we keep our analysis generic without specifying $χ$. We identify the region of parameter space that can produce such an isolated event assuming a scalar mediator with mass $m_φ$ and coupling $y_{χ,q}$. For example, with $m_χ\\sim1$ GeV, and $\\sqrt{y_χy_q}/m_φ=2 \\times 10^{-2}$ GeV$^{-1}$ can satisfy such an excess of events while remaining allowed by other existing constraints as well.",
+        "authors": [
+          "Sk Jeesun",
+          "Anirban Majumdar"
+        ],
+        "published": "2026-09-03T17:58:10Z",
+        "id": "2609.04185v1",
+        "url": "http://arxiv.org/abs/2609.04185v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04185v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI能源与环境"
+      ]
+    },
+    "2609.04177v1": {
+      "paper": {
+        "title": "A Computationally Feasible Framework for Causal Probabilistic Explanation",
+        "summary": "Explaining why a specific outcome occurred, and which inputs deserve the blame or credit, is central to philosophical, scientific, and policy analysis. Existing tools split into two camps. The theory of actual causality (AC) gives principled verdicts, but only for toy-sized models, because computing them requires enumerating counterfactual scenarios. Scalable attribution methods like SHAP (or even causal SHAP) at least partially ignore the causal structure that generated the data, and can give answers that conflict with a careful causal analysis. We close this gap with Probabilistic Causal Impact (PCI).   PCI builds on actual causality and on Pearl's notions of probability of necessity and sufficiency, but recasts the question of explainability as an estimation problem on a probabilistic causal model that is easily approximated via Monte Carlo. By specifying a distribution over \"candidate explanations,\" a distribution over counterfactual values, and a scoring function, PCI provides tractable, causally grounded, graded explanations, generalizing AC and Pearl's probability of causation as degenerate cases.   We evaluate PCI in synthetic and real-world examples, spanning consistency checks with AC, scaling experiments, complex continuous-valued dynamical systems, and a real-world deployed causal machine learning model trained on millions of datapoints.",
+        "authors": [
+          "Rafal Urbaniak",
+          "Sam Witty",
+          "Daniel Waxman",
+          "Andy Zane",
+          "Poorva Garg",
+          "Emily Bunnapradist",
+          "Sankaran Vaidyanathan",
+          "Jack Feser",
+          "Drew Lehe",
+          "Eli Bingham"
+        ],
+        "published": "2026-09-03T17:55:43Z",
+        "id": "2609.04177v1",
+        "url": "http://arxiv.org/abs/2609.04177v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04177v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI政务与公共服务"
+      ]
+    },
+    "2609.04151v1": {
+      "paper": {
+        "title": "Persistent Identity Preservation in Generative Image Models: A Benchmark and Evaluation System",
+        "summary": "Generative image models can now produce high-quality images, follow complex instructions, and support precise edits, but they still struggle to preserve who or what is being depicted. When generating or editing images of a specific subject, identity may drift as the pose, expression, appearance, viewpoint, or surrounding scene changes. Existing subject-driven methods make fundamentally different choices about where identity is represented: through the input context (GPT-Image-2, NB2), as trainable subject-specific model parameters (LoRA), or as a persistent identity layer (PHOTA IDENTITY) reusable across generations and edits. We systematically benchmark these paradigms across subject-driven generation, editing, restoration, and multi-subject settings, with tasks designed to increasingly stress identity preservation. Our results show that identity preservation remains a distinct limitation of current generative foundation models: strong image quality and instruction following do not necessarily imply strong identity fidelity, and identity degradation becomes more pronounced under iterative edits, small subject scales, severe image degradation, and multi-subject composition. Persistent identity substantially reduces this degradation across generation, editing, and restoration, consistently improving identity preservation when applied to different foundation models while maintaining comparable instruction adherence and perceptual image quality. These results suggest that identity does not simply emerge from increasingly capable generative models, but can instead be represented as persistent subject knowledge that is composed independently with the underlying generative model.",
+        "authors": [
+          "Mengwei Ren",
+          "Xuaner Zhang",
+          "Zhihao Xia"
+        ],
+        "published": "2026-09-03T17:44:25Z",
+        "id": "2609.04151v1",
+        "url": "http://arxiv.org/abs/2609.04151v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04151v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2609.03773v1": {
+      "paper": {
+        "title": "RealCADBench: Benchmarking Parametric CAD Modeling from Industrial Design Intents",
+        "summary": "Parametric computer-aided design (CAD) modeling is difficult to evaluate with a single metric. Existing CAD benchmarks often emphasize synthetic or CAD-native settings, limited input modalities, or executability and IoUs alone. We introduce RealCADBench, a benchmark for intent-to-program CAD modeling from real industrial design intents. It contains 12,632 tasks from 19 factory-automation categories and spans text descriptions, 2D engineering drawings, real product pictures, and rendered images for both Part and Assembly modeling. We report results on a 1,770-task evaluation slice: 1,745 Part tasks across four input regimes and RCB-Assm25, a 25-task assembly study used in every reported assembly comparison. Each method generates FreeCAD API Python, which a shared runtime executes to export the 3D model. We evaluate the exported model using executability, Solid IoU, Surface IoU, and a rubric-based visual-semantic identity Judge. Among the nine standalone frontier large models evaluated, no model leads all four metrics. Across six frontier-scale large models, executability ranges from 0.565 to 0.812, Solid IoU from 0.2841 to 0.5379, and Surface IoU from 0.112 to 0.217 across the four Part regimes. The highest regime-balanced composite comes from a different model than the leaders on the four component metrics. On RCB-Assm25, Codex with GPT-5.5 improves executability and both IoU metrics over standalone GPT-5.5, but lowers the Judge score by 6.98 percentage points, leaving GPT-5.5 as the Judge leader. We also observe recurring failure modes, most notably missing fine structures, loss of part identity, and incorrect assembly placement. These results show that execution alone is insufficient to characterize realistic CAD modeling and that frontier models and agents differ substantially across executability, IoUs, and visual-semantic identity.",
+        "authors": [
+          " JoyIndustrial VisCAD Team",
+          "Linxin Cai",
+          "Qiuhe Hong",
+          "Zhichao Huang",
+          "Guanlin Li",
+          "Zongzhen Li",
+          "Hongsen Liu",
+          "Yichen Long",
+          "Wei Wang",
+          "Yuchen Wang",
+          "Dongyue Yang",
+          "Huimu Yu",
+          "Xianwen Zhong"
+        ],
+        "published": "2026-09-03T12:43:23Z",
+        "id": "2609.03773v1",
+        "url": "http://arxiv.org/abs/2609.03773v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03773v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2609.03581v1": {
+      "paper": {
+        "title": "The Greedy Bump Bias: Local Profiling Geometry and the Look-Elsewhere Effect",
+        "summary": "When fitting a localized signal whose position or shape is not known in advance, one typically allows these parameters to vary together with the signal amplitude and chooses the values that maximize the likelihood. This freedom has two related statistical consequences. If a genuine signal is present, its fitted amplitude will be affected by a positive bias; otherwise, the same freedom increases the chance of finding an unusually signal-like background fluctuation, giving rise to the look-elsewhere effect. We show that these two effects can be understood as consequences of the same local geometry of the family of signal templates. We study this connection in a Gaussian matched-filter model, where a smooth D-dimensional family of normalized templates describes the unknown signal location or shape. In the normalized matched-filter problem, the curvature of a genuine signal peak and the fluctuations that determine the curvature of a high background peak are governed by the same template metric. This allows us to derive an explicit asymptotic relation. We then follow the problem away from the strong-signal and high-threshold limits. Separating the signal-associated maximum from the best competing maximum gives an exact decomposition of the global bias into a local profiling contribution and a contribution from remote-peak competition. In a one-dimensional Gaussian example, the second factorial cumulant accounts for most of this correction, while the third brings the prediction into close agreement with simulation. A two-point Kac--Rice calculation reproduces the second cumulant and reveals a quartic short-distance suppression of nearby maxima. The resulting picture separates the roles of local dimension, model-dependent curvature, and global extremal competition within a common framework.",
+        "authors": [
+          "Tommaso Dorigo"
+        ],
+        "published": "2026-09-03T09:27:58Z",
+        "id": "2609.03581v1",
+        "url": "http://arxiv.org/abs/2609.03581v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03581v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2609.03542v1": {
+      "paper": {
+        "title": "Heralded one-, two- and three-photon states from waveguided parametric down-conversion",
+        "summary": "The manifold coincidences and singles counting provides a resource-saving quantum-optics analysis tool, since it is appropriate even in the presence of heavy experimental imperfections. Here, we prepare cross-polarized twin beams in the telecommunication wavelength range via parametric down-conversion in a periodically-poled KTiOPO$_4$ waveguide and herald photon-number states up to three photons. First, we show that the single-click probability is a versatile tool not only for extracting the state's mean photon number but also for sampling values of the moment generating function being the core behind any quantum optical state. Second, we measure values of the normalized factorial moments of photon number, $g^{(m)}_{\\text{h}}$, up to the order $m = n+1$ for the heralded $n$-photon state. These normalized photon correlations provide an expedient method for examining the higher-order non-classicality of light by violating the condition $g^{(m+1)}_{\\text{h}} \\ge g^{(m)}_{\\text{h}} \\ge 1$.",
+        "authors": [
+          "Borrero Landazabal Daniel",
+          "Laiho Kaisa"
+        ],
+        "published": "2026-09-03T08:42:39Z",
+        "id": "2609.03542v1",
+        "url": "http://arxiv.org/abs/2609.03542v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03542v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2609.03533v1": {
+      "paper": {
+        "title": "Coupled Scaling: A Representational Accessibility Framework for Neural Scaling Laws",
+        "summary": "Existing theories derive neural scaling from data geometry or a specified data-model spectrum, but systems trained on the same data can scale differently when architecture or optimization changes the representations they can efficiently reach. We introduce Coupled Scaling, a task-conditioned framework in which finite-budget scaling depends on the relation between task structure and the geometry accessible to an architecture-optimization system. In a solvable mode-truncation model, loss separates into target energy outside architectural support and an unresolved supported tail. For an arbitrary priority order, the residual lies between the best-N supported tail and the tail beyond the largest completed high-value prefix. If the cumulative-tail and coverage log-rates are $γ_{A,T}$ and $ρ_{A,O,T}$, the residual exponent lies in $[ρ_{A,O,T}γ_{A,T},γ_{A,T}]$. Under bounded off-prefix gain, the completed prefix is rate-determining and $α_{A,O,T}=ρ_{A,O,T}γ_{A,T}$; for $a_{A,T,j}\\asymp j^{-b_{A,T}}$, this gives $α_{A,O,T}=ρ_{A,O,T}(b_{A,T}-1)$. A fixed-kernel specialization derives the training-time exponent from the near-zero tail of a task-weighted spectral measure defined independently of the loss fit. The framework separates architectural support from finite-budget acquisition and motivates two tests: static task-relevant geometry should track loss at a common budget, while multiscale geometry should track coupling-specific exponent ordering, including reversal across contrasting tasks. An audit of released emergence trajectories identifies the controls needed for a direct factorial test that measures geometry separately from the scaling fit.",
+        "authors": [
+          "Jie Wang"
+        ],
+        "published": "2026-09-03T08:32:46Z",
+        "id": "2609.03533v1",
+        "url": "http://arxiv.org/abs/2609.03533v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03533v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2609.03505v1": {
+      "paper": {
+        "title": "An Adversarial Zero-Shot Learning Approach for Anomaly Detection in Multivariate IoT Traffic Data",
+        "summary": "Anomaly detection in Internet of Things (IoT) networks presents unique challenges due to the diversity of devices, lack of labeled data, and domain variability across environments. In this paper, we propose a novel framework for multivariate time-series anomaly detection that leverages adversarial learning and contrastive loss within a sequence-based Variational Autoencoder (VAE) architecture. Our method enables zero-shot domain adaptation by jointly optimizing domain-invariant latent representations and semantically structured embedding spaces, without requiring labeled data or raw feature transfer. To address the heterogeneity of IoT deployments, we introduce encoder and decoder adaptor layers that align feature distributions across domains while preserving contextual semantics. Additionally, we propose a destination-based segmentation strategy to better model real-world communication structures in IoT traffic. Our framework is comprehensively evaluated on six distinct datasets spanning industrial, enterprise, general-purpose, smart home, and military automation domains across 44 transfer scenarios. Experimental results demonstrate strong zero-shot generalization in several cross-domain settings and competitive performance against a contrastive domain-adaptation baseline under realistic, heterogeneous, and privacy-constrained IoT conditions.",
+        "authors": [
+          "Mahshid Rezakhani",
+          "Tolunay Seyfi",
+          "Fatemeh Afghah"
+        ],
+        "published": "2026-09-03T08:07:06Z",
+        "id": "2609.03505v1",
+        "url": "http://arxiv.org/abs/2609.03505v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03505v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2609.04172v1": {
+      "paper": {
+        "title": "Rethinking On-Policy Distillation of Large Language Models II: One Training Example",
+        "summary": "On-policy distillation (OPD) combines student-generated rollouts with dense token-level supervision from a teacher. Existing work has mainly studied its algorithmic behavior, leaving the role of training data unclear. We examine this role at the data-minimal limit by training on a single query. One-shot OPD keeps improving for hundreds of steps and recovers most of full-data OPD's gain across task domains and model families. We explain this result through the states visited during training and the rate at which the student aligns with the teacher. We measure \\emph{state coverage}, the fraction of the states full-data OPD visits that a query set's rollouts reach. A single query already reaches \\(71.5\\%\\), most of it within the first 100 steps. Adding semantically distinct queries raises coverage and validation accuracy together, until 16 queries reach \\(98.9\\%\\) and match full-data training. Yet alignment slows at a similar pace whether OPD trains on one query or the whole dataset, and even a fixed set of states takes hundreds of steps to absorb. OPD is therefore data-overfed but algorithm-starved. Its rollouts quickly expose broad supervision, while the student absorbs that supervision increasingly slowly. The state-coverage result extends to multi-teacher OPD, where 16 semantically diverse queries per domain match full-data MOPD. As a further stress test, content-light templates and off-domain WildChat queries also approach the real-query baseline. Task content and induced state coverage can therefore come apart. We hope these findings direct future work toward the step efficiency of OPD, and prompt a re-examination of the data and the mechanisms behind its recent successes in frontier post-training.",
+        "authors": [
+          "Zixuan Fu",
+          "Bingxiang He",
+          "Yuxin Zuo",
+          "Haohuan Huang",
+          "Jinqian Zhang",
+          "Ruhang Xiao",
+          "Cheng Qian",
+          "Qinyu Luo",
+          "Huan-ang Gao",
+          "Yudong Wang",
+          "Zhiyuan Liu",
+          "Ning Ding",
+          "Chaojun Xiao"
+        ],
+        "published": "2026-09-03T17:54:38Z",
+        "id": "2609.04172v1",
+        "url": "http://arxiv.org/abs/2609.04172v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04172v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI零售与电商",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2609.04166v1": {
+      "paper": {
+        "title": "From Deceptive Outputs to Deceptive Mechanisms: A Causal Framework for Language-Model Deception Research",
+        "summary": "Research and news coverage of language-model deception increasingly attributes human-like mental-state concepts to language models. Such claims can blur the distinction between behavior that looks deceptive and a mechanism that is actually deceptive.   We introduce a causal taxonomy separating prior commitment from retrospective report, model preference from realized output, false preference from sensitivity to the utility of misleading a recipient, and deceptive behavior from the provenance of the objective or strategy producing it. We test these distinctions in two open-weight model families. Across controlled guessing-game and stock-trading experiments, we find that deceptive-looking behavior can arise without the corresponding proposed mechanism, while other interventions provide direct evidence that recipient information state can causally affect deceptive preference.   These results show that deceptive behavior can provide evidence for a deceptive mechanism. But even evidence for such a mechanism does not establish model agency in the deception.",
+        "authors": [
+          "Yakov Pyotr Shkolnikov"
+        ],
+        "published": "2026-09-03T17:52:19Z",
+        "id": "2609.04166v1",
+        "url": "http://arxiv.org/abs/2609.04166v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04166v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI零售与电商",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI零售与电商"
+      ]
+    },
+    "2609.04162v1": {
+      "paper": {
+        "title": "Thermodynamic Concentration Inequalities: Controlling Uncertainty in Finite-Time and Small-Sample Thermodynamic Inference",
+        "summary": "We derive nonasymptotic upper bounds on the probability that a generalized current of a geometrically ergodic diffusion observed for any amount of time, or its sample mean over any arbitrary sample size, deviates from the stationary mean by more than any given amount. The concentration-of-measure behavior of generalized currents is universally governed by the relaxation time of the underlying dynamics, the locally observed dissipation rate, and the intrinsic local fluctuations of the observable. We uncover stark qualitative and quantitative differences in fluctuations in and out of thermodynamic equilibrium. We further obtain refined inverse thermodynamic uncertainty relations, bounding the variance of generalized currents from above. We construct nonasymptotic confidence intervals for controlling uncertainty in thermodynamic inference from small data, i.e., from short trajectories and small samples, and provide the first quantitative answer to when a trajectory is sufficiently long and a sample is sufficiently large. As an illustration, we apply our results to currents observed on a two-dimensional Ornstein-Uhlenbeck process in and out of equilibrium and show how they can be used to rigorously detect broken detailed balance.",
+        "authors": [
+          "Rick Bebon",
+          "Aljaž Godec"
+        ],
+        "published": "2026-09-03T17:49:59Z",
+        "id": "2609.04162v1",
+        "url": "http://arxiv.org/abs/2609.04162v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04162v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI零售与电商",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2609.04191v1": {
+      "paper": {
+        "title": "Baby-universe state dependence of the wormhole-induced gravi-axion mass gap",
+        "summary": "Euclidean wormholes can break the axion shift symmetry, and when this symmetry is broken, a periodic potential is created for the axion, and the curvature of this potential at a minimum point can give the axion mass. In this work, we take seriously the assumption that the mere existence of a wormhole does not mean that the axion mass is uniquely determined, and that more information is needed to determine it. We first show that since for a Giddings--Strominger wormhole with symmetry \\(O(4)\\), the gravitational Pontryagin density is zero, the dynamical Chern--Simons interaction can affect quantum effects, including the determinant phase and fermionic selection rules, without changing the classical wormhole action. We also conclude that in a fixed \\(α\\) sector, the axion can have a specific mass, but this mass depends on the baby-universe state and is not a universal value. Then, for the mixed case of \\(α\\) sectors that give a distribution of conditional masses, we show that the lower edge of the averaged spectral measure is determined by the essential infimum of the conditional mass squared over the $α$ distribution. Finally, we conclude that even if almost all individual sectors are massive and the mean mass squared is also non-zero, if the support of the measure accumulates at the symmetric point \\(α=0\\), the averaged spectral measure will be gapless. To clarify the discussion, we consider a clear example of this situation, which can be a Gaussian baby-universe state, and show that in it the spectral threshold starts at zero and there is no isolated massive pole. Therefore, predicting the mass and cosmology of a gravi-axion from a wormhole without specifying the baby-universe state is not a unique, state-independent prediction.",
+        "authors": [
+          "Amin Rezaei Akbarieh"
+        ],
+        "published": "2026-09-03T17:59:02Z",
+        "id": "2609.04191v1",
+        "url": "http://arxiv.org/abs/2609.04191v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04191v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境"
+      ]
+    },
+    "2609.04186v1": {
+      "paper": {
+        "title": "Axion Portal Dark Matter and the LUX-ZEPLIN High-Recoil Event",
+        "summary": "LUX-ZEPLIN (LZ) has reported one event compatible with a $248\\,\\mathrm{keV}$ nuclear recoil. While initial attention has focused on inelastic dark matter, that interpretation depends sensitively on the uncertain high-speed tail of the Galactic halo. We develop instead an elastic realization of the pseudoscalar-pseudoscalar interaction $L_4=(\\barχiγ^5χ)(\\bar N iγ^5N)$, whose contact templates give one of the largest local significances identified by LZ. The minimal model presented involves primarily Dirac fermion dark matter, and a complex scalar leading to a pseudoscalar mediator. The minimal gauge-invariant UV completion also requires a single multi-TeV vector-like heavy quark. A representative model which realizes thermal freeze-out has $m_χ=400~{\\rm GeV}$ and $m_a=1~{\\rm GeV}$. The simplest model breaks from the isoscalar/isovector assumption, and the response-level recoil spectrum lies between LZ's elastic $O_4^v$ and contact $L_4^v$ templates, suggesting a local significance of $2.6$-$3.2σ$.",
+        "authors": [
+          "James Unwin"
+        ],
+        "published": "2026-09-03T17:58:28Z",
+        "id": "2609.04186v1",
+        "url": "http://arxiv.org/abs/2609.04186v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04186v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境"
+      ]
+    },
+    "2609.04181v1": {
+      "paper": {
+        "title": "Seasonal dark matter from the LUX-ZEPLIN high-energy event",
+        "summary": "The LUX-ZEPLIN experiment has reported a single nuclear recoil at $248\\pm23({\\rm stat})\\pm23({\\rm sys})\\keV$ in an extended search window. Inelastic dark matter, in which the scattering is endothermic, is a natural mechanism for producing a signal at such high energy. We fit the event to the dark matter mass and the mass splitting between two dark matter states, and find that the data favour a splitting pushed close to the kinematic limit set by the escape speed of the halo. The signal is then supplied by dark matter in the tail of the halo speed distribution. This drives a strongly seasonal signal: annual modulation rises above $50\\%$ across the favoured region of parameter space and even reaches $100\\%$ for some parameters, implying the signal vanishes for part of the year. Such a strong modulation distinguishes this interpretation sharply from a non-modulating signal, and we quantify the number of events needed to establish it. Experiments with larger target masses than LZ's, notably XLZD and PandaX, will be able to test this directly.",
+        "authors": [
+          "Christopher McCabe"
+        ],
+        "published": "2026-09-03T17:57:20Z",
+        "id": "2609.04181v1",
+        "url": "http://arxiv.org/abs/2609.04181v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04181v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2609.04152v1": {
+      "paper": {
+        "title": "Spectral and Eigenvector Crossovers in Random Mixed Graphs",
+        "summary": "We study the spectral and eigenvector properties of random mixed graphs, combining undirected and directed interactions, using random matrix theory (RMT). The network is represented by a Hermitian adjacency matrix, with undirected links as real entries and directed links as purely imaginary conjugate pairs, ensuring a real spectrum. Network density is controlled by the connection probability, while directionality sets the fraction of directed edges. We focus on the GOE-to-GUE crossover: at fixed connectivity, increasing directionality breaks time-reversal symmetry and drives spectral statistics from GOE to GUE. We show that this transition requires sufficient connectivity. In sparse networks, weak level repulsion produces Poisson statistics regardless of directionality. At fixed directionality, increasing connectivity drives a Poisson-to-GUE crossover; only above a sparsity threshold does the directionality-induced GOE-to-GUE transition emerge. In the dense regime, where the spectral density follows the Wigner semicircle law, the crossover is characterized using spacing distributions, spacing ratios, and spectral rigidity. In sparse networks, where unfolding is unreliable, spacing-ratio statistics provide an unfolding-free characterization. Eigenvector structure is examined through multifractal dimensions and component distributions, while Kullback--Leibler divergence confirms the robustness of the transitions. Applied to S&P 500 mixed graphs, the framework reveals a GOE-to-GUE crossover across four major market crashes. Denser crisis periods show sharper crossovers than sparser recovery periods. The results provide a unified picture of how connectivity and symmetry breaking govern spectral and eigenvector universality, while providing a transparent probe of changing financial-market organization.",
+        "authors": [
+          "Himanshu Shekhar",
+          "Hrishidev Unni",
+          "Santosh Kumar",
+          "Anirban Chakraborti"
+        ],
+        "published": "2026-09-03T17:45:03Z",
+        "id": "2609.04152v1",
+        "url": "http://arxiv.org/abs/2609.04152v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04152v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI政务与公共服务",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI政务与公共服务"
+      ]
+    },
+    "2609.04157v1": {
+      "paper": {
+        "title": "Spurious quantum correlations",
+        "summary": "In his seminal paper, Bell [Physics Physique Fizika 1, 195 (1964)] considers the correlations that result from space-like separated measurements on a pair of entangled particles. He uses relativity theory to motivate the Bell causal structure, then shows the existence of quantum correlations that cannot be explained classically within this causal structure. Classical explanations of such quantum correlations are possible in alternative causal structures, for instance, those that allow superluminal causal influences, but, as shown in [New Journal of Physics 17 033002 (2015)], all such alternative explanations require fine tuning (causation without correlation). Here we discuss the existence of spurious quantum correlations --- correlations that look quantum in one causal structure, but have a natural classical explanation in another. More precisely, there are causal structures that admit non-classical quantum correlations, but for which the same correlations have a classical explanation in another causal structure without fine tuning. The realisation in the other causal structure can also be achieved without breaking any natural constraints on the causal structure that follow from relativity theory. However, similarly to non-classical quantum correlations in the Bell causal structure, we find other causal structures with non-classical quantum correlations that do not have a classical causal explanation in any alternative causal structure without fine tuning.",
+        "authors": [
+          "Shashaank Khanna",
+          "Matthew F. Pusey",
+          "Roger Colbeck"
+        ],
+        "published": "2026-09-03T17:48:31Z",
+        "id": "2609.04157v1",
+        "url": "http://arxiv.org/abs/2609.04157v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04157v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2609.03895v1": {
+      "paper": {
+        "title": "Concept of a Sensor Test Environment for Dusty Agricultural Conditions",
+        "summary": "Dust in agriculture presents a significant challenge for autonomous agricultural machinery. Dust can impair the performance of sensors and algorithms. This work, therefore, presents a concept for a proving ground consisting of an indoor and outdoor area. The indoor area comprises a laboratory test bench where dust circulates in a closed system and a test hall where life-size objects can be placed. The outdoor area features dedicated test setups that enable reproducible data to be recorded with and without dust during real-world agriculture work. The proving ground and the setups are visualized in 3D.",
+        "authors": [
+          "Peter Buckel",
+          "Johannes Hermann",
+          "Jonas Wollmann",
+          "Thomas Dietmueller",
+          "Timo Oksanen"
+        ],
+        "published": "2026-09-03T14:15:41Z",
+        "id": "2609.03895v1",
+        "url": "http://arxiv.org/abs/2609.03895v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03895v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2609.03872v1": {
+      "paper": {
+        "title": "Plant Growth Estimation with a Camera-Based Vegetation Index Mapping System for Agricultural Ground Vehicles",
+        "summary": "This work presents a camera-based sensor for mapping plant growth over an agricultural field. The sensor can be used on ground-based vehicles like a tractor and relies on RTK-GNSS to correctly merge many multispectral images onto one map. NDVI is used as an index to estimate plant growth, but the approach can be used with other indices as well depending on the camera. The images from the camera are projected onto the estimated ground plane using perspective projection. This computationally simple approach allows for real-time processing of all images on the field even with low-end hardware. The results are compared to a commercially established vehicle-mounted sensor. Absolute values are hard to compare, but both sensors show similar trends. The camera-based approach also allows for filtering of ground and non-ground areas, potentially reducing the impact of crop density on the average measured NDVI.",
+        "authors": [
+          "Lukas Pindl",
+          "Michael Maier",
+          "Timo Oksanen"
+        ],
+        "published": "2026-09-03T14:00:38Z",
+        "id": "2609.03872v1",
+        "url": "http://arxiv.org/abs/2609.03872v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03872v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2609.03680v1": {
+      "paper": {
+        "title": "DropClick: Semi-Automated One-Click Segmentation for Agricultural Robotic Data",
+        "summary": "Labelling vision datasets, especially for segmentation tasks, is a laborious and costly process that stymies novel developments in agricultural robotics. In this paper, we present DropClick, a click-guided segmentation tool that simplifies the annotation process. Our system utilises single-click inputs on objects to generate pseudo-labels, which can replace manual annotations. DropClick stands out as it is a semi-automated approach and does not require a click for every object in the scene. It can therefore further reduce the required amount of user input drastically. We evaluate our method on two challenging agricultural robotic datasets, SB20 and BUP20 for plant and fruit segmentation, respectively. DropClick is first trained on a small subset of just 5 images from the original training data. This DropClick model can then be deployed as a one-click segmentation system and achieves comparable or higher performance than other one-click methods achieving an mIoU of 70.0 and 72.6 points, for SB20 and BUP20 respectively. DropClick then excels at maintaining high performance when clicks are not given (e.g. dropped); when 50% of the clicks are missing it still maintains an mIoU of 68.9 and 71.3 points, for SB20 and BUP20 respectively. We validate DropClick as a pseudo-labelling approach by taking its outputs to train a Mask2Former instance-based segmentation model in a semi-supervised manner. In this process, partially removing user input from DropClick yields similar high performance when compared to providing all clicks, at 70.1 vs 70.7 points AP50 for SB20 and no difference for BUP20 at 77.0 for both models; at the same time saving 46.3% of total input for SB20 and 31.9% for BUP20.",
+        "authors": [
+          "Patrick Zimmer",
+          "Michael Halstead",
+          "Chris McCool"
+        ],
+        "published": "2026-09-03T11:17:26Z",
+        "id": "2609.03680v1",
+        "url": "http://arxiv.org/abs/2609.03680v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03680v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2609.03474v1": {
+      "paper": {
+        "title": "Otter: A Provably MEV-Resilient Automated Market Maker via Surplus Redistribution",
+        "summary": "Miner extractable value (MEV) in automated market makers allows block builders to profit from transaction ordering and injected trades, imposing costs on users and contributing to builder centralization. We introduce Otter (Optimal Truthful Trading with Excess Redistribution), a two-asset batch AMM that achieves provable MEV resilience when the consensus layer provides censorship resilience and block space is uncongested. Otter makes truthful behavior a dominant strategy for both users and builders. Consequently, a builder cannot profit from strategic deviations, including reordering bids or injecting sybil bids, even when the builder is itself a trader with intrinsic value. Moreover, we show that Otter maximizes social welfare, in a strong sense, within a natural class of mechanisms satisfying the desired game-theoretic properties.   To achieve these guarantees, we introduce a new paradigm called surplus redistribution, which provably prevents residual surplus from being captured as MEV by redirecting it to the broader community. Specifically, the pool's output tokens need not be distributed entirely among users in the current batch. Instead, residual surplus may be transferred to a smart contract governed by the decentralized community. The accumulated surplus can be used to benefit community members --- for example, by subsidizing transaction fees, rewarding liquidity providers, or returning assets to the pool.   Our approach relies on the underlying consensus layer to provide censorship resilience. We motivate its necessity through an impossibility result showing that the desired game-theoretic guarantees become unattainable when the builder is additionally allowed to censor transactions. Thus, our results also provide a mathematically formal demonstration of how consensus-level security guarantees can fundamentally expand what is achievable at the application layer.",
+        "authors": [
+          "Elaine Shi",
+          "Mengqian Zhang",
+          "Hao Chung",
+          "Yuhao Li"
+        ],
+        "published": "2026-09-03T07:31:19Z",
+        "id": "2609.03474v1",
+        "url": "http://arxiv.org/abs/2609.03474v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.03474v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2609.04148v1": {
+      "paper": {
+        "title": "Terminal-Universe: Turning Agent Trajectories into Scalable Terminal Environments",
+        "summary": "As terminal-based code agents become prevalent, agent trajectories have accumulated at scale, while realistic, executable environments remain scarce. However, environments are what agent post-training actually requires: each can be re-queried into many verifiable tasks and provides execution feedback, whereas a trajectory is a single frozen demonstration. Rather than generating environments from scratch, we observe that the tool-execution history in existing trajectories exposes the structure and contents of the environments in which they ran, making it possible to reconstruct those environments from the trajectories themselves. Thus, we introduce Terminal-Universe, a framework which turns each trajectory into a reusable environment and explores it for synthesizing new tasks and continued interactions. Specifically, Terminal-Universe replays the file operations recorded in a trajectory to restore each file before the agent modified it, yielding a partial workspace; a completion agent then supplies the missing files and dependencies. On this recovered workspace, we both reconstruct the original intent task and synthesize entirely new ones. Besides, we also scale the tasks along two complementary axes: breadth and depth. For breadth, we mine directional dependency relations between related environments and synthesize cross-workspace queries spanning multiple codebases, as developers routinely do in real-world development. For depth, we extend the initial single-turn query into a multi-round session that captures iterative user feedback and requirement refinement via a user agent. Applied to public terminal agent trajectories, Terminal-Universe produces 37.3k task-sufficient environments. Supervised fine-tuning of Qwen3.5-27B on this corpus improves single-round performance on Terminal-Bench 2.1 by 11.9 points and multi-round performance on EvoCode-Bench v2 MT@4 by 13.8 points.",
+        "authors": [
+          "Jie Wu",
+          "Zhenru Zhang",
+          "Beichen Zhang",
+          "Xuwu Wang",
+          "Yuhui Su",
+          "Mouxiang Chen",
+          "Peng Wang",
+          "Zhihai Wang",
+          "Que Shen",
+          "Hao Zhou",
+          "An Yang",
+          "Fei Huang",
+          "Yujiu Yang",
+          "Dayiheng Liu"
+        ],
+        "published": "2026-09-03T17:41:05Z",
+        "id": "2609.04148v1",
+        "url": "http://arxiv.org/abs/2609.04148v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.04148v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    }
+  }
+}

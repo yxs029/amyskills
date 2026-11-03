@@ -1,0 +1,1264 @@
+{
+  "date": "2026-08-07",
+  "layer": "第五层-行业应用层",
+  "collected": {
+    "2608.06265v1": {
+      "paper": {
+        "title": "Improving the Realism of Synthetic Clinical Benchmarks Under Utility Constraints",
+        "summary": "Synthetic clinical benchmarks for enterprise AI agents can pass existing utility checks and still remain structurally unrealistic, especially in privacy-sensitive healthcare settings where operational data are hard to access. We study how to improve such benchmarks without breaking the downstream utility checks already used in practice.   We formulate benchmark revision as utility-constrained realism improvement: dataset changes should increase realism while staying above an operational utility floor. We instantiate this idea on a care-gap benchmark derived from Synthea-generated patients exercised through demonstration electronic health record workflows and then processed by the same downstream pipeline as operational data. Realism is measured through missingness structure, simplicity, structural plausibility, and population alignment.   The baseline benchmark is extremely thin: sampled-pair missingness is 79.44%, only 12.75% of rows are actionable, 38.94% of patients have zero actionable measures, and top-three token concentration reaches 100.0%. Two deterministic revisions improve these panels while remaining above the current utility floor, whereas a naive densification control preserves unrealistic templating. We further show that internal benchmark realism and source fidelity to an aggregate operational reference are related but distinct objectives. These results suggest that synthetic benchmark quality should be optimized explicitly, with utility treated as one constraint rather than as sufficient evidence of realism.",
+        "authors": [
+          "Omid Bazgir",
+          "Md Nasir",
+          "Jacob Hoffman",
+          "Yang Yang",
+          "Manu Agrawal",
+          "Anusua Trivedi",
+          "Vinay Rao Dandin",
+          "Chris Gibbons",
+          "Christine Swisher"
+        ],
+        "published": "2026-08-06T16:56:44Z",
+        "id": "2608.06265v1",
+        "url": "http://arxiv.org/abs/2608.06265v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06265v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.06246v1": {
+      "paper": {
+        "title": "A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques with Applications in AI Governance",
+        "summary": "Post-training adaptation has become central to modern machine learning practice and includes techniques such as retraining, fine-tuning, parameter-efficient adaptation, alignment, retrieval augmentation, model editing, unlearning, calibration, and Multimodal Instruction Tuning. However, the literature remains fragmented across technique families, model classes, and deployment contexts, making it difficult to compare methods or describe how a trained model has been modified. This survey synthesizes the post-training adaptation literature and introduces a six-dimensional taxonomy organized by mechanism, goal, data requirement, persistence, structural scope, and model type. The taxonomy distinguishes commonly conflated terms such as fine-tuning, retrieval augmentation, and prompting, and shows how adaptation strategies evolve from traditional machine learning through deep learning, foundation models, large language models, and multimodal large language models. It also maps relationships among techniques, including inheritance, supersession, hybridization, and layered deployment stacks. The resulting vocabulary can support technical documentation, model-change tracking, and governance analysis. The survey concludes by identifying open challenges in evaluation, reproducibility, persistent inference-time adaptation, unlearning, multimodal adaptation, and governance-aware post-training workflows.",
+        "authors": [
+          "Fardin Afdideh",
+          "Fernando Seoane",
+          "Farhad Abtahi"
+        ],
+        "published": "2026-08-06T16:32:26Z",
+        "id": "2608.06246v1",
+        "url": "http://arxiv.org/abs/2608.06246v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06246v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.06227v1": {
+      "paper": {
+        "title": "From Passive Mirrors to Active Agents: Holonic Digital Twins for Physical AI over Networks",
+        "summary": "Despite advances in artificial intelligence (AI) across multiple sectors, today's AI tools, including deep learning and generative AI, still fail when embedded into physical systems, such as robots and vehicles operating under real-world physical laws. This stems from their inability to maintain reliable world models for long-horizon planning under uncertainty and generalize to unseen scenarios. In this context, wireless networks, through pervasive sensing and communication, can orchestrate physical intelligence. However, current architectures optimize throughput, latency, and reliability and cannot support real-time physical AI coordination, requiring agents to maintain shared spatiotemporal context. To address these challenges, a network of holonic digital twins (HDT-Nets) framework is proposed to deliver real-time physical AI inference through holonic agents that actively reason about their environment rather than passively mirror physical assets. Each HDT is realized as a hierarchical structure spanning the physical agent and network edge, reasoning autonomously at the local level while cooperating with neighboring HDTs to form collectively intelligent units. In HDT-Net, causal Markov blankets spanning sensing, communication, and control determine which agents must coordinate and enable counterfactual reasoning over multi-domain interventions. Active inference within these boundaries unifies perception, action, and learning by minimizing expected free energy while deciding which beliefs to transmit based on their cognitive value to the receiver. Category theory ensures that transmitted beliefs preserve semantic structure across heterogeneous agents with incompatible representations. Finally, integrated information theory quantifies when collective intelligence exceeds independent operation and how network intelligence evolves through coordinated learning and information exchange.",
+        "authors": [
+          "Christo Kurisummoottil Thomas",
+          "Omar Hashash",
+          "Walid Saad"
+        ],
+        "published": "2026-08-06T16:17:43Z",
+        "id": "2608.06227v1",
+        "url": "http://arxiv.org/abs/2608.06227v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06227v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.06216v1": {
+      "paper": {
+        "title": "Continual Learning in Transition",
+        "summary": "Classical continual learning (CL) has primarily focused on enabling models to update and retain knowledge through parameter-centric mechanisms, e.g., training strategies, architectural designs, and weight adaptation. However, emerging paradigms are reshaping the scope of CL beyond this traditional model adaptation view. For instance, on-policy learning broadens the space of update mechanisms; test-time training extends CL from the training phase to inference; and external harness components such as memory, skill libraries, and interaction protocols extend the evolutionary boundaries of model capabilities far beyond the static parameter space. Collectively, these developments indicate a transition from parameter-centric learning toward system-level adaptation. To characterize this transition, we examine the evolution of continual learning through three dimensions: When, How, and Where learning occurs. The How dimension encompasses off-policy, on-policy, and beyond-gradient optimization mechanics. The When dimension captures evolution across pre-training, post-training, and inference-time stages. The Where dimension delineates updates occurring within internal parameters versus external structural constraints. Anchored by this tri-axial framework, we systematically survey representative methods, trace the ongoing transition of continual learning, and discuss the key challenges, broader implications, and future directions arising from this paradigm shift.",
+        "authors": [
+          "Zhiyan Hou",
+          "Dan Zhang",
+          "Tao Feng",
+          "Liyuan Wang",
+          "Wei Li",
+          "Xiangzhao Hao",
+          "Hongyan An",
+          "Junfeng Fang",
+          "Haokai Ma",
+          "Zhaohui Xu",
+          "Haiyun Guo",
+          "Jinqiao Wang",
+          "Tat-Seng Chua"
+        ],
+        "published": "2026-08-06T16:07:26Z",
+        "id": "2608.06216v1",
+        "url": "http://arxiv.org/abs/2608.06216v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06216v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.06202v1": {
+      "paper": {
+        "title": "What Current AI Benchmarks Leave Unmeasured: Modality, Search, Citations, and Implications (for Safety Evaluations)",
+        "summary": "Large language model (LLM) benchmark evaluations are routinely used to support claims about model safety, reliability, and deployment readiness. Yet most evaluations rely on a single access modality (model APIs), perform a single run per prompt, and report accuracy as the primary outcome metric, without accounting for conditions such as web search that may have effects on model behavior in deployment. We audit these assumptions for one of the most widely-used LLMs, comparing two modalities, ChatGPT's chat UI and OpenAI's API, with and without web search enabled. We use a stratified total sample of 401 prompts from two popular benchmarks, BBQ and SafetyBench, collecting 4,812 total responses across three repeated runs per prompt. Beyond standard performance measures, we evaluate model output dimensions including response consistency, response text similarity, citation grounding, and abstention behavior. For instance, chat UI responses were less accurate than API responses on both benchmarks with search disabled. Enabling web search reduced accuracy by up to 8 percentage points, and even reversed the direction of modality performance trends for one benchmark. Repeated runs of the same prompt produced inconsistent responses in up to 21\\% of prompts. The two modalities also grounded answers in different citations, and abstention behavior was also inconsistent across both modalities. These results illustrate that, even within a model family, reporting only simple accuracy metrics can obscure important forms of model behavioral variation relevant to AI safety assessments. We argue that AI safety evaluations should systematically account for modality, multi-run consistency, search conditions, and response-level behaviors to better reflect how deployed AI systems behave in practice.",
+        "authors": [
+          "Ro Encarnación",
+          "Tina Behzad",
+          "Emma Lurie",
+          "Danaé Metaxa"
+        ],
+        "published": "2026-08-06T15:58:32Z",
+        "id": "2608.06202v1",
+        "url": "http://arxiv.org/abs/2608.06202v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06202v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.06276v1": {
+      "paper": {
+        "title": "Stochastic Dynamics on Persistence Diagram Space via Reinforcement Learning",
+        "summary": "Persistence diagrams (PDs) provide stable and interpretable summaries of multiscale topological structure. While substantial progress has been made in the statistical analysis of PDs, existing literature often treats diagrams as static objects and provide limited frameworks for probabilistic modeling and stochastic evolution on PD space. We introduce a reinforcement learning framework for stochastic dynamics on PD space, where diagrams evolve through topology aware local edit operations. The dynamics define controlled Markov processes on spaces of finite PDs with variable cardinality. We establish conditions under which the induced Markov chains are irreducible, aperiodic, and geometrically ergodic, implying the existence of unique stationary probability laws on PD space. To guide the dynamics toward scientifically relevant topological targets, we formulate objectives that encompass distribution matching, task specific topological statistics, and structure-preserving compression. The resulting rewards balance task specific distributional targets, diagram fidelity, and complexity reduction, and yield a framework for adaptive topological simplification and probabilistic modeling. Experiments on synthetic and neuroimaging PDs demonstrate that the proposed framework can preserve dominant topological structure while reducing diagram complexity.",
+        "authors": [
+          "Farzana Nasrin"
+        ],
+        "published": "2026-08-06T17:05:19Z",
+        "id": "2608.06276v1",
+        "url": "http://arxiv.org/abs/2608.06276v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06276v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI教育",
+        "AI法律与合规",
+        "AI农业"
+      ]
+    },
+    "2608.06275v1": {
+      "paper": {
+        "title": "TLNM: Externally Validated Tooth Detection, Numbering and Segmentation from Smartphone Photographs Using Mask R-CNN",
+        "summary": "Oral health issues affect billions globally, but the cost and limited access to professional dental care hinder preventive oral healthcare. Research relies on clinical-grade radiographs or intraoral camera images, unavailable for public self-screening. This study introduces a tooth localisation and numbering model for smartphone photographs. We developed a customised Mask Region-based Convolutional Neural Network (Mask R-CNN) pipeline trained on 1,272 annotated smartphone images. To address variability in patient-generated health data, the pipeline incorporates two domain-informed mechanisms: a masked gray-world white-balancing algorithm to mitigate artificial colour casts and an anatomically constrained detection layer to enforce structural validity and suppress false positives. Evaluation comprised four stages: internal held-out testing, independent external testing, a descriptive ablation study, and fold-based training stability analysis using the same internal test set. On the internal test set, the model achieved an instance-mask AP@50 of 0.818, class-aware PQ of 0.780, and operational F1 of 0.884. Training stability showed limited between-model variation: across ten runs, instance-mask AP@50 had a standard deviation of 0.009. On the external dataset, the model achieved an instance-mask AP@50 of 0.901, class-aware PQ of 0.832, and operational F1 of 0.928 despite differences in population, sensors, and acquisition protocols. The inference pipeline is available as an open-source, containerised API. These results demonstrate that consumer-grade smartphone imagery can support automated tooth-level anatomical mapping, offering a scalable, potentially low-cost foundation for remote screening and tele-dentistry in resource-constrained environments.",
+        "authors": [
+          "Arash Nedaei",
+          "Henna Tiensuu",
+          "Elina Väyrynen",
+          "Saujanya Karki",
+          "Jaakko Suutala"
+        ],
+        "published": "2026-08-06T17:03:05Z",
+        "id": "2608.06275v1",
+        "url": "http://arxiv.org/abs/2608.06275v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06275v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.06274v1": {
+      "paper": {
+        "title": "NestyNet. II. Coherent Function-Space Posteriors from Scientific Neural Surrogates (or How to Avoid Expensive MCMC)",
+        "summary": "Scientific analyses increasingly use flexible neural networks, but their thousands of correlated parameters make it challenging to interpret the associated uncertainties. Here we develop a low-dimensional posterior for the fitted function itself, for scientific neural surrogates trained with second-order optimization. Linearizing the fitting procedure with respect to the randomized residual rows gives a measurement-to-function transport, the linear map, assembled from the converged Jacobians and Gauss--Newton curvature, that carries measurement perturbations into the function perturbations that refitting would produce. Its leading singular functions define coherent deformation modes. Independent Gaussian coefficients then generate smooth function draws, so that any derived quantity, including those requiring derivatives or integrals of the draw, inherits the posterior. The construction distinguishes repeated-experiment covariance from the local Gauss--Newton/Laplace posterior and propagates both to correlated quantities of scientific interest. The result is conditional on the fit's declared choices (architecture, hyperparameters, active set, and optimization branch), and every fit is certified as converged by checking that a further optimization step would change the fitted predictions by less than a chosen small fraction of the measurement errors. Our primary example is an 800-parameter phase-space distribution function fit for a mock stellar disk. Four uncertainty coordinates, two orders of magnitude fewer than the fitted parameters and stable under refinement of the force basis, capture 99\\% of the vertical-force posterior variance, and 4000 coherent draws propagate through the force, total-density, surface-density, and frequency calculations in 0.8s. The method provides a highly efficient route to uncertainty propagation for derivative-dependent scientific inference.",
+        "authors": [
+          "Rodrigo Ibata",
+          "Wassim Tenachi",
+          "Foivos Diakogiannis",
+          "Neil Ibata",
+          "Anirudh Shankar"
+        ],
+        "published": "2026-08-06T17:02:04Z",
+        "id": "2608.06274v1",
+        "url": "http://arxiv.org/abs/2608.06274v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06274v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI制造与工业",
+        "AI能源与环境"
+      ]
+    },
+    "2608.06268v1": {
+      "paper": {
+        "title": "A Streamer Driving Misalignment in the Circumtriple Disk of GW Ori",
+        "summary": "GW Orionis is a triple stellar system with a disk featuring three misaligned dust rings. We present ALMA molecular line data of CO isotopologues, revealing a streamer feeding the disk in $^{12}$CO and $^{13}$CO. Through multi-pointing observations, we find the streamer extends to $\\sim30''$ on-sky ($\\sim12,000$~AU) and estimate a mass of 1.6 M$_{\\rm Jup}$ using $^{13}$CO. Fitting the morphology and kinematics of the streamer, we estimate the mass infall timescale of 0.04 Myrs and a mass infall rate of $3.6\\times10^{-8}$~M$_{\\odot}$~yr$^{-1}$, approximately an order of magnitude lower than the stellar accretion rate. Our best-fit trajectory shows that the streamer meets the disk at the outermost dust ring and that the streamer's angular momentum vector is closely aligned with this outermost ring within $\\approx3^\\circ$, in contrast to the $\\approx32^\\circ$ misalignment with the innermost ring, suggesting the streamer is the likely cause of the misalignment. However, the total angular momentum of the streamer is smaller than that of GW Ori's disk; this, together with the low accretion rate, indicates that we are probably witnessing the end stages of infall. Total Power observations reveal bright emission connecting the streamer to the surrounding star-forming region, with a projected distance falling well within the Bondi-Hoyle radius, implying the streamer could have originated through Bondi-Hoyle accretion as GW Ori moves through its natal cloud. Together, these results suggest that GW Ori remains dynamically linked to its parental cloud through ongoing accretion, with the streamer serving as the likely driver of its misaligned disk structure.",
+        "authors": [
+          "Maria Galloway-Sprietsma",
+          "Jaehan Bae",
+          "Toni Phillips",
+          "Jane Huang",
+          "Myriam Benisty",
+          "Matthew Porter",
+          "Christian Ginski",
+          "Andrew Winter"
+        ],
+        "published": "2026-08-06T16:59:58Z",
+        "id": "2608.06268v1",
+        "url": "http://arxiv.org/abs/2608.06268v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06268v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI教育",
+        "AI零售与电商",
+        "AI能源与环境"
+      ]
+    },
+    "2608.06266v1": {
+      "paper": {
+        "title": "Newton's Second Law: A Theoretical Identity Derived from the Principle of Excluded Perpetual Motion and the Weak Equivalence Principle",
+        "summary": "For more than three centuries, Newton's Second Law (F=ma) has governed mechanics with undisputed success, yet its epistemic authority has rested on empirical adequacy alone. That empirical contingency vanishes under two physical principles - the Principle of Excluded Perpetual Motion (PEPM) and the Weak Equivalence Principle (WEP) - from which the law emerges as a structural necessity of admissible mechanics. Under the PEPM constraint, Suppes' operational measurement protocol grounds gravitational mass and force as independent primitives. The fusion of Stevin's static and Galileo's kinematic inclined-plane analyses establishes F/a as a well-defined, object-intrinsic quantity - the operational definition of inertial mass. The WEP compels the equivalence of inertial and gravitational mass without presupposing Newton's Second Law. Substituting this equivalence into the definition of inertial mass yields the law as a theoretical identity between independently defined quantities. The derivation is anchored in gravity because weight uniquely bridges statics and kinematics, yet the result is independent of the underlying force mechanism. The derivation carries structural consequences: modified-inertia formulations of MOND are inadmissible under the PEPM-WEP constraint; the location-invariance of the Kibble-balance realization of the SI kilogram is secured on first principles; and under the PEPM alone, torsion-balance and free-fall experiments constitute equally direct tests of the WEP. More fundamentally, Newton's Second Law is not an irreducible axiom of mechanics, but a structural consequence of deeper physical principles: energy conservation and the Einstein Equivalence Principle.",
+        "authors": [
+          "Lars Nordmann"
+        ],
+        "published": "2026-08-06T16:57:12Z",
+        "id": "2608.06266v1",
+        "url": "http://arxiv.org/abs/2608.06266v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06266v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI安防与监控",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06224v1": {
+      "paper": {
+        "title": "A Neutron Star Hidden Inside a Black Hole",
+        "summary": "We investigate dark matter admixed neutron stars in which the neutron star coexists with an anisotropic dark matter halo described by the Einasto density profile, a model recently shown to produce regular, singularity-free black hole solutions~[Phys. Rev. D \\textbf{113}, 043011 (2026)]. Solving the modified Tolman--Oppenheimer--Volkoff equations with two different equations of state (BSk19 and SLy4), we find that the dark matter halo significantly alters the neutron star structure. Furthermore, for a specific range of halo parameters, $g_{rr}^{-1}$ changes sign outside the stellar surface, forming an event horizon with the neutron star persisting as a regular configuration inside it--- ``neutron stars in black holes''. This configuration appears in both equations of state and does not depend on a specific choice of the equation of state. The discovery of this configuration provides a new perspective and a concrete computable instance for the study of what lies inside a black hole.",
+        "authors": [
+          "Chen Tan",
+          "Yong-Qiang Wang"
+        ],
+        "published": "2026-08-06T16:13:49Z",
+        "id": "2608.06224v1",
+        "url": "http://arxiv.org/abs/2608.06224v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06224v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因"
+      ]
+    },
+    "2608.06264v1": {
+      "paper": {
+        "title": "OTLesMix: Wasserstein Barycenter and Optimal Transport Map for Synthetic Lesion Generation with Diverse Shapes and Locations",
+        "summary": "The development of deep learning over the past decade has revolutionized medical imaging segmentation, allowing the extraction of precise descriptors from large volumes to characterize pathologies. Data augmentation is a technique widely regarded as a way to improve model training. It includes simple transformations like spatial operations or intensity modifications, but also more advanced synthesis techniques. Their goal is to generate new realistic samples from an existing dataset to diversify the images used during training. Among them, several propose different mixing strategies to combine real samples. However, one of their major shortcomings is to yield limited variability in terms of generated lesion shapes and locations. In this work, we introduce a novel image synthesis method, called OTLesMix, that leverages Wasserstein barycenter and optimal transport plan to generate realistic and diverse samples. We evaluated our method on three brain lesion segmentation tasks, on which it improves the Dice score compared to a model trained without synthetic data by 2.9 to 6.6 points, and outperforms state-of-the-art mix-based methods.",
+        "authors": [
+          "Robin Trombetta",
+          "Carole Lartizien"
+        ],
+        "published": "2026-08-06T16:54:15Z",
+        "id": "2608.06264v1",
+        "url": "http://arxiv.org/abs/2608.06264v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06264v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI农业"
+      ]
+    },
+    "2608.06253v1": {
+      "paper": {
+        "title": "MetaboLLM: a metabolomics-specialized large language model for biochemical knowledge integration and predictive metabolite graph construction",
+        "summary": "Metabolomics knowledge is distributed across heterogeneous resources and remains difficult to translate into predictive representations. We developed MetaboLLM, a metabolomics-specialized large language model adapted through continual pretraining, supervised fine-tuning, and structured retrieval, together with MetaboLLM-GIN, which converts generated biochemical descriptions into metabolite graphs for patient-level prediction using a graph isomorphism network. Across four backbone families, MetaboLLM outperformed corresponding base and medically adapted models on metabolomics knowledge, relational, and description tasks, and transferred to an external public benchmark. MetaboLLM-GIN achieved the highest AUC for stress hyperglycemia prediction after coronary artery bypass grafting (0.8616) and postmenopausal hormone-regimen classification (0.8123), outperforming conventional models, alternative graph constructions, and graphs generated from unadapted or non-retrieval LLM configurations. Model interpretation further produced biologically meaningful findings in both applications. These results show that domain-specialized language models can organize heterogeneous biochemical knowledge into predictive and interpretable metabolite graph representations.",
+        "authors": [
+          "Dohyun Ku",
+          "Min Gu Kwak",
+          "Francisco J. Pasquel",
+          "Jing Li"
+        ],
+        "published": "2026-08-06T16:42:34Z",
+        "id": "2608.06253v1",
+        "url": "http://arxiv.org/abs/2608.06253v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06253v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06262v1": {
+      "paper": {
+        "title": "Hypothesis Testing with Conditional Queries: Learnability and the Value of Interaction",
+        "summary": "Model evaluations may fix all tests before observing any responses or select later tests using earlier responses. We study this choice in a conditional-query model on a finite outcome space $\\mathcal{X}$ with $|\\mathcal{X}|=N$. We first ask which pairs of distribution classes can be reliably distinguished. We then ask how many additional queries are required to match an adaptive tester when all queried events must be fixed in advance. We show that learnability holds if and only if the two classes have positive separation in their pairwise conditional probabilities. When this separation is zero, the optimal worst-case error is exactly $1/2$ at every finite query budget. For any $T$-query adaptive policy and any $ρ\\in (0,1)$, we construct a randomized non-adaptive procedure using $O(N^2(T + \\log(1/ρ)))$ pair queries chosen before any response is observed. Its simulated transcript is within $ρ$ in total variation of the adaptive transcript, uniformly over all distributions in the model. We also construct a matching family with constant adaptive query complexity and $Ω_\\varepsilon(N^2)$ non-adaptive query complexity. Consequently, the worst-case fixed-error adaptivity gap is $Θ_\\varepsilon(N^2)$. Thus interaction can reduce the required number of tests by a quadratic factor, but the apparent exponential branching of an interactive evaluation does not yield an exponential query advantage.",
+        "authors": [
+          "Zonghuan Xu"
+        ],
+        "published": "2026-08-06T16:54:10Z",
+        "id": "2608.06262v1",
+        "url": "http://arxiv.org/abs/2608.06262v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06262v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06270v1": {
+      "paper": {
+        "title": "The Illusion of Visual Tool-Use: A Causal Audit of Thinking with Images",
+        "summary": "The \"thinking-with-images\" paradigm equips multimodal LLMs with active visual operations such as crop-and-zoom. However, models using these operations often achieve only marginal or negative gains over direct inference at substantially higher token cost. They may also repeatedly crop irrelevant regions and fail on questions that direct inference answers correctly. We ask whether the returned visual evidence causally affects the answer. To answer this question, we formulate visual tool-use as a causal graph that separates observation-mediated paths from action-induced shortcuts. We then audit it through interventions at the three levels: policy (comparing tool-use with direct inference), trajectory (corrupting all observations during rollout), and step (counterfactually replacing one individual observation under a fixed prefix). Our step-level estimand, Visual Evidence Gain, isolates the contribution of each returned observation. Across six representative models and five fine-grained perception benchmarks, we uncover policy miscalibration with two failure modes. In Calling Without Looking, returned observations have no causal effect on the answer. In Looking Without Planning, observations are informative but the call schedule is incoherent. A trajectory-level diagnostic decomposes the policy-level accuracy gain and shows that the gain is concentrated in a Calibrated minority. We term this discrepancy the illusion of visual tool-use: despite aggregate accuracy gains, visual tool-use is not causally effective across a broad range of rollouts. The code is available at https://github.com/OpenCausaLab/CauAudit.",
+        "authors": [
+          "Zhiheng Wang",
+          "Bo Peng",
+          "Lai Wei",
+          "Chaochao Lu"
+        ],
+        "published": "2026-08-06T17:01:08Z",
+        "id": "2608.06270v1",
+        "url": "http://arxiv.org/abs/2608.06270v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06270v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.06259v1": {
+      "paper": {
+        "title": "RxnCLF: Contrastive Transformation-Aware Reaction Foundation Model for Improved Reactivity Prediction",
+        "summary": "Reaction yield prediction remains challenging because labeled data are scarce and reaction space is both combinatorially large and sparsely populated, limiting the generalization of existing reaction representations. String-, fingerprint-, and graph-based reaction encodings only partially capture chemical transformations, making accurate prediction difficult for reactions with complex substrates. We propose reaction contrastive learning foundation (RxnCLF), a self-supervised contrastive framework for reaction representation learning. RxnCLF is built on a condensed reaction graph (CRG) that unifies reactant and product information into a single graph, enabling the model to learn explicit and enriched transformation structure rather than disconnected graphs. Pretrained on 1.7 million Pistachio reactions, RxnCLF learns a compact and continuous latent space that captures both reaction-center features and broader side chain contexts, making it transformation-aware and chemically interpretable. Fine-tuned on multiple yield prediction benchmarks, including Buchwald-Hartwig, Pd-catalyzed BH coupling, and proprietary HTE C-N coupling and amide formation datasets, RxnCLF consistently outperforms graph and sequence-based baselines, improving R2 and achieving the best performance overall. Our results highlight the promise of CRG-based RxnCLF as a scalable reaction foundation model, with the potential to generalize across broader reaction spaces and support diverse downstream reaction informatics tasks, including regioselectivity prediction, enantioselectivity prediction, and reaction condition optimization.",
+        "authors": [
+          "Yiting Zheng",
+          "Cheng Fang",
+          "Anthony Donofrio",
+          "Haote Li"
+        ],
+        "published": "2026-08-06T16:51:23Z",
+        "id": "2608.06259v1",
+        "url": "http://arxiv.org/abs/2608.06259v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06259v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2608.06257v1": {
+      "paper": {
+        "title": "MASS: Multiplayer World Models with Authoritative Shared State",
+        "summary": "Current video world models struggle in multiplayer environments because they entangle world state with view-dependent visual latents, leading to redundant compute, view inconsistencies, and poor scalability. We propose MAS (Multiplayer world models with Authoritative Shared State) to resolve this limitation. Inspired by multiplayer game architectures, MAS disentangles world dynamics and view rendering. A learned Logic Engine advances a global, authoritative typed state from joint actions without any hand-written transition function, acting as the sole recurrent memory and synchronization reference. From this shared state, a learned Rendering Engine generates independent and consistent views for any requested camera on demand. This explicit disentangling allows MAS to achieve superior state accuracy and lower cross-view inconsistency compared to state-of-the-art multi-view baselines on a matched multiplayer Snake benchmark. It advances predicted worlds with 1,024 concurrent players for 10,000 recurrent steps. Our results show that explicit, authoritative state modeling provides a practical foundation for scalable and consistent multi-agent world simulation.",
+        "authors": [
+          "Ziqi Cai",
+          "Siqi Yang",
+          "Yimu Wang",
+          "Zixian Gao",
+          "Yunheng Liu",
+          "Shuchen Weng",
+          "Erwin Wu",
+          "Kaipeng Zhang",
+          "Boxin Shi"
+        ],
+        "published": "2026-08-06T16:47:24Z",
+        "id": "2608.06257v1",
+        "url": "http://arxiv.org/abs/2608.06257v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06257v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI能源与环境"
+      ]
+    },
+    "2608.06260v1": {
+      "paper": {
+        "title": "A Phase Space Electronic Structure View of The Solid State",
+        "summary": "We develop a phase space electronic structure view of the solid state, where electronic bands are parameterized by both nuclear position $\\mathbf{Q}$ and nuclear momentum $\\mathbfΠ$ (rather than the standard practice of only $\\mathbf{Q}$). Within this phase space, non-Born-Oppenheimer electronic structure context, we prove a nuclear wavevector ($\\mathbf{q}$)-dependent version of Nafie's equality relating the change in electronic momentum as a function of nuclear momentum, $\\partial \\langle\\mathbf{p}\\rangle/\\partial \\mathbfΠ_q$, to the change in electronic position as a function of nuclear position, $\\partial \\langle\\mathbf{r}\\rangle/\\partial \\mathbf{Q}q$. Furthermore, we show how information about electron-phonon interactions, specifically nuclear-induced electronic momentum, can be extracted from simple band structure calculations -- without Berry curvature calculations.",
+        "authors": [
+          "Nadine Bradbury",
+          "Joseph Subotnik"
+        ],
+        "published": "2026-08-06T16:51:54Z",
+        "id": "2608.06260v1",
+        "url": "http://arxiv.org/abs/2608.06260v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06260v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康"
+      ]
+    },
+    "2608.06252v1": {
+      "paper": {
+        "title": "Toward Deployable Bangla Sign Language Recognition with Expert-Validated Data and a Lightweight Attention-Based Model",
+        "summary": "Deaf and hard-of-hearing people in Bangladesh communicate mainly through Bangla Sign Language (BdSL). Automatic BdSL recognition on personal devices could widen access to education and services. Existing systems use controlled-setting datasets without expert verification and heavyweight pretrained backbones unsuited to on-device use. We introduce RSBdSL38, 10,874 expert-validated images spanning all 38 BdSL hand signs, representing the 51 letters of the Bangla alphabet, recorded from real signers at three special-needs schools across Bangladesh. We propose a lightweight attention based convolutional network of 298,470 parameters, built from grouped bottleneck residual blocks, channel and spatial attention, a multi-scale depthwise hand-feature block, dual pooling, and Swish activations. Trained from scratch, it attains 96.37% accuracy (95.72% +- 0.54% over five seeds), within 1.08 percentage points of the best of nine ImageNet-pretrained efficient architectures under an identical protocol, using 8.5 to 68x fewer parameters and 1.3 to 21.7x fewer MACs. Retrained, it reaches 92.95 to 98.33% on six public BdSL benchmarks, 97.04% on a merged corpus, and 76.25% zero-shot on BdSL-38. Removing any architectural stage costs 7.61 to 89.30 points, against at most 3.17 for the training recipe. Grad-CAM with deletion-insertion and weight-randomization checks confirms that predictions follow the signing hand. A signer-independent split holding out 6 of 36 signers yields 85.18%. Quantized to 0.48 MB, it runs at 3.98 ms per image within a 15.5 MB footprint on a commodity smartphone. Together, RSBdSL38 and our from-scratch model turn benchmark accuracy into deployable accessibility at a fraction of pretrained-backbone cost; dataset, code, and models are released.",
+        "authors": [
+          "Saad Ahmed",
+          "Md Khalid Syfullaha"
+        ],
+        "published": "2026-08-06T16:41:22Z",
+        "id": "2608.06252v1",
+        "url": "http://arxiv.org/abs/2608.06252v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06252v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI教育",
+        "AI安防与监控",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06200v1": {
+      "paper": {
+        "title": "Using LLMs to Detect Growth in Computational Thinking in Introductory Physics",
+        "summary": "As computation becomes more central to physics education, creating scalable methods to assess authentic computational thinking (CT) in students remains a critical challenge. While student-written responses capture nuanced reasoning, they are difficult to evaluate at scale. In this study, we investigated the use of Large Language Models (LLMs) to analyze students' written explanations of computational physics problems on a pre- and post- semester survey. By first establishing a human-coded baseline, grounded in CT literature, we identified significant growth in Data Practices and Computational Problem-Solving Practices. When given the same responses, an LLM successfully mirrored the human evaluations and scaled up the detection of these key trends across a large dataset. Notably, both human raters and the LLM struggled to reliably evaluate more complex constructs such as Systems Thinking. Overall, this study demonstrates that LLMs offer a viable method to scale the evaluation of students' CT in large-enrollment physics courses",
+        "authors": [
+          "Sean Savage",
+          "Anand Shanker",
+          "Grace Michlitsch",
+          "N. Sanjay Rebello"
+        ],
+        "published": "2026-08-06T15:57:49Z",
+        "id": "2608.06200v1",
+        "url": "http://arxiv.org/abs/2608.06200v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06200v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融"
+      ]
+    },
+    "2608.06250v1": {
+      "paper": {
+        "title": "Minimax Optimal Early-Stopped Gradient Descent for Gaussian Mixture Classification",
+        "summary": "In overparameterised classification, training data can be linearly separable even when the underlying distribution is not. In this setting, gradient descent (GD) on the logistic loss diverges in norm while converging in direction to a max-margin interpolating classifier, whose implicit bias can be statistically suboptimal. In this work, we show that early stopping can overcome this suboptimality: in a Gaussian mixture model with label-flipping noise, GD stopped at an appropriate oracle time achieves minimax-optimal excess zero-one risk for covariance spectra with fast and continuous decay, including polynomial and exponential spectral decays. Our analysis combines a sharp upper bound for the early-stopped iterate with a matching statistical lower bound over arbitrary classifiers, yielding optimal rates that are validated by experiments. A central technical contribution is a new calibration result that converts excess logistic risk into excess zero-one risk; it handles the model misspecification induced by the label-flipping noise, and removes the square-root rate in standard bounds. We also establish a lower bound for linear interpolators, showing that interpolation can require exponentially more samples than early stopping to achieve the same excess risk.",
+        "authors": [
+          "Alex Buna",
+          "Shirley Xiaoqi Liu",
+          "Patrick Rebeschini"
+        ],
+        "published": "2026-08-06T16:41:00Z",
+        "id": "2608.06250v1",
+        "url": "http://arxiv.org/abs/2608.06250v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06250v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融"
+      ]
+    },
+    "2608.06219v1": {
+      "paper": {
+        "title": "Design and Evaluation of a Touchscreen-Based Teleoperation Interface for Robotic Manipulators",
+        "summary": "Intuitive teleoperation interfaces are crucial for the safe and effective operation of robotic manipulators in challenging environments. In the nuclear industry, surface contact tasks such as swab sampling require precise path and force tracking, obstacle avoidance, and sustained operator attention, which conventional joystick interfaces struggle to support effectively.   This study designs and evaluates a novel touchscreen teleoperation interface that maps continuous finger movements directly to robotic manipulator motions, provides finer velocity control, and integrates control with visualization, enabling more natural, precise, and intuitive surface interaction than conventional controllers. A comparative user study with 20 participants evaluated task performance and workload using the proposed touchscreen, a conventional joystick, and a single-click autonomous mode. Tasks simulated realistic surface manipulation using a Franka Emika Panda arm, remotely controlled from another country. Kinematic, physiological, and behavioral data were recorded to comprehensively assess task performance, cognitive load, and operator trust across each control condition.   Participants completed teleoperation tasks more efficiently and accurately with the touchscreen interface, achieving a 53.5% reduction in completion time (median: 2.50 vs. 5.38 min), higher in-area coverage on the sinusoidal path (90.7% vs. 84.1%), and lower overshoot on both path geometries compared with the joystick. Cognitive load, quantified via NASA-TLX (0-100), decreased from joystick to touchscreen (mean TLX 52 to 43; -9 points, -17.3%) and was lowest under the autonomous one-click mode (31; -21 points vs. joystick, -40.4%; -12 vs. touchscreen, -27.9%). This research presents an easy-to-implement touchscreen interface that improves performance in teleoperated surface tasks while reducing cognitive load.",
+        "authors": [
+          "Juan José García Cárdenas",
+          "Alperen Kenan",
+          "Hamidreza Raei",
+          "Paul Bremner",
+          "Manuel Giuliani",
+          "Arash Ajoudani",
+          "Adriana Tapus"
+        ],
+        "published": "2026-08-06T16:10:02Z",
+        "id": "2608.06219v1",
+        "url": "http://arxiv.org/abs/2608.06219v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06219v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融",
+        "AI制造与工业",
+        "AI零售与电商"
+      ]
+    },
+    "2608.06251v1": {
+      "paper": {
+        "title": "Joint Access Point Selection and Precoder Design under Statistical CSI",
+        "summary": "This work addresses joint access point (AP) selection and precoding for sum-rate maximization under statistical channel state information (CSI) in multi-AP multi-user systems. To this end, we propose two approaches. The first method is an iterative alternating optimization algorithm that updates the precoding vectors via the stochastic WMMSE (SWMMSE) algorithm and the assignment variables via a projected gradient descent step. The second method is a graph neural network (GNN)-based framework that solves the same problem in a single forward pass during inference. Building on an attention-based Edge-GNN architecture, we extend it to a multi-AP scenario, enabling the joint learning of assignment variables and precoding vectors from statistical CSI alone. Results show that the GNN outperforms the iterative algorithm across the tested signal-to-noise ratio (SNR) range and generalizes to varying numbers of users with comparable performance. Both approaches are also compared to various baseline techniques.",
+        "authors": [
+          "Tim N. Faisst",
+          "Franz Weißer",
+          "Wolfgang Utschick"
+        ],
+        "published": "2026-08-06T16:41:14Z",
+        "id": "2608.06251v1",
+        "url": "http://arxiv.org/abs/2608.06251v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06251v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2608.06241v1": {
+      "paper": {
+        "title": "Timestep-Conditioned Transformers for Global Weather Forecasting",
+        "summary": "Existing machine-learning weather forecasting models rely on predetermined and fixed autoregressive timesteps. The choice of model timestep involves a fundamental trade-off: shorter timesteps (e.g. 1 to 6 hours) finely resolve atmospheric dynamics within the diurnal cycle but increase error accumulation for a given forecast horizon, while longer timesteps (e.g. 24 hours) reduce error accumulation but limit the usability of short-range forecasts where sub-daily predictability is high. In this work, we present GEM-3, a probabilistic global weather model that addresses this trade-off through explicit multi-timestep inference. With a single set of trained weights, the model timestep can be configured at inference time to balance predictability and usability across a broad forecast horizon. Additionally, we find that mixed-timestep training consistently improves rollout stability relative to timestep-specialist models. Under the hood, GEM-3 is a lightweight neighborhood-attention transformer with ~134M parameters on an equirectangular grid with a number of architectural advancements beyond its predecessor GEM-2. The result is a practical forecasting system that couples near-SOTA medium-range probabilistic skill, stable extended-range rollouts, efficient training and inference, and decision-relevant diagnostics.",
+        "authors": [
+          "Sam Levang",
+          "Fran Bartolic",
+          "Ty Dickinson",
+          "Chase Dwelle",
+          "Paulius Rauba",
+          "Viktor Cikojevic"
+        ],
+        "published": "2026-08-06T16:27:54Z",
+        "id": "2608.06241v1",
+        "url": "http://arxiv.org/abs/2608.06241v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06241v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商",
+        "AI能源与环境"
+      ]
+    },
+    "2608.06239v1": {
+      "paper": {
+        "title": "Fundamental limits of parameter estimation with heralded optical non-Gaussian states generated from Gaussian resources",
+        "summary": "Non-Gaussian states can exhibit large quantum Fisher information (QFI) in quantum sensing. In optical systems, however, its generation is often probabilistic via the boson-sampling type conditional operation and thus its generation rate is limited. This probabilistic generation of non-Gaussian resource should be taken into account for evaluation of the sensing performance. Then a natural question arising is whether the use of heralded probabilistic non-Gaussian states is better than that of the original deterministic Gaussian states for quantum sensing. In this paper, we answer to this question for single-parameter phase-estimation. By using photon-number conservation in passive linear optical systems, we show that heralded state preparation before parameter encoding can be mapped to a postselection problem after parameter encoding for phase estimation. This mapping allows the success probability of heralding to be included naturally in the metrological performance. We introduce an effective quantum Fisher information (EQFI), defined as the success-probability-weighted QFI of the heralded outputs, and prove that it cannot exceed the QFI of the original Gaussian inputs. The result highlights the importance of resource counting in quantum sensing toward better understanding of the resource efficient advantage of optical quantum sensing.",
+        "authors": [
+          "Shohei Kiryu",
+          "Kazufumi Tanji",
+          "Yoshihiro Ueda",
+          "Kosuke Fukui",
+          "Masahiro Takeoka"
+        ],
+        "published": "2026-08-06T16:26:35Z",
+        "id": "2608.06239v1",
+        "url": "http://arxiv.org/abs/2608.06239v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06239v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2608.06267v1": {
+      "paper": {
+        "title": "Gradient Descent on Point Clouds and Applications in Learned Operator Correction",
+        "summary": "We consider the problem of minimising an energy over an unknown manifold that is given implicitly by a point cloud. For a known manifold one can define a gradient descent scheme analogously to the classical construction in Euclidean spaces. However, when the manifold is not known one has to simultaneously estimate the manifold whilst minimising the energy. We define a gradient descent scheme which remains in a neighbourhood of the manifold and, under suitable stability and sampling assumptions, converges to a neighbourhood of a local minimiser whose size vanishes as the time step and sampling errors vanish. As an example we show the application of the methodology to learning operator corrections in inverse problems.",
+        "authors": [
+          "Andreas Hauptmann",
+          "Yury Korolev",
+          "Matthew Thorpe"
+        ],
+        "published": "2026-08-06T16:57:25Z",
+        "id": "2608.06267v1",
+        "url": "http://arxiv.org/abs/2608.06267v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06267v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI法律与合规",
+        "AI能源与环境"
+      ]
+    },
+    "2608.06269v1": {
+      "paper": {
+        "title": "An \"inside-out\" approach to modeling supermassive black hole binary inspiral",
+        "summary": "The inspiral and merger of two supermassive black holes (SMBHs) releases immense energy in low-frequency gravitational waves (GWs). Recent pulsar timing array (PTA) observations of the stochastic nHz GW background (GWB) are consistent with a SMBH binary origin. GW data from PTAs and from the upcoming Laser Interferometer Space Antenna (LISA) can probe late-stage binary evolution where electromagnetic constraints are scarce. However, the complexity of the relevant astrophysics necessitates a well optimized approach. I argue that a key physical quantity to constrain with PTAs is the orbital semi-major axis at which binary inspiral transitions from the astrophysical to the GW-dominated regime ($a_{\\rm GW}$). This quantity should be treated as a free parameter in analysis of the GWB. Using this premise, I present a simple analytic framework for modeling SMBH binary inspiral in an \"inside-out\" fashion. At orbital separations slightly larger than $a_{\\rm GW}$, a power-law scaling for the astrophysical inspiral timescale is assumed, while the outermost phase (prior to the PTA regime) is simply modeled via a delay time. I show that the GWB spectral shape and amplitude are most sensitive to $a_{\\rm GW}$ (normalized to $10^9 M_{\\odot}$, equal-mass binaries and expressed in gravitational units), with weaker dependence on the inner power-law index and the outer delay time. The GWB is largely insensitive to the mass and mass-ratio scaling of $a_{\\rm GW}$ and to the boundary between the inner and outer astrophysical inspiral regimes. I compare with models for gas- and stellar-driven binary inspiral and discuss implications for LISA and for GW source parameter inference.",
+        "authors": [
+          "Laura Blecha"
+        ],
+        "published": "2026-08-06T17:00:07Z",
+        "id": "2608.06269v1",
+        "url": "http://arxiv.org/abs/2608.06269v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06269v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI能源与环境"
+      ]
+    },
+    "2608.06245v1": {
+      "paper": {
+        "title": "HI envelope around the carbon star V420 Vul",
+        "summary": "We report the detection of an extended 21-cm parsec-scale \\ion{H}{i} structure toward the Mira variable V420\\,Vul using archival Galactic Arecibo L-band Feed Array survey data. The emission exhibits a spatially coherent but intensity-asymmetric morphology that nevertheless retains a globally symmetric kinematic profile centered near $v_{\\mathrm{LSR}} \\sim 47.6\\,\\mathrm{km\\,s^{-1}}$. At an adopted distance of $\\sim 1.9$\\,kpc, the structure extends over $\\sim 20$\\,pc, implying a dynamical timescale of order $10^6$\\,yr. Although the total \\ion{H}{i} mass ($\\sim 70\\,\\mathrm{M_\\sun}$) indicates that the atomic gas reservoir is heavily dominated by the ambient interstellar medium rather than pristine stellar ejecta, the spatially resolved spectra and position-velocity diagrams reveal an underlying symmetric velocity framework centered on the star. We interpret this as the dynamical imprint of the stellar wind preferentially channeling through a porous ambient cloud, demonstrating that cohesive kinematic records of late-stage stellar mass loss can be preserved over parsec scales and megayear timescales despite dominant interstellar coupling.",
+        "authors": [
+          "Xu-Jia Ouyang",
+          "Yong Zhang",
+          "Chuan-Peng Zhang",
+          "Li-Yun Zhang"
+        ],
+        "published": "2026-08-06T16:30:03Z",
+        "id": "2608.06245v1",
+        "url": "http://arxiv.org/abs/2608.06245v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06245v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控",
+        "AI农业"
+      ]
+    },
+    "2608.06236v1": {
+      "paper": {
+        "title": "Depth-Guided Video Object Counting in Crowded Scenes",
+        "summary": "Our primary objective is to advance video object counting in crowded scenes, aiming to robustly count all instances of a target category based on given text or visual prompts. Existing methods rely on RGB information, limiting their discriminative ability in crowded and occluded conditions. To address this, we propose a Depth-Guided Detector (DG-Det) along with a general post-processing pipeline. By integrating depth cues with multi-scale RGB-D cross-attention and explicit occlusion prediction, our method enhances spatial understanding and achieves robust detection in crowded and occluded scenes. Furthermore, we introduce a unified de-duplication framework to eliminate cross-frame redundant counting. To facilitate future research, we also release a new RGB-D Video Object Counting dataset featuring depth information and multiple object categories persequence. Extensive experiments demonstrate that our method achieves a 62.01\\% reduction in MAE compared to existing baselines, and also produces consistent improvements in RMSE. We provide the source code at https://github.com/streamer-AP/DG-Net and the dataset at https://huggingface.co/datasets/aerospace123/RGBD-VideoCount.",
+        "authors": [
+          "Yuanjing Xu",
+          "Xinyan Liu",
+          "Weidong Chen",
+          "Zixuan Zou",
+          "Linhao Zhang",
+          "Zhuangzhe Meng",
+          "Antoni B. Chan",
+          "Weigang Zhang"
+        ],
+        "published": "2026-08-06T16:24:41Z",
+        "id": "2608.06236v1",
+        "url": "http://arxiv.org/abs/2608.06236v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06236v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控",
+        "AI农业"
+      ]
+    },
+    "2608.06243v1": {
+      "paper": {
+        "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
+        "summary": "Reinforcement learning with verifiable rewards (RLVR) improves the reasoning capabilities of large language models using automatically verifiable outcome signals, but these signals are typically sparse and at the sequence-level. On-policy self-distillation (OPSD) mitigates this sparsity by querying a privileged teacher at student-visited prefixes and providing dense token-level distributional supervision. Although this dense supervision alleviates signal sparsity, we find that standard OPSD still underexploits the temporal structure of the rollout. It assigns every local divergence the same coefficient, regardless of its position or the divergence sequence in which it occurs. In on-policy autoregressive generation, the same divergence magnitude can follow different discrepancy histories, reflecting different evolutions of the mismatch between the teacher and student. Since the local scalar alone cannot distinguish these temporal contexts, standard OPSD cannot adapt its token-level weights to the realized discrepancy sequence. To address this limitation, we propose Divergence-Adaptive Supervision Horizons (DASH). DASH maps the gap between each local distillation signal and the sequence-level mean to an adaptive propagation gate and then uses these gates to control backward multi-step aggregation. By doing so, DASH adjusts token-level supervision weights according to how local divergences evolve during generation. Experiments on three mathematical reasoning benchmarks across three model scales show that DASH improves over our matched vanilla OPSD reruns on every benchmark at all three scales. DASH reuses the teacher and student distributions that OPSD already computes, so the gains require no additional teacher or student forward pass.   Code: https://github.com/DBtxy/DASH-OPSD",
+        "authors": [
+          "ZhiYan Hou",
+          "Xinyu Tang",
+          "Hongyan An",
+          "Jianjin Zhang",
+          "Weizhen Wang",
+          "Yunyun Han",
+          "Gengsheng Li",
+          "Xiangzhao Hao",
+          "Haiyun Guo",
+          "Wenbin Hu",
+          "Jinqiao Wang",
+          "Yafeng Deng"
+        ],
+        "published": "2026-08-06T16:29:24Z",
+        "id": "2608.06243v1",
+        "url": "http://arxiv.org/abs/2608.06243v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06243v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06210v1": {
+      "paper": {
+        "title": "VIDP: Variable Impedance Diffusion Policy for Compliant Robot Manipulation from Diverse Demonstrations",
+        "summary": "Contact-rich manipulation requires precise tracking and mechanical compliance, where variable impedance control can improve robustness in task success, whereas static compliance cannot adapt to varying contact constraints. Variable impedance skills can be learned from demonstrations, avoiding complex modeling, but compliance is a hidden variable in force-agnostic kinematic data. While existing methods infer compliance from trajectory variations, these variations may reflect geometric adaptation and not intentional compliance when subject to changing spatial layouts. Therefore, this letter introduces Variable Impedance Diffusion Policy (VIDP), an imitation learning-based variable impedance control framework leveraging a Task-Parameterized Directionality-Aware Mixture Model (TP-DAMM) to extract physically consistent trajectory distributions from diverse demonstrations. By mapping distributions to stiffness profiles, VIDP jointly predicts pose actions and task compliance without force sensors. Real-world experiments show that VIDP significantly outperforms fixed-impedance baselines in task success rate while reducing interaction forces with respect to high stiffness controllers and tracking errors with respect to low stiffness baselines.",
+        "authors": [
+          "Hisham Khalil",
+          "Neil Fernandes",
+          "Thomas M. Kwok",
+          "Hsiu-Chin Lin",
+          "Yue Hu"
+        ],
+        "published": "2026-08-06T16:03:00Z",
+        "id": "2608.06210v1",
+        "url": "http://arxiv.org/abs/2608.06210v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06210v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规"
+      ]
+    },
+    "2608.06272v1": {
+      "paper": {
+        "title": "A counterexample to the inverse generator problem and related questions",
+        "summary": "We give a negative solution to the inverse generator problem on Hilbert spaces. More precisely, we construct a bounded operator $A$ with dense range on a Hilbert space $H$ that generates a bounded, strongly stable $C_0$-semigroup, while $A^{-1}$ does not generate a $C_0$-semigroup. We also construct an exponentially stable generator $A$ with $0 \\in ρ(A)$ such that the inverse semigroup is unbounded and grows at least double logarithmically.   For the latter generator, every Cayley transform satisfies the ordinary Kreiss resolvent condition but is neither strongly Kreiss bounded nor power bounded. Moreover, its powers satisfy a doubly logarithmic lower bound. Consequently, the Crank--Nicolson scheme is unstable in operator norm both for every fixed step size over long times and under mesh refinement at any fixed final time.   Our counterexamples are deduced from a common finite-dimensional construction. For $α\\in(0,1)$, we use explicit bases of $\\mathbb{C}^{2n}$ whose partial-sum projections are uniformly bounded and whose unconditionality constants are comparable to $n^α$. The matrices underlying the counterexamples are then obtained as Schauder multipliers with respect to these bases, using a sequence of eigenvalues whose moduli decay doubly exponentially.",
+        "authors": [
+          "Emiel Lorist",
+          "Martin Meyries",
+          "Mark Veraar"
+        ],
+        "published": "2026-08-06T17:01:43Z",
+        "id": "2608.06272v1",
+        "url": "http://arxiv.org/abs/2608.06272v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06272v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI农业"
+      ]
+    },
+    "2608.06258v1": {
+      "paper": {
+        "title": "Approximate Quantum Error Correction at Chiral Topological Edges",
+        "summary": "Topologically ordered phases naturally realize quantum error correction through nonlocal encoding of quantum information. More recently, conformal field theories have been shown to realize approximate quantum error-correcting codes, but such constructions generally require fine tuning to criticality. Here we introduce a family of approximate quantum error-correcting codes realized by the chiral edges of two-dimensional topologically ordered phases. The proposed encoding combines the robustness of a gapped topological bulk with the flexibility of gapless edge conformal field theories. To characterize its robustness, we study coherent-information loss under local erasure. We derive an exact expression relating coherent-information loss to relative entropy, reducing the recoverability problem to universal properties of the edge theory. This leads to power-law scaling of coherent-information loss with the size of the erased region. We further show that, for geometrically local erasures near one edge, the two-dimensional chiral edge code is at least as robust as the dimensionally reduced CFT code, and is strictly more robust in several representative examples. For Abelian code subspaces, we further construct a power-law-range recovery map supported on the erased region together with a power-law-range buffer; this recovery map depends only on the code subspace, not on the unknown encoded state. We provide numerical calculations for lattice realizations of compact free boson and Ising CFT examples that support the theoretical predictions of the power-law exponents.",
+        "authors": [
+          "Yuntai Song",
+          "Zejun Liu",
+          "Zhencheng Wang",
+          "Jong Yeon Lee",
+          "Bowen Shi"
+        ],
+        "published": "2026-08-06T16:48:36Z",
+        "id": "2608.06258v1",
+        "url": "http://arxiv.org/abs/2608.06258v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06258v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI能源与环境"
+      ]
+    },
+    "2608.06261v1": {
+      "paper": {
+        "title": "Game Hopping in Lean",
+        "summary": "We present HOPSCOTCH, a Lean 4 framework for mechanizing computationally sound, game-based cryptographic proofs. Security definitions are expressed as indistinguishability between stateful probabilistic oracles, and proofs follow the standard game-hopping paradigm. HOPSCOTCH uses a shallow embedding: oracles and reductions are ordinary Lean definitions, enabling direct integration with the full Lean ecosystem, including general mathematical theories from Mathlib, such as finite-group theory. A game-hopping proof in HOPSCOTCH is represented as an explicit formal object whose constructors correspond to the standard steps of a game-hopping argument, making proofs easier to construct, automate, and inspect. We prove a general computational soundness theorem that interprets these proof objects by constructing reductions against the assumptions they use and deriving a concrete bound on the advantage of any distinguisher. Observational equivalence between oracles is established using a state-abstraction methodology: a simple yet powerful approach that supports transformations such as adding or forgetting state and replacing eager sampling with lazy sampling. We illustrate the framework with formalized proofs of the IND-CCA security of encrypt-then-MAC, the security of ElGamal encryption from DDH, the implication from one-time secrecy to public-key IND-CPA security, and the GGM pseudorandom-function construction. To the best of our knowledge, the last is the first mechanized proof of GGM for non-constant depth.",
+        "authors": [
+          "Stefan Dziembowski",
+          "Grzegorz Fabiański",
+          "Daniele Micciancio",
+          "Rafał Stefański"
+        ],
+        "published": "2026-08-06T16:52:16Z",
+        "id": "2608.06261v1",
+        "url": "http://arxiv.org/abs/2608.06261v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06261v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06174v1": {
+      "paper": {
+        "title": "Support Operation Factorization: Compositional Readout of Frozen Vision Encoders under Controlled Interventions",
+        "summary": "Compositional analysis of frozen vision encoders should determine both what changed and where it changed. Standard factor probes score these axes separately, however, and can reward multiple operations that reuse the same predicted slot. We call this failure operation laundering. We introduce an injectively aligned leave-one-cell-out protocol over support x operation grids and SO-OPF, a readout that factors cell energy into support salience and a competitive operation posterior. This formulation separates two questions that aggregate scores conflate: whether the carrier composes held-out bindings when the grid is known, and whether that grid can be recovered from flat cell labels. With frozen DINOv3 features, known factorial assignment reaches 0.874 injective accuracy on Shapes3D-Extended and 0.799 on globally image-disjoint COCO; learning the assignment from flat labels reaches 0.769 and 0.762, respectively. Under matched-axis-aware supervision on Shapes3D, the factored carrier improves learned-assignment accuracy from 0.653 to 0.841 over a dense carrier and eliminates its laundering gap. SigLIP2 replicates the COCO separation. A rebuilt MuJoCo substrate exposes a boundary: learned-assignment accuracy is 0.569 with DINOv3 and 0.484 with SigLIP2, with substantial slot collapse. Thus factored readout and injective evaluation recover held-out bindings on two substrates while exposing, rather than hiding, a renderer-specific failure boundary; they do not establish universal recovery from flat labels.",
+        "authors": [
+          "Zhongyao Wang",
+          "Wanli Ouyang",
+          "Taoyong Cui",
+          "Pheng Ann Heng"
+        ],
+        "published": "2026-08-06T15:38:55Z",
+        "id": "2608.06174v1",
+        "url": "http://arxiv.org/abs/2608.06174v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06174v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.06130v1": {
+      "paper": {
+        "title": "Hardware Keystores for AI Agent Signing Workflows: A Zero-Trust MCP Enforcement Architecture",
+        "summary": "AI agents performing cryptographic operations (signing Git commits, authenticating API calls, issuing certificates) currently store private keys in software-accessible locations: plaintext files, environment variables, or container memory. Any process with sufficient read privileges can extract the raw key material. A recent production incident demonstrated the practical severity: private keys were exfiltrated from a widely deployed framework via email injection in under five minutes. We aim to enforce both key confidentiality and content-aware authorisation for key use. To that end, we replace software-resident keys with hardware-confined keys accessible through a vendor-neutral PKCS#11 interface. A hardware keystore (HSM, TPM, smart card) executes cryptographic operations on-device; the host receives only the result via opaque handles. Hardware confinement is the primary contribution; it is enabled by a surrounding five-layer Zero-Trust enforcement stack comprising session identity (SAGA), scope bounds (Smax), semantic validation (RAV), taint tracking, and the hardware execution boundary. We evaluate against 12 injection scenarios derived from AgentDojo's ImportantInstructionsAttack template (Debenedetti et al., arXiv:2406.13352). We run four LLM models; three follow injections in baseline mode (gpt-oss-120b, Qwen2.5-72B, DeepSeek-V4-Flash, n=192 combined). Baseline Attack Success Rate (ASR): 19.3% [14.3%, 25.4%]; protected ASR: 0% (Wilson 95% CI upper bound 2.0%). Zero false positives across four benign task scenarios.",
+        "authors": [
+          "Leo Sambrook",
+          "Sampo Sovio"
+        ],
+        "published": "2026-08-06T15:04:26Z",
+        "id": "2608.06130v1",
+        "url": "http://arxiv.org/abs/2608.06130v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06130v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2608.06127v1": {
+      "paper": {
+        "title": "The Local Sky as an Introductory Solar System Astronomy Laboratory Using Smart-Telescopes",
+        "summary": "Portable smart telescopes can make introductory astronomy more observational, quantitative, and locally grounded by allowing students to acquire, share, and analyze astronomical images within a single class period. This article presents an eight-laboratory sequence for introductory Solar System astronomy using the Seestar S50 smart telescope and archived or student-collected images. The sequence begins with a galaxy-size investigation that introduces pixel scale, angular size, physical size, proportional reasoning, and measurement uncertainty before students apply the same image-to-evidence approach to Solar System objects. Subsequent activities examine the positions and apparent motion of Jupiter's Galilean moons, comparative planetology and telescope limitations, the apparent sizes of Mars, Jupiter, and Saturn, lunar phase and angular diameter, relative lunar surface history through crater-density comparisons, single-session solar activity, and multi-day sunspot tracking to estimate solar rotation. Each investigation follows a 5E-informed structure and produces a focused student product, such as a measurement table, graph, comparison chart, or claim-evidence-reasoning statement. Throughout the sequence, students must define transparent measurement rules, distinguish direct observations from interpretations, and evaluate how image scale, illumination, exposure, seeing, target visibility, and boundary selection constrain their conclusions. The activities are designed for high-school, dual-enrollment, community-college, and introductory university astronomy courses and may be implemented with live observations or prepared image sets when weather, scheduling, or local observing conditions prevent data collection.",
+        "authors": [
+          "Roger M. Hart"
+        ],
+        "published": "2026-08-06T14:59:51Z",
+        "id": "2608.06127v1",
+        "url": "http://arxiv.org/abs/2608.06127v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06127v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2608.06094v1": {
+      "paper": {
+        "title": "Time-Dependent Hamiltonian Simulation with Optimal Query Complexity",
+        "summary": "We give a query-optimal algorithm for simulating a general $n$-qubit time-dependent Hamiltonian $H(t)$ on $[0,T]$, assuming that $H$ is Lipschitz continuous and $\\|H(t)\\|\\leqα$. In the standard $\\mathrm{HAM\\mbox{-}T}$ access model, the algorithm approximates the time-ordered propagator $U_H(T)$ to error $\\varepsilon$ using $$ O\\left(   αT+\\frac{\\log(1/\\varepsilon)}   {\\log(e+\\log(1/\\varepsilon)/(αT))}   \\right) $$ $\\mathrm{HAM\\mbox{-}T}$ queries. This matches the known query lower bound for time-independent Hamiltonians, showing that time dependence incurs no asymptotic query overhead.   Our method first constructs a one-query transducer that, given an auxiliary state, implements an approximation to $U_H(T)$ and returns the state unchanged. A weighted combination of circuits that apply the transducer different numbers of times makes the error caused by omitting this state decay factorially, yielding the stated optimal precision dependence. For time-independent Hamiltonians, the same method also gives a query-optimal alternative to qubitization.",
+        "authors": [
+          "Boyang Chen",
+          "Minbo Gao",
+          "Xinzhao Wang",
+          "Shuo Zhou"
+        ],
+        "published": "2026-08-06T14:35:47Z",
+        "id": "2608.06094v1",
+        "url": "http://arxiv.org/abs/2608.06094v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06094v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.05744v1": {
+      "paper": {
+        "title": "Equipment-centric workpiece localization in near real-time using deep learning-based vision and event-driven finite state machines",
+        "summary": "Continuous workpiece localization is essential for traceability and process coordination in hot forging, but direct tracking is unreliable because of extreme temperatures, surface degradation, and irregular routing. This study presents an equipment-centric framework that infers workpiece locations from handling equipment observed by multiple static 2D cameras. The framework estimates floorplan-space 3D equipment coordinates and recognizes grasp and release activities. Event-driven finite state machines validate these activities as discrete handling events and continuously update workpiece states and locations. A keypoint-guided attention mechanism integrated into a 3D convolutional neural network improves activity recognition by focusing on functionally relevant equipment regions. Evaluation in an operational hot forging factory achieved 100\\% event detection accuracy within a 33-second tolerance window, a mean localization error of 317.8 mm, and a mean system latency of 21 seconds. The framework connects vision-based perception with interpretable event-driven reasoning and supports visualization of workpiece transfers and quantitative analysis of equipment operations.",
+        "authors": [
+          "Dohyeon Kong",
+          "Jaebong Cho",
+          "Hyunbo Cho"
+        ],
+        "published": "2026-08-06T08:27:48Z",
+        "id": "2608.05744v1",
+        "url": "http://arxiv.org/abs/2608.05744v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.05744v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.06277v1": {
+      "paper": {
+        "title": "Holographic entanglement entropy with conformal boundary conditions",
+        "summary": "We study holographic entanglement entropy in 3-dimensional AdS gravity with conformal boundary conditions which fix the conformal class of the boundary metric and its extrinsic curvature, $K$, while leaving the Weyl mode dynamical. Extending Lewkowycz-Maldacena-Dong's replica construction, we derive the corresponding holographic entanglement entropy formula. We show that the fluctuating Weyl mode does not contribute additional entropy. The entropy of the full boundary is therefore the Bekenstein-Hawking entropy, and the entropy of a boundary subregion continues to obey the Ryu-Takayanagi prescription, namely, the area of a minimal surface divided by $4G_N$.   We carry out explicit calculations for global AdS, rotating and non-rotating BTZ geometries. For an interval in AdS$_3$ we find that the $K$-dependent holographic entanglement entropy is governed by $c_m=\\frac{3 \\ell}{2 G_N}.$ For a thermal state at high conformal temperatures we find that, the entropy is governed by $c_{\\rm eff}=\\frac{3 \\ell}{2 G_N} \\frac{K \\ell- \\sqrt{K^2 \\ell^2-4}}{2}$, the same effective central charge that governs the Cardy-like density of states, in agreement with previous results in the literature.   Finally, we also compute the entanglement entropy directly from the conjectured dual boundary theory - a holographic CFT coupled with time-like Liouville theory and deformed by a marginal $T \\bar{T}$ like operator - and find $S_{EE} =\\frac{c_{\\rm eff}}{3} \\ln\\!\\left(\\frac{2 R \\sinφ_0}ε\\right) .$ This result for the state with no operator insertions (vacuum state ), provides an independent boundary realization of $c_{\\mathrm{eff}}$ while clarifying that this state is not the state dual to global AdS.",
+        "authors": [
+          "Elena Cáceres",
+          "Hare Krishna",
+          "Harita Palani Balaji",
+          "Vaishnavi Patil"
+        ],
+        "published": "2026-08-06T17:05:27Z",
+        "id": "2608.06277v1",
+        "url": "http://arxiv.org/abs/2608.06277v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06277v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06230v1": {
+      "paper": {
+        "title": "Neural CRC Prediction for 5G NR URLLC",
+        "summary": "We propose a neural cyclic redundancy check (CRC) predictor for the 5G New Radio (5G NR) physical uplink shared channel (PUSCH) that enables early link-adaptation decisions for Ultra-Reliable Low-Latency Communications (URLLC). The predictor combines a lightweight convolutional neural network (CNN) with a fixed front-end that extracts multi-scale time-frequency energy features from the received signal and least-squares channel estimates. We investigate two complementary front-end realizations - a wavelet scattering front-end built from fixed Gabor filters, and an FFT-based scattering front-end that applies bandpass masks in the frequency domain with geometric scale spacing. Drawing on neural-receiver design principles, the predictor estimates the post-decoding CRC outcome directly from the received resource grid, bypassing the conventional equalization and decoding chain. We further introduce the modulation and coding scheme (MCS) index as an auxiliary conditioning input that adapts the decision boundary to the operating code rate. Experiments on a multi-MCS 5G NR PUSCH dataset show that the hybrid scattering predictors substantially outperform a pure CNN baseline, with MCS conditioning further improving reliability across varying channel conditions. Both front-ends are compatible with GPU-accelerated inference and are lightweight enough to be deployed within a real-time baseband pipeline. We further demonstrate an evidential deep learning extension that quantifies epistemic uncertainty in a single forward pass using a conservative decision rule.",
+        "authors": [
+          "Prashanth Murthy"
+        ],
+        "published": "2026-08-06T16:19:12Z",
+        "id": "2608.06230v1",
+        "url": "http://arxiv.org/abs/2608.06230v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06230v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2608.06244v1": {
+      "paper": {
+        "title": "Isomorphic Emergence of Lorentz and Gauge Symmetries--A Constructive Interpretation Based on Continuum Mechanics",
+        "summary": "Lorentz symmetry and gauge symmetry constitute the mathematical cornerstones of modern physics, yet their ultimate physical origins remain elusive. From the standpoint of a constructive interpretation, this paper demonstrates that both symmetry structures can emerge isomorphically from a unified classical source: dynamical constraints on wave-packet excitations in a continuous elastic substrate medium (SM). Neither symmetry is posited as fundamental, nor does their emergence rely on quantization. Three core results are established. First, taking the transverse wave speed of a homogeneous, isotropic SM as the benchmark under a conventionalist synchronization scheme, Minkowski-type spacetime arises isomorphically, with Lorentz transformations as effective coordinate transformations between inertial frames. This reinterprets the Michelson--Morley null result: observers are composite wave-packet excitations, and medium-induced kinematic corrections are encoded in their measurement frameworks. Second, for wave packets endowed with $SU(N)$ intrinsic symmetry, the requirement of identity invariance drives the SM to spontaneously generate gauge fields. This requires invariant equivalence classes of intrinsic states under propagation, yielding gauge structures isomorphic to Yang-Mills theory. The gauge group $SU(N)$ is uniquely determined by the number of stable normal modes supported by the medium. Third, through the same conventionalist measurement protocols, inhomogeneous distributions of the SM emerge isomorphically as curved spacetime geometry, governed by Einstein-type field equations from variational extremization of the medium's deformation free energy. This paper advances a unified interpretive account of the physical origin underlying the mathematical structures of both Relativity and the Standard Model.",
+        "authors": [
+          "Ke-Xia Jiang"
+        ],
+        "published": "2026-08-06T16:29:48Z",
+        "id": "2608.06244v1",
+        "url": "http://arxiv.org/abs/2608.06244v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06244v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI政务与公共服务",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.06263v1": {
+      "paper": {
+        "title": "Almost sure path localisation for the derivative martingale of branching Brownian motion",
+        "summary": "The evolution of the front of branching Brownian motion is determined by the limit of the derivative martingale. In this work, we characterise which particles contribute to this limit. Precisely, we establish a sharp almost sure path localisation result which shows that the limit is determined by those particles whose trajectory stays within a thin tube at distance $s^{1/2}$ from the extremal particle.",
+        "authors": [
+          "Berestycki Julien",
+          "Chataigner Louis",
+          "Flath Gabriel"
+        ],
+        "published": "2026-08-06T16:54:12Z",
+        "id": "2608.06263v1",
+        "url": "http://arxiv.org/abs/2608.06263v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06263v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.06231v1": {
+      "paper": {
+        "title": "EmoWorld: A Decoupled Affective Field for Controllable Emotional Video Generation",
+        "summary": "Emotion shapes how viewers interpret a scene, yet existing video generators entangle global atmosphere, affect-bearing semantic cues, and temporal progression within a single text condition. We present EmoWorld, a framework that decouples these factors within a frozen flow-matching video diffusion transformer (Video DiT). A one-time preparation stage extracts layer-specific affect directions and a reusable cue library from geometry-preserving neutral and emotion-edited panoramas. At inference, Visual Atmosphere Steering (VAS) injects atmosphere directions into hidden states, Semantic Affective Steering (SAS) isolates a separately scalable prompt residual for semantic cues, and Temporal Affective Steering (TAS) interpolates endpoint residual fields across denoising and video time. On Wan2.2, VAS improves target-emotion alignment by 19% while reducing a temporal-fluctuation proxy by 48%; SAS improves target-emotion alignment by 37% and increases detected affect-bearing cues by 36%; and TAS improves transition monotonicity by 15% over the strongest baseline. EmoWorld is evaluated across 27 emotion categories in text-to-video and image-to-video settings, demonstrates portability across multiple Video-DiT backbones, and supports camera-conditioned composition without updating generator parameters.",
+        "authors": [
+          "Bingyuan Wang",
+          "Baistan Zhyldyzbekov",
+          "Kunyu Feng",
+          "Zeyu Wang"
+        ],
+        "published": "2026-08-06T16:20:23Z",
+        "id": "2608.06231v1",
+        "url": "http://arxiv.org/abs/2608.06231v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.06231v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.05572v1": {
+      "paper": {
+        "title": "Viveka: Context-Aware Sensing for Energy Efficiency in Smart Wearables",
+        "summary": "The proliferation of multi-sensor Internet of Things (IoT) systems, from Body Sensor Networks (BSNs) to industrial monitoring, is increasingly constrained by strict energy budgets and limited on-device storage. Continuous high-fidelity sensing leads to rapid battery depletion and data gaps that compromise application reliability. Existing strategies address this through sensor selection or adaptive sampling in isolation, or rely on computationally expensive agents for joint optimization. They lack context granularity or introduce significant overhead, and critically, they do not account for the risk that an aggressive, context-specific sensing policy applied to a misidentified context degrades accuracy. In this paper, we formulate joint sensor and sampling-rate selection as an NP-hard energy-minimization problem and propose Viveka, a lightweight, context-aware framework. Viveka couples a cheap, always-on controller that estimates context and how much to trust that estimate with a stability and confidence gated policy that applies an aggressive per-context configuration only when context is certain, and falls back safely otherwise. Per-context configurations are instantiated using permutation feature importance and spectral energy analysis. Evaluation on the MHEALTH and PAMAP2 datasets shows that Viveka achieves up to 75% energy savings and 78% data reduction over standard baselines in a best-case configuration, while maintaining classification accuracy within 3-5% of the baselines.",
+        "authors": [
+          "Nikhil Sreekumar",
+          "Abhishek Chandra"
+        ],
+        "published": "2026-08-06T03:47:15Z",
+        "id": "2608.05572v1",
+        "url": "http://arxiv.org/abs/2608.05572v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.05572v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.05495v1": {
+      "paper": {
+        "title": "PromptShield Home: Ambient Multimodal Prompt Injection Defense for Smart-Home Agents",
+        "summary": "Smart-home assistants increasingly use multimodal large language models (MLLMs) that perceive video and audio directly. This raises a safety question specific to the home: can the agent tell a genuine user command from ambient or externally-sourced content, television speech, on-screen text, or an overheard conversation, that merely looks like a command? We introduce PromptShield-Home, a pilot benchmark of realistic smart-home scenarios spanning addressee ambiguity, screen/audio injection, health-monitor false triggers, mixed occupancy, and a legitimate-command floor, and use it to compare three abstraction layers: traditional detectors (L0), a single MLLM agent (L1; vision, vision+ASR, and audio-visual), and multi-agent mediation (L2; voting, role specialists, cross-model arbitration). Because the label distribution is skewed toward inaction, aggregate accuracy is misleading, a constant always-block predictor scores 82%, so we report unsafe-execution and safe-completion rates separately. The two paradigms fail in opposite ways: detectors act on everything, while every MLLM configuration over-refuses, completing almost no genuine command and missing a true fall in every case. Crucially, their correct sets are disjoint: an oracle that always picks the right layer reaches 94.1%, against 76.5% for the best single layer. We report this as an upper bound, not a system - no router is implemented - and argue that home-agent safety is best served by learned routing and sensor fusion, not by replacing detectors with an MLLM.",
+        "authors": [
+          "He Zhang",
+          "Feilong Li",
+          "Dingning Long",
+          "Yilin Cui",
+          "Peijun Zhang",
+          "Yuewen Zhang",
+          "Qianyao Xu",
+          "Xinyi Fu"
+        ],
+        "published": "2026-08-06T00:51:46Z",
+        "id": "2608.05495v1",
+        "url": "http://arxiv.org/abs/2608.05495v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.05495v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.05356v1": {
+      "paper": {
+        "title": "LoDA: A Level of Detection Aware Method and a Multimodal Sensing Benchmark for Object Level Change Detection",
+        "summary": "High-definition 3D LiDAR maps are important for autonomous driving and smart-city services, which require reliable detection of object-level changes in multi-temporal urban LiDAR to keep digital maps aligned with the physical world. Existing approaches from raster height differencing to depth image and point-cloud networks often remain tile-based and threshold-driven, yielding per-point scores without explicit detection limits or consistent object-level labels. We propose an object-level 3D change-detection pipeline that integrates detection-limit-aware registration, geometry-driven object proxies with rule-based semantic and instance segmentation, and displacement cues in height, volume, and surface-normal direction to assign five change labels with confidence. By decoupling registration, geometry, and semantics, the pipeline propagates pose uncertainty into spatially varying detection limits, stabilizes cross-epoch correspondences, and suppresses false changes caused by residual misalignment and density variation. We also present LoDA, a level-of-detection (LoD) aware benchmark for the Subiaco district with fused multi-temporal vehicle-LiDAR maps constructed with LiDAR, GNSS, and IMU support, semantic instances, and object-level annotations. On this benchmark, our method achieves 95.0% accuracy, 90.8% macro F1, and 83.0% macro IoU, exceeding the best baseline by 8.7 IoU points and 4.4 F1 points. On the public Urb3DCD-V2 benchmark evaluated under the official point-wise protocol, it reaches 96.81% mean accuracy and 89.52% mean change IoU, improving over the strongest reported baselines by 1.36 points in mAcc and 3.18 points in mIoUch.",
+        "authors": [
+          "Haitian Wang",
+          "Xinyu Wang",
+          "Sheldon Fung",
+          "Xian Zhang",
+          "Zichen Geng"
+        ],
+        "published": "2026-08-05T19:27:58Z",
+        "id": "2608.05356v1",
+        "url": "http://arxiv.org/abs/2608.05356v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.05356v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    }
+  }
+}

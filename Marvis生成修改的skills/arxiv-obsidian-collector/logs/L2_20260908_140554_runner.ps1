@@ -1,0 +1,1 @@
+﻿Set-Location C:\Users\AaronMY\.minimax\skills\arxiv-obsidian-collector; $env:MINIMAX_M3_API_KEY = [System.Environment]::GetEnvironmentVariable('MINIMAX_M3_API_KEY','User'); python -u scripts\pipeline.py --layer L2 --config config.yaml 2>&1 | Tee-Object -FilePath logs\L2_20260908_140554.log

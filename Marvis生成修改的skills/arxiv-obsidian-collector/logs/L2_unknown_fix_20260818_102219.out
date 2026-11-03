@@ -1,0 +1,722 @@
+
+=================================================================
+🚀 arXiv to Obsidian — AI 论文周报收集器
+📅 日期: 2026-08-18  |  层: 第二层-大模型基底层  |  窗口: 7 天
+🗂️   Vault: F:\移动云盘同步盘\30AI技术知识树\arxivForAI
+⭐ 评分阈值: 5.0  (0 = 不过滤)
+🤖 模型: m3 @ https://api.minimaxi.com/anthropic
+=================================================================
+
+📥 Pass 1: 收集 + 全局去重...
+  📂 命中 arXiv 搜索缓存: 114 篇 ← .arxiv_pass1_第二层-大模型基底层_2026-08-18.json
+
+  📊 去重后待处理: 105 篇 (arXiv 搜索去重后 114 篇,跨分类命中合计 269 次 → 节省 155 次冗余评估)
+
+📝 Pass 2: 评分 + 写笔记(每篇只写一次)...
+
+  [1/105] Blazar Boosted Dark Matter in IceCube...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 模型训练原理, 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, 多模态大模型, 视觉理解与生成, 语音与音频大模型, 世界模型, 大模型推理能力, AGI, Embedding与表示学习, 向量数据库与检索, LLM大模型测试, AI安全与对齐测试, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [medium]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Blazar Boosted Dark Matter in IceCube.md
+
+  [2/105] Forging Self-Funded Marketplaces among Strategic Agents...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 模型训练原理, 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, 多模态大模型, 视觉理解与生成, 语音与音频大模型, 世界模型, 大模型推理能力, AGI, Embedding与表示学习, 向量数据库与检索, LLM大模型测试, AI安全与对齐测试, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [3/105] Cosmic Ray Diffusion and the Origin of Very High Energy Ga...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 模型训练原理, 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, 多模态大模型, 视觉理解与生成, 语音与音频大模型, 世界模型, 大模型推理能力, AGI, Embedding与表示学习, 向量数据库与检索, LLM大模型测试, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [4/105] CPI-Bench: A Comprehensive,Practical and Intelligent Bench...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 模型训练原理, 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, 多模态大模型, 视觉理解与生成, 语音与音频大模型, 世界模型, 大模型推理能力, AGI, Embedding与表示学习, LLM大模型测试, AI安全与对齐测试, AI系统基准测试 → 进 frontmatter tags
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.0/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: CPI-Bench A Comprehensive,Practical and Intelligent Benchmark for Real-World Image Editing.md
+
+  [5/105] Compressive Domains and a Bound for the Number of Componen...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [6/105] GPU implementation of mixed quantum-classical Liouville mo...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [average_to_below]
+    🚫 低于阈值 5.0,跳过(原创性不足:核心算法(momentum-jump-free QCL Liouville)来自既有理论[22,23],本文工作本质上是一次GPU移植/工程优化,非新方法或新视角; 方法贡献有限:去除trajectory spawning以适配GPU架构,这本身是对原有CPU方法的简化而非增强;论证为何该简化在物理/统计上可接受的工作不够充分)
+
+  [7/105] MagnifiQ: Patch-aware Text Guided Progressive Upscaling fo...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 模型训练原理, 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, 多模态大模型, 视觉理解与生成, 语音与音频大模型, 世界模型, 大模型推理能力, Embedding与表示学习, 向量数据库与检索, LLM大模型测试, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [8/105] Generation-Powered Inference for Distribution-Valued Outco...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, AGI, Embedding与表示学习, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [9/105] Building a Quantum Black Hole Microstate: A Bulk Path Inte...
+    🗂️  主分类: 第二层-大模型基底层/持续学习与遗忘
+    🏷️  同时命中: AGI → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [10/105] Decoding the Past: An Uncertainty-Aware Deep Learning Fram...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 模型训练原理, 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, 视觉理解与生成, 语音与音频大模型, AGI, Embedding与表示学习, AI安全与对齐测试, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(方法本质上是 EfficientNet-B3 + MobileViT-S + UMAP + LayerCAM 的工程拼装,所有组件均为既有工作,缺乏算法层面的原创贡献,12 个剪影变体的'不确定性建模'更像是数据增广而非真正的概率推断; 训练数据为 14,036 张现代人手照片,目标是推断史前洞穴手印性别,但论文未提供任何针对古今群体差异的校正或迁移分析,跨群体泛化的核心论证薄弱,所谓'三角验证'本质上是看模型内部是否自洽,而非真正验证结论可靠性)
+
+  [11/105] Vector-Like Fermions at FCC-ee: NLO Higgs-Strahlung Signat...
+    🗂️  主分类: 第二层-大模型基底层/向量数据库与检索
+    🏷️  同时命中: LLM大模型测试, AI系统基准测试 → 进 frontmatter tags
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 6.5/10 [medium_quality]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Vector-Like Fermions at FCC-ee NLO Higgs-Strahlung Signatures and Constraints.md
+
+  [12/105] Mixed identities for simple locally finite groups...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [13/105] Joint Estimation of Sparse Multilayer Networks via Graph L...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 大模型量化与压缩, 预训练数据工程, 向量数据库与检索 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [14/105] ATLAS. IV. A JWST+MUSE Demographic Study of Ly$α$ Profiles...
+    🗂️  主分类: 第二层-大模型基底层/AI安全与对齐测试
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [15/105] Finding Vulnerabilities via LLM-Augmented Semantics-Aware ...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    🏷️  同时命中: 大模型量化与压缩, 预训练数据工程, 持续学习与遗忘, 语音与音频大模型, 大模型推理能力, AGI, 向量数据库与检索, LLM大模型测试, AI安全与对齐测试, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [16/105] Trust Without Boundaries: An Architectural Analysis of Sat...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [17/105] Spatiotemporal Tube-Based Safety-Certificate for Autonomou...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(原创性不足:spatiotemporal tube-based 安全证书思路在 control/CBF 社区已有相关工作(如 tube MPC、funnel-based planning[13]),本文只是把已有思路套到 truck-trailer 上,缺乏新方法论贡献; 实证强度弱:仅在仿真中验证一个复杂路径,没有与 SOTA 规划器(RRT*、MPC、CBF 等)的定量对比,也没有硬件实验)
+
+  [18/105] Marionette: Predicting World States, Rendering Geometry, P...
+    🗂️  主分类: 第二层-大模型基底层/视觉理解与生成
+    🏷️  同时命中: 语音与音频大模型, AGI, AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [19/105] Handover of In-Context Learning State Across Session Bound...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 持续学习与遗忘, Embedding与表示学习 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [20/105] Validating LLM-Modernized Scientific Software Through Diff...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 模型训练原理, 语音与音频大模型, 大模型推理能力, LLM大模型测试, AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [21/105] Gradient Gibbs measures with non-convex potentials and the...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    🏷️  同时命中: Embedding与表示学习 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [22/105] On quantitative sufficient second-order optimality conditi...
+    🗂️  主分类: 第二层-大模型基底层/预训练数据工程
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [23/105] The inverse Galois problem of iterated Galois groups and t...
+    🗂️  主分类: 第二层-大模型基底层/Embedding与表示学习
+    🏷️  同时命中: 向量数据库与检索, LLM大模型测试 → 进 frontmatter tags
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟢 7.5/10 [high_quality]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: The inverse Galois problem of iterated Galois groups and their fixed-point proportion.md
+
+  [24/105] The Okinawa Lectures on Entropy...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    🏷️  同时命中: LLM大模型测试, AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(本工作为讲义/综述性质的课程材料,以统一视角梳理经典与量子熵、大偏差理论与 von Neumann 代数,未提出原创方法或新定理,原创性贡献极低,上限 5 分; 摘要宣称讨论大偏差、Tomita–Takesaki 理论、Haagerup L^p 空间、Connes–Stormer–Narnhofer–Thirring 熵等,但实际内容均为已有结果的整合与重新阐述,缺乏新视角)
+
+  [25/105] Participatory Moral AI Is Not Neutral: The Invisible Hand ...
+    🗂️  主分类: 第二层-大模型基底层/AGI
+    🏷️  同时命中: AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [26/105] Comment on arXiv:2106.08363v3 [math.NA], E. Abreu, A. Espi...
+    🗂️  主分类: 第二层-大模型基底层/Embedding与表示学习
+    🏷️  同时命中: 向量数据库与检索 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [27/105] Perfect Divisibility, Linear Divisibility and Chair-Free G...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [28/105] Hydrogen Engulfment into Sub-Neptune Cores through Magma O...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [29/105] Singer-Informed Vocal Source Separation for Multi-Singer M...
+    🗂️  主分类: 第二层-大模型基底层/预训练数据工程
+    🏷️  同时命中: 持续学习与遗忘, 语音与音频大模型, AGI, Embedding与表示学习, 向量数据库与检索 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [30/105] Visualizing Uncertainty in Non-linear Projections with Ens...
+    🗂️  主分类: 第二层-大模型基底层/预训练数据工程
+    🏷️  同时命中: 视觉理解与生成, Embedding与表示学习, 向量数据库与检索 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [31/105] Towards a Non-Perturbative Classical Double Copy...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [32/105] Learning-to-Transition for Large-scale and High-Order MIMO...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 大模型量化与压缩, 持续学习与遗忘, AGI, Embedding与表示学习, 向量数据库与检索 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [33/105] Split the Labor: Separating Evidence Interpretation from D...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [34/105] Universal Volume Growth Bounds from Positive Intermediate ...
+    🗂️  主分类: 第二层-大模型基底层/AGI
+    🏷️  同时命中: AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [35/105] Nodal discontinuous Galerkin methods for non-ideal equatio...
+    🗂️  主分类: 第二层-大模型基底层/向量数据库与检索
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [36/105] RecipeNet: A Hierarchical Transformer for Recipe Data...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: 预训练数据工程, 语音与音频大模型, Embedding与表示学习 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(方法上是将 step 内 field 做 Transformer、step 间再做 Transformer 的两层堆叠,本质上是把文档级层次化 Transformer (如 HAN、HG-Transformer) 直接套到 recipe 数据上,缺乏针对 recipe 数据异构字段、数值/类别混合特点的针对性设计,跨领域套用痕迹明显,扣 2 分; 摘要声称 outperforms existing tabular models,但 PDF 节选未给出任何 baseline 名称、数据集规模、任务定义、量化指标或显著性检验,实证强度无法评估,仅凭 5 页篇幅和一个未展示的实验表难以判定结论可靠)
+
+  [37/105] RegRole: Regularized Role Detection and Prediction in Temp...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    🏷️  同时命中: LLM大模型测试, AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(时间正则化NMF用于角色检测属于经典方法的自然扩展，原创性有限; 未提供与最新SOTA方法对比，仅与少量基线比较)
+
+  [38/105] Universal Thermodynamic Interatomic Potentials for Crystal...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    🏷️  同时命中: 视觉理解与生成, AGI, AI系统基准测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [39/105] Ex-ante versus Ex-post: Egalitarian Facility Location Mech...
+    🗂️  主分类: 第二层-大模型基底层/向量数据库与检索
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [40/105] Rollplex: Cross-Phase GPU Spatial Sharing for Vision Langu...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    🏷️  同时命中: 视觉理解与生成, 大模型推理能力, Embedding与表示学习 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [41/105] Generating Benchmark Health Data Using a Tabular Diffusion...
+    🗂️  主分类: 第二层-大模型基底层/Embedding与表示学习
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(核心思路('先把异构表压缩为统计量表→扩散Transformer生成→用Gaussian+逆变换重构')是工程管线拼装,统计量级上的生成本质上是降维版的原表生成,创新性有限; 扩散Transformer本身已是成熟组件(DiT),将其应用于统计量矩阵属于跨域直接套用,缺乏对扩散模型为何在统计量空间更优的理论解释)
+
+  [42/105] Approximate Muon with low-rank adapters...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    🏷️  同时命中: 大模型推理能力, 向量数据库与检索 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [43/105] Twin: Playing an Unknown Game with a Test-Time Digital Twi...
+    🗂️  主分类: 第二层-大模型基底层/LLM大模型测试
+    🏷️  同时命中: AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [44/105] Isomorphism of tournaments with bounded VC dimension...
+    🗂️  主分类: 第二层-大模型基底层/AI安全与对齐测试
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [45/105] Ensuring Safe Physical AI in Urban Mobility via Hazard-Inf...
+    🗂️  主分类: 第二层-大模型基底层/AGI
+    🏷️  同时命中: AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_originality_or_weak_empirics]
+    🚫 低于阈值 5.0,跳过(仅有 4 页节选可见,从内容看是以 STPA / hazard analysis + safety envelope 的既有概念(引用 [6],[14])进行跨层叙述包装,缺乏可验证的新方法; 摘要与引言只描述愿景性 'framework',没有给出算法、形式化定义、可量化指标或实验设置,实证强度几乎为零)
+
+  [46/105] Linear response across interaction regimes in two-dimensio...
+    🗂️  主分类: 第二层-大模型基底层/视觉理解与生成
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [47/105] Finite Gaussian Reconstruction of Polynomial Orbits: From ...
+    🗂️  主分类: 第二层-大模型基底层/向量数据库与检索
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [48/105] OH Line Detections in Southern Galaxies of the IRAS Revise...
+    🗂️  主分类: 第二层-大模型基底层/Embedding与表示学习
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [49/105] Expected Free Energy-based Informative Path Planning for R...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [50/105] You Only Pass Once: Answering and Abstaining Together in a...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    🏷️  同时命中: 大模型推理能力 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [51/105] Individual Rationality in Constrained Hedonic Games: Frien...
+    🗂️  主分类: 第二层-大模型基底层/视觉理解与生成
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [52/105] Learning Spin Hamiltonians from Terahertz Two-Dimensional ...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    🏷️  同时命中: 大模型推理能力 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [53/105] Information Satisfaction: A Reader-Centered Axis for Summa...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    🏷️  同时命中: AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [54/105] Shift Aware Transfer Learning with Adaptive Dual-Encoder F...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    🏷️  同时命中: 大模型量化与压缩 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.0/10 [below_average]
+    🚫 低于阈值 5.0,跳过(方法上属于将标准迁移学习/双编码器范式套用到 PM2.5 预测任务,缺乏新方法或新理论洞察,原创性显著不足; 实验仅在台湾 77 个站点一种目标域做评估,未与领域内 SOTA(如 Informer、Transformer-based 时序模型、专门 CTM 数据融合方法)进行充分对比,改进幅度仅 4-7%,实证说服力有限)
+
+  [55/105] SheetCompass: Hierarchical Relation Graphs for Agentic Spr...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    🏷️  同时命中: AI安全与对齐测试 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [56/105] The Phase Space of Gravity on Null Hypersurfaces...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [57/105] Wyvern: An Agentic Framework for Generating Grounded Multi...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    🏷️  同时命中: 视觉理解与生成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(原创性有限:多Agent框架+web搜索+多模态报告生成的思路属于已有工作(如STORM、AutoSurvey等)的直接套用,核心组件无明显新意; 实验严重不足:仅做小规模人类评价(未报告评分人数、统计检验、评估者间一致性)和单一任务场景,缺乏在多个领域、多查询上的系统评估,无法证明方法泛化性)
+
+  [58/105] Intersection numbers for designs in regular semilattices...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [59/105] Style or Signature? Artist-Disjoint Evaluation of Style Cl...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [60/105] Nearly balanced spanning subdivisions in dense digraphs...
+    🗂️  主分类: 第二层-大模型基底层/Embedding与表示学习
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [61/105] PriCoRec: A Privacy-Aware Cloud-Device Collaborative Frame...
+    🗂️  主分类: 第二层-大模型基底层/Embedding与表示学习
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [average]
+    🚫 低于阈值 5.0,跳过(架构为 cloud pre-ranking + on-device re-ranking 的两阶段级联,思路属于业界既有范式(类似 Google 的 On-Device Ranking、阿里 EdgeRec),并无显著新意,多样性正则和云引导训练也是常用技巧,原创性有限; 仅给出 PDF 前 4 页,无法判断实验规模、baseline 选择是否覆盖 SOTA(如 DIN、DIEN、DCN-V2、AutoInt)、是否在公开/工业数据集上做对比,实证强度难以评估;摘要仅笼统说 strong performance,缺乏具体数字)
+
+  [62/105] Large-scale workflow placement in serverless computing usi...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(工作流放置问题本身是经典运筹/调度问题,建模为INP并无明显方法论新意,创新性有限; 仅与a simple deployment heuristic对比(10% improvement),缺少与现有ILP/MIP求解器或SOTA启发式/Learning-based方法的严格baseline对比)
+
+  [63/105] The Dynamics of Intelligence Explosions...
+    🗂️  主分类: 第二层-大模型基底层/AGI
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [一般]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: The Dynamics of Intelligence Explosions.md
+
+  [64/105] CRAFT: Constrained Reward via Attention Fine-Tuning for Su...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [65/105] Weakly Supervised Polar Low Segmentation in Sentinel-1 SAR...
+    🗂️  主分类: 第二层-大模型基底层/Embedding与表示学习
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [66/105] Non-Parametric Spatiotemporal Trajectory Prediction via St...
+    🗂️  主分类: 第二层-大模型基底层/持续学习与遗忘
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [67/105] Intelligent Detection of Mechanical, Electrical, and Plumb...
+    🗂️  主分类: 第二层-大模型基底层/视觉理解与生成
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.0/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(方法上直接套用 Mask R-CNN 这一已有开源模型,没有针对 floor plan 符号检测提出任何新的网络结构、损失函数或训练策略,原创性极低; 实验仅报告一个数据集(且为私有数据集,未公开)上的 mAP 数值,缺少与 SOTA 方法(如专门针对 floor plan 的 CNN/Transformer 模型)的对比,缺乏 ablation,实证强度不足)
+
+  [68/105] Envs-FORGE: Frontier-Optimized Reward-Grounded Environment...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Envs-FORGE Frontier-Optimized Reward-Grounded Environment Synthesis for Agent RL.md
+
+  [69/105] Spatial Message Passing in Language Space for Pathology Im...
+    🗂️  主分类: 第二层-大模型基底层/视觉理解与生成
+    📥 下载 PDF...
+    ❌ 下载 PDF 失败: ('Connection broken: IncompleteRead(2440798 bytes read, 3468464 more expected)', IncompleteRead(2440798 bytes read, 3468464 more expected))
+
+  [70/105] Sensor-Driven Mission Synthesis for UAV/UGV Swarms: A TB-C...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(原创性不足:核心组件(TB-CSPN、顾问-监督者代理、两层安全架构)均为作者前期工作的延伸,所谓'Guarded Swarms'架构在引用文献[2]中已提出,本文增量贡献模糊; 实证强度极弱:仅有一个'coastal-surveillance case study'的概念性描述,无定量实验、无与基线/SOTA对比、无消融、无性能指标)
+
+  [71/105] Seeing Red, Thinking Bad: Color Bias in Vision Language Mo...
+    🗂️  主分类: 第二层-大模型基底层/视觉理解与生成
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [72/105] SymQuPS: Symbolic Quantum Phase Space Algebra in Python...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(原创性偏弱:本文本质是一个基于 SymPy 的软件包,核心算法(Bopp shift、star product、Lindblad 相空间表示)均为已有理论的直接实现,缺乏方法层面的新贡献; 分类标注可疑:论文被归入'大模型量化与压缩',与量子相空间代数完全无关,体现元信息混乱)
+
+  [73/105] Personalized Digital Semantic Communication for Image Tran...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [74/105] AT-ADD: All-Type Audio Deepfake Detection Challenge Summar...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [marginal]
+    🚫 低于阈值 5.0,跳过(本质是 challenge summary/workshop report,缺乏新方法或新视角,原创性贡献极低; 仅 5 页篇幅,缺少系统的 ablation、深入的理论分析与对失败案例的细致归因,实证呈现浅层)
+
+  [75/105] The More Popular, The Harder to Forget: Adaptive Popularit...
+    🗂️  主分类: 第二层-大模型基底层/持续学习与遗忘
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [76/105] MazeRunner: Nonlinear Task and Clue Orchestration for LLM-...
+    🗂️  主分类: 第二层-大模型基底层/持续学习与遗忘
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [77/105] KV Cache Compression Through the Lens of Transform Coding...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [78/105] The Organization of Environmental Coupling Shapes What Qua...
+    🗂️  主分类: 第二层-大模型基底层/持续学习与遗忘
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [79/105] Towards Efficient Multimodal and Multilingual Opinion Extr...
+    🗂️  主分类: 第二层-大模型基底层/大模型量化与压缩
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(原创性极低:核心方法是对 VideoLLaMA2/2.1 套用 QLoRA 微调,属于成熟 PEFT 技术的直接应用,没有方法论层面的新贡献; 图像增强的'视觉证据作为文本判断锚点'的思路缺乏机制解释,仅作为输入拼接,理论贡献模糊)
+
+  [80/105] CSG-Mamba: A Convolutional Scoring Gating Vision State Spa...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.0/10 [low_originality_weak_empirics]
+    🚫 低于阈值 5.0,跳过(原创性不足:在 VM-UNet 骨架的 bottleneck 插入一个 pointwise + large-kernel depthwise conv + gating 的模块,本质是 SE/CBAM 风格的通道-空间注意力变体,既无新的 SSM 机制,也未对 Vision Mamba 的扫描序列问题给出根本性解法,只是用卷积在末端做局部修补; 实证强度薄弱:仅在 Kvasir-SEG 和 CVC-ColonDB 两个老旧小型息肉数据集上报告三粒种子的均值,缺乏与 PolypGen、EtiC、AutoPolyp、Kvasir-SEG 的最新 SOTA(如 HSNet、SSFormer、PVTv2-based、PolypDiT 等)的 head-to-head 对比,HD95 在 Kvasir 上 15.87 远高于当前 SOTA(普遍 <8),指标竞争力存疑)
+
+  [81/105] Content Based Video Narration of Gameplay with Vision Lang...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(原创性有限:三个核心机制(帧采样拼图/上下文提示/时长约束)均为常见trick的工程拼装,无方法论层面新贡献; 实证严重不足:仅有一个定性案例研究,无定量实验、无用户研究、无与SOTA对比,定量评估被推迟到'future full version')
+
+  [82/105] Batch-wise Adaptive Pruning: Periodic Neuron Activation-Aw...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [83/105] BICPO-VLA: Behavior-Identified Continuation Preference Opt...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    [WARN] 评分失败 [2608.13924v1]: 无法从 LLM 输出解析 JSON: {"score": 4.5, "category": "below_average", "reasons": ["组件拼凑感强,无显著新方法,各模块均见成熟方案", "前4页无任何实验数据,无法评估实证强度", "多处引用作者同名2026文献,可信度存疑", "摘要冗长且概念新造多,清晰度一般"], "tl_dr": 针对VLA异步控制的request-to-handoff间隙,提出行为识别+Ha...
+    🟡 5.0/10 [unknown]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: BICPO-VLA Behavior-Identified Continuation Preference Optimization for Smooth Asynchronous Vision-La.md
+
+  [84/105] VoiceChat-TTS: A Low-Latency Continuous Speech Synthesis M...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [85/105] Dynamic Physical Hedging amid Jump Losses, Reconstruction-...
+    🗂️  主分类: 第二层-大模型基底层/持续学习与遗忘
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [86/105] Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Ob...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [87/105] Who Speaks Matters: Authority-Aware Multi-View RAG over It...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [88/105] Rules or Character? Scaling Laws for AI Safety Design...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(核心贡献仅为一个高度简化的单参数资源分配比较静力学模型(α∈[0,1]),将复杂的AI安全设计压缩为一个标量参数,模型假设过于武断且缺乏对真实系统(如RLHF或安全分类器)机制的映射,原创性有限; 实验为三场景Monte Carlo模拟,使用自行假设的Pareto损伤模型和未经验证的参数,未与任何实际AI安全系统或真实数据进行对比,亦无消融或敏感性的系统验证,实证强度极弱)
+
+  [89/105] LongEarth-R1: Benchmarking and Aligning Vision-Language Mo...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [90/105] Reasoning for Social Audio-Visual Question Answering: Wher...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [91/105] TsuGO: Probing Search Efficiency in LLM Reasoning via Go L...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [92/105] Towards Physics-Faithful Generation of Scientific Diagrams...
+    🗂️  主分类: 第二层-大模型基底层/大模型推理能力
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [93/105] EEG-PRIME: Prototype-Aligned Representation Learning with ...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: EEG-PRIME Prototype-Aligned Representation Learning with Multi-Level Conditioning for EEG Decoding.md
+
+  [94/105] Behavioral Reprogramming of Open-Weights Models: Cognitive...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.0/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(核心贡献仅为在受限HPC预算下对LoRA rank和epoch的常规超参扫描(LoRA rank=16、epoch∈[2,3]、405 jobs),缺乏任何方法论层面的原创性,完全是已有PEFT实践的复现与包装; 所谓'cognitive plasticity'和'behavioral reprogramming'的术语包装掩盖了本质——对一个开源模型做LoRA微调+DPO,未提出新算法、新理论框架或新评测范式)
+
+  [95/105] VoxAudio: Vocalized Audio Synthesis via Multi-Reward Autor...
+    🗂️  主分类: 第二层-大模型基底层/语音与音频大模型
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    [WARN] 评分失败 [2608.12951v1]: 无法从 LLM 输出解析 JSON: {"score": 6.5, "category": "average", "reasons": ["架构与NFT组合有工程创新,但核心组件均借用现有方法,组合层面原创性有限", "提出新任务vocalized audio synthesis并配套数据集与评测,具数据贡献", "仅凭PDF前4页无法判断实验与ablation是否扎实,需全文验证", "未提供理论分析或局限性讨论,严谨性无法从节选判...
+    🟡 5.0/10 [unknown]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: VoxAudio Vocalized Audio Synthesis via Multi-Reward Autoregressive Flow Matching.md
+
+  [96/105] A Comprehensive Empirical Evaluation of Vector Database Sy...
+    🗂️  主分类: 第二层-大模型基底层/向量数据库与检索
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [weak_empirical_benchmark]
+    🚫 低于阈值 5.0,跳过(原创性显著不足:向量数据库横向对比/benchmark是已被多次发表过的成熟范式(ANN-Benchmarks、BigANN-Bench、VectorDBBench等),本文只是又跑了一轮,缺乏新的方法论视角或新指标体系; 七个系统、六数据集、四百万向量、十五指标的规模与近年同类工作相比偏小(如ANN-Benchmarks覆盖更多算法与更大规模),'综合'二字名不副实)
+
+  [97/105] How to Spend Your Oracle Budget: Practical Guidance for Pr...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 6.0/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: How to Spend Your Oracle Budget Practical Guidance for Protein Structure Prediction Models.md
+
+  [98/105] Context Blindness in DPO: Mitigating Object Hallucination ...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [99/105] RT-SEMamba: Real-Time Speech Enhancement Mamba via Progres...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [100/105] Preference Tree Optimization: Enhancing Goal-Oriented Dial...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Preference Tree Optimization Enhancing Goal-Oriented Dialogue with Look-Ahead Simulations.md
+
+  [101/105] HarmoniDPO: Video-guided Audio Generation via Preference-O...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.0/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: HarmoniDPO Video-guided Audio Generation via Preference-Optimized Diffusion.md
+
+  [102/105] Scheduling Mixed RL Rollouts Beyond Prefix Locality...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [103/105] Self-Knowledge Retrieval Augmented Generation Framework fo...
+    🗂️  主分类: 第二层-大模型基底层/向量数据库与检索
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [104/105] Agent Safety Should Be a Runtime Contract...
+    🗂️  主分类: 第二层-大模型基底层/模型训练原理
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [105/105] Secure Cooperative THz ISAC via Mamba Empowered Graph Neur...
+    🗂️  主分类: 第二层-大模型基底层/Transformer架构与改进
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(GNN+Mamba在ISAC属于热点拼凑,缺乏架构创新; 缺少与GLOBECOM版本相比的增量说明)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (6 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (4 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (2 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (4 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (3 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-18.json (1 篇)
+
+=================================================================
+🎉 流水线完成
+   📥 下载 PDF: 10 篇
+   ⭐ 保留入库: 12 篇  (score ≥ 5.0)
+   🚫 过滤: 23 篇
+   🧹 跨分类去重清理: 0 个旧文件
+   🗂️   Vault: F:\移动云盘同步盘\30AI技术知识树\arxivForAI
+=================================================================

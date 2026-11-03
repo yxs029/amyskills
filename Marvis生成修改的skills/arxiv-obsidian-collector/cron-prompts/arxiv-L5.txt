@@ -1,0 +1,9 @@
+Run arxiv-obsidian-collector LAYER=L5.
+
+Direct command (no interactive):
+cd /d "C:\Users\AaronMY\.mavis\skills\arxiv-obsidian-collector" && python scripts\pipeline.py --layer L5 --config config.yaml
+
+Then send a one-line summary like:
+"L5 done: N categories, M papers imported, K papers filtered. <errors if any>"
+
+If you hit any error, paste the raw error log into your reply.

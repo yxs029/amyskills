@@ -1,0 +1,12 @@
+﻿# L4 2026-08-13 run aborted
+
+- Started: 2026-08-13 09:00:46
+- Killed: 2026-08-13 09:21:18
+- PID: 29448
+- Duration: ~24 min
+- Reason: arXiv API instability — repeated HTTP 429 (rate limit) and 30s timeouts via proxy 7892
+- Result: 0 papers (pass1 not written, no PDFs downloaded, no MDs generated)
+- Compare: 2026-08-06 successful run took ~11 min for pass1 (53 candidates → 9 kept + 5 rejected)
+- Pipeline log: logs/L4_20260813_090040.log (empty due to stdout buffering)
+- Pipeline err: logs/L4_20260813_090040.err (empty, no exceptions raised)
+- Next step: retry L4 manually when arXiv is stable (or with --test to verify pipeline)

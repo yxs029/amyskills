@@ -1,0 +1,178 @@
+{
+  "schema_version": "4.0",
+  "generated_at": "2026-09-20T00:00:00",
+  "scope": "qa/测试/安全/观测 + Hermes 基础设施技能集（老大统一归集）",
+  "source_root": "/home/aaronmy/.hermes/skills",
+  "package_root": "/home/aaronmy/测测的工作空间/skills",
+  "zips_dir": "/home/aaronmy/测测的工作空间/skills",
+  "total_skills": 15,
+  "oprase_layers": {
+    "O_目标层 — 测什么、为什么测": [],
+    "P_方法层 — 怎么测、用什么策略": [
+      "post-task-methodology-loop",
+      "prompt-xray",
+      "test-driven-development"
+    ],
+    "R_数据层 — 登录/数据/环境": [
+      "cron-scheduled-test-runner",
+      "srmpro-login",
+      "verify-slider-bypass"
+    ],
+    "A_执行层 — 直接执行测试": [
+      "monitored-test-framework",
+      "web-exploratory-tester",
+      "web-security-scanning"
+    ],
+    "S_交付层 — 报告/缺陷提交": [
+      "sub-module-test-report",
+      "test-report",
+      "yunxiao-defect-submit"
+    ],
+    "E_复盘层 — 方法论迭代": [
+      "token-usage-meter",
+      "double-triangle-review"
+    ]
+  },
+  "skills": [
+    {
+      "name": "cron-scheduled-test-runner",
+      "version": "1.0.0",
+      "description": "将结构化测试执行文档转化为 cron 定时自动化测试任务。读取测试说明文档（含用例表/步骤/预期结果），配置 hermes cron job 按序执行，每步截图，生成 HTML 报告。适用场景：用户给出多份测试执行文档 + 要求定时跑/批量跑。触发词：\"配置定时测试\"、\"cron 跑测试\"、\"把测试任务加到 cron\"、\"每小时跑一个\"、\"按文档执行自动化测试\"。",
+      "parent_category": "qa",
+      "zip_file": "cron-scheduled-test-runner__1.0.0__20260818.zip",
+      "zip_size_kb": 52,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/cron-scheduled-test-runner"
+    },
+    {
+      "name": "monitored-test-framework",
+      "version": "n/a",
+      "description": "监控子智能体 + DOM双保险自动化测试框架。每个测试步骤同时记录三种证据：(1) 截图，(2) DOM断言返回值，(3) 监控子智能体旁路验证。综合三方证据给出 PASS/WARN/FAIL 三态判定，避免\"假阳性\"和\"假阴性\"。当用户说\"用监控子智能体\"、\"双保险测试\"、\"DOM断言+截图双证据\"时使用。",
+      "parent_category": "qa",
+      "zip_file": "monitored-test-framework__n-a__20260818.zip",
+      "zip_size_kb": 50,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/monitored-test-framework"
+    },
+    {
+      "name": "post-task-methodology-loop",
+      "version": "n/a",
+      "description": "5-step post-task methodology loop — read prior methodology → execute task → write report → update methodology → next. Prevents the \"rediscover from scratch\" failure mode during long batch task chains. Use when the user assigns a list of homogeneous sub-tasks (test N modules, scan N pages, process N files, run N migrations) and says \"一直推\" / \"继续推进\" / \"全部跑完\" / \"do them all\", or when the agent starts re-debugging things it has already seen in this session/sessions.",
+      "parent_category": "qa",
+      "zip_file": "post-task-methodology-loop__n-a__20260818.zip",
+      "zip_size_kb": 3,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/post-task-methodology-loop"
+    },
+    {
+      "name": "prompt-xray",
+      "version": "1.0.0",
+      "description": "Agent 系统提示词语料库拆解分析。输入 ZIP/RAR/文件夹/文本，输出结构化解析报告（PDF+MD）。5步流程：解包→画像→分类→精读→输出，5层框架：人格/原则/资产/执行/表现。",
+      "parent_category": "qa",
+      "zip_file": "prompt-xray__1.0.0__20260818.zip",
+      "zip_size_kb": 20,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/prompt-xray"
+    },
+    {
+      "name": "srmpro-login",
+      "version": "n/a",
+      "description": "SRMPRO (test.esicint.com) 一键登录封装。集成 Playwright 真实 mouse 滑块绕过、storage_state 永久复用、verify-slider-bypass 5 阶梯回退。Use when user says \"登录 SRMPRO\" / \"登录 test.esicint.com\" / \"开始探索 SRMPRO\" / \"刷新 SRMPRO session\" / \"用 storage_state 登录\" / \"老大要进 SRMPRO 系统\" / \"SRMPRO 滑块过不了\" / \"开始申请库探索\" / \"开始供应商主数据探索\" / \"开始价格探索\" / \"开始能力矩阵探索\" / \"继续 SRMPRO 任务\" / \"SRMPRO session 过期了\". Returns a ready-to-use Playwright `page` object OR sets main agent browser cookies. Triggers whenever agent touches a SRMPRO module (申请库/资源库/价格/能力矩阵/供应商主数据) and needs authenticated session.",
+      "parent_category": "qa",
+      "zip_file": "srmpro-login__n-a__20260818.zip",
+      "zip_size_kb": 45,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/srmpro-login"
+    },
+    {
+      "name": "sub-module-test-report",
+      "version": "1.0-deprecated",
+      "description": "⚠️ 已废弃 — 能力已合并到 qa/test-report v2.0+，不要再使用此skill",
+      "parent_category": "qa",
+      "zip_file": "sub-module-test-report__1.0-deprecated__20260818.zip",
+      "zip_size_kb": 14,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/sub-module-test-report"
+    },
+    {
+      "name": "test-report",
+      "version": "2.7",
+      "description": "测试报告生成 — 子模块 + 全量两层流水线。当需要输出HTML测试报告、汇总模块结果给老板看、做发布门禁报告时使用。生成的报告包含用例详情、截图、缺陷、修复建议。老大的样式偏好是V2深色渐变+白色卡片+6列KPI+发布门禁Banner。全量报告的缺陷数据必须100%从子模块报告自动提取，不手写。",
+      "parent_category": "qa",
+      "zip_file": "test-report__2.7__20260818.zip",
+      "zip_size_kb": 65,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/test-report"
+    },
+    {
+      "name": "verify-slider-bypass",
+      "version": "n/a",
+      "description": "Systematic bypass playbook for server-validated verify sliders (Element UI verify-move-block class, hCaptcha-style, 自研 verify) on Chinese enterprise B2B web apps. Use when agent encounters \"向右滑动解锁\" prompts, \"拖动滑块\" captcha, \".verify-move-block\" class, \"登录按钮 disabled but no password error\" symptom, \"前端反作弊拦截 dispatchEvent\" failures, \"server-side captcha code 验证\" required, \"Login 父组件 loginForm.code 注入\" needed, \"Selenium ActionChains headless 失效\", or \"想永久跳过滑块\" / \"用 storage_state 复用\" / \"context.storage_state 怎么写\". Encodes a 6-strategy ladder (v1.0 MouseEvent dispatch, v1.7 Vue ref inject, v1.8 Login form inject, v2.0 Selenium headed with Xvfb, v3.0 API + cookie replay, v3.5 Playwright storage_state 持久化 = 终极方案) with explicit failure-signal triage for each. Triggers when 测测 starts exploring a new Chinese B2B target (致远/用友/金蝶/泛微/丰致 SRM) and hits a verify slider, OR when user says \"滑块过不了\" / \"绕过 captcha\" / \"用 selenium 试试\" / \"为什么 30 步 dispatch 后还 disabled\" / \"怎么保存登录态\" / \"下次直接进系统\".",
+      "parent_category": "qa",
+      "zip_file": "verify-slider-bypass__n-a__20260818.zip",
+      "zip_size_kb": 8,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/verify-slider-bypass"
+    },
+    {
+      "name": "web-exploratory-tester",
+      "version": "1.11.0",
+      "description": "AI-driven Web 探索性测试工具 - 给一个 URL，自动输出 dogfood 报告。报告支持 3 种格式：单文件 Markdown / 5M 分卷 / Obsidian vault 双链版（每条 issue 一个文件 + `[[双链]]` + 截图实时显示）。当用户说\"测一下这个网站\"、\"跑一遍探索测试\"、\"帮我 dogfood 一下\"、\"AI 测 XX 系统\"、\"做个 Web 端的探索测试\"、\"放到 Obsidian 看\"、\"用双链格式出报告\"、\"每超过 5M 分一个报告\"时触发。基于 dogfood skill 方法论升级，封装了 sitemap 自动发现、API 探测、404 检查、控制台收集、报告自动生成。",
+      "parent_category": "qa",
+      "zip_file": "web-exploratory-tester__1.11.0__20260818.zip",
+      "zip_size_kb": 294,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/web-exploratory-tester"
+    },
+    {
+      "name": "yunxiao-defect-submit",
+      "version": "1.1",
+      "description": "云效(Yunxiao)缺陷自动提单 — 从测试报告提取缺陷数据，按老大指定的模板格式提交到阿里云云效项目。标题格式「AI提单-{主模块}-{子模块}：{用例标题}，{操作结果}」，描述含8段模板（前置/问题链接/用户账号/供应商账号/步骤/问题/期望/定位），截图base64内嵌描述。当用户说\"提交缺陷到云效\"、\"提单到云效\"、\"批量提单\"、\"更新云效缺陷\"、\"用提单格式\"时触发。",
+      "parent_category": "qa",
+      "zip_file": "yunxiao-defect-submit__1.1__20260818.zip",
+      "zip_size_kb": 21,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/yunxiao-defect-submit"
+    },
+    {
+      "name": "test-driven-development",
+      "version": "1.1.0",
+      "description": "\"TDD: enforce RED-GREEN-REFACTOR, tests before code.\"",
+      "parent_category": "software-development",
+      "zip_file": "test-driven-development__1.1.0__20260818.zip",
+      "zip_size_kb": 4,
+      "source_path": "/home/aaronmy/.hermes/skills/software-development/test-driven-development"
+    },
+    {
+      "name": "web-security-scanning",
+      "version": "2.2.0",
+      "description": "OWASP ZAP 登录态全站安全测试（daemon API）。覆盖 CSRF 登录+httpSessions 会话注入、ZAP2.17 API 差异、Spider maxDuration 防无限爬、路径模板抽样、限速主动扫描防 WAF、PII 等四类误报人工复核、交付物脱敏与 QC、OPRASE 六层产出、防熔断纪律。自带 scripts：preflight 开扫自检/redact 脱敏/delivery_qc 交付质检/scaffold 六层骨架。触发词：WEB安全测试、ZAP扫描、漏洞扫描、对某URL做安全评估、登录态B2B站扫描。",
+      "parent_category": "qa",
+      "zip_file": "web-security-scanning__2.2.0__20260911.zip",
+      "zip_size_kb": 30,
+      "source_path": "/home/aaronmy/.hermes/skills/qa/web-security-scanning",
+      "local_dir": "/home/aaronmy/测测的工作空间/skills/web-security-scanning"
+    },
+    {
+      "name": "token-usage-meter",
+      "version": "1.0.0",
+      "description": "基于 Hermes state.db 的 LLM token 用量计量（零侵入）。会话/项目级精确（input/output/cache_read/cache_write/reasoning/API调用数），最小循环单元用 start/end 快照差分精确计量（一篇文章提炼/一条用例执行/一个需求转清单/一次子智能体），历史会话按 user-turn 分摊[估算]。提供监控点(start/end)与复盘点(project聚合)，输出单元级 token 账单与人效比。触发词：统计/监控/审计token、子智能体成本、按最小单元记账、token复盘。",
+      "parent_category": "observability",
+      "zip_file": "token-usage-meter__1.0.0__20260911.zip",
+      "zip_size_kb": 7,
+      "source_path": "/home/aaronmy/.hermes/skills/token-usage-meter",
+      "local_dir": "/home/aaronmy/测测的工作空间/skills/token-usage-meter"
+    },
+    {
+      "name": "double-triangle-review",
+      "version": "n/a",
+      "description": "一堂双三角复盘（量化版·自动评分+双报告）。用双三角清单体量化 6 大能力维度 27 子模块，基于项目实际表现自动评分（无需手答108题）。报告1=可视化复盘(SVG雷达图+段位+90天成长主线)，报告2=场景迭代建议(喂给下一轮AI)。触发词：复盘、双三角、一堂双三角、能力测评、6要素测评、段位判定、项目复盘、AI协作效果评估。",
+      "parent_category": "qa",
+      "zip_file": "double-triangle-review.zip",
+      "zip_size_kb": 101,
+      "source_path": "/home/aaronmy/.hermes/skills/double-triangle-review",
+      "note": "2026-07-10 归档，早于 20260818 索引，本次补录"
+    },
+    {
+      "name": "hermes-model-backup-failover",
+      "version": "1.1.0",
+      "description": "Hermes 大模型配置+多级容灾+备份回滚迁移方案。把一台 Hermes 的主模型(火山方舟 Agent Plan ark-code-latest)+多级 fallback_providers 容灾链(Coding Plan MiniMax-M3 1M→OpenRouter 兜底)+providers 模型目录(各11模型)+custom_providers 扩展(minimax/deepseek/longCat/stepfun)，无密钥泄漏地复刻到另一台 Hermes。含四块配置模板(model/providers/fallback_providers/custom_providers)、.env 密钥分离、时间戳备份+golden 回滚脚本、curl→config check→AIAgent 三级验证脚本。v1.1：修复 verify-model.sh 鉴权头被打码断裂的 bug、coding-plan 模型补全11个、补 minimax custom 端点。覆盖新版 fallback_providers 列表(多级)与旧版 fallback_model(单槽)差异、OpenAI/Anthropic 双协议 base_url 规则、第三方 CLI 覆盖主模型的坑、${VAR} 不展开回退。触发词：把模型配置/备份方案迁到另一个hermes、配主模型+备用模型容灾、模型配置备份回滚。",
+      "parent_category": "devops",
+      "zip_file": "hermes-model-backup-failover__1.1.0__20260920.zip",
+      "zip_size_kb": 14,
+      "source_path": "/home/aaronmy/.hermes/skills/devops/hermes-model-backup-failover",
+      "local_dir": "/home/aaronmy/测测的工作空间/skills/hermes-model-backup-failover",
+      "note": "2026-09-20 v1.1.0：本机真实 config 校准，修复 verify 脚本鉴权头 bug；CodingPlan 回 400 InvalidSubscription 经老大确认为 MiniMax 周限额用尽(非订阅过期/key失效，同key走AgentPlan主模型正常)，额度重置后恢复。devops 基础设施类，非测试向"
+    }
+  ]
+}

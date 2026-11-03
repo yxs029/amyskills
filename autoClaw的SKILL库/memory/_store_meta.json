@@ -1,0 +1,9 @@
+{
+  "skillId": "9d662fa3-991a-4d9f-9620-ba2b0402deac",
+  "skillKey": "Memory",
+  "version": "1.0.2",
+  "installedAt": 1780881029555,
+  "dirName": "memory",
+  "source": "store",
+  "installedAtSource": "runtime"
+}
