@@ -1,26 +1,39 @@
 ---
 name: toamyskillhub
-description: 技能库发布/同步到 GitHub 技能仓库（默认 https://github.com/yxs029/amyskills）。自动完成：生成 README 技能清单（从各 SKILL.md frontmatter 提取名称与描述）、暂存复制（排除 >100MB 超限文件、__pycache__、嵌套 .git、node_modules）、git 初始化与提交、直连失败时自动探测系统代理并重试推送、远端分叉（其他设备/Agent 已推送）时自动 rebase 后重推、推送后 SHA 比对校验。当用户要求「上传技能」「发布技能库」「同步到 amyskills」「更新技能仓库」「push skills」「publish skills」或首次把技能收藏发布为仓库时使用。Use when the user wants to publish or sync a local Agent Skills library to the amyskills GitHub repo.
+description: 技能库发布/同步到 GitHub 技能仓库（默认 https://github.com/yxs029/amyskills）。安全默认三段式：PLAN 生成上传清单（新增/更新/无变化、仓库同名技能冲突检测、>100MB 超限排除、真实密钥扫描）→ 展示报告给用户确认（未确认以退出码 3 结束，不上传任何内容）→ -Confirmed 后执行 robocopy 暂存、git 提交、推送（直连失败自动切系统代理、远端分叉自动 rebase）、SHA 校验。当用户要求「上传技能」「发布技能库」「同步到 amyskills」「更新技能仓库」「push skills」「publish skills」「生成上传清单」或首次把技能收藏发布为仓库时使用。Use when the user wants to publish or sync a local Agent Skills library to the amyskills GitHub repo, with a manifest-driven confirm-before-upload flow.
 ---
 
 # toamyskillhub — 技能库一键发布到 GitHub
 
-把本地技能库（一批含 `SKILL.md` 的技能目录 + zip 安装包）发布/增量同步到 GitHub 技能仓库。本技能由一次真实发布过程蒸馏而来，已内置该次踩过的全部坑（网络重置、100MB 限制、代理探测、身份配置等）。
+把本地技能库（一批含 `SKILL.md` 的技能目录 + zip 安装包）发布/增量同步到 GitHub 技能仓库。**安全默认：先出上传清单、经用户确认，才会真正上传。** 本技能由一次真实发布过程蒸馏而来，已内置该次踩过的全部坑（网络重置、100MB 限制、代理探测、身份配置等）。
+
+## 三段式流程（安全默认）
+
+```
+PLAN（清单） ──► CONFIRM（等用户说"确认"） ──► EXECUTE（上传）
+   exit 0/3          不上传任何东西              exit 0/1/2
+```
+
+- **PLAN**：扫描源目录，按「修改时间+大小」与暂存树对比（或加 `-DeepCompare` 与远端 blob 哈希精确对比），生成 Markdown 上传清单（新增/更新/无变化、同名技能异径冲突、超限排除、大文件警告、密钥扫描），保存到 `%TEMP%\toamyskillhub-manifest-latest.md`。
+- **CONFIRM**：不带 `-Confirmed` 运行时，清单照出但**绝不触碰远端**，以退出码 3 结束——Agent 必须把清单呈现给用户，得到明确"确认"后才能进入下一步。
+- **EXECUTE**：`-Confirmed` 才会 robocopy 暂存 → git 提交 → 推送（代理回退 + 远端分叉自动 rebase）→ `ls-remote` SHA 校验。
 
 ## 何时使用
 
 - 用户要求把本地技能/技能库上传、发布、同步到 GitHub（默认 `amyskills` 仓库）
-- 技能库内容更新后需要推送新版本
+- 技能库内容更新后需要推送新版本；或只想看看「会传什么」的上传清单
 
 **不适用**：单纯 git push 已有仓库（直接 git 即可）；发布非技能类内容。
 
-## 快速开始（一条命令）
+## 快速开始
 
 ```powershell
+# 1) 生成上传清单（只读，不上传；exit 3 = 等待确认）
 powershell -ExecutionPolicy Bypass -File <技能目录>\scripts\push_to_amyskills.ps1 -SourceDir "<技能库根目录>"
-```
 
-脚本会自动完成：校验源目录 → 暂存复制（排除超大文件/垃圾目录）→ 缺 README 时自动生成技能清单 → git 初始化/提交 → 推送（直连失败自动切系统代理；远端分叉自动 rebase 重推，冲突则保护性中止）→ 远端 SHA 校验 → 输出总结报告。
+# 2) 用户确认后，真正执行上传
+powershell -ExecutionPolicy Bypass -File <技能目录>\scripts\push_to_amyskills.ps1 -SourceDir "<技能库根目录>" -Confirmed
+```
 
 ## 参数说明
 
@@ -36,7 +49,11 @@ powershell -ExecutionPolicy Bypass -File <技能目录>\scripts\push_to_amyskill
 | `-ExcludeDirs` | `__pycache__ .git node_modules .venv venv` | 复制时排除的目录名 |
 | `-GenerateReadme` | 关 | 强制重新生成 README 骨架。**已有手工润色版 README 时不要开启** |
 | `-Mirror` | 关 | 暂存与源完全镜像（源里删掉的文件仓库里也删，慎用） |
-| `-DryRun` | 关 | 只预演：列出技能数、大文件、代理探测结果，不改动任何东西 |
+| `-PlanOnly` | 关 | 只生成并保存清单就退出（exit 0），不进入"等待确认"状态 |
+| `-Confirmed` | 关 | **唯一允许上传的开关**。用户明确确认后由 Agent 加上它重新运行 |
+| `-ManifestPath` | `%TEMP%\toamyskillhub-manifest-latest.md` | 上传清单的保存路径 |
+| `-DeepCompare` | 关 | 对每个文件计算 git blob 哈希并与远端树精确对比（默认按修改时间+大小与暂存树对比，秒级完成） |
+| `-DryRun` | 关 | （旧）只预演配置与代理探测，不改动任何东西 |
 
 ## Agent 工作流程
 
@@ -44,39 +61,32 @@ powershell -ExecutionPolicy Bypass -File <技能目录>\scripts\push_to_amyskill
 - 向用户确认（或从上下文推断）：技能库源目录、目标仓库（默认 amyskills）。
 - 目标仓库不存在时，提醒用户先在 GitHub 上创建空仓库（不要勾选自动生成 README，避免推送冲突），或用 `gh repo create yxs029/amyskills --private` 创建。
 
-### Step 2 上传前安全检查（强烈建议）
-扫描源目录是否含真实 API Key（本次经验：全部命中均为占位符则安全）：
-
+### Step 2 生成上传清单（PLAN，只读）
 ```powershell
-Get-ChildItem "<SourceDir>" -Recurse -File -Include *.md,*.json,*.py,*.js,*.txt |
-  Select-String -Pattern "gk_live_[A-Za-z0-9]{8,}","ark-[A-Za-z0-9]{16,}","sk-[A-Za-z0-9]{20,}" |
-  Where-Object { $_.Line -notmatch "你的|xxx|placeholder|<" } |
-  Select-Object Path, LineNumber, Line
+& "<技能目录>\scripts\push_to_amyskills.ps1" -SourceDir "<SourceDir>" [-StageDir <路径>]
 ```
+脚本会输出并保存上传清单，内容包含：
+- 动作表：每个技能/包单元标为 **新增 / 更新 / 无变化**（默认按修改时间+大小与暂存树对比；`-DeepCompare` 则逐文件算 blob 哈希与远端精确对比）
+- **同名技能检测**：新增单元若与仓库其他路径下同名技能重名，会在备注列标 ⚠️
+- 源中已删除但仓库仍有的路径（默认保留；`-Mirror` 才同步删除）
+- 超大文件排除（>100MB）、大文件警告（50–100MB）
+- **密钥扫描**：疑似真实 API Key 只列文件路径+行号（绝不显示内容），命中时必须停下询问用户
 
-**发现真实 Key 必须先报告用户**：脱敏、排除该文件，或确认仓库为私有后再继续。
+### Step 3 向用户展示报告，等待明确确认（铁律）
+- 把清单的「需要关注的动作」表 + 汇总行 + 密钥扫描结果讲给用户。
+- **未得到用户明确"确认"之前，绝不加 `-Confirmed` 运行**。脚本本身也会用退出码 3 拦住未确认执行。
+- 用户可能要求调整（如改用 `-Mirror`、改提交信息、排除某目录）——调整后重跑 PLAN 再确认。
 
-### Step 3 生成 README 技能清单
-- 脚本在暂存目录缺少 `README.md` 时会自动生成骨架（分类总览表 + 每技能一行：名称/简介/路径）。
-- 若要更高质量清单，Agent 可在推送前用下面的提取命令拿全量元数据，手工撰写润色版 README（含分类导航、安装说明、致谢）：
-
+### Step 4 执行上传（EXECUTE）
 ```powershell
-Get-ChildItem "<SourceDir>" -Recurse -Filter SKILL.md | ForEach-Object {
-  $lines = Get-Content $_.FullName -TotalCount 40 -Encoding UTF8
-  # 提取 frontmatter 的 name 与 description（支持 > | 多行块）
-  # 完整逻辑已内置于 scripts/push_to_amyskills.ps1 的 Get-SkillMeta 函数
-}
+& "<技能目录>\scripts\push_to_amyskills.ps1" -SourceDir "<SourceDir>" -Confirmed [-CommitMessage "..."]
 ```
-
-### Step 4 执行发布
-```powershell
-& "<技能目录>\scripts\push_to_amyskills.ps1" -SourceDir "<SourceDir>" [-StageDir <路径>] [-DryRun]
-```
+执行阶段：robocopy 暂存（排除超大文件/垃圾目录）→ git 提交 → 推送（直连失败自动切系统代理；远端分叉自动 rebase 重推，冲突则保护性中止）→ 远端 SHA 校验。
 
 ### Step 5 验证与汇报
 脚本末尾会自动 `git ls-remote` 比对远端/本地 SHA。向用户汇报：
 - 仓库地址 + 分支 + 最新 commit SHA
-- 本次新增/变更的技能
+- 本次新增/变更的技能（与清单核对）
 - 大文件警告（50–100MB 能推但有警告；>100MB 已被自动排除，README 需注明）
 - 若失败：按「排障」小节给出原因与下一步
 
@@ -84,9 +94,10 @@ Get-ChildItem "<SourceDir>" -Recurse -Filter SKILL.md | ForEach-Object {
 
 | 退出码 | 含义 |
 | --- | --- |
-| 0 | 成功：已推送且远端 SHA 校验一致 |
-| 1 | 推送失败（直连与代理均失败 / 认证失败） |
+| 0 | 成功（PLAN 模式：清单已生成；EXECUTE 模式：已推送且远端 SHA 校验一致） |
+| 1 | 推送失败（直连与代理均失败 / 认证失败 / SHA 校验不一致） |
 | 2 | 参数或环境错误（源目录不存在、暂存目录与目标仓库不匹配等） |
+| 3 | **等待用户确认**：清单已生成，未加 `-Confirmed`，没有上传任何内容 |
 
 ## 排障速查
 
