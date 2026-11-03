@@ -3,7 +3,7 @@
 > 个人 Agent Skills 收藏与创作库。覆盖 **微信公众号写作、软件测试工程、知识萃取与复盘、浏览器自动化、金融分析、内容采集** 等场景。
 > 所有技能均遵循通用 Agent Skills 规范（含 `SKILL.md`），兼容 Claude Skills / OpenClaw / Codex / autoClaw 等主流 Agent 平台。
 
-📊 **规模**：68 个技能目录（`SKILL.md`）+ 60+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11
+📊 **规模**：74 个技能目录（`SKILL.md`）+ 60+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11-03
 
 ---
 
@@ -11,6 +11,7 @@
 
 | 分类目录 | 技能数 | 说明 |
 | --- | --- | --- |
+| [autoclaw常用技能](./autoclaw常用技能/) | 6 | 2026-11-03 去重增补：本机常用且库内尚未收录（飞书三件套、钉钉 dws、getnote、skill-vetter） |
 | [autoClaw的SKILL库](./autoClaw的SKILL库/) | 26 | autoClaw 平台安装的通用技能（浏览器、搜索、金融、PPT、写作等） |
 | [Manus生成微信文章技能](./Manus生成微信文章技能/) | 6 | 微信公众号文章创作全流程（Manus 制作）+ 原始 zip 包 |
 | [Marvis生成修改的skills](./Marvis生成修改的skills/) | 12 | 与 Marvis 协作生成/迭代的技能（排版、配图、人味建模、合规检查等） |
@@ -174,6 +175,21 @@
 | [byted-ark-seedream-skill.zip](./byted-ark-seedream-skill.zip) | 豆包 Seedream 官方原包（根目录） |
 
 ---
+
+### 🔟 autoclaw常用技能（6 个，2026-11-03 去重增补）
+
+本机 autoClaw 技能目录 21 个候选与库内已有 64 个技能逐文件比对去重后，收录库内缺失的 6 个；其余 15 个与库内副本内容一致（仅换行与商店元数据差异）跳过，平台内部与官方已开源技能不重复收录。详见 [autoclaw常用技能/README.md](./autoclaw常用技能/README.md)。
+
+| 技能 | 简介 |
+| --- | --- |
+| [feishu-doc](./autoclaw常用技能/feishu-doc/) | 飞书 Wiki/文档/表格/Bitable 抓取转 Markdown（凭据走环境变量，已剔除私有 cache/） |
+| [feishu-chat-history](./autoclaw常用技能/feishu-chat-history/) | 飞书群聊历史记录获取 |
+| [feishu-cron-reminder](./autoclaw常用技能/feishu-cron-reminder/) | 飞书定时提醒任务 |
+| [dws](./autoclaw常用技能/dws/) | 钉钉全家桶：AI 表格/文档/日历/通讯录/群机器人/待办/审批/考勤/日志/邮箱/知识库 |
+| [getnote](./autoclaw常用技能/getnote/) | Get 笔记 autoClaw 安装版（与库内 Manus 版 / OpenClaw 版为不同变体，references 更全） |
+| [skill-vetter](./autoclaw常用技能/skill-vetter/) | 技能安装前安检元技能：红旗、权限范围、可疑模式检查 |
+
+> 注：feishu-doc 的本机 cache/ 目录含私有飞书文档内容，未随库上传；pptx-swarm 的 249.6MB pyz 维持库内既有约定不传。
 
 ## 📦 安装使用
 
