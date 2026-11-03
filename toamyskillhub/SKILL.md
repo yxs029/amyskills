@@ -1,6 +1,6 @@
 ---
 name: toamyskillhub
-description: 技能库发布/同步到 GitHub 技能仓库（默认 https://github.com/yxs029/amyskills）。自动完成：生成 README 技能清单（从各 SKILL.md frontmatter 提取名称与描述）、暂存复制（排除 >100MB 超限文件、__pycache__、嵌套 .git、node_modules）、git 初始化与提交、直连失败时自动探测系统代理并重试推送、推送后 SHA 比对校验。当用户要求「上传技能」「发布技能库」「同步到 amyskills」「更新技能仓库」「push skills」「publish skills」或首次把技能收藏发布为仓库时使用。Use when the user wants to publish or sync a local Agent Skills library to the amyskills GitHub repo.
+description: 技能库发布/同步到 GitHub 技能仓库（默认 https://github.com/yxs029/amyskills）。自动完成：生成 README 技能清单（从各 SKILL.md frontmatter 提取名称与描述）、暂存复制（排除 >100MB 超限文件、__pycache__、嵌套 .git、node_modules）、git 初始化与提交、直连失败时自动探测系统代理并重试推送、远端分叉（其他设备/Agent 已推送）时自动 rebase 后重推、推送后 SHA 比对校验。当用户要求「上传技能」「发布技能库」「同步到 amyskills」「更新技能仓库」「push skills」「publish skills」或首次把技能收藏发布为仓库时使用。Use when the user wants to publish or sync a local Agent Skills library to the amyskills GitHub repo.
 ---
 
 # toamyskillhub — 技能库一键发布到 GitHub
@@ -20,7 +20,7 @@ description: 技能库发布/同步到 GitHub 技能仓库（默认 https://gith
 powershell -ExecutionPolicy Bypass -File <技能目录>\scripts\push_to_amyskills.ps1 -SourceDir "<技能库根目录>"
 ```
 
-脚本会自动完成：校验源目录 → 暂存复制（排除超大文件/垃圾目录）→ 缺 README 时自动生成技能清单 → git 初始化/提交 → 推送（直连失败自动切系统代理）→ 远端 SHA 校验 → 输出总结报告。
+脚本会自动完成：校验源目录 → 暂存复制（排除超大文件/垃圾目录）→ 缺 README 时自动生成技能清单 → git 初始化/提交 → 推送（直连失败自动切系统代理；远端分叉自动 rebase 重推，冲突则保护性中止）→ 远端 SHA 校验 → 输出总结报告。
 
 ## 参数说明
 

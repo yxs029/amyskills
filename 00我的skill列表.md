@@ -43,5 +43,6 @@ Get笔记上传：Get笔记-Manus适用，自带我的KEY
 ### 我写的其他技能
 1. 将多sheet的xlsx文档转化为图文docx：[[xlsx-to-docx.zip]]，[[08AI操作系统/MySkills/我做的测试领域skills/xlsx-to-docx/SKILL]]
 2. 自己和AI学习使用的技能：[[08AI操作系统/MySkills/知识萃取和复盘相关skill/learning-one-pager/SKILL]]
+3. 技能库发布技能 toamyskillhub：把本目录技能一键发布/增量同步到 https://github.com/yxs029/amyskills （自动生成README技能清单、排除>100MB文件、代理回退推送、远端分叉自动rebase）。技能目录：[[08AI操作系统/MySkills/toamyskillhub/SKILL]]，安装包：[[toamyskillhub.zip]]
 
 ### 正在测试的技能
