@@ -38,28 +38,23 @@ function Write-Ok([string]$msg)    { Write-Host "[toamyskillhub] $msg" -Foregrou
 function Write-Warn2([string]$msg) { Write-Host "[toamyskillhub] WARN: $msg" -ForegroundColor Yellow }
 function Write-Die([string]$msg)   { Write-Host "[toamyskillhub] ERROR: $msg" -ForegroundColor Red; exit 2 }
 
-# Run git safely on PS 5.1: separate stdout/stderr to temp files (no NativeCommandError),
+# Run git safely on PS 5.1: merge stderr into output (EAP=Continue => no NativeCommandError throw),
 # and ALWAYS run inside $WorkingDir via `git -C` (never rely on the caller's CWD).
+# NOTE: config switches like `-c http.proxy=...` must come BEFORE the subcommand.
 function Invoke-Git {
   param([string[]]$GitArgs, [string]$WorkingDir)
   $prev = $ErrorActionPreference
   $ErrorActionPreference = "Continue"
-  $outF = [IO.Path]::GetTempFileName()
-  $errF = [IO.Path]::GetTempFileName()
   try {
     $fullArgs = @()
     if ($WorkingDir) { $fullArgs += @("-C", $WorkingDir) }
     $fullArgs += $GitArgs
-    & git @fullArgs 1>$outF 2>$errF
+    $output = & git @fullArgs 2>&1 | ForEach-Object { "$_" }
     $code = $LASTEXITCODE
   } finally {
     $ErrorActionPreference = $prev
-    $stdout = [IO.File]::ReadAllText($outF)
-    $stderr = [IO.File]::ReadAllText($errF)
-    Remove-Item $outF, $errF -Force -ErrorAction SilentlyContinue
   }
-  $merged = ($stdout + $stderr).Trim()
-  return [pscustomobject]@{ Code = $code; Out = $merged; Err = $stderr.Trim() }
+  return [pscustomobject]@{ Code = $code; Out = (($output | Where-Object { $_ }) -join "`n").Trim(); Err = "" }
 }
 
 function Test-TcpPort([string]$HostName, [int]$Port) {
@@ -302,15 +297,16 @@ if ($staged) {
   Write-Step "Nothing new to commit."
 }
 
-# ---------- push (with proxy fallback) ----------
-function Push-Branch([string[]]$ExtraArgs) {
-  return Invoke-Git (@("push", "-u", "origin", $Branch) + $ExtraArgs) $StageDir
+# ---------- push (with proxy fallback + auto-rebase on divergence) ----------
+# IMPORTANT: `-c http.proxy=...` must precede the subcommand, hence ConfigArgs come first.
+function Push-Branch([string[]]$ConfigArgs) {
+  return Invoke-Git ($ConfigArgs + @("push", "-u", "origin", $Branch)) $StageDir
 }
 Write-Step "Pushing via $proxyNote ..."
 $r = Push-Branch $proxyArgs
 $usedProxyArgs = $proxyArgs
 if ($r.Code -ne 0) {
-  Write-Warn2 "Push failed via $proxyNote. $($r.Err)"
+  Write-Warn2 "Push failed via $proxyNote. $($r.Out)"
   if ($proxyArgs.Count -gt 0) {
     Write-Step "Retrying direct ..."
     $usedProxyArgs = @()
@@ -324,15 +320,27 @@ if ($r.Code -ne 0) {
     }
   }
 }
+# Multi-agent/multi-device sync: remote moved ahead -> rebase local commits and retry once.
+if ($r.Code -ne 0 -and $r.Out -match "fetch first|rejected|non-fast-forward") {
+  Write-Step "Remote diverged (another agent/device pushed). Rebasing local commits ..."
+  $rb = Invoke-Git ($usedProxyArgs + @("pull", "--rebase", "origin", $Branch)) $StageDir
+  if ($rb.Code -eq 0) {
+    Write-Ok "Rebase clean. Retrying push ..."
+    $r = Push-Branch $usedProxyArgs
+  } else {
+    Invoke-Git @("rebase", "--abort") $StageDir | Out-Null
+    Write-Die "Auto-rebase hit conflicts (aborted, nothing lost). Resolve manually in '$StageDir' then re-run this script."
+  }
+}
 if ($r.Code -ne 0) {
-  Write-Host $r.Err -ForegroundColor Red
+  Write-Host $r.Out -ForegroundColor Red
   Write-Die "Push failed. See troubleshooting section in SKILL.md (auth / proxy / repo existence)."
 }
 Write-Ok "Push accepted by remote."
 
 # ---------- verify ----------
 $local = (Invoke-Git @("rev-parse", "HEAD") $StageDir).Out
-$remoteQ = Invoke-Git (@("ls-remote", "origin", "refs/heads/$Branch") + $usedProxyArgs) $StageDir
+$remoteQ = Invoke-Git ($usedProxyArgs + @("ls-remote", "origin", "refs/heads/$Branch")) $StageDir
 $verified = $false
 if ($remoteQ.Code -eq 0 -and $remoteQ.Out -match "^([0-9a-f]{40})\s") { $verified = ($Matches[1] -eq $local) }
 
