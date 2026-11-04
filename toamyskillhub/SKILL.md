@@ -104,6 +104,7 @@ powershell -ExecutionPolicy Bypass -File <技能目录>\scripts\push_to_amyskill
 | 现象 | 原因与处理 |
 | --- | --- |
 | `Connection was reset` / `Could not connect` | 直连 GitHub 被网络重置。脚本 auto 模式会读注册表系统代理并重试；也可显式 `-Proxy http://127.0.0.1:7892`，或 `git config --global http.proxy http://127.0.0.1:7892` 持久化 |
+| `schannel: failed to receive handshake, SSL/TLS connection failed` | Windows 默认 schannel 后端经本地 HTTP 代理时握手失败，`ls-remote` / `fetch` / `push` 会一起挂（2026-11-04 实测）。脚本已在**所有 git 调用**统一注入 `-c http.sslBackend=openssl`；手工推送加同一参数：`git -c http.proxy=http://127.0.0.1:7892 -c https.proxy=http://127.0.0.1:7892 -c http.sslBackend=openssl push origin main` |
 | `Authentication failed` / 弹不出浏览器 | 首次推送需要凭据：装了 Git Credential Manager 会弹浏览器登录；无 GUI 环境改用 PAT：`git remote set-url origin https://<用户名>:<PAT>@github.com/yxs029/amyskills.git` |
 | `File ... exceeds GitHub's file size limit` | 有 >100MB 文件混入。脚本已用 robocopy `/MAX:104857600` 自动排除；若手工操作需同样过滤 |
 | push 输出一堆红色 NativeCommandError 但显示成功 | PowerShell 5.1 把 git 的 stderr 进度当错误流显示，**以最终 `ls-remote` SHA 校验为准**，脚本已处理 |

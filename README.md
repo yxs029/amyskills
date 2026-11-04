@@ -3,7 +3,7 @@
 > 个人 Agent Skills 收藏与创作库。覆盖 **微信公众号写作、软件测试工程、知识萃取与复盘、浏览器自动化、金融分析、内容采集** 等场景。
 > 所有技能均遵循通用 Agent Skills 规范（含 `SKILL.md`），兼容 Claude Skills / OpenClaw / Codex / autoClaw 等主流 Agent 平台。
 
-📊 **规模**：75 个技能目录（`SKILL.md`）+ 70+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11-03
+📊 **规模**：163 个技能目录（`SKILL.md`）+ 78+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11-04
 
 ---
 
@@ -24,6 +24,7 @@
 | [codex的skill](./codex的skill/) | 0（1 个 zip） | Codex 侧技能（feishu2slide 便携版） |
 | [QClaw的skill库](./QClaw的skill库/) | 0（1 个 zip） | QClaw 技能合集包 |
 | [toamyskillhub](./toamyskillhub/) | 1 | 🔧 技能库发布工具：一键生成 README 清单 + 排除超大文件 + 代理回退推送 |
+| [GitHub精选-8大AgentSkill仓库](./GitHub精选-8大AgentSkill仓库/) | 88 | 2026-11-04 收录公众号文章推荐的 8 个上游开源仓库，含 8 个分类目录与 8 个 zip 原始包 |
 
 ---
 
@@ -198,6 +199,23 @@
 | --- | --- |
 | [toamyskillhub](./toamyskillhub/) | 技能库一键发布到 GitHub：自动生成 README 技能清单（解析 SKILL.md frontmatter）、暂存复制（排除 >100MB 超限文件 / `__pycache__` / 嵌套 `.git`）、git 初始化提交、直连失败自动切系统代理重试、远端分叉自动 rebase、推送后 SHA 校验。附踩坑手册与跨平台手工步骤 |
 
+### 1️⃣2️⃣ GitHub 精选 8 大 Agent Skill 仓库（88 个，2026-11-04 收录）
+
+来源：狂师《[GitHub 上最值得装的 8 个 Agent Skill 仓库](https://mp.weixin.qq.com/s/d7ExBV2bfkEQH1MBXe5jDQ)》（2026-11-03）。8 个上游仓库均经 GitHub API 核验真实存在；保持上游目录结构与 `SKILL.md` 原文，剔除 >100MB 二进制、测试 fixtures 与多平台重复副本。详见 [该目录 README](./GitHub精选-8大AgentSkill仓库/README.md)。
+
+| # | 目录 | 上游仓库 | 技能数 | 说明 |
+| --- | --- | --- | --- | --- |
+| 1 | `01-andrej-karpathy-skills` | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 1 | karpathy-guidelines：写代码四条军规 |
+| 2 | `02-mattpocock-skills` | [mattpocock/skills](https://github.com/mattpocock/skills) | 39 | grill / tdd 等工程与效率技能 |
+| 3 | `03-ponytail` | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 6 | 七级阶梯，拒绝过度设计 |
+| 4 | `04-addyosmani-agent-skills` | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 25 | 九条命令覆盖完整开发周期 |
+| 5 | `05-taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 1 | 用真实素材做前端设计 |
+| 6 | `06-impeccable` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 1 | 设计语言 + 62 条确定性规则 |
+| 7 | `07-Understand-Anything` | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 9 | 代码库知识图谱 /understand 命令族 |
+| 8 | `08-obsidian-skills` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | 6 | Obsidian 官方 markdown / bases / canvas 等 |
+
+> `06-impeccable`（上游 876MB）与 `07-Understand-Anything`（35MB）体量过大，采用 GitHub API 精准抓取技能目录，未收录测试 fixtures 与主页大图；其余 6 个为 main 分支完整源码包解包。每个目录附 `SOURCE.md` 来源说明与同名 zip 安装包。
+
 ---
 
 ## 📦 安装使用
@@ -233,6 +251,7 @@ git clone https://github.com/yxs029/amyskills.git
 - [ClawHub](https://clawhub.ai/)、[skills.sh](https://www.skills.sh/)、[awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills)
 - Noah（rss_fetcher、热榜系列，[Skills_Repo](https://github.com/noah-1106/Skills_Repo)）、Datawhale 社区案例（learning 虾、Book2Skills 等）
 - Manus / Marvis / autoClaw / QClaw / Codex 各平台生态
+- 狂师《[GitHub 上最值得装的 8 个 Agent Skill 仓库](https://mp.weixin.qq.com/s/d7ExBV2bfkEQH1MBXe5jDQ)》：multica-ai、mattpocock、DietrichGebert、addyosmani、Leonxlnx、pbakaus、Egonex-AI、kepano 八个上游开源仓库（技能版权归各自授权方）
 
 > 📌 相关调研笔记（技能市场渠道、测试技能选型矩阵、Datawhale 案例合集）存于本机知识库，未随本库上传。
 

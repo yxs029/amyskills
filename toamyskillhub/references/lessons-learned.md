@@ -76,3 +76,23 @@
   - `-Confirmed` 是脚本里唯一能触达远端写操作的开关；
   - 清单里同名技能异径、密钥命中、超大文件全部前置暴露，确认时一次看清。
 - 另一 Agent 会并行推送同一仓库（如 `autoclaw常用技能/` 目录），源目录没有这些文件 → 清单会列在「源中已不存在但仓库仍有的路径」，**默认保留**是正确行为，别轻易 `-Mirror`。
+
+# 踩坑记录 III — 2026-11-04（收录 8 大仓库 + 代理握手）
+
+## 17. Windows schannel 经本地代理 TLS 握手失败，脚本 exit 2 但 commit 已生成
+- 现象：PLAN 阶段 `fetch` 明明成功（`Remote reachable. origin/main tree: 1567 blobs`），EXECUTE 阶段却 `Fetch via proxy failed` → 直连 `Could not connect to github.com:443` → push `schannel: failed to receive handshake, SSL/TLS connection failed`，退出码 2。此时 **robocopy + commit 已完成**，本地领先远端 1 个提交，只是没推上去。
+- 排查：代理端口 `127.0.0.1:7892` 仍 OPEN；逐一验证组合后确认——`-c http.version=HTTP/1.1` 无效，直连 `Empty reply from server`，**`-c http.sslBackend=openssl` 立刻恢复**（`ls-remote` 正常返回远端 SHA）。
+- 解法：在 `Invoke-Git` 封装里给**所有** git 调用统一前置 `-c http.sslBackend=openssl`（放在 `-C WorkingDir` 之后、子命令之前）。不要改 `Get-NetArgs` 的返回值——脚本多处靠 `$netArgs.Count -gt 0` 判断是否走了代理，污染返回值会破坏「代理失败→直连」回退。
+- 手工兜底：`git -c http.proxy=http://127.0.0.1:7892 -c https.proxy=http://127.0.0.1:7892 -c http.sslBackend=openssl push origin main`，然后 `git ls-remote origin refs/heads/main` 与本地 `rev-parse HEAD` 比对 SHA。
+- 教训：**脚本 push 失败不等于什么都没做**，先查 `git status -sb` 是否 `[ahead 1]`，别急着重跑 `-Confirmed` 造成重复提交。
+
+## 18. 超大上游仓库别下 tarball，用 tree API + raw 精准抓取
+- 现象：`pbakaus/impeccable`（876MB）的 codeload tarball 卡住 13 分钟未返回；`DietrichGebert/ponytail` 10MB 耗时 7 分钟（约 24KB/s）。
+- 解法：`GET /repos/:r/git/trees/main?recursive=1`（1 次调用拿全量路径+size）→ 按 `plugin/skills/` 等前缀筛技能文件 → `raw.githubusercontent.com` 逐文件下载。**结果 164 个文件 / 2.9MB，几分钟完成**。
+- 连带坑：REST API 未认证限流 **60 次/小时**，tree 结果必须缓存成本地 JSON；`raw` 走 IPv6 会 `ConnectTimeoutError`，node 里先 `dns.setDefaultResultOrder('ipv4first')`；并发 8 会大面积 `fetch failed`，**并发 3 + 5 次重试**实测 100% 成功。
+- 多平台副本：`.claude/`、`.cursor/`、`.openclaw/` 下是同一批 skill 的副本，只留一份，否则技能库同名冲突。
+
+## 19. `Compress-Archive` 打出的 zip 中文文件名是 ANSI 乱码
+- 现象：Windows PowerShell 5.1 的 `Compress-Archive` 用系统 ANSI 写 zip 条目名，`_来源说明.md` 在包内变成 `_µØÑµ¦ÉÞ»¦µÿÄ.md`。`Add-Type` 又被安全策略拦，没法改用 .NET `ZipFile`。
+- 解法：把自建索引文件改成 ASCII 名（`SOURCE.md`），上游文件本身多为 ASCII 即可规避；需要保留中文名时应改用支持 UTF-8 flag 的打包器。
+- 另注：偶发「文件正由另一进程使用」导致单个 zip 失败，单独重试该目录即成功。

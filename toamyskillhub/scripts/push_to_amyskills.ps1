@@ -61,6 +61,9 @@ function Invoke-Git {
   try {
     $fullArgs = @()
     if ($WorkingDir) { $fullArgs += @("-C", $WorkingDir) }
+    # Windows schannel fails TLS handshake behind a local HTTP proxy ("failed to receive handshake").
+    # OpenSSL backend is reliable there; harmless for local-only git commands as well.
+    $fullArgs += @("-c", "http.sslBackend=openssl")
     $fullArgs += $GitArgs
     $output = & git @fullArgs 2>&1 | ForEach-Object { "$_" }
     $code = $LASTEXITCODE
