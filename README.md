@@ -3,7 +3,7 @@
 > 个人 Agent Skills 收藏与创作库。覆盖 **微信公众号写作、软件测试工程、知识萃取与复盘、浏览器自动化、金融分析、内容采集** 等场景。
 > 所有技能均遵循通用 Agent Skills 规范（含 `SKILL.md`），兼容 Claude Skills / OpenClaw / Codex / autoClaw 等主流 Agent 平台。
 
-📊 **规模**：163 个技能目录（`SKILL.md`）+ 78+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11-04
+📊 **规模**：164 个技能目录（`SKILL.md`）+ 79+ 原始安装包（`.zip` / `.skill`） | 📅 更新：2026-11-05
 
 ---
 
@@ -18,7 +18,7 @@
 | [Noah的skill最佳实践](./Noah的skill最佳实践/) | 12 | Noah 分享的热榜采集、Coze 工作流、长任务管理等最佳实践技能 |
 | [所有claw必装skills](./所有claw必装skills/) | 7 | OpenClaw 基础必装（浏览器、技能发现、Get笔记、自我进化） |
 | [我做的测试领域skills](./我做的测试领域skills/) | 1 | 自研测试领域技能（xlsx-to-docx）+ 测试相关 zip 包 |
-| [市面上的测试领域skills](./市面上的测试领域skills/) | 0（23 个 zip） | 市面收集的测试技能安装包（未解包） |
+| [市面上的测试领域skills](./市面上的测试领域skills/) | 1（3 个 zip） | 市面收集的测试技能安装包（未解包）+ 2026-11-05 新增「狂师 AI 测试 27 个 Skill 清单索引」（**仅索引，不含 27 个本体**） |
 | [知识萃取和复盘相关skill](./知识萃取和复盘相关skill/) | 2 | 每日论文收集、学习一页纸教程 |
 | [未分类收集skills](./未分类收集skills/) | 2 | 新闻聚合、AI 味去除等零散收藏 |
 | [codex的skill](./codex的skill/) | 0（1 个 zip） | Codex 侧技能（feishu2slide 便携版） |
@@ -216,6 +216,19 @@
 
 > `06-impeccable`（上游 876MB）与 `07-Understand-Anything`（35MB）体量过大，采用 GitHub API 精准抓取技能目录，未收录测试 fixtures 与主页大图；其余 6 个为 main 分支完整源码包解包。每个目录附 `SOURCE.md` 来源说明与同名 zip 安装包。
 
+### 1️⃣3️⃣ 狂师 AI 测试 27 个 Skill 清单索引（2026-11-05 收录）
+
+来源：狂师《[AI 测试 Skill 大全，我日常在用的 27个](https://mp.weixin.qq.com/s/jP9sRqey8bJk6kzDGp8Tlw)》（公众号「测试开发技术」，2026-11-05）。覆盖需求与用例设计 6 个、接口自动化 12 个、UI 自动化 9 个，可串成三条测试流水线。
+
+⚠️ **该文章未公开真实 GitHub 仓库**（文中 `xxx` 为占位符），技能本体需从 `testfather.cn/skills`（需登录）或知识星球「AI 测开进化圈」获取。因此本库收录的是**依据公开文章描述整理的清单索引技能** `ai-testing-skills-index`，**不含 27 个技能的本体 `SKILL.md`**，也未生成任何占位技能。详见 [该目录 README](./市面上的测试领域skills/kuangshi-ai-testing-27-skills-index/README.md)。
+
+| 文件 | 内容 |
+| --- | --- |
+| `SKILL.md` | 导航型技能：边界声明、27 个技能速查、三条 Mermaid 流水线图、本体获取渠道 |
+| `README.md` | 27 条逐条原文说明、原文 ASCII 流程图、25→27 版本差异（新增 `api-scenario-modeler` / `api-scenario-runner`）、本体待补清单 |
+| `ARTICLE.md` | 公众号原文忠实转写 |
+| `SOURCE.md` | 来源、逐项核验过程、版权说明 |
+
 ---
 
 ## 📦 安装使用
@@ -252,6 +265,7 @@ git clone https://github.com/yxs029/amyskills.git
 - Noah（rss_fetcher、热榜系列，[Skills_Repo](https://github.com/noah-1106/Skills_Repo)）、Datawhale 社区案例（learning 虾、Book2Skills 等）
 - Manus / Marvis / autoClaw / QClaw / Codex 各平台生态
 - 狂师《[GitHub 上最值得装的 8 个 Agent Skill 仓库](https://mp.weixin.qq.com/s/d7ExBV2bfkEQH1MBXe5jDQ)》：multica-ai、mattpocock、DietrichGebert、addyosmani、Leonxlnx、pbakaus、Egonex-AI、kepano 八个上游开源仓库（技能版权归各自授权方）
+- 狂师《[AI 测试 Skill 大全，我日常在用的 27个](https://mp.weixin.qq.com/s/jP9sRqey8bJk6kzDGp8Tlw)》：仅整理公开文章中的技能清单与流程说明，27 个自研技能本体版权归作者，未收录
 
 > 📌 相关调研笔记（技能市场渠道、测试技能选型矩阵、Datawhale 案例合集）存于本机知识库，未随本库上传。
 
