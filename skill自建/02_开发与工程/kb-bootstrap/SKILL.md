@@ -17,6 +17,15 @@ metadata:
     related_skills: [kb-router, getnote, ima-skill, cm-cloud-manage, lark-shared]
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # kb-bootstrap —— Aaron 五库打通引导器
 
 > 目标：让任何 Agent 在新环境**照脚本走一遍**就把 5 个库全部打通并稳定调用，**不需要人每次复制粘贴凭证和步骤**。

@@ -8,6 +8,15 @@ metadata:
     related_skills: [srmpro-login, web-exploratory-tester, e2e-testing-patterns, playwright-test-generator]
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # Cron-Scheduled Test Runner
 
 将结构化测试执行文档转化为定时自动化测试流水线。

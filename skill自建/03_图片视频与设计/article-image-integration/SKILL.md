@@ -16,6 +16,15 @@ description: |
   Do NOT use for: 单张封面图或头图（用 image_synthesize 单图生成）、已带图片的文章精排（不需要再生成）、PPT/海报等其他载体（非 Markdown 文档）、未走 article-layout-formatter 排版但用户又想保留原结构的文章（先排版再配图，避免占位符位置不合理）、竖版图（小红书/视频号封面，走专门的竖版配图流程）。
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # Article Image Integration
 
 ## Inputs to collect

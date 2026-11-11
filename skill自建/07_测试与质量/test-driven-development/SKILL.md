@@ -3,6 +3,18 @@ name: test-driven-development
 description: Drives development with tests using the red-green-refactor loop. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you're about to modify existing functionality. Use when asked to add tests to a function, fix a bug in it or change its behavior, even when the code is pasted inline and the request does not mention tests.
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # Test-Driven Development
 
 ## Overview

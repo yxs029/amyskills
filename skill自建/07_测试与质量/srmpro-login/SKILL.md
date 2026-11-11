@@ -3,6 +3,15 @@ name: srmpro-login
 description: SRMPRO (test.esicint.com) 一键登录封装。集成 Playwright 真实 mouse 滑块绕过、storage_state 永久复用、verify-slider-bypass 5 阶梯回退。Use when user says "登录 SRMPRO" / "登录 test.esicint.com" / "开始探索 SRMPRO" / "刷新 SRMPRO session" / "用 storage_state 登录" / "老大要进 SRMPRO 系统" / "SRMPRO 滑块过不了" / "开始申请库探索" / "开始供应商主数据探索" / "开始价格探索" / "开始能力矩阵探索" / "继续 SRMPRO 任务" / "SRMPRO session 过期了". Returns a ready-to-use Playwright `page` object OR sets main agent browser cookies. Triggers whenever agent touches a SRMPRO module (申请库/资源库/价格/能力矩阵/供应商主数据) and needs authenticated session.
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+
 # SRMPRO Login Skill v1.1
 
 > **From 2026-06-04 01:42 实战**: 老大 admin/Esic@2024 + robust_login.py + Playwright 真实 mouse 拖动 → 首次登录成功, storage_state 49KB 永久跳过滑块。

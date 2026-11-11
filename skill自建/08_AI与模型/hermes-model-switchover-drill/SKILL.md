@@ -10,6 +10,18 @@ metadata:
     related_skills: [hermes-agent, hermes-model-backup-failover]
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+
 # Hermes 主备模型切换 + 断联容灾演练
 
 > v1.4.0（2026-11-10 晚）：新增第 9 节「可移植链方案 v2」——老大钦定链序全面去本地化：主 zhipu 官网 glm-5.3-flash → L1 minimax 官方 M3.1-Flash → L2 白山 baishan/GLM-5.3-Flash → L3 agnes → L4 openrouter，**全公网直连、零本地网关依赖**（方案要给其他 agent 用，不能绑本地号池）；本地 LiteLLM 网关（第 6 节）降级为可选加速层，config 中已移除。

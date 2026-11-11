@@ -3,6 +3,21 @@ name: ai-muse-business-weekly
 description: "Generate Chinese AI business weekly reports with the MUSE framework. Use when the user asks to research recent AI news, classify AI industry updates into Miracle, Usage, Startup, and Evolution, create CSV/statistics, draft an AI-MUSE weekly report, or checklist-score and revise the report."
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # AI-MUSE商业周报
 
 用于把过去一周 AI 相关新闻整理为 **MUSE 框架下的中文商业周报**。本技能只保留执行流程、资源导航和质量门槛；具体文章结构模板、MUSE 详细定义与评分表分别放在 `references/` 中，按任务阶段读取，不在 YAML 中展开。

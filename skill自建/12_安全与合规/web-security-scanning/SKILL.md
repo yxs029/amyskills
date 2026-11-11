@@ -15,6 +15,15 @@ class: security-testing
 dependencies: ZAP installed at /opt/zap (zap.sh available at /usr/local/bin/zap); Python 3.11/3.12 wrapper at ~/bin/zap-cli; Chrome/Chromium for AJAX Spider (optional), requests library for proxy verification
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+
 # web-security-scanning
 
 Class-level umbrella for OWASP ZAP-based web security scanning via CLI.

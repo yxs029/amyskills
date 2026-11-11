@@ -3,6 +3,18 @@ name: image-creator
 description: "Curated image generation assistant covering 17 styles across 4 categories: character figures, scenes, products, and style transforms. Triggers on: 手办, figure, portrait, chibi, diorama, city, landmark, movie scene, isometric room, weather, logo, sticker bomb, brand store, product ad, low-poly, meme 3D, knolling, 裸眼3D, image generation, 图像生成, 图像创作"
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # 图像创作 — Curated Image Generation
 
 ## Overview

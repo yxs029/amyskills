@@ -3,6 +3,18 @@ name: toamyskillhub
 description: 技能库发布/同步到 GitHub 技能仓库（默认 https://github.com/yxs029/amyskills）。安全默认三段式：PLAN 生成上传清单（新增/更新/无变化、仓库同名技能冲突检测、>100MB 超限排除、真实密钥扫描）→ 展示报告给用户确认（未确认以退出码 3 结束，不上传任何内容）→ -Confirmed 后执行 robocopy 暂存、git 提交、推送（直连失败自动切系统代理、远端分叉自动 rebase）、SHA 校验。当用户要求「上传技能」「发布技能库」「同步到 amyskills」「更新技能仓库」「push skills」「publish skills」「生成上传清单」或首次把技能收藏发布为仓库时使用。Use when the user wants to publish or sync a local Agent Skills library to the amyskills GitHub repo, with a manifest-driven confirm-before-upload flow.
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # toamyskillhub — 技能库一键发布到 GitHub
 
 把本地技能库（一批含 `SKILL.md` 的技能目录 + zip 安装包）发布/增量同步到 GitHub 技能仓库。**安全默认：先出上传清单、经用户确认，才会真正上传。** 本技能由一次真实发布过程蒸馏而来，已内置该次踩过的全部坑（网络重置、100MB 限制、代理探测、身份配置等）。

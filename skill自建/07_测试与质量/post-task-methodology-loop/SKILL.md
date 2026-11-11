@@ -3,6 +3,18 @@ name: post-task-methodology-loop
 description: 5-step post-task methodology loop — read prior methodology → execute task → write report → update methodology → next. Prevents the "rediscover from scratch" failure mode during long batch task chains. Use when the user assigns a list of homogeneous sub-tasks (test N modules, scan N pages, process N files, run N migrations) and says "一直推" / "继续推进" / "全部跑完" / "do them all", or when the agent starts re-debugging things it has already seen in this session/sessions.
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # Post-Task Methodology Loop
 
 ## Why this exists

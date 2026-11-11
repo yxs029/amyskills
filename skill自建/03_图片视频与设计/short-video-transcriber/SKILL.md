@@ -3,6 +3,21 @@ name: short-video-transcriber
 description: Download videos from WeChat Channels (视频号), local media files, YouTube, and other platforms, then convert them into timestamped transcripts and structured knowledge cards. Use when a user provides a video/audio link or file and wants the spoken content extracted, transcribed, or ingested into a knowledge base. Handles WeChat Channels encryption (Isaac64 + XOR on first 128KB) that ordinary downloaders cannot decrypt.
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # Short Video Transcriber
 
 把视频/音频转成带时间戳的逐字稿与结构化知识卡片。核心难点是微信视频号的加密视频，本 skill 已实测跑通完整解法。

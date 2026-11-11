@@ -3,6 +3,18 @@ name: verify-slider-bypass
 description: Systematic bypass playbook for server-validated verify sliders (Element UI verify-move-block class, hCaptcha-style, 自研 verify) on Chinese enterprise B2B web apps. Use when agent encounters "向右滑动解锁" prompts, "拖动滑块" captcha, ".verify-move-block" class, "登录按钮 disabled but no password error" symptom, "前端反作弊拦截 dispatchEvent" failures, "server-side captcha code 验证" required, "Login 父组件 loginForm.code 注入" needed, "Selenium ActionChains headless 失效", or "想永久跳过滑块" / "用 storage_state 复用" / "context.storage_state 怎么写". Encodes a 6-strategy ladder (v1.0 MouseEvent dispatch, v1.7 Vue ref inject, v1.8 Login form inject, v2.0 Selenium headed with Xvfb, v3.0 API + cookie replay, v3.5 Playwright storage_state 持久化 = 终极方案) with explicit failure-signal triage for each. Triggers when 测测 starts exploring a new Chinese B2B target (致远/用友/金蝶/泛微/丰致 SRM) and hits a verify slider, OR when user says "滑块过不了" / "绕过 captcha" / "用 selenium 试试" / "为什么 30 步 dispatch 后还 disabled" / "怎么保存登录态" / "下次直接进系统".
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 分阶段退出条件（必修 P1-5）
+每个阶段须有明确完成标志：产出物齐全、自检通过、无未决阻塞，方可进入下一阶段。
+
+### 交付前自检（P1 · 挑刺审计）
+交付前列出 3 个可能缺陷，至少修正 1 个，并复查受影响条目。
+
+
 # Verify Slider Bypass Playbook
 
 > 6-strategy ladder with explicit failure-signal triage. Tested on SRM-PRO 2026-06-03 (v1.0-v3.0 all blocked by server-side validation) + 2026-06-04 (v3.5 storage_state 持久化 = 终极方案). 核心升级: v3.5 把"绕过滑块"变成"绕过整个登录流程"。
