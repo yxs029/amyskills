@@ -1,0 +1,102 @@
+{
+  "name": "@ifrankwang/openspec-agents",
+  "version": "1.5.0",
+  "description": "OpenSpec companion plugin for AI coding agents (Claude Code, Codex, ZCode, DeepSeek Harness, OpenCode): a stricter proposal standard plus multi-agent implementation and review, gated to production-grade standards",
+  "author": "ifrankwang",
+  "license": "MIT",
+  "homepage": "https://github.com/ifrankwang/openspec-agents#readme",
+  "bugs": {
+    "url": "https://github.com/ifrankwang/openspec-agents/issues"
+  },
+  "type": "module",
+  "main": "./src/core/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/core/index.ts",
+      "types": "./src/core/index.ts"
+    },
+    "./core": {
+      "import": "./src/core/index.ts",
+      "types": "./src/core/index.ts"
+    },
+    "./provider": {
+      "import": "./src/core/provider.ts",
+      "types": "./src/core/provider.ts"
+    },
+    "./opencode": {
+      "import": "./src/adapters/opencode/index.ts",
+      "types": "./src/adapters/opencode/index.ts"
+    },
+    "./server": {
+      "import": "./src/adapters/opencode/index.ts",
+      "types": "./src/adapters/opencode/index.ts"
+    },
+    "./claude-code": {
+      "import": "./src/adapters/claude-code/index.ts",
+      "types": "./src/adapters/claude-code/index.ts"
+    },
+    "./codex": {
+      "import": "./src/adapters/codex/index.ts",
+      "types": "./src/adapters/codex/index.ts"
+    },
+    "./zcode": {
+      "import": "./src/adapters/zcode/index.ts",
+      "types": "./src/adapters/zcode/index.ts"
+    },
+    "./deepseek-harness": {
+      "import": "./src/adapters/deepseek-harness/index.ts",
+      "types": "./src/adapters/deepseek-harness/index.ts"
+    },
+    "./dsh": {
+      "import": "./src/adapters/deepseek-harness/index.ts",
+      "types": "./src/adapters/deepseek-harness/index.ts"
+    },
+    "./mcp": {
+      "import": "./src/adapters/mcp-common/index.ts",
+      "types": "./src/adapters/mcp-common/index.ts"
+    },
+    "./mcp/cli": {
+      "import": "./src/adapters/mcp-common/cli.ts",
+      "types": "./src/adapters/mcp-common/cli.ts"
+    },
+    "./.dsh-plugin/opx-tools.mjs": "./.dsh-plugin/opx-tools.mjs"
+  },
+  "files": [
+    "src",
+    "assets",
+    "dsh",
+    ".mcp-server",
+    ".dsh-plugin"
+  ],
+  "scripts": {
+    "sync": "bun scripts/sync.ts",
+    "build:plugins": "bun scripts/build-plugins.ts",
+    "build:dsh": "bun scripts/build-dsh-root.ts",
+    "prepack": "bun run build:dsh",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.4",
+    "@opencode/plugin": "^2.0.26",
+    "@types/bun": "^1.3.0",
+    "@types/js-yaml": "^4.0.9",
+    "typescript": "^5.9.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "js-yaml": "^4.1.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./dsh/cordis.patch.yml"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ifrankwang/openspec-agents"
+  }
+}

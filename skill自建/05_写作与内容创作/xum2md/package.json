@@ -1,0 +1,11 @@
+{
+  "name": "xum2md",
+  "version": "1.1.0",
+  "description": "drawio/eddx/xmind → UML/Mermaid → 封装 MD → 插入 PRD 转换技能",
+  "type": "module",
+  "dependencies": {
+    "@plantuml/core": "^1.2026.6",
+    "jsdom": "^30.0.1",
+    "mermaid": "^11.16.1"
+  }
+}

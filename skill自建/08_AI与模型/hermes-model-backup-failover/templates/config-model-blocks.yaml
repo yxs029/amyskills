@@ -1,0 +1,103 @@
+# =============================================================================
+# Hermes 大模型四块配置模板（主模型 + 多级 fallback 容灾链）
+# 密钥一律用 ${VAR} 占位，真实值放 ~/.hermes/.env (chmod 600)，勿写明文。
+# 合并方式：把对应块并进目标机 ~/.hermes/config.yaml，用 patch/手工编辑，勿整文件覆盖。
+# 版本：新版 Hermes (_config_version: 22) 使用 fallback_providers 列表(多级)。
+#       旧版只有 fallback_model(单槽)，见文件末尾「旧版单槽」小节。
+# =============================================================================
+
+# ── 块 1：主模型 ────────────────────────────────────────────────────────────
+# Anthropic 协议 → base_url 不带 /v3；OpenAI 协议 → 带 /v3。
+model:
+  default: ark-code-latest
+  provider: volcengine-agent-plan          # 必须与 providers 下 key 完全一致(大小写敏感)
+  base_url: https://ark.cn-beijing.volces.com/api/plan      # Anthropic: 不带版本号
+
+# ── 块 2：providers 模型目录 ────────────────────────────────────────────────
+providers:
+  volcengine-agent-plan:                   # 主：Agent Plan（老大生产主模型）
+    name: Volcengine Agent Plan
+    base_url: https://ark.cn-beijing.volces.com/api/plan/v3
+    api_key: ${VOLCENGINE_API_KEY}         # 首选 ${VAR}；不展开时改明文并 chmod 600
+    model: ark-code-latest
+    models:                                # /model 可切的目录，context_length 按需
+      - {id: ark-code-latest,        context_length: 256000}
+      - {id: doubao-seed-2.0-code,   context_length: 256000}
+      - {id: doubao-seed-2.0-pro,    context_length: 256000}
+      - {id: doubao-seed-2.0-lite,   context_length: 256000}
+      - {id: doubao-seed-code,       context_length: 256000}
+      - {id: glm-5.1,                context_length: 200000}
+      - {id: minimax-m2.7,           context_length: 200000}
+      - {id: kimi-k2.6,              context_length: 256000}
+      - {id: kimi-k2.5,              context_length: 256000}
+      - {id: glm-4.7,                context_length: 200000}
+      - {id: deepseek-v3.2,          context_length: 128000}
+
+  volcengine-coding-plan:                  # 备：Coding Plan（MiniMax-M3 1M 在这里）
+    name: Volcengine Coding Plan
+    base_url: https://ark.cn-beijing.volces.com/api/coding/v3
+    api_key: ${VOLCENGINE_API_KEY}
+    api_mode: anthropic_messages           # 该 plan 走 Anthropic 协议
+    model: ark-code-latest
+    models:
+      - {id: ark-code-latest,        context_length: 256000}
+      - {id: doubao-seed-2.0-code,   context_length: 256000}
+      - {id: doubao-seed-2.0-pro,    context_length: 256000}
+      - {id: doubao-seed-2.0-lite,   context_length: 256000}
+      - {id: doubao-seed-code,       context_length: 256000}
+      - {id: glm-5.1,                context_length: 200000}
+      - {id: MiniMax-M3,             context_length: 1000000}   # 1M 长上下文备胎
+      - {id: kimi-k2.6,              context_length: 256000}
+      - {id: kimi-k2.5,              context_length: 256000}
+      - {id: glm-4.7,                context_length: 200000}
+      - {id: deepseek-v3.2,          context_length: 128000}
+
+# ── 块 3：fallback_providers 多级容灾链（新版列表）──────────────────────────
+# 主模型遇 429/529/503/连接失败时，按数组顺序降级。内容审核/prompt非法/工具错误不触发。
+fallback_providers:
+  - provider: volcengine-coding-plan
+    model: MiniMax-M3
+    base_url: https://ark.cn-beijing.volces.com/api/coding/v3
+    api_mode: chat_completions             # fallback 走 OpenAI 协议(/v3)
+    api_key_env: VOLCENGINE_API_KEY        # 注意这里是「变量名」，不带 $ 和花括号
+    context_length: 1000000
+  - provider: openrouter                   # 兜底中的兜底
+    model: openrouter/free
+    base_url: https://openrouter.ai/api/v1
+    api_mode: chat_completions
+    api_key_env: OPENROUTER_API_KEY
+
+# ── 块 4(可选)：custom_providers 额外 OpenAI/Anthropic 兼容端点 ──────────────
+custom_providers:
+  - name: minimax                          # Agent Plan Anthropic 协议入口（无 /v3）
+    base_url: https://ark.cn-beijing.volces.com/api/plan
+    api_mode: anthropic_messages
+    api_key: ${VOLCENGINE_API_KEY}
+  - name: volcengine-deepseek
+    base_url: https://ark.cn-beijing.volces.com/api/coding/v3
+    api_mode: chat_completions
+    api_key: ${VOLCENGINE_API_KEY}
+    model: deepseek-v4-flash-ga-260731
+    context_length: 1000000
+    models:
+      - {id: deepseek-v4-flash-ga-260731, context_length: 1000000}
+      - {id: deepseek-v4-flash-260425,    context_length: 1000000}
+  - name: longCat
+    base_url: https://api.longcat.chat/openai
+    api_mode: chat_completions
+    api_key: ${LONGCAT_API_KEY}
+  - name: stepfun
+    base_url: https://api.stepfun.com/v1
+    api_mode: chat_completions
+    api_key: ${STEPFUN_API_KEY}
+
+# =============================================================================
+# 旧版单槽（仅当目标机只有 fallback_model 时使用；只能配一个备胎，建议先升级）
+# =============================================================================
+# fallback_model:
+#   provider: volcengine-coding-plan
+#   model: MiniMax-M3
+#   base_url: https://ark.cn-beijing.volces.com/api/coding/v3
+#   api_mode: chat_completions
+#   api_key_env: VOLCENGINE_API_KEY
+#   context_length: 1000000

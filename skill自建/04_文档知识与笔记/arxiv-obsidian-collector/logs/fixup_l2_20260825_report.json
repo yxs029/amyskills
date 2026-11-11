@@ -1,0 +1,340 @@
+{
+  "started_at": "2026-09-08T20:34:13",
+  "total_candidates": 37,
+  "fixed": [
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\AGI\\Electromagnetic alignment and jet precession around supermassive black holes Quasi-periodic oscillat.md",
+      "arxiv_id": "2609.05350v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "average_to_below_average",
+      "tl_dr": "在 Kerr 时空中对事件视界上 Noether 电流做小旋展开,导出电磁反作用转矩的解析式,用以预测 TDE 中由 Lense-Thirring 效应驱动的喷流进动所产生的准周期振荡信号的频率漂移和通量调制演化。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\AGI\\MEOX Compact Multimodal Mixture-of-Experts for Earth Observation.md",
+      "arxiv_id": "2609.05351v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "基于Geo-MoE-MAE扩展的紧凑多模态EO MoE模型,在S1/S2上做掩码重建预训练,六项GEO-Bench任务上以极小参数量取得与CSMoE相当的结果。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\AGI\\The coordinate ring of the k-fold iterated commutator locus for 2x2 matrices.md",
+      "arxiv_id": "2609.05386v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "low_quality",
+      "tl_dr": "证明2×2矩阵k重迭代换位子零点定义的理想Ik在char≠2下是codim 2、3生成、Cohen-Macaulay的radical determinantal理想,并给出由k-1个素理想组成的显式primary分解,但结果仅限2×2特殊情"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\AGI\\Who Should Grade My Work Student Perspectives on Transparent AI-Assisted Writing Assessment in Highe.md",
+      "arxiv_id": "2609.05346v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "low_quality",
+      "tl_dr": "基于13名沙特男性本科生反思的小样本质性研究,探讨学生对透明ChatGPT评分的接受度,提出区分反馈效用与评估权威的观察和三原则框架,但样本和方法均难以支撑一般化结论。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\AI安全与对齐测试\\Propagation Model for SSC attacks Why SBOM (tools) don't tell the whole truth.md",
+      "arxiv_id": "2609.05380v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "low_quality",
+      "tl_dr": "提出四阶段SSC攻击传播模型,通过Log4j案例批评现有SBOM工具只能检测到前两阶段而无法支持可达性与污点传播分析,主张将传播效应置于SSC安全研究核心。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Embedding与表示学习\\One-Cut Risk Profiles under Quadratic Loss Discrete Convexity, Continuous Limits, and Higher Dimensi.md",
+      "arxiv_id": "2609.05357v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "below_average",
+      "tl_dr": "在二次损失下将损失随机变量近似为两段常数，研究离散原子穿过cut时最优风险的精确变化，给出等距支撑上log-concavity导致概率坐标凸性及弱对称定位最优cut的条件，并推广到有限支撑随机向量的半空间划分。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Embedding与表示学习\\Stability Patterns for Spherical and Projective Braid Groups.md",
+      "arxiv_id": "2609.05367v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "high_quality",
+      "tl_dr": "利用 Cohen–Pakianathan 与 FI-同调理论,将曲面辫群上的表示稳定性和稳定周期性结果扩展到 S^2 与 RP^2 这两个配置空间非 Eilenberg–Maclane 空间的未知情形。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\LLM大模型测试\\Ion abundances in the plasma tail of 3IATLAS show that it is N2-rich.md",
+      "arxiv_id": "2609.05393v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "average",
+      "tl_dr": "利用 WHT/WEAVE-IFU 对 3I/ATLAS 离子尾的 N2+、CO+ 等发射线进行同时探测,推得 N2/CO > 0.023 的下限,论证该星际天体相较太阳系彗星富氮,推断其形成于低温环境。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\A photonic source with half-a-GHz single-photon flux.md",
+      "arxiv_id": "2609.05387v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "报告一个基于量子点的确定性单光子源,通过EOM脉冲雕刻实现>500 MHz的光纤输出单光子通量,创当前纪录,但方法学为已有技术组合,缺乏新机制。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\CrossDepth Geometry-Constrained Attention for Generalizable Multi-View Surround Depth Estimation.md",
+      "arxiv_id": "2609.05397v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.8,
+      "new_category": "average",
+      "tl_dr": "针对环绕多视角自监督深度估计提出相机感知 ray embedding 与几何约束的跨图像注意力，在 DDAD/nuScenes 上小幅超越 SurroundDepth 等自监督基线。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\Energy-Efficient Waveform Design for ISAC Systems An Ambiguity-Domain QoS Perspective.md",
+      "arxiv_id": "2609.05390v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "针对 OFDM-ISAC 系统提出基于模糊函数局部 SIR 的 AF-SINR 度量,并用 FP-SCA 算法求解功率最小化问题,本质是 wISL 类指标的加权局部化改写,方法与贡献均较常规。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\From Electronic Structure to Environmental Remediation Adsorption of Ionized Glyphosate on COOH-Modi.md",
+      "arxiv_id": "2609.05392v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "low_quality",
+      "tl_dr": "用 GFN2-xTB 隐式溶剂计算草甘膦五种离子形态在 COOH 修饰 (10,0) CNT 上的吸附能,得到电荷依赖的结合趋势与功能化覆盖度效应,属于方法论常规的半经验参数扫描工作,原创性与实证强度均有限。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\Molecular Déjà Vu Digit-Level Retrieval of Published Values in Frontier Language Models.md",
+      "arxiv_id": "2609.05381v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "对 22 个前沿 LLM 在 12 个分子属性基准上的逐字数值检索污染程度做了系统审计，发现污染普遍存在且与推理强度相关，但未提出新的去污染方法或深入机制分析。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\Non-reciprocally interacting Ornstein-Uhlenbeck processes Exceptional points, Anomalous relaxation, .md",
+      "arxiv_id": "2609.05391v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "general",
+      "tl_dr": "构造一类可调非互易OU过程模型族,在drift矩阵非对角化处实现例外点,揭示反常幂律弛豫、与Hatano-Nelson模型映射及边界热制冷等效应,主体为精确可解理论但缺乏系统数值验证"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\Reflection-aware Generative Novel View Synthesis.md",
+      "arxiv_id": "2609.05382v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "提出 training-free 的 Ref-GeNVS,在多视角扩散模型中加入 mirror-gated attention 与 reflection injection,利用镜像作为虚拟视角实现反射一致的生成式新视角合成。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\Transformer架构与改进\\What Matters, When Diagnosing and Improving Conditional Visual Grounding in Visuomotor Imitation Pol.md",
+      "arxiv_id": "2609.05376v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出'条件视觉锚定'诊断框架,在ACT上系统定位picking/placement阶段的视觉干扰失败,并组合干扰物增强、相位注意力正则化与视觉提示等已有干预手段提升鲁棒性,VLA部分仅为初步验证。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\向量数据库与检索\\Displaced Signals from Long-lived Particles in Neutrinoless Double Beta Decay.md",
+      "arxiv_id": "2609.05352v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "medium",
+      "tl_dr": "本文计算 0νββ 衰变中产生的 Majoron-like 标量粒子在探测器内位移衰变到 γγ/γγ_D/e+e- 的可见信号特征,声称可将 Majoron 搜寻灵敏度提升两个数量级,但本质上是把 LLP 长寿命粒子搜寻范式套用到双 β 衰"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\向量数据库与检索\\Full-field laser-Doppler-vibrometry FRF dataset for a four-bolt aluminum plate under bolt-torque var.md",
+      "arxiv_id": "2609.05378v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "low_originality",
+      "tl_dr": "论文发布了一个四螺栓铝板在18种扭矩状态下的全场激光多普勒测振FRF数据集,作为data descriptor有数据共享价值,但作为研究论文缺乏方法创新、深度分析与系统性实验验证。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\向量数据库与检索\\Higher Order Unbounded Rough Drivers.md",
+      "arxiv_id": "2609.05353v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "在Lyons粗糙路径与DiPerna–Lions输运方程框架下,构造允许任意p∈(1,∞)时间变差的无界粗糙驱动力,并证明带粗糙驱动力和DiPerna–Lions漂移项的输运方程的适定性。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\向量数据库与检索\\Short arithmetic terms express the cardinality of elliptic curves in Weierstraß normal form over fin.md",
+      "arxiv_id": "2609.05371v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.0,
+      "new_category": "weak_empirical_or_rehash",
+      "tl_dr": "对Prunescu通用椭圆曲线点计数算术项构造在Weierstraß族上做常数级参数精化(51→15项,G-函数阶数12→6),并对素数模p≥17利用Hasse不变量和Frobenius迹给出更短构造,属已知方法的特例化工程优化,缺乏与既有"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\向量数据库与检索\\Technical Manual for a Toolkit for Measuring Contextual Individuation in Transformer Language Models.md",
+      "arxiv_id": "2609.05333v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "rehash_or_weak_empirics",
+      "tl_dr": "本文是一份技术手册,描述了一个用于测量 Transformer 中上下文区分能力的开源工具包 pipeline,基于 'bridge form'(跨领域同形词)构造和 silhouette 指标,但未报告任何实证结果,本质上是工程文档而非研"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\大模型推理能力\\Towards Neuro-Symbolic Procedural Reasoning for Long-Horizon Vision-Language-Action Manipulation.md",
+      "arxiv_id": "2609.05369v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出任务图+事件记忆+伪注视引导的神经符号 VLA 流水线用于长时程操作,但仅为初步框架性工作,实验浅、对比弱,尚不构成扎实贡献。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\大模型量化与压缩\\Data-Driven Generator Transient Prediction for Digital Twin Decision Support.md",
+      "arxiv_id": "2609.05356v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "weak_empirical",
+      "tl_dr": "将 Hankel-DMDc 与 split-conformal 校准拼装用于发电机暂态预测的工程应用,方法上是已有 ROM 工具的组合,缺乏与主流时序预测方法的对比,实证强度不足以支撑其'决策支持'主张"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\大模型量化与压缩\\Distill Globally, Adapt Locally Reasoning Distillation and Product-Type Test-Time Training for Scala.md",
+      "arxiv_id": "2609.05363v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "提出两级框架:先用 LLM 教师生成关系标签与自然语言推理,通过对齐+对比损失蒸馏到 15.5M 参数的非生成学生模型,再用 product-type test-time training 为每个类别训练轻量适配器,在 8K 人工标注对上 "
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\大模型量化与压缩\\Does Your Agent's Memory Survive a Model Upgrade A Controlled Study of Memory Portability.md",
+      "arxiv_id": "2609.05339v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "在 48 条合成对话上系统比较 LC-RAW/RAG/NOTES/KG-fixed 四种 agent memory 格式在 writer/embedding 模型升级后的精度迁移表现,发现 KG-fixed 最稳健、NOTES 高度耦合于原"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\大模型量化与压缩\\Lightweight Vision Transformer Compression for On-Device Plant Disease Detection in Resource-Constra.md",
+      "arxiv_id": "2609.05334v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "weak_empirical_or_repetitive",
+      "tl_dr": "将 Hessian 敏感度剪枝、INT8 量化和注意力蒸馏组合用于田间辣椒病害 ViT 压缩,实现 54.5× 压缩但同等规模直接训练的 student 即可取得相近精度,方法增量与实证说服力有限。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\大模型量化与压缩\\The History Is the Detector Executing CVE Patch History, End-to-End.md",
+      "arxiv_id": "2609.05335v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "average",
+      "tl_dr": "提出BUGSTONE-E2E框架,从CVE修复commit中自动挖掘可执行的漏洞检测规则,并通过漏斗式pipeline(Tree-sitter锚点→轻量启发式→LLM agent→差分测试)实现大规模扫描与自动修复,但方法以工程整合为主,缺"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\大模型量化与压缩\\Variational Continuation for Double Pendulum Periodic Orbits.md",
+      "arxiv_id": "2609.05337v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "weak_empirical",
+      "tl_dr": "用自动微分和 Hessian 零特征值方向做双摆周期轨道的数值延拓,方法上是已有工具的浅层组合,仅在双摆上演示且缺乏与 SOTA 系统的对比。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\模型训练原理\\A Deep Generative Model for Synthesizing Labeled Wireless Signals.md",
+      "arxiv_id": "2609.05396v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "提出Inter-Instance GAN用深度学习合成带位置标签的UWB无线信号,以替代昂贵的实测采集,但本质是条件GAN在无线领域的工程化套用,创新增量与实证广度均有待加强"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\视觉理解与生成\\Think-Verify-Revise Neuro-Symbolic Visual Reasoning with Vision-Language Models and Dynamic Logic Te.md",
+      "arxiv_id": "2609.05388v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "用 VLM 提议一阶逻辑规则、D-LTN 动态验证并反馈修正,在 ViSudo-PC Sudoku 类任务上 few-shot 达到与 NeuPSL/LTN 相当 AUC 的神经符号框架。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\视觉理解与生成\\Variable Charge State, Magnetic Excitations, and Kondo Effect of SmgIr(111).md",
+      "arxiv_id": "2609.05394v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "high_quality",
+      "tl_dr": "利用低温STM在Sm/石墨烯/Ir(111)上首次观测到镧系单原子的可变电荷态及其Kondo共振,通过光谱与cotunneling理论拟合确认Sm+为基态并保留气相g因子。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\语音与音频大模型\\Development of a Humanoid Robot Prototype for Multimodal Human-Robot Interaction.md",
+      "arxiv_id": "2609.05361v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "low_quality",
+      "tl_dr": "本文搭建了一款搭载12DOF双臂和Jetson的仿人机器人原型,集成MediaPipe+YOLO+LLM等成熟模块实现多模态交互,属于工程集成报告,缺乏新算法或新见解。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\语音与音频大模型\\LLM-Driven Algorithm Design for Quantum Circuit Synthesis based on Binary Decision Diagrams.md",
+      "arxiv_id": "2609.05327v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.2,
+      "new_category": "一般",
+      "tl_dr": "论文提出由LLM生成并经QCC驱动进化筛选的BDD变量排序启发式，所得HGA-QE在若干可逆电路基准上具有竞争力，但新意、实验充分性和复现细节仍需加强。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\语音与音频大模型\\Necessary or Sufficient Evaluating LLM Explanations With Behavioural Evidence.md",
+      "arxiv_id": "2609.05385v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "rehash_weak_evidence",
+      "tl_dr": "在两个合成任务上用黑盒扰动估计 LLM 自报因素的必要性与充分性,发现其与自报排序相关性中等且常遗漏高影响未引用因素,作为 agent 监督的解释可靠性检查。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\语音与音频大模型\\Scalable Detection of Fossil Palynomorphs in Multifocal Digital Microscopy Images.md",
+      "arxiv_id": "2609.05323v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "将 RF-DETR 等通用目标检测器工程化地应用于多焦面数字显微全切片图像中的孢粉化石自动检测,提出切片分解/合成与 I/O 优化流程,AP@50 达 0.879,主要贡献在工程 pipeline 而非方法创新。"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\语音与音频大模型\\When LLM Decompilers Recompile More and Preserve Less.md",
+      "arxiv_id": "2609.05370v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "average",
+      "tl_dr": "提出 Decompile-Diverge 框架,通过对参考函数 fuzzing 构造输入语料并做行为对比,揭示 LLM 去编译器在通过 ship 测试的同时仍可能语义偏离甚至掩盖漏洞,挑战以 recompilability 为核心的现有评测"
+    },
+    {
+      "path": "F:\\软件测试\\30AI技术知识树\\arxivForAI\\第二层-大模型基底层\\预训练数据工程\\Multi-Step Tool-Calling over Korean Open Public APIs A Benchmark and a Data-Synthesis Recipe.md",
+      "arxiv_id": "2609.05395v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "针对韩国公共 API 的多步 tool-calling 提出 145 题基准 KOPA-BENCH 和基于真实执行的图驱动数据合成方法 EDGE,经 GRPO 微调的 9B 模型在该基准及 BFCL 上接近未调 27B 同家族模型。"
+    }
+  ],
+  "failed": []
+}

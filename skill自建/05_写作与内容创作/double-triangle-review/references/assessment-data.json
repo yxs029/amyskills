@@ -1,0 +1,1061 @@
+{
+  "sub_modules": [
+    {
+      "sid": "A1",
+      "name": "主动模仿",
+      "dim": "aesthetic",
+      "dimName": "审美",
+      "order": "1",
+      "desc": "主动收藏、研究、模仿优质内容"
+    },
+    {
+      "sid": "A2",
+      "name": "我能看见",
+      "dim": "aesthetic",
+      "dimName": "审美",
+      "order": "2",
+      "desc": "快速判断内容质量，识别逻辑漏洞"
+    },
+    {
+      "sid": "A3",
+      "name": "筛选入围",
+      "dim": "aesthetic",
+      "dimName": "审美",
+      "order": "3",
+      "desc": "有明确主题，有选书标准，主动舍弃"
+    },
+    {
+      "sid": "A4",
+      "name": "提炼模型",
+      "dim": "aesthetic",
+      "dimName": "审美",
+      "order": "4",
+      "desc": "总结规律，绘制图谱，提炼核心模型"
+    },
+    {
+      "sid": "S1",
+      "name": "散点管理",
+      "dim": "system",
+      "dimName": "体系",
+      "order": "1",
+      "desc": "统一入口，定期整理，告别分散"
+    },
+    {
+      "sid": "S2",
+      "name": "TopN聚焦",
+      "dim": "system",
+      "dimName": "体系",
+      "order": "2",
+      "desc": "聚焦核心主题，主动放弃次要"
+    },
+    {
+      "sid": "S3",
+      "name": "MECE结构",
+      "dim": "system",
+      "dimName": "体系",
+      "order": "3",
+      "desc": "系统分类，搭建框架，不重不漏"
+    },
+    {
+      "sid": "S4",
+      "name": "逻辑链系统",
+      "dim": "system",
+      "dimName": "体系",
+      "order": "4",
+      "desc": "因果链分析，系统方案，行动转化"
+    },
+    {
+      "sid": "I1",
+      "name": "流程创新",
+      "dim": "innovation",
+      "dimName": "创新",
+      "order": "1",
+      "desc": "固定的输入-处理-输出工作流"
+    },
+    {
+      "sid": "I2",
+      "name": "方案创新",
+      "dim": "innovation",
+      "dimName": "创新",
+      "order": "2",
+      "desc": "多方案思维，尝试新方法，持续改进"
+    },
+    {
+      "sid": "I3",
+      "name": "商业创新",
+      "dim": "innovation",
+      "dimName": "创新",
+      "order": "3",
+      "desc": "知识服务多用户，探索新渠道新形态"
+    },
+    {
+      "sid": "I4",
+      "name": "产品创新",
+      "dim": "innovation",
+      "dimName": "创新",
+      "order": "4",
+      "desc": "书变课程，课程变社群，知识变训练营"
+    },
+    {
+      "sid": "I5",
+      "name": "技术应用",
+      "dim": "innovation",
+      "dimName": "创新",
+      "order": "5",
+      "desc": "AI辅助学习写作，自动化工具提效"
+    },
+    {
+      "sid": "I6",
+      "name": "技术自研",
+      "dim": "innovation",
+      "dimName": "创新",
+      "order": "6",
+      "desc": "原创模型、方法论、工具与Skill"
+    },
+    {
+      "sid": "S1",
+      "name": "探索定位 Seek",
+      "dim": "scene",
+      "dimName": "场景",
+      "order": "1",
+      "desc": "明确用AI搭建知识体系的目的与主轴领域，避免盲目跟风"
+    },
+    {
+      "sid": "S2",
+      "name": "变革视野 Transform",
+      "dim": "scene",
+      "dimName": "场景",
+      "order": "2",
+      "desc": "知识体系的终局预判与长期路径规划，与个人事业/创作关联"
+    },
+    {
+      "sid": "S3",
+      "name": "效率加速 Accelerate",
+      "dim": "scene",
+      "dimName": "场景",
+      "order": "3",
+      "desc": "用AI攻克采集/整理/检索/输出等具体瓶颈，量化时间收益"
+    },
+    {
+      "sid": "S4",
+      "name": "价值落地 Realize",
+      "dim": "scene",
+      "dimName": "场景",
+      "order": "4",
+      "desc": "知识库从个人消化走向对外交付，复用与ROI清晰"
+    },
+    {
+      "sid": "K1",
+      "name": "AI认知入门",
+      "dim": "skill",
+      "dimName": "基本功",
+      "order": "1",
+      "desc": "理解大模型/Embeddings/向量检索原理，建立人在回路的心态"
+    },
+    {
+      "sid": "K2",
+      "name": "提示工程核心",
+      "dim": "skill",
+      "dimName": "基本功",
+      "order": "2",
+      "desc": "针对知识处理场景的结构化提示词与模板库"
+    },
+    {
+      "sid": "K3",
+      "name": "智能体与RAG",
+      "dim": "skill",
+      "dimName": "基本功",
+      "order": "3",
+      "desc": "用智能体/RAG搭建自动化知识工作流，端到端串联知识流"
+    },
+    {
+      "sid": "K4",
+      "name": "编程融合进阶",
+      "dim": "skill",
+      "dimName": "基本功",
+      "order": "4",
+      "desc": "Embeddings/语义搜索/AI辅助小工具，了解模型差异与局限"
+    },
+    {
+      "sid": "K5",
+      "name": "体系化思维",
+      "dim": "skill",
+      "dimName": "基本功",
+      "order": "5",
+      "desc": "用PARA/MOC等方法论指导AI知识库设计，全链路SOP与多轮迭代"
+    },
+    {
+      "sid": "D1",
+      "name": "数据质量意识",
+      "dim": "data",
+      "dimName": "数据",
+      "order": "1",
+      "desc": "理解GIGO原则，筛选优质信源，明确哪些素材适合入知识库"
+    },
+    {
+      "sid": "D2",
+      "name": "数据整理能力",
+      "dim": "data",
+      "dimName": "数据",
+      "order": "2",
+      "desc": "统一标签/分类/双向链接体系，AI辅助结构化入库"
+    },
+    {
+      "sid": "D3",
+      "name": "数据资产就绪",
+      "dim": "data",
+      "dimName": "数据",
+      "order": "3",
+      "desc": "拥有AI可读的结构化知识库，持续维护，2分钟可定位"
+    },
+    {
+      "sid": "D4",
+      "name": "数据飞轮增值",
+      "dim": "data",
+      "dimName": "数据",
+      "order": "4",
+      "desc": "AI输出反哺知识库，AI基于私域知识做二次创作，形成正向循环"
+    }
+  ],
+  "dimensions": [
+    {
+      "key": "aesthetic",
+      "name": "审美",
+      "fullName": "审美",
+      "color": "#E76F51",
+      "light": "#FCEEEA",
+      "subs": [
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ]
+    },
+    {
+      "key": "system",
+      "name": "体系",
+      "fullName": "体系",
+      "color": "#2A9D8F",
+      "light": "#E8F5F3",
+      "subs": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "key": "innovation",
+      "name": "创新",
+      "fullName": "创新",
+      "color": "#7B68EE",
+      "light": "#F0EDFC",
+      "subs": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "I6"
+      ]
+    },
+    {
+      "key": "scene",
+      "name": "场景 STAR",
+      "fullName": "场景 STAR",
+      "color": "#E76F51",
+      "light": "#FCEEEA",
+      "subs": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "key": "skill",
+      "name": "基本功 Skills",
+      "fullName": "基本功 Skills",
+      "color": "#2A9D8F",
+      "light": "#E8F5F3",
+      "subs": [
+        "K1",
+        "K2",
+        "K3",
+        "K4",
+        "K5"
+      ]
+    },
+    {
+      "key": "data",
+      "name": "数据 Data",
+      "fullName": "数据 Data",
+      "color": "#7B68EE",
+      "light": "#F0EDFC",
+      "subs": [
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "dim": "aesthetic",
+      "sub": "A1",
+      "text": "我经常主动收藏优质内容。",
+      "reverse": false
+    },
+    {
+      "id": 2,
+      "dim": "aesthetic",
+      "sub": "A1",
+      "text": "看到优秀作品时，我会反复研究。",
+      "reverse": false
+    },
+    {
+      "id": 3,
+      "dim": "aesthetic",
+      "sub": "A1",
+      "text": "我会模仿优秀作者的表达或结构。",
+      "reverse": false
+    },
+    {
+      "id": 4,
+      "dim": "aesthetic",
+      "sub": "A1",
+      "text": "我愿意长期阅读经典作品，而不仅是热点内容。",
+      "reverse": false
+    },
+    {
+      "id": 5,
+      "dim": "aesthetic",
+      "sub": "A2",
+      "text": "我能够快速判断一篇内容是否专业。",
+      "reverse": false
+    },
+    {
+      "id": 6,
+      "dim": "aesthetic",
+      "sub": "A2",
+      "text": "我能清晰说出一篇内容为什么优秀。",
+      "reverse": false
+    },
+    {
+      "id": 7,
+      "dim": "aesthetic",
+      "sub": "A2",
+      "text": "我能识别内容中的逻辑漏洞。",
+      "reverse": false
+    },
+    {
+      "id": 8,
+      "dim": "aesthetic",
+      "sub": "A2",
+      "text": "我能区分事实、观点、案例和情绪表达。",
+      "reverse": false
+    },
+    {
+      "id": 9,
+      "dim": "aesthetic",
+      "sub": "A3",
+      "text": "我有明确的学习主题和研究方向。",
+      "reverse": false
+    },
+    {
+      "id": 10,
+      "dim": "aesthetic",
+      "sub": "A3",
+      "text": "我知道哪些内容不值得学习。",
+      "reverse": false
+    },
+    {
+      "id": 11,
+      "dim": "aesthetic",
+      "sub": "A3",
+      "text": "我有自己的选书标准。",
+      "reverse": false
+    },
+    {
+      "id": 12,
+      "dim": "aesthetic",
+      "sub": "A3",
+      "text": "面对大量信息时，我能够主动舍弃大部分内容。",
+      "reverse": false
+    },
+    {
+      "id": 13,
+      "dim": "aesthetic",
+      "sub": "A4",
+      "text": "我阅读时会主动总结规律。",
+      "reverse": false
+    },
+    {
+      "id": 14,
+      "dim": "aesthetic",
+      "sub": "A4",
+      "text": "我经常绘制知识图谱或结构图。",
+      "reverse": false
+    },
+    {
+      "id": 15,
+      "dim": "aesthetic",
+      "sub": "A4",
+      "text": "我能够把一本书提炼成几个核心模型。",
+      "reverse": false
+    },
+    {
+      "id": 16,
+      "dim": "aesthetic",
+      "sub": "A4",
+      "text": "我能够发现不同领域之间的共同规律。",
+      "reverse": false
+    },
+    {
+      "id": 17,
+      "dim": "system",
+      "sub": "S1",
+      "text": "我的知识资料分散在多个平台中。",
+      "reverse": true
+    },
+    {
+      "id": 18,
+      "dim": "system",
+      "sub": "S1",
+      "text": "我经常找不到以前保存过的资料。",
+      "reverse": true
+    },
+    {
+      "id": 19,
+      "dim": "system",
+      "sub": "S1",
+      "text": "我拥有统一的知识收集入口。",
+      "reverse": false
+    },
+    {
+      "id": 20,
+      "dim": "system",
+      "sub": "S1",
+      "text": "我会定期整理自己的知识库。",
+      "reverse": false
+    },
+    {
+      "id": 21,
+      "dim": "system",
+      "sub": "S2",
+      "text": "我清楚自己当前最重要的研究主题。",
+      "reverse": false
+    },
+    {
+      "id": 22,
+      "dim": "system",
+      "sub": "S2",
+      "text": "我不会同时研究过多主题。",
+      "reverse": false
+    },
+    {
+      "id": 23,
+      "dim": "system",
+      "sub": "S2",
+      "text": "我的学习主要围绕现实问题展开。",
+      "reverse": false
+    },
+    {
+      "id": 24,
+      "dim": "system",
+      "sub": "S2",
+      "text": "我会主动放弃次要信息。",
+      "reverse": false
+    },
+    {
+      "id": 25,
+      "dim": "system",
+      "sub": "S3",
+      "text": "我会系统地对知识进行分类。",
+      "reverse": false
+    },
+    {
+      "id": 26,
+      "dim": "system",
+      "sub": "S3",
+      "text": "我能够搭建主题知识框架。",
+      "reverse": false
+    },
+    {
+      "id": 27,
+      "dim": "system",
+      "sub": "S3",
+      "text": "我的分类能够做到尽量不重不漏。",
+      "reverse": false
+    },
+    {
+      "id": 28,
+      "dim": "system",
+      "sub": "S3",
+      "text": "我经常绘制主题地图或知识树。",
+      "reverse": false
+    },
+    {
+      "id": 29,
+      "dim": "system",
+      "sub": "S4",
+      "text": "我习惯分析问题背后的原因。",
+      "reverse": false
+    },
+    {
+      "id": 30,
+      "dim": "system",
+      "sub": "S4",
+      "text": "我能够建立完整的因果链。",
+      "reverse": false
+    },
+    {
+      "id": 31,
+      "dim": "system",
+      "sub": "S4",
+      "text": "我能够设计系统解决方案。",
+      "reverse": false
+    },
+    {
+      "id": 32,
+      "dim": "system",
+      "sub": "S4",
+      "text": "我能将知识转化为行动步骤。",
+      "reverse": false
+    },
+    {
+      "id": 33,
+      "dim": "innovation",
+      "sub": "I1",
+      "text": "我拥有固定的知识输入流程。",
+      "reverse": false
+    },
+    {
+      "id": 34,
+      "dim": "innovation",
+      "sub": "I1",
+      "text": "我拥有固定的知识处理流程。",
+      "reverse": false
+    },
+    {
+      "id": 35,
+      "dim": "innovation",
+      "sub": "I1",
+      "text": "我拥有固定的知识输出流程。",
+      "reverse": false
+    },
+    {
+      "id": 36,
+      "dim": "innovation",
+      "sub": "I1",
+      "text": "我会持续优化自己的工作流。",
+      "reverse": false
+    },
+    {
+      "id": 37,
+      "dim": "innovation",
+      "sub": "I2",
+      "text": "面对一个问题，我通常能够想到多个解决方案。",
+      "reverse": false
+    },
+    {
+      "id": 38,
+      "dim": "innovation",
+      "sub": "I2",
+      "text": "我喜欢尝试新的学习方法。",
+      "reverse": false
+    },
+    {
+      "id": 39,
+      "dim": "innovation",
+      "sub": "I2",
+      "text": "我经常改进已有方案。",
+      "reverse": false
+    },
+    {
+      "id": 40,
+      "dim": "innovation",
+      "sub": "I2",
+      "text": "我能够针对不同对象设计不同方案。",
+      "reverse": false
+    },
+    {
+      "id": 41,
+      "dim": "innovation",
+      "sub": "I3",
+      "text": "我会思考同一个知识如何服务不同用户。",
+      "reverse": false
+    },
+    {
+      "id": 42,
+      "dim": "innovation",
+      "sub": "I3",
+      "text": "我会思考新的传播渠道。",
+      "reverse": false
+    },
+    {
+      "id": 43,
+      "dim": "innovation",
+      "sub": "I3",
+      "text": "我会思考新的产品形式。",
+      "reverse": false
+    },
+    {
+      "id": 44,
+      "dim": "innovation",
+      "sub": "I3",
+      "text": "我会主动研究优秀商业模式。",
+      "reverse": false
+    },
+    {
+      "id": 45,
+      "dim": "innovation",
+      "sub": "I4",
+      "text": "我能把一本书转化成课程。",
+      "reverse": false
+    },
+    {
+      "id": 46,
+      "dim": "innovation",
+      "sub": "I4",
+      "text": "我能把课程转化成社群活动。",
+      "reverse": false
+    },
+    {
+      "id": 47,
+      "dim": "innovation",
+      "sub": "I4",
+      "text": "我能把知识设计成训练营。",
+      "reverse": false
+    },
+    {
+      "id": 48,
+      "dim": "innovation",
+      "sub": "I4",
+      "text": "我经常重新设计已有产品。",
+      "reverse": false
+    },
+    {
+      "id": 49,
+      "dim": "innovation",
+      "sub": "I5",
+      "text": "我经常使用AI辅助学习。",
+      "reverse": false
+    },
+    {
+      "id": 50,
+      "dim": "innovation",
+      "sub": "I5",
+      "text": "我使用AI辅助写作和输出。",
+      "reverse": false
+    },
+    {
+      "id": 51,
+      "dim": "innovation",
+      "sub": "I5",
+      "text": "我使用自动化工具提升效率。",
+      "reverse": false
+    },
+    {
+      "id": 52,
+      "dim": "innovation",
+      "sub": "I5",
+      "text": "我会持续学习新的数字工具。",
+      "reverse": false
+    },
+    {
+      "id": 53,
+      "dim": "innovation",
+      "sub": "I6",
+      "text": "我拥有自己的原创模型。",
+      "reverse": false
+    },
+    {
+      "id": 54,
+      "dim": "innovation",
+      "sub": "I6",
+      "text": "我拥有自己的原创方法论。",
+      "reverse": false
+    },
+    {
+      "id": 55,
+      "dim": "innovation",
+      "sub": "I6",
+      "text": "我曾设计过原创工具或Skill。",
+      "reverse": false
+    },
+    {
+      "id": 56,
+      "dim": "innovation",
+      "sub": "I6",
+      "text": "我的模型或方法正在被别人使用。",
+      "reverse": false
+    },
+    {
+      "id": 1,
+      "dim": "scene",
+      "sub": "S1",
+      "text": "我能清晰说出\"用AI搭建知识体系\"对我个人的核心价值是什么，不是为了赶时髦。",
+      "reverse": false
+    },
+    {
+      "id": 2,
+      "dim": "scene",
+      "sub": "S1",
+      "text": "我清楚自己当前最想突破的认知领域（如：商业/技术/心理/创作），并以此为知识体系主轴。",
+      "reverse": false
+    },
+    {
+      "id": 3,
+      "dim": "scene",
+      "sub": "S1",
+      "text": "我设定了明确的\"知识体系搭建\"阶段性目标（如：3个月/半年/1年），而不是漫无目的积累。",
+      "reverse": false
+    },
+    {
+      "id": 4,
+      "dim": "scene",
+      "sub": "S1",
+      "text": "我选择用AI搭建知识体系，是因为它能解决我的真实痛点（记忆/检索/输出/连接），不是看别人都在用。",
+      "reverse": false
+    },
+    {
+      "id": 5,
+      "dim": "scene",
+      "sub": "S2",
+      "text": "我思考过知识体系搭建的\"终局\"：3年后我的知识库应该长什么样、能输出什么价值。",
+      "reverse": false
+    },
+    {
+      "id": 6,
+      "dim": "scene",
+      "sub": "S2",
+      "text": "我的知识体系搭建有清晰路径图（采集→整理→建模→输出→迭代），不是边走边想。",
+      "reverse": false
+    },
+    {
+      "id": 7,
+      "dim": "scene",
+      "sub": "S2",
+      "text": "我能区分\"个人知识库\"和\"对外内容资产\"两类目标，并分别规划搭建路径。",
+      "reverse": false
+    },
+    {
+      "id": 8,
+      "dim": "scene",
+      "sub": "S2",
+      "text": "我把知识体系搭建与自己的事业/创作/影响力等长期目标关联起来。",
+      "reverse": false
+    },
+    {
+      "id": 9,
+      "dim": "scene",
+      "sub": "S3",
+      "text": "我清楚当前知识体系搭建中最高频/最痛的具体环节（如：采集/分类/检索/输出），并已用AI优先攻克。",
+      "reverse": false
+    },
+    {
+      "id": 10,
+      "dim": "scene",
+      "sub": "S3",
+      "text": "我用AI搭建知识体系后，确能量化感受到\"每周处理/消化信息的量\"明显提升。",
+      "reverse": false
+    },
+    {
+      "id": 11,
+      "dim": "scene",
+      "sub": "S3",
+      "text": "我曾用AI自动化至少一个知识处理环节（如：自动摘要/自动归类/自动生成脑图/自动提取关键词）。",
+      "reverse": false
+    },
+    {
+      "id": 12,
+      "dim": "scene",
+      "sub": "S3",
+      "text": "我聚焦用AI解决\"输入→消化→输出\"链路中的杠杆点，而不是把它当万能工具乱用。",
+      "reverse": false
+    },
+    {
+      "id": 13,
+      "dim": "scene",
+      "sub": "S4",
+      "text": "我用AI+知识库产出的内容/课程/咨询/社群，已经或即将带来实际收益。",
+      "reverse": false
+    },
+    {
+      "id": 14,
+      "dim": "scene",
+      "sub": "S4",
+      "text": "我把知识体系封装成了可复用的资产（如：Skill/提示词模板/工作流），不是每次从零开始。",
+      "reverse": false
+    },
+    {
+      "id": 15,
+      "dim": "scene",
+      "sub": "S4",
+      "text": "我能算清AI知识体系的投入产出比：投入时间/工具/订阅费 vs 带来的效率提升/收入。",
+      "reverse": false
+    },
+    {
+      "id": 16,
+      "dim": "scene",
+      "sub": "S4",
+      "text": "我的知识库从\"个人消化\"走向了\"可分享/可协作/可对外交付\"的阶段。",
+      "reverse": false
+    },
+    {
+      "id": 17,
+      "dim": "skill",
+      "sub": "K1",
+      "text": "我理解大语言模型/Embeddings/向量库等基本概念，知道AI为什么能辅助知识管理。",
+      "reverse": false
+    },
+    {
+      "id": 18,
+      "dim": "skill",
+      "sub": "K1",
+      "text": "我用AI时保持\"人在回路\"——AI负责检索/总结/连接，我负责判断/筛选/创新。",
+      "reverse": false
+    },
+    {
+      "id": 19,
+      "dim": "skill",
+      "sub": "K1",
+      "text": "我能在30分钟内上手一个新的AI知识工具（如：Notion AI/思乎/Wolai AI），并完成一个最小可用流程。",
+      "reverse": false
+    },
+    {
+      "id": 20,
+      "dim": "skill",
+      "sub": "K1",
+      "text": "我不怕AI工具更新迭代快，反而把每次更新视为优化知识体系的新机会。",
+      "reverse": false
+    },
+    {
+      "id": 21,
+      "dim": "skill",
+      "sub": "K2",
+      "text": "我有一套针对知识处理的提示词结构（如：角色+背景+任务+示例+输出格式），不是临时提问。",
+      "reverse": false
+    },
+    {
+      "id": 22,
+      "dim": "skill",
+      "sub": "K2",
+      "text": "当AI总结/分类效果差时，我知道如何迭代提示词（如：给示例/分步/指定粒度），不是换工具。",
+      "reverse": false
+    },
+    {
+      "id": 23,
+      "dim": "skill",
+      "sub": "K2",
+      "text": "我会用Few-shot/思维链/结构化输出等技巧，让AI产出更符合我知识库规范的总结。",
+      "reverse": false
+    },
+    {
+      "id": 24,
+      "dim": "skill",
+      "sub": "K2",
+      "text": "我积累了至少10个针对知识处理场景（总结/翻译/提取/归类）的提示词模板。",
+      "reverse": false
+    },
+    {
+      "id": 25,
+      "dim": "skill",
+      "sub": "K3",
+      "text": "我用AI+知识库搭建过问答/检索/总结的自动化流程（如：Coze/Dify/Make/扣子等），而不只是单轮聊天。",
+      "reverse": false
+    },
+    {
+      "id": 26,
+      "dim": "skill",
+      "sub": "K3",
+      "text": "我了解RAG（检索增强生成）原理，能让AI在回答时引用我知识库中的具体内容。",
+      "reverse": false
+    },
+    {
+      "id": 27,
+      "dim": "skill",
+      "sub": "K3",
+      "text": "我能用AI把碎片输入（聊天记录/截图/灵感/网页）自动整理为结构化笔记，节省手动整理时间。",
+      "reverse": false
+    },
+    {
+      "id": 28,
+      "dim": "skill",
+      "sub": "K3",
+      "text": "我设计过\"采集→处理→入库→检索→输出\"的多步骤AI工作流，端到端串联知识流。",
+      "reverse": false
+    },
+    {
+      "id": 29,
+      "dim": "skill",
+      "sub": "K4",
+      "text": "我理解Embeddings/向量检索的基本概念，能用它做\"语义搜索\"而非关键词搜索。",
+      "reverse": false
+    },
+    {
+      "id": 30,
+      "dim": "skill",
+      "sub": "K4",
+      "text": "我用AI辅助写过知识管理的小工具/脚本/插件（如：自动归类/批量打标签/自动备份），不依赖纯手工。",
+      "reverse": false
+    },
+    {
+      "id": 31,
+      "dim": "skill",
+      "sub": "K4",
+      "text": "我知道AI知识库的局限（如：幻觉/上下文限制/成本），并在体系设计中做了对应规避。",
+      "reverse": false
+    },
+    {
+      "id": 32,
+      "dim": "skill",
+      "sub": "K4",
+      "text": "我了解不同AI模型的特点（长文本/多模态/推理/成本），能根据知识任务选择最合适的。",
+      "reverse": false
+    },
+    {
+      "id": 33,
+      "dim": "skill",
+      "sub": "K5",
+      "text": "我用PARA/CODER/MOC等知识管理方法论指导AI知识库的设计，不是只堆内容。",
+      "reverse": false
+    },
+    {
+      "id": 34,
+      "dim": "skill",
+      "sub": "K5",
+      "text": "我设计过\"输入-处理-输出\"全链路的AI知识工作流，并形成可复用的SOP。",
+      "reverse": false
+    },
+    {
+      "id": 35,
+      "dim": "skill",
+      "sub": "K5",
+      "text": "我用AI+知识库真实解决了具体场景（写作/选题/教学/咨询/决策），不是为了\"搭建\"而搭建。",
+      "reverse": false
+    },
+    {
+      "id": 36,
+      "dim": "skill",
+      "sub": "K5",
+      "text": "我的AI知识体系经历过\"搭建→用→优化→重构\"的循环，已经迭代过至少2轮。",
+      "reverse": false
+    },
+    {
+      "id": 37,
+      "dim": "data",
+      "sub": "D1",
+      "text": "我理解\"垃圾进垃圾出\"——知识库价值取决于入库素材的质量，AI不能化腐朽为神奇。",
+      "reverse": false
+    },
+    {
+      "id": 38,
+      "dim": "data",
+      "sub": "D1",
+      "text": "我会筛选优质信源（一手/经典/权威），避免把低质信息大量喂入AI知识库。",
+      "reverse": false
+    },
+    {
+      "id": 39,
+      "dim": "data",
+      "sub": "D1",
+      "text": "我清楚什么样的素材适合结构化（书籍/课程/干货），什么样的适合留存原文（聊天/灵感/日记）。",
+      "reverse": false
+    },
+    {
+      "id": 40,
+      "dim": "data",
+      "sub": "D1",
+      "text": "我有数据/隐私意识，知道什么资料可以传AI（公开/匿名），什么不能（敏感/隐私/版权受限）。",
+      "reverse": false
+    },
+    {
+      "id": 41,
+      "dim": "data",
+      "sub": "D2",
+      "text": "我的知识库有统一的标签/分类体系（如：领域/类型/状态/优先级），不是乱放。",
+      "reverse": false
+    },
+    {
+      "id": 42,
+      "dim": "data",
+      "sub": "D2",
+      "text": "我会用AI辅助打标签/分类/提取关键信息，把碎片内容结构化入库。",
+      "reverse": false
+    },
+    {
+      "id": 43,
+      "dim": "data",
+      "sub": "D2",
+      "text": "我的笔记/资料有双向链接或关联关系，不是孤立的单篇文档（支持网络化检索）。",
+      "reverse": false
+    },
+    {
+      "id": 44,
+      "dim": "data",
+      "sub": "D2",
+      "text": "我的知识库分散在3个以上平台，找资料时经常不知道去哪查（反向计分）。",
+      "reverse": true
+    },
+    {
+      "id": 45,
+      "dim": "data",
+      "sub": "D3",
+      "text": "我拥有可以被AI直接读取的结构化知识库（如：Markdown库/Obsidian/Notion），不是Word/PDF散件。",
+      "reverse": false
+    },
+    {
+      "id": 46,
+      "dim": "data",
+      "sub": "D3",
+      "text": "我的知识库有持续维护和更新习惯（每周至少整理/补充一次），不是搭建完就放着。",
+      "reverse": false
+    },
+    {
+      "id": 47,
+      "dim": "data",
+      "sub": "D3",
+      "text": "当我需要某个领域的资料时，能在2分钟内在知识库中准确定位到。",
+      "reverse": false
+    },
+    {
+      "id": 48,
+      "dim": "data",
+      "sub": "D3",
+      "text": "我经常找不到以前入库的重要资料（反向计分）。",
+      "reverse": true
+    },
+    {
+      "id": 49,
+      "dim": "data",
+      "sub": "D4",
+      "text": "我会把AI的输出（如：总结/分析/脑图）反哺回知识库，作为后续的输入素材。",
+      "reverse": false
+    },
+    {
+      "id": 50,
+      "dim": "data",
+      "sub": "D4",
+      "text": "我让AI基于我的知识库做\"二次创作\"（如：用我读过的书辅助写新文章），而不是只用通用知识。",
+      "reverse": false
+    },
+    {
+      "id": 51,
+      "dim": "data",
+      "sub": "D4",
+      "text": "我能感受到\"好素材入库→AI更好理解我→产出更准→更多好素材\"的正向飞轮。",
+      "reverse": false
+    },
+    {
+      "id": 52,
+      "dim": "data",
+      "sub": "D4",
+      "text": "我建立了机制把日常碎片（卡片/笔记/对话）持续沉淀为知识库的可复用资产。",
+      "reverse": false
+    }
+  ]
+}

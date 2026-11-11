@@ -1,0 +1,35 @@
+# arXiv to Obsidian — AI 论文周报收集器 config
+# 运行时由 pipeline.py 加载
+# =============================================
+# Obsidian Vault 根目录(PDF 与笔记同目录)
+vault_dir: "F:/软件测试/30AI技术知识树/arxivForAI"
+
+# 搜索时间窗口(天);每周跑一次建议 7
+search_days: 7
+
+# 每 query 最多拉多少篇(arXiv API 一次请求)
+max_results_per_query: 5
+
+# 每分类最终保留多少篇(按时间排序,取前 N 篇)
+max_papers_per_category: 5
+
+# ---- LLM 模型(MiniMax-M3 / Anthropic Messages API) ----
+# 模型名(具体值由你的 MiniMax 服务方决定)
+model: "m3"
+
+# 评分器可与摘要用同一个;若想省成本或差异化可改
+quality_scorer_model: "m3"
+
+# MiniMax-M3 的 endpoint(Anthropic Messages API 风格,见 SKILL.md)
+api_base: "https://api.minimaxi.com/anthropic"
+
+# API Key 走环境变量,不要 hardcode 在此
+api_key_env: "MINIMAX_M3_API_KEY"
+
+# PDF 文本提取: 取前 N 页
+pdf_max_pages: 4
+
+# ---- 质量评分过滤 ----
+# 评分低于此阈值的论文不写入 Obsidian(仅下载 PDF 留底)
+# 设为 0 = 不过滤(等同旧版行为)
+quality_threshold: 5.0

@@ -1,0 +1,265 @@
+{
+  "version": "1.0",
+  "schema": "风格-结构-摘要",
+  "subdir": "04_ArtDeco复古商务海报",
+  "图片总数": 17,
+  "风格总结": "sepia+装饰边框+商务人物+老式海报",
+  "情感基调": "厚重+仪式感+历史感",
+  "images": [
+    {
+      "原文件名": "BEGvKsLMkv3OSdWbYhlqA6_1782208630981_na1fn_L2hvbWUvdWJ1bnR1L3F3ZXJ0eV9rZXlib2FyZC9jaGFwdGVyMDI.webp",
+      "主题": "qwerty_keyboard",
+      "章节": "02",
+      "子标签": "",
+      "新别名": "sepia-概念引入-QWERTY 打字机史",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "概念引入/对照图",
+      "摘要": "QWERTY 打字机史（核心概念）",
+      "适用场景": [
+        "技术史",
+        "产品演进"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "BEGvKsLMkv3OSdWbYhlqA6_1782208630981_na1fn_L2hvbWUvdWJ1bnR1L3F3ZXJ0eV9rZXlib2FyZC9jaGFwdGVyMDM.webp",
+      "主题": "qwerty_keyboard",
+      "章节": "03",
+      "子标签": "",
+      "新别名": "sepia-核心模型-QWERTY 打字机史",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "核心模型/双联",
+      "摘要": "QWERTY 打字机史（模型拆解）",
+      "适用场景": [
+        "技术史",
+        "产品演进"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "BEGvKsLMkv3OSdWbYhlqA6_1782208630981_na1fn_L2hvbWUvdWJ1bnR1L3F3ZXJ0eV9rZXlib2FyZC9jaGFwdGVyMDU.webp",
+      "主题": "qwerty_keyboard",
+      "章节": "05",
+      "子标签": "",
+      "新别名": "sepia-深度拆解-QWERTY 打字机史",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "深度拆解/多元素",
+      "摘要": "QWERTY 打字机史（深度展开）",
+      "适用场景": [
+        "技术史",
+        "产品演进"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "EsQHoLdfomaJqIc9w9xXY2_1783507837662_na1fn_L2hvbWUvdWJ1bnR1L3dzal9hcnRpY2xlL2NoYXB0ZXIwMl9jaGFvcw.webp",
+      "主题": "wsj_article",
+      "章节": "02",
+      "子标签": "chaos",
+      "新别名": "sepia-概念引入-华尔街日报 19世纪街景",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "概念引入/对照图",
+      "摘要": "华尔街日报 19世纪街景（核心概念）",
+      "适用场景": [
+        "商业历史",
+        "媒体史"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "EsQHoLdfomaJqIc9w9xXY2_1783507837662_na1fn_L2hvbWUvdWJ1bnR1L3dzal9hcnRpY2xlL2NoYXB0ZXIwMV9jb3Zlcg.webp",
+      "主题": "wsj_article",
+      "章节": "01",
+      "子标签": "cover",
+      "新别名": "sepia-开篇-华尔街日报 19世纪街景",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "开篇/单图聚焦",
+      "摘要": "华尔街日报 19世纪街景（开篇引入）",
+      "适用场景": [
+        "商业历史",
+        "媒体史"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "EsQHoLdfomaJqIc9w9xXY2_1783507837662_na1fn_L2hvbWUvdWJ1bnR1L3dzal9hcnRpY2xlL2NoYXB0ZXIwNl90aW1lbGluZQ.webp",
+      "主题": "wsj_article",
+      "章节": "06",
+      "子标签": "timeline",
+      "新别名": "sepia-延伸-华尔街日报 19世纪街景",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "延伸/案例/时间线",
+      "摘要": "华尔街日报 19世纪街景（延伸思考）",
+      "适用场景": [
+        "商业历史",
+        "媒体史"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "fJQhdbrUylSeGsuPbsQzDJ_1781507618727_na1fn_L2hvbWUvdWJ1bnR1L2libV9zZWNvbmRfY3VydmUvY2hhcHRlcjA1.webp",
+      "主题": "ibm_second_curve",
+      "章节": "05",
+      "子标签": "",
+      "新别名": "sepia-深度拆解-IBM 第二曲线",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "深度拆解/多元素",
+      "摘要": "IBM 第二曲线（深度展开）",
+      "适用场景": [
+        "企业转型",
+        "百年企业"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "fJQhdbrUylSeGsuPbsQzDJ_1781507618727_na1fn_L2hvbWUvdWJ1bnR1L2libV9zZWNvbmRfY3VydmUvY2hhcHRlcjA3.webp",
+      "主题": "ibm_second_curve",
+      "章节": "07",
+      "子标签": "",
+      "新别名": "sepia-延伸-IBM 第二曲线",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "延伸/案例/时间线",
+      "摘要": "IBM 第二曲线（延伸思考）",
+      "适用场景": [
+        "企业转型",
+        "百年企业"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "fJQhdbrUylSeGsuPbsQzDJ_1781507618727_na1fn_L2hvbWUvdWJ1bnR1L2libV9zZWNvbmRfY3VydmUvY2hhcHRlcjAx.webp",
+      "主题": "ibm_second_curve",
+      "章节": "01",
+      "子标签": "",
+      "新别名": "sepia-开篇-IBM 第二曲线",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "开篇/单图聚焦",
+      "摘要": "IBM 第二曲线（开篇引入）",
+      "适用场景": [
+        "企业转型",
+        "百年企业"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "fJQhdbrUylSeGsuPbsQzDJ_1781507618727_na1fn_L2hvbWUvdWJ1bnR1L2libV9zZWNvbmRfY3VydmUvY2hhcHRlcjAy.webp",
+      "主题": "ibm_second_curve",
+      "章节": "02",
+      "子标签": "",
+      "新别名": "sepia-概念引入-IBM 第二曲线",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "概念引入/对照图",
+      "摘要": "IBM 第二曲线（核心概念）",
+      "适用场景": [
+        "企业转型",
+        "百年企业"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "fJQhdbrUylSeGsuPbsQzDJ_1781507618727_na1fn_L2hvbWUvdWJ1bnR1L2libV9zZWNvbmRfY3VydmUvY2hhcHRlcjAz.webp",
+      "主题": "ibm_second_curve",
+      "章节": "03",
+      "子标签": "",
+      "新别名": "sepia-核心模型-IBM 第二曲线",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "核心模型/双联",
+      "摘要": "IBM 第二曲线（模型拆解）",
+      "适用场景": [
+        "企业转型",
+        "百年企业"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "Fl6tvD0GeSvUFYRyq7Hfvb_1782807617824_na1fn_L2hvbWUvdWJ1bnR1L3dvcmsvdHJ1c3RfaW5mcmFzdHJ1Y3R1cmVfMTkwNi9jaGFwdGVyMDE.webp",
+      "主题": "work",
+      "章节": "00",
+      "子标签": "",
+      "新别名": "sepia-封面-商业工作场景",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "封面/总览",
+      "摘要": "商业工作场景（封面/总览）",
+      "适用场景": [
+        "商务叙事",
+        "企业故事"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "Fl6tvD0GeSvUFYRyq7Hfvb_1782807617824_na1fn_L2hvbWUvdWJ1bnR1L3dvcmsvdHJ1c3RfaW5mcmFzdHJ1Y3R1cmVfMTkwNi9jaGFwdGVyMDI.webp",
+      "主题": "work",
+      "章节": "00",
+      "子标签": "",
+      "新别名": "sepia-封面-商业工作场景",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "封面/总览",
+      "摘要": "商业工作场景（封面/总览）",
+      "适用场景": [
+        "商务叙事",
+        "企业故事"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "fvFmJ0th9EQCzYCrVn0oKA_1783335501812_na1fn_L2hvbWUvdWJ1bnR1L2JsdWVfc2hlbGxfbmV0d29yay9jaGFwdGVyMDE.webp",
+      "主题": "blue_shell_network",
+      "章节": "01",
+      "子标签": "",
+      "新别名": "sepia-开篇-蓝壳网络/大陆会议",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "开篇/单图聚焦",
+      "摘要": "蓝壳网络/大陆会议（开篇引入）",
+      "适用场景": [
+        "美国独立史",
+        "政治史"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "K8bQt0UdRluKPaYqn9BLmb_1783076737123_na1fn_L2hvbWUvdWJ1bnR1L2Rvd19qb25lc19hcnRpY2xlL2NoYXB0ZXIwMQ.webp",
+      "主题": "dow_jones_article",
+      "章节": "01",
+      "子标签": "",
+      "新别名": "sepia-开篇-道琼斯指数",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "开篇/单图聚焦",
+      "摘要": "道琼斯指数（开篇引入）",
+      "适用场景": [
+        "金融市场",
+        "指数分析"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "lSfDPjAkg50DUOnYSi4kH5_1783613917651_na1fn_L2hvbWUvdWJ1bnR1L2JzZV9hcnRpY2xlL2NoYXB0ZXIwMQ.webp",
+      "主题": "bse_article",
+      "章节": "01",
+      "子标签": "",
+      "新别名": "sepia-开篇-孟买证券交易所",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "开篇/单图聚焦",
+      "摘要": "孟买证券交易所（开篇引入）",
+      "适用场景": [
+        "亚洲金融市场",
+        "百年交易所"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    },
+    {
+      "原文件名": "Z8T0pKkLDJNLdccGynzORN_1782296771827_na1fn_L2hvbWUvdWJ1bnR1L3RhcmdldF9hcnRpY2xlL2ltYWdlcy9jaGFwdGVyMDA.webp",
+      "主题": "target_article",
+      "章节": "00",
+      "子标签": "",
+      "新别名": "sepia-封面-Target 品牌文章",
+      "风格": "sepia+装饰边框+商务人物+老式海报",
+      "结构": "封面/总览",
+      "摘要": "Target 品牌文章（封面/总览）",
+      "适用场景": [
+        "品牌案例",
+        "零售"
+      ],
+      "情感基调": "厚重+仪式感+历史感"
+    }
+  ]
+}

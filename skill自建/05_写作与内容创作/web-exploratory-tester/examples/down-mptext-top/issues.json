@@ -1,0 +1,277 @@
+{
+  "target_url": "https://down.mptext.top",
+  "date": "2026-06-03",
+  "scope": "全站 + 后端 API 探测",
+  "duration_minutes": 15,
+  "overall_assessment": "功能完整但存在 2 个 Critical 缺陷，最致命的是'登录公众号'弹窗完全空白（核心功能不可用），多处显示 2012-08-23 硬编码日期误导用户。视觉 AI 对中文深色 UI 多次误识别，测试以 DOM snapshot 为准。",
+  "issues": [
+    {
+      "id": 1,
+      "title": "'登录微信公众号' 弹窗完全空白",
+      "severity": "Critical",
+      "category": "Functional",
+      "url": "/dashboard/*",
+      "description": "点击侧边栏'登录公众号'按钮弹出的 dialog 完全空白，只有标题和右上角关闭按钮，没有任何表单、二维码、说明、扫码入口、隐私协议、错误提示。等 5+ 秒后内容仍未出现，浏览器控制台无任何错误——核心登录功能入口存在但完全不可用。",
+      "steps_to_reproduce": [
+        "访问 https://down.mptext.top/dashboard",
+        "点击侧边栏底部的'登录公众号'按钮",
+        "等待 3-10 秒",
+        "观察弹窗内容"
+      ],
+      "expected": "弹窗显示扫码登录二维码 或 登录表单 或 '请先登录 API 账号'说明",
+      "actual": "弹窗只有标题和关闭按钮，空白一片",
+      "screenshot": "screenshots/03-empty-login-dialog.png",
+      "screenshot_annotated": "screenshots/03-empty-login-dialog-annotated.png",
+      "dom_snapshot": "- dialog\n  - heading \"登录微信公众号\" [level=2, ref=e1]\n  - button [ref=e2]\n\n(只有 2 个 ref，dialog 内部空)",
+      "console_errors": "无 JS 错误"
+    },
+    {
+      "id": 2,
+      "title": "同步范围显示'2012-08-23'，严重误导用户",
+      "severity": "Critical",
+      "category": "UX",
+      "url": "/dashboard 和 /dashboard/settings",
+      "description": "在'公众号管理'和'设置'两个页面顶部都显示'同步范围: 2026-06-03 12:23 ~ 2012-08-23 00:00'。普通用户看到这个日期会以为本工具只能同步 2012 年的老文章。2012-08-23 实际是微信公众平台正式上线日附近日期——这是开发者的内部硬编码值，根本不该展示给用户。",
+      "steps_to_reproduce": [
+        "访问 https://down.mptext.top/dashboard",
+        "看顶部'同步'按钮组旁的文字",
+        "再访问 /dashboard/settings，页面底部'实际同步范围'也有同样内容"
+      ],
+      "expected": "默认值用相对时间（'近 1 年'、'近 90 天'、'全部历史'）或友好措辞（'自公众号开通以来'）",
+      "actual": "直接显示 2012-08-23 硬编码日期，损害产品可信度",
+      "screenshot": "screenshots/04-issue-2-date-string.png",
+      "screenshot_annotated": "screenshots/04-issue-2-date-annotated.png",
+      "dom_snapshot": "StaticText: \"同步范围: 2026-06-03 12:23 ~ 2012-08-23 00:00\"",
+      "console_errors": ""
+    },
+    {
+      "id": 3,
+      "title": "所有未知 URL 路径均返回 HTTP 200（SPA fallback）",
+      "severity": "High",
+      "category": "Functional",
+      "url": "任意不存在路径",
+      "description": "由于是 Nuxt SPA，所有 URL 都 fallback 到 index.html，导致任意路径（包括不存在的）都返回 HTTP 200。SEO 抓取会索引到一堆垃圾 URL；死链检测失效；攻击者可枚举内部路径。",
+      "steps_to_reproduce": [
+        "终端执行: curl -s -o /dev/null -w '%{http_code}' https://down.mptext.top/dashboard/admin",
+        "再执行: curl -s -o /dev/null -w '%{http_code}' https://down.mptext.top/api/public/v1/xxx",
+        "两次都返回 200"
+      ],
+      "expected": "不存在的路径返回 HTTP 404",
+      "actual": "全部 200，返回完整 SPA HTML",
+      "screenshot": "screenshots/05-issue-3-spa-fallback.png",
+      "console_errors": ""
+    },
+    {
+      "id": 4,
+      "title": "未登录用户可直接访问所有 dashboard 页面",
+      "severity": "High",
+      "category": "UX",
+      "url": "全部 /dashboard/*",
+      "description": "未登录状态下访问 /dashboard/account 不会重定向到登录页，直接进入完整 dashboard。所有功能页面（管理、文章下载、单篇、合集、代理、API、设置）全部可访问。点击'登录公众号'才看到空 dialog。",
+      "steps_to_reproduce": [
+        "隐身模式打开 https://down.mptext.top/dashboard/account",
+        "无需任何操作，直接看到完整 dashboard UI",
+        "浏览器控制台无错误"
+      ],
+      "expected": "未登录访问受保护路由应自动跳转到登录页或显示'未登录'提示",
+      "actual": "UI 完全可访问，仅后端 API 调用被拦截",
+      "screenshot": "screenshots/06-issue-4-no-auth-guard.png",
+      "screenshot_annotated": "screenshots/06-issue-4-no-auth-annotated.png",
+      "console_errors": ""
+    },
+    {
+      "id": 5,
+      "title": "文章链接输入框无任何格式校验",
+      "severity": "High",
+      "category": "Functional",
+      "url": "/dashboard/single",
+      "description": "在'请输入公众号文章链接'输入框输入任意字符串（包括明显无效的链接），点击'添加'按钮，系统立即接受并存入数据库，列表显示'未命名文章'行。无任何 URL 格式校验。",
+      "steps_to_reproduce": [
+        "访问 /dashboard/single",
+        "在输入框输入 'https://mp.weixin.qq.com/s/test123'",
+        "点击'添加'",
+        "列表立刻新增'未命名文章'行，无任何错误提示"
+      ],
+      "expected": "输入非微信文章 URL 时给出友好提示",
+      "actual": "任何字符串都通过",
+      "screenshot": "screenshots/07-issue-5-no-url-validation.png",
+      "console_errors": ""
+    },
+    {
+      "id": 6,
+      "title": "API 鉴权失败错误消息过于通用",
+      "severity": "High",
+      "category": "Functional",
+      "url": "/api/public/v1/*",
+      "description": "所有未鉴权 API 请求（包括非法路径、错误参数、SQL 注入试探）都返回相同的 {'ret':-1,'err_msg':'认证信息无效'}。无法区分未鉴权/无效密钥/过期/越权/路径不存在。",
+      "steps_to_reproduce": [
+        "终端: curl https://down.mptext.top/api/public/v1/account",
+        "终端: curl 'https://down.mptext.top/api/public/v1/account?keyword=<script>alert(1)</script>'",
+        "终端: curl 'https://down.mptext.top/api/public/v1/../v1/account'",
+        "三次响应都完全相同"
+      ],
+      "expected": "鉴权错误应有具体状态码（401/403/410），不存在 endpoint 应 404",
+      "actual": "全部混淆为'认证信息无效'",
+      "screenshot": "screenshots/08-issue-6-generic-error.png",
+      "console_errors": ""
+    },
+    {
+      "id": 7,
+      "title": "导航栏和内容区出现未识别 listitem",
+      "severity": "Medium",
+      "category": "Visual",
+      "url": "全部 dashboard 页",
+      "description": "侧边栏导航'公众号管理 / 文章下载 / ...'上方有 5 个空的 listitem（DOM 中可见但无可访问内容）。内容区也有同样的 5 个空 listitem。这很可能是 CSS 动画的占位元素（loading skeleton），但在加载完成后未被清理。",
+      "steps_to_reproduce": [
+        "访问 /dashboard 等待 5 秒",
+        "打开开发者工具搜索'listitem'",
+        "发现 5 个空 listitem 同时出现在侧边栏上方和内容区"
+      ],
+      "expected": "Loading 状态结束后清理占位元素，或用 aria-hidden 标记",
+      "actual": "5 个空 listitem 永久存在",
+      "screenshot": "screenshots/09-issue-7-empty-listitems.png",
+      "console_errors": ""
+    },
+    {
+      "id": 8,
+      "title": "API 文档页'密钥'区域显示内容不完整",
+      "severity": "Medium",
+      "category": "Content",
+      "url": "/dashboard/api",
+      "description": "API 文档页的'密钥'区域包含一个有序列表（1, 2, 3 步骤），但步骤内容为空（paragraph 元素无文字），按钮'查询 API 密钥 (确保当前登录信息有效)'存在但未鉴权。",
+      "steps_to_reproduce": [
+        "访问 /dashboard/api",
+        "滚动到'密钥'标题",
+        "看到 3 步说明全是空的"
+      ],
+      "expected": "步骤说明应有实际内容，未登录时按钮应禁用或显示'请先登录'",
+      "actual": "步骤内容为空，按钮无 disabled 状态",
+      "screenshot": "screenshots/10-issue-8-empty-api-steps.png",
+      "console_errors": ""
+    },
+    {
+      "id": 9,
+      "title": "公共代理节点信息过度暴露",
+      "severity": "Medium",
+      "category": "Visual",
+      "url": "/dashboard/proxy",
+      "description": "'公共代理'页直接列出所有 Cloudflare Worker 代理节点域名（*.worker-proxy.asia、*.net-proxy.asia、*.1235566.space 等）以及每个节点的实时请求量 meter。给攻击者提供了完整的反爬基础设施清单 + 实时流量统计 + Worker 子域枚举起点。",
+      "steps_to_reproduce": [
+        "访问 /dashboard/proxy",
+        "看到 6 个代理节点卡片，每个含 meter 显示请求量"
+      ],
+      "expected": "不应在公开页面暴露实时流量统计",
+      "actual": "全部明文暴露给未登录访客",
+      "screenshot": "screenshots/11-issue-9-proxy-leak.png",
+      "screenshot_annotated": "screenshots/11-issue-9-proxy-annotated.png",
+      "console_errors": ""
+    },
+    {
+      "id": 10,
+      "title": "设置页'代理节点'默认值暴露 worker 域名",
+      "severity": "Medium",
+      "category": "Visual",
+      "url": "/dashboard/settings",
+      "description": "设置页'代理节点'输入框默认预填了 https://00.worker-proxy.asia 和 https://15.worker-proxy.cyou。这与公共代理页的域名一致，进一步暴露了 Cloudflare Worker 节点的具体子域。",
+      "steps_to_reproduce": [
+        "访问 /dashboard/settings",
+        "滚动到'代理节点'区域",
+        "看到输入框预填了 worker-proxy 域名"
+      ],
+      "expected": "默认值应该留空或提供'使用公共代理池'开关",
+      "actual": "默认值暴露 Worker 子域",
+      "screenshot": "screenshots/12-issue-10-default-proxy.png",
+      "console_errors": ""
+    },
+    {
+      "id": 11,
+      "title": "AG-Grid 列标题未翻译（机翻占位符）",
+      "severity": "Medium",
+      "category": "Content",
+      "url": "全部含 AG-Grid 的 dashboard 页",
+      "description": "AG-Grid 表格的列标题之一显示为'具有标题选择的列'——这是 AG-Grid 框架默认的 select all 列标题，未做 i18n 翻译。英文原意是 Column with header selection，中文环境显示成生硬的机翻。",
+      "steps_to_reproduce": [
+        "访问 /dashboard 或 /dashboard/single",
+        "表格顶部第一列标题显示'具有标题选择的列'"
+      ],
+      "expected": "中文环境应翻译为'全选'或'序号'",
+      "actual": "显示机翻占位符",
+      "screenshot": "screenshots/13-issue-11-grid-i18n.png",
+      "console_errors": ""
+    },
+    {
+      "id": 12,
+      "title": "缺少 favicon",
+      "severity": "Low",
+      "category": "Visual",
+      "url": "全部页面",
+      "description": "浏览器标签页未显示站点 favicon。检查首页 HTML 未发现 <link rel='icon'> 标签。",
+      "steps_to_reproduce": ["打开 https://down.mptext.top", "浏览器标签页空白（除标题外）"],
+      "expected": "应有 favicon（深色主题站点推荐亮色 favicon）",
+      "actual": "无 favicon",
+      "screenshot": "screenshots/14-issue-12-no-favicon.png",
+      "console_errors": ""
+    },
+    {
+      "id": 13,
+      "title": "AG-Grid Enterprise License 明文暴露",
+      "severity": "Low",
+      "category": "Visual",
+      "url": "任意页面（JS bundle）",
+      "description": "页面 JS bundle 中明文包含 AG-Grid Enterprise License: 'jock@github.com{AG-bdLyizMP}_Enterprise_key_[v3]...'。暴露团队成员 GitHub 用户名（jock）；同时表明团队正在使用未付费的 Enterprise 授权。",
+      "steps_to_reproduce": [
+        "终端: curl -s https://down.mptext.top/_nuxt/BxSc1CSO.js | grep aggridLicense"
+      ],
+      "expected": "License key 不应暴露在前端 bundle 中",
+      "actual": "License key 公开在 JS bundle",
+      "screenshot": "screenshots/15-issue-13-license-leak.png",
+      "console_errors": ""
+    },
+    {
+      "id": 14,
+      "title": "Cloudflare Turnstile 干扰自动化测试",
+      "severity": "Low",
+      "category": "UX",
+      "url": "首次访问时",
+      "description": "首次访问 https://down.mptext.top 时，Cloudflare 的 Turnstile 验证会拦截自动化浏览器（如 browser_navigate 工具）。需要等待 3-5 秒让 JS 渲染完成才能看到真实页面。",
+      "steps_to_reproduce": [
+        "首次访问 https://down.mptext.top",
+        "自动化工具可能看到空白页或 403"
+      ],
+      "expected": "Turnstile 配置应对合法 API 客户端更友好",
+      "actual": "自动化客户端被识别为 bot",
+      "screenshot": "screenshots/16-issue-14-turnstile.png",
+      "console_errors": ""
+    }
+  ],
+  "coverage": {
+    "pages_tested": [
+      "/",
+      "/dashboard",
+      "/dashboard/single",
+      "/dashboard/api",
+      "/dashboard/proxy",
+      "/dashboard/settings"
+    ],
+    "features_tested": [
+      "落地页渲染",
+      "侧边栏导航",
+      "文章链接添加",
+      "登录公众号弹窗",
+      "公共代理节点展示",
+      "设置表单",
+      "API 文档浏览",
+      "后端 API 鉴权"
+    ],
+    "not_tested": [
+      "登录后功能（需要注册账号+微信扫码）",
+      "文章抓取/导出实际功能",
+      "合集下载页面深度交互",
+      "移动端响应式",
+      "性能/压力测试",
+      "跨浏览器兼容性"
+    ],
+    "blockers": ["Issue #1 (空 dialog) 阻止了登录后功能的测试"]
+  },
+  "notes": "## 工具链观察\n1. browser_vision 视觉模型对深色主题+中文 UI 识别率极低（多次严重误识别）。测试必须以 DOM snapshot 为准，vision 仅作截图存档。\n2. dogfood skill 方法论非常有效，5 阶段流程能在 15 分钟内结构化发现 14 个问题。\n3. AI 探索测试 ROI: 15 分钟 = 14 个 issue = 人工数小时工作量。\n\n## 关键经验沉淀\n1. 不要相信 vision 工具对深色/中文 UI 的判断\n2. Nuxt/Next SPA 所有未知路径 fallback 到 200\n3. 每次 browser_navigate 后查 console（静默错误最值钱）\n4. AI 探索测试 ROI 极高\n\n## 后续建议\n1. 立即修复 Issue #1（空 dialog）和 Issue #2（2012-08-23 暴露）\n2. 加前端鉴权守卫\n3. 后端 API 加标准 HTTP 状态码（401/403/404）\n4. 脱敏公共代理页"
+}

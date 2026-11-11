@@ -1,0 +1,63 @@
+{
+  "module_name": "筛选区",
+  "system_name": "SRMPRO 文档库",
+  "test_time": "2026-07-07 16:01:23",
+  "test_url": "https://test.esicint.com/SupplierManagement/newDocument",
+  "test_users": "admin / testadmin / aarontest",
+  "test_person": "测测(自动化)",
+  "stats": {"total": 13, "pass": 11, "fail": 2, "skip": 0},
+  "priorities": {
+    "p0": {"pass": 4, "total": 4},
+    "p1": {"pass": 5, "total": 7},
+    "p2": {"pass": 2, "total": 2}
+  },
+  "cases": [
+    {
+      "id": "TC-SEARCH-001",
+      "title": "搜索框基础功能",
+      "priority": "P0",
+      "status": "PASS",
+      "precondition": "用户已登录文档库",
+      "actual": "输入'ISO'，列表显示5行匹配结果",
+      "defect": null,
+      "steps": [
+        {"action": "输入'ISO'", "result": "列表显示5行匹配", "ok": true},
+        {"action": "清空搜索", "result": "恢复全量数据", "ok": true}
+      ],
+      "screenshots": [
+        {"file": "TC-SEARCH-001_step1.png", "label": "步骤1", "description": "输入ISO"}
+      ]
+    },
+    {
+      "id": "TC-SEARCH-005",
+      "title": "搜索+筛选叠加",
+      "priority": "P1",
+      "status": "FAIL",
+      "actual": "搜索框值残留=[质量]",
+      "defect": {
+        "severity": "P1",
+        "title": "搜索+筛选叠加后状态显示异常",
+        "expected": "所有筛选条件重置为空",
+        "actual": "搜索框值=[质量] 分段器全部选中=False",
+        "reproduce_path": "1. 在搜索框输入关键词 2. 点击重置按钮 3. 观察搜索框和分段器状态"
+      },
+      "steps": [
+        {"action": "搜索框输入'质量'", "result": "5行匹配", "ok": true},
+        {"action": "点击重置按钮", "result": "搜索框未清空，分段器状态保留", "ok": false, "expected": "全部恢复初始空值"}
+      ],
+      "screenshots": []
+    }
+  ],
+  "defects": [
+    {
+      "severity": "P1",
+      "title": "重置按钮未完全恢复状态(搜索框/分段器)",
+      "actual": "搜索框值=[质量] 分段器全部选中=False"
+    },
+    {
+      "severity": "P1",
+      "title": "空状态组件未显示",
+      "actual": "empty=False 文案=暂无数据"
+    }
+  ]
+}

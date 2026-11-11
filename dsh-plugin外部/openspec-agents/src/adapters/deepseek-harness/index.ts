@@ -1,0 +1,352 @@
+/**
+ * DeepSeek Harness (DSH) 适配器：生成 DSH bundle 插件包。
+ *
+ * DSH 的插件形态不是 Claude/Codex/ZCode 的 plugin.json，而是 npm 包 +
+ * package.json 中 `dsh.bundle.patch` 指向的 cordis patch 文件。本适配器复用
+ * plugin-common 的 assets 构建，生成一个可直接用 `dsh plugin --profile <name> add <dir>`
+ * 安装的 bundle 包。
+ *
+ * 生成的 patch 挂载两类能力：
+ * - 本包自有的 `openspec-opx-tools` cordis 插件：6 个 opx_* 编排工具注册为 DSH 原生工具，
+ *   每次调用从 `exec.agent.session.header.cwd` 取会话项目目录。多项目共用同一插件进程时
+ *   各自作用于各自项目（MCP 形态因 worktree 固定在进程启动参数上而做不到，见 patch 注释）。
+ * - DSH 官方能力：`@deepseek-ai/dsh-skill-filesystem`（skill 根）、子代理委派。
+ *   子代理的角色提示词与工具集由 `@deepseek-ai/dsh-agent-preset` 声明承载，每个物理子代理
+ *   一行 preset + 一行 `@deepseek-ai/dsh-tool-subagent`（以 `agentPreset` 引用前者）——
+ *   DSH 0.2.1 起 `dsh-tool-subagent` 移除了 `persona` / `toolFilter` / 后台模式配置，
+ *   角色与工具组合改由 preset 表达。opx_* 工具不再经 `@deepseek-ai/dsh-mcp-client` 桥接——
+ *   原生插件已直接注册工具，patch 内不挂 MCP client。
+ */
+import { writeFileSync, mkdirSync, rmSync, readFileSync, readdirSync } from "node:fs"
+import { join } from "node:path"
+import * as yaml from "js-yaml"
+import { parseAgentMd, resolve, EXCLUDED_AGENTS } from "../agent-md.ts"
+import {
+  PLUGIN_DESCRIPTION,
+  bundleDshNativeTools,
+  buildAgents,
+  buildSkills,
+  copyWorkflows,
+  copyLicense,
+  readPkgVersion,
+  type PluginPackageResult,
+} from "../plugin-common/index.ts"
+
+/** DSH bundle 的 npm 包名（与项目发布包一致，便于 `dsh plugin add` 与 sync 识别）。 */
+export const DSH_PLUGIN_NAME = "@ifrankwang/openspec-agents"
+
+/** DSH bundle 包的作者署名（与各插件包 plugin.json 的 author 保持一致）。 */
+export const PLUGIN_AUTHOR_STRING = "ifrankwang"
+
+/** 默认插件包输出目录（dist/ 已 gitignore，生成物不入库）。 */
+export const DEEP_SEEK_HARNESS_PLUGIN_DIR = resolve("dist", "deepseek-harness-plugin")
+/** 简写别名，便于与 `dsh` 缩写保持一致。 */
+export const DSH_PLUGIN_DIR = DEEP_SEEK_HARNESS_PLUGIN_DIR
+
+const MANIFEST_PATCH_FILENAME = "cordis.patch.yml"
+
+/** DSH 原生工具插件 bundle 在包内的相对路径（bundle 产物目录 + 文件名）。 */
+export const DSH_NATIVE_TOOLS_RELATIVE_PATH = ".dsh-plugin/opx-tools.mjs"
+/**
+ * bundle package.json 中声明的 exports 子路径（Node 要求深层路径显式导出，
+ * 直接 import 深层路径报 ERR_PACKAGE_PATH_NOT_EXPORTED）。
+ */
+export const DSH_NATIVE_TOOLS_EXPORTS_KEY = "./.dsh-plugin/opx-tools.mjs"
+/**
+ * cordis patch 的 insert.name：裸包名 + 子路径，二者之间是 `/` 而非 `./`——
+ * loader 走 Node 的裸包名解析，`pkg./x` 会被当成包名 `pkg.` 而 ERR_MODULE_NOT_FOUND。
+ */
+export const DSH_NATIVE_TOOLS_ROW_NAME = `${DSH_PLUGIN_NAME}${DSH_NATIVE_TOOLS_EXPORTS_KEY.slice(1)}`
+/** cordis patch 中挂载原生工具插件的 insert 行 id。 */
+export const DSH_NATIVE_TOOLS_ROW_ID = "openspec-opx-tools"
+
+/**
+ * skill 根在插件包内的相对目录（分段写法：assets/skills）。
+ * patch 的 customSkillDirs 引用与构建落位共用本常量：两处各写一份字面量会各自漂移成
+ * 「patch 指 assets/skills、产物落位包根 skills/」，DSH 一个 skill 都加载不到——历史缺陷即此。
+ * 同一份 patch 同时服务 npm 根包与 dist 插件包两种安装形态，包根（仓库根）亦按 assets/skills 落位。
+ */
+export const DSH_SKILLS_DIR_SEGMENTS = ["assets", "skills"] as const
+
+/**
+ * 原生工具插件与 skill 根的基础 patch。
+ *
+ * 子代理委派工具**不写成静态 patch 行**：DSH 加载器对同一层的条目并行激活，静态工具行会在
+ * preset 声明行注册完成之前校验 `agentPreset`，报 `Unknown agent preset`。改为把
+ * toolName ↔ preset id 清单放进插件配置，由插件在 preset 就绪后动态挂载委派工具
+ * （见 plugin.ts 的 mountSubagentTools），顺序由代码保证。
+ */
+const DSH_BASE_PATCH_YAML = `# DeepSeek Harness (DSH) bundle patch: expose OpenSpec orchestration tools and skills.
+# The patch is applied as a bundle layer under dsh.profile.bundles.
+# baseUrl 指向 profile 根目录；bundle 安装后位于 profile 的 node_modules 下，
+# 因此从这里引用 node_modules/@ifrankwang/openspec-agents/... 是稳定的。
+#
+# openspec-opx-tools：本包自有的 cordis 插件，把 6 个 opx_* 编排工具注册为 DSH 原生工具。
+# 工具在 DSH 进程内执行，每次调用从 exec.agent.session.header.cwd 取会话项目目录，
+# 因此「单 profile 装一份插件、多项目共用同一进程」下各项目互不干扰——这正是 MCP 形态做不到的
+# （MCP server 是子进程，worktree 只能由启动参数固定一份，与用户打开的项目无关）。
+- insert:
+    - id: ${DSH_NATIVE_TOOLS_ROW_ID}
+      name: '${DSH_NATIVE_TOOLS_ROW_NAME}'
+      config:
+        unattended: true
+    - id: openspec-skills
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: openspec-filesystem
+        includeDefaultRoots: false
+        customSkillDirs:
+          - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('./node_modules/${DSH_PLUGIN_NAME}/${DSH_SKILLS_DIR_SEGMENTS.join("/")}', baseUrl))"
+`
+
+interface DshSubagentEntry {
+  id: string
+  name: string
+  config: Record<string, unknown>
+}
+
+/**
+ * YAML `!!js` 表达式节点。
+ *
+ * DSH 的 entry-list 方言把 `!!js <expr>` 解析为延迟求值的表达式（官方 preset 用它做平台分支）。
+ * js-yaml 默认 schema 不认识该标签，故以自定义 Type 承载：dump 时输出 `!!js <expr>` 原文。
+ */
+class DshJsExpression {
+  constructor(readonly expr: string) {}
+}
+
+/** 带 `!!js` 标签的 YAML schema（仅 DSH patch 生成使用）。 */
+const DSH_YAML_SCHEMA = yaml.DEFAULT_SCHEMA.extend([
+  new yaml.Type("tag:yaml.org,2002:js", {
+    kind: "scalar",
+    instanceOf: DshJsExpression,
+    represent: (value: unknown) => (value as DshJsExpression).expr,
+  }),
+])
+
+/** 将 openspec-architect 转换为 openspec_architect 这类 DSH 工具名后缀。 */
+function dshAgentSuffix(name: string): string {
+  return name.replace(/^openspec-/, "").replace(/-/g, "_")
+}
+
+/** 根据 agent.md frontmatter 判断是否应禁止 DSH 子代理的写文件类工具。 */
+function denyEditTools(frontmatter: Record<string, unknown>): boolean {
+  const permission = frontmatter.permission as Record<string, unknown> | undefined
+  const edit = permission?.edit
+  if (edit === "deny") return true
+  if (edit && typeof edit === "object") {
+    const rule = edit as Record<string, unknown>
+    // edit 规则按通配整体 deny 但对 *.md 单独放行时，不能整体禁止写工具
+    return rule["*"] === "deny" && rule["*.md"] !== "allow"
+  }
+  return false
+}
+
+/** DSH 子代理 persona 前置的工具接入说明：区分编排流程内职责（先查 opx_status）与提案阶段审查（不碰 opx_*），
+ *  避免子代理在首次 opx_status 前用 shell 全盘搜索工具。 */
+const DSH_SUBAGENT_TOOL_ACCESS_PREAMBLE = `## DSH 工具接入（必读）
+
+- 本插件的 opx_* 工具在 DSH 中以 \`opx_*\` 原生工具形式出现（注册在本插件包内，无 \`mcp__\` 前缀），编排流程内的子代理通常只需要：
+  - \`opx_status\`
+  - \`opx_agent_submit\`
+- 若分派任务属于编排流程内职责（step 执行 / 审查 / 实施）：开始工作前第一件事是调用 \`opx_status\` 获取上下文，不要先探查仓库或读取状态文件；调用工具时必须携带 \`_agent\` 参数传自身角色名（如 \`openspec-developer\`），否则身份无法判定、会被按编排主代理视角处理。
+- 若分派任务是提案阶段的文档 / 架构审查（无编排会话）：不要调用任何 \`opx_*\` 工具，按分派任务说明执行（职责文本随分派注入）。
+- 若工具列表中没有这些工具，不要用 shell 搜索 \`opx\`、\`openspec\`、MCP 配置或安装路径——它们不是被隐藏，而是插件未加载成功，直接向编排者报告。
+`
+
+/**
+ * 每个子代理的 Agent Preset 组合（DSH 0.2.1 起子代理的角色提示词与工具集由 preset 声明，
+ * `@deepseek-ai/dsh-tool-subagent` 的 `persona` / `toolFilter` 已移除）。
+ *
+ * 该组合是子代理可见的完整工具面：opx_* 原生工具由本包在宿主层全局注册，无需在此重复挂载。
+ */
+function dshSubagentPresetPlugins(editAllowed: boolean): Record<string, unknown>[] {
+  return [
+    {
+      id: "agent-instructions",
+      name: "@deepseek-ai/dsh-agent-instructions",
+      config: { maxBytes: 65536 },
+    },
+    {
+      id: "tool-fs",
+      name: "@deepseek-ai/dsh-tool-fs",
+      ...(editAllowed ? {} : { config: { write: false, edit: false } }),
+    },
+    {
+      id: "tool-fs-search",
+      name: "@deepseek-ai/dsh-tool-fs-search",
+      config: { sampleOverCapGlobResults: false },
+    },
+    {
+      id: "tool-bash",
+      name: "@deepseek-ai/dsh-tool-bash",
+      disabled: new DshJsExpression("process.platform === 'win32'"),
+    },
+    {
+      id: "tool-pwsh",
+      name: "@deepseek-ai/dsh-tool-pwsh",
+      disabled: new DshJsExpression("process.platform !== 'win32'"),
+    },
+    { id: "skill-filesystem", name: "@deepseek-ai/dsh-skill-filesystem" },
+    { id: "tool-skill", name: "@deepseek-ai/dsh-tool-skill" },
+    {
+      id: "tool-todo",
+      name: "@deepseek-ai/dsh-tool-todo",
+      config: { allowParallelInProgress: true },
+    },
+    { id: "tool-ask-user", name: "@deepseek-ai/dsh-tool-ask-user" },
+    { id: "tool-web", name: "@deepseek-ai/dsh-tool-web", config: { fetch: true, searchTimeoutMs: 60000 } },
+    {
+      id: "compaction",
+      name: "cordis:group",
+      group: true,
+      isolate: { compaction: true, toolResultPruner: true },
+      config: [
+        { id: "compaction-basic", name: "@deepseek-ai/dsh-compaction-basic" },
+        {
+          id: "tool-result-pruner",
+          name: "@deepseek-ai/dsh-compaction-tool-result-pruner",
+          config: { thresholdChars: 8192, headChars: 4096, tailChars: 1024 },
+        },
+      ],
+    },
+  ]
+}
+
+/** 子代理委派规格：工具名 + 引用的 preset id（写入插件配置，供动态挂载使用）。 */
+export interface DshSubagentSpec {
+  toolName: string
+  agentPreset: string
+}
+
+/** 解析一个子代理的 preset 声明与委派规格。 */
+interface DshSubagentDefinition {
+  spec: DshSubagentSpec
+  presetEntry: DshSubagentEntry
+}
+
+/**
+ * 从 assets/agents/*.md 收集 DSH 子代理：每个物理子代理生成一个 Agent Preset 声明行，
+ * 以及一份「工具名 + preset id」规格（交给插件动态挂载委派工具）。
+ */
+function collectDshSubagents(): DshSubagentDefinition[] {
+  const agentsRoot = resolve("assets", "agents")
+  const definitions: DshSubagentDefinition[] = []
+  for (const file of readdirSync(agentsRoot)) {
+    if (!file.endsWith(".md")) continue
+    if (EXCLUDED_AGENTS.has(file)) continue
+    const { frontmatter, body } = parseAgentMd(readFileSync(join(agentsRoot, file), "utf-8"))
+    const name = (frontmatter.name as string) ?? file.replace(/\.md$/, "")
+    if (!name) continue
+    const description = (frontmatter.description as string) ?? ""
+    const persona = [DSH_SUBAGENT_TOOL_ACCESS_PREAMBLE, description, body.trim()].filter(Boolean).join("\n\n")
+    const suffix = dshAgentSuffix(name)
+    const presetId = `openspec-${suffix.replace(/_/g, "-")}`
+    definitions.push({
+      spec: { toolName: `openspec_${suffix}`, agentPreset: presetId },
+      presetEntry: {
+        id: `openspec-preset-${suffix}`,
+        name: "@deepseek-ai/dsh-agent-preset",
+        config: {
+          id: presetId,
+          name,
+          description,
+          plugins: [
+            { id: "persona", name: "@deepseek-ai/dsh-persona", config: { prefix: persona } },
+            ...dshSubagentPresetPlugins(!denyEditTools(frontmatter)),
+          ],
+        },
+      },
+    })
+  }
+  return definitions
+}
+
+/** 把子代理规格投影为插件配置里的 `subagents` 块（缩进对齐 openspec-opx-tools 行的 config）。 */
+function subagentsConfigYaml(specs: DshSubagentSpec[]): string {
+  if (specs.length === 0) return "        subagents: []"
+  const dumped = yaml.dump(specs, { lineWidth: -1 }).trimEnd().split("\n")
+  return ["        subagents:", ...dumped.map((line) => `          ${line}`)].join("\n")
+}
+
+/** 基础 patch：原生工具插件行带上子代理委派规格，供插件在 preset 就绪后动态挂载。 */
+function buildBasePatchYaml(specs: DshSubagentSpec[]): string {
+  return DSH_BASE_PATCH_YAML.replace(
+    "        unattended: true",
+    `        unattended: true\n${subagentsConfigYaml(specs)}`,
+  )
+}
+
+/** 生成完整的 DSH cordis patch 内容：基础原生工具插件行 + skill 根 + 每个子代理的 preset 声明。 */
+export function buildDshPatchContent(): string {
+  const definitions = collectDshSubagents()
+  const base = buildBasePatchYaml(definitions.map((definition) => definition.spec))
+  if (definitions.length === 0) return base
+  const presetsYaml = yaml
+    .dump(definitions.map((definition) => definition.presetEntry), { schema: DSH_YAML_SCHEMA, lineWidth: -1 })
+    .split("\n")
+    .map((line) => (line ? `    ${line}` : line))
+    .join("\n")
+  return `${base.trimEnd()}\n${presetsYaml}\n`
+}
+
+export type DeepSeekHarnessPluginBuildResult = PluginPackageResult
+
+/**
+ * 生成 DeepSeek Harness bundle 插件包到 outDir（默认 dist/deepseek-harness-plugin/）：
+ * package.json（含 dsh.bundle.patch）、cordis.patch.yml、.dsh-plugin/opx-tools.mjs bundle、
+ * assets/skills/、assets/workflows/。
+ *
+ * 返回生成的组件清单供调用方/测试断言；DSH 原生不消费 Markdown agent 文件，
+ * 但为保持与其它插件包一致仍会复制 agents/ 目录。
+ */
+export function buildDeepSeekHarnessPlugin(outDir: string = DEEP_SEEK_HARNESS_PLUGIN_DIR): DeepSeekHarnessPluginBuildResult {
+  rmSync(outDir, { recursive: true, force: true })
+  mkdirSync(join(outDir, "agents"), { recursive: true })
+  mkdirSync(join(outDir, "assets"), { recursive: true })
+  mkdirSync(join(outDir, ...DSH_SKILLS_DIR_SEGMENTS), { recursive: true })
+  mkdirSync(join(outDir, ".dsh-plugin"), { recursive: true })
+
+  const version = readPkgVersion()
+  // DSH 通过上方 subagent 工具消费 agent 定义；agents/ 目录仍保留原始 markdown 供参考/审计。
+  const agents = buildAgents(join(outDir, "agents"))
+  const skills = buildSkills(join(outDir, ...DSH_SKILLS_DIR_SEGMENTS))
+  bundleDshNativeTools(outDir)
+  copyWorkflows(outDir)
+  copyLicense(outDir)
+
+  writeFileSync(
+    join(outDir, "package.json"),
+    JSON.stringify(
+      {
+        name: DSH_PLUGIN_NAME,
+        version,
+        description: PLUGIN_DESCRIPTION,
+        type: "module",
+        private: true,
+        author: PLUGIN_AUTHOR_STRING,
+        license: "MIT",
+        // cordis 以裸包名 + 子路径 import 原生工具插件；Node 要求该子路径在 exports 中显式声明
+        // （深层路径直接 import 报 ERR_PACKAGE_PATH_NOT_EXPORTED）。
+        exports: {
+          [DSH_NATIVE_TOOLS_EXPORTS_KEY]: `./${DSH_NATIVE_TOOLS_RELATIVE_PATH}`,
+        },
+        dsh: {
+          bundle: {
+            patch: `./${MANIFEST_PATCH_FILENAME}`,
+          },
+        },
+      },
+      null,
+      2,
+    ) + "\n",
+    "utf-8",
+  )
+
+  writeFileSync(join(outDir, MANIFEST_PATCH_FILENAME), buildDshPatchContent(), "utf-8")
+
+  return { pluginDir: outDir, version, agents, skills }
+}
+
+/** `dsh` 缩写的构建函数别名。 */
+export const buildDshPlugin = buildDeepSeekHarnessPlugin

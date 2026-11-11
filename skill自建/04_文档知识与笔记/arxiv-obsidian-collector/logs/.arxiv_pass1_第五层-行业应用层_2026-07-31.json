@@ -1,0 +1,1291 @@
+{
+  "date": "2026-07-31",
+  "layer": "第五层-行业应用层",
+  "collected": {
+    "2607.28332v1": {
+      "paper": {
+        "title": "When AI Becomes Routine: A Decade of Public AI Mediation in Korean Go Commentary",
+        "summary": "When AI systems surpass elite human performance and settle into everyday expert practice, the question that follows is how machine judgment is made publicly intelligible and attributable. We study Korean Go commentary on YouTube, where AI systems such as KataGo became standard analytic tools after AlphaGo. Our corpus spans a decade (2016--2025) and approximately $1{,}900$ hours of footage across institutional broadcasters and creator-led channels, in four phases of AI availability. We document a widening asymmetry between visual and verbal AI presence: AI winrate graphs are visible for about $98\\%$ of late-period institutional broadcast time, yet AI-salient talk accounts for only $2.63\\%$ of sentences. What recedes is the source label, not the metric: winrate and point-gap talk persists while ``AI'' itself goes unsaid. We read this recession as the communicative signature of domestication. Our strongest evidence is a compositional shift in verbal mediation: explicit naming gives way to interface rendering, and creator-led commentary leans further toward it than institutional commentary. We develop a typology distinguishing source-foregrounding from source-receding mediation, and argue that the two preserve different hooks of contestability: discursive anchors through which audiences can recognize and question the machine source. The stakes of that difference rise in domains where AI is less reliable than in Go.",
+        "authors": [
+          "Haewoon Kwak"
+        ],
+        "published": "2026-07-30T15:01:15Z",
+        "id": "2607.28332v1",
+        "url": "http://arxiv.org/abs/2607.28332v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28332v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.28306v1": {
+      "paper": {
+        "title": "A Distributed Acoustic Sensing Dataset for Vessel Detection and Localization in Submarine Cable Protection",
+        "summary": "Recent incidents of accidental damage and suspected sabotage to submarine telecommunication and power cables, particularly in the Baltic Sea, have underscored their vulnerability and the need for continuous monitoring solutions. Distributed acoustic sensing (DAS) applied to submarine optical-fiber cables enables wide-area monitoring of underwater acoustic activity.   We present the Marlinks-NS DAS dataset, comprising processed submarine DAS measurements and AIS-derived vessel information curated for cable-protection research. The dataset defines two machine-learning tasks (vessel detection and vessel-to-cable distance estimation) allowing reproducible research under realistic marine conditions.   The dataset contains 74,771 labeled data instances from ten days of continuous recording along a 2,554 m segment in a 28 km buried fiber-optic cable in the North Sea. Each instance includes spectral-energy features from 250 sensing channels, together with anonymized distance measurements and metadata from AIS information. The released HDF5 data, documentation, processing description, and example code support reproducible development and evaluation of DAS-based vessel-monitoring methods for submarine cable protection.",
+        "authors": [
+          "Erick Eduardo Ramirez-Torres",
+          "Javier Macias-Guarasa",
+          "Daniel Pizarro",
+          "Javier Tejedor",
+          "Sira Elena Palazuelos-Cagigas",
+          "Pedro J. Vidal-Moreno",
+          "María R. Fernández-Ruiz",
+          "Sonia Martin-Lopez",
+          "Miguel Gonzalez-Herraez",
+          "Roel Vanthillo"
+        ],
+        "published": "2026-07-30T14:44:11Z",
+        "id": "2607.28306v1",
+        "url": "http://arxiv.org/abs/2607.28306v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28306v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.28276v1": {
+      "paper": {
+        "title": "Generalized Query-Oriented Image Semantic Coding Empowered by Large AI Models and Semantic-Aware Hybrid Beamforming",
+        "summary": "Semantic communication is an emerging paradigm that can preserve the meaning of data during transmission. However, human users are often interested in specific semantic content based on their intent, and users' intent is often not considered in current semantic coding design. Moreover, most of the existing semantic models are fine-tuned using specific datasets, which limits their generalization capability. Furthermore, how to prioritize semantically important features in large-scale multiple-input multiple-output orthogonal frequency-division multiplexing (MIMO-OFDM) systems remains largely unexplored. To address the aforementioned challenges, in this paper, we propose a generalized query-oriented image semantic coding (QO-ISC) framework. In the proposed framework, the transmitter extracts features which are relevant to the user's query and the receiver reconstructs an image based on those features. We use a pretrained large artificial intelligence (AI) model (LAM) to enhance general feature representations. We develop a semantic-aware hybrid beamforming (SA-HBF) algorithm to prioritize semantically important features for large-scale MIMO-OFDM system. When evaluated on unseen object categories within the dataset, simulation results show that our proposed generalized QO-ISC framework achieves better performance than the traditional codec and two state-of-the-art semantic coding schemes.",
+        "authors": [
+          "Sin-Yu Huang",
+          "Vincent W. S. Wong"
+        ],
+        "published": "2026-07-30T14:27:29Z",
+        "id": "2607.28276v1",
+        "url": "http://arxiv.org/abs/2607.28276v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28276v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.28256v1": {
+      "paper": {
+        "title": "When Robots Exchange Meaning: A Demo of Goal-Oriented Semantic Communications for Collaborative Robotics",
+        "summary": "Collaborative robotics is a representative task-oriented 6G use-case, where communication quality should be reflected in mission execution, environment understanding, and closed-loop operation rather than packet delivery alone. This demo paper presents a robot-edge semantic communication (SemCom) testbed integrating robot-side visual compression, edge-side semantic mapping, and dashboard-based mission interaction. A mobile robot equipped with RGB-D sensing and LiDAR runs ROS 2, while a Jetson Orin edge node performs reconstruction, RTAB-Map mapping, semantic object handling, and browserbased visualization. As an initial proof of concept, RGB frames are encoded on the robot into VQ-VAE tokens using an ONNX Runtime encoder and reconstructed on the edge using a PyTorch decoder. A 320 X 240 image is represented by an 80 X 60 token grid with a packed payload of 5400 bytes, corresponding to a 42.67X reduction relative to model-input RGB bytes. The reconstructed visual stream is further associated with depth, pose, and 3D mapping information to generate a semantic map for downstream robotic applications. The demo exposes the full path from semantic visual transport to object-level map interaction, and provides a practical platform for future task-aware 6G networking studies at the intersection of SemCom, embodied AI, and physical AI-enabled robotics. A video of the demo is available at https://tinyurl.com/Tos09",
+        "authors": [
+          "Peizheng Li",
+          "Xinyi Lin",
+          "Sajida Gufran",
+          "Adnan Aijaz"
+        ],
+        "published": "2026-07-30T14:16:23Z",
+        "id": "2607.28256v1",
+        "url": "http://arxiv.org/abs/2607.28256v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28256v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.28251v1": {
+      "paper": {
+        "title": "Self-Evolving Learning for Embodied AI with Criticality Model",
+        "summary": "Despite rapid advances in policy pretraining, embodied AI systems routinely plateau during task-specific finetuning. The root cause lies in how finetuning data are collected: the default pipeline gathers data randomly, treating every sample as informative. Datasets become dominated by nominal scenarios, while rare failure cases--the most valuable for improvement--are missed. We propose a self-evolving method that breaks this plateau. Our core insight is that a state-wise criticality model, learned from the policy's own execution outcomes to predict the probability of future failure, can guide importance sampling toward failure-prone scenarios. After replacing redundant nominal scenarios with diverse failure-prone ones, importance weights are used to resample the data during training. This effectively preserves an unbiased learning objective while fundamentally increasing the information density of the training pool. Across quadrupedal locomotion, multi-task manipulation, vision-language-action benchmarks, and a real-robot task, our method reduces failure rates by 51--67% relative to trained baselines and by 8-25% relative to state-of-the-art vision-language-action models.",
+        "authors": [
+          "Linxuan He",
+          "Yuying Tian",
+          "Lingxiang Fan",
+          "Jiaqi Pi",
+          "Yinqiao Lu",
+          "Shang Su",
+          "Mengkai Shi",
+          "Shuo Feng"
+        ],
+        "published": "2026-07-30T14:13:18Z",
+        "id": "2607.28251v1",
+        "url": "http://arxiv.org/abs/2607.28251v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28251v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.28331v1": {
+      "paper": {
+        "title": "Structural Validation of LLM-Generated Microservice Decompositions Using Source-Code Dependencies",
+        "summary": "Decomposing monolithic systems into microservices is a key activity in software modernization. Although Large Language Models (LLMs) can generate semantically plausible decompositions from textual requirements, it remains unclear whether these proposals preserve the structural dependencies implemented in the source code. This paper evaluates the structural adherence of microservice decompositions generated by OpenAI o3 for the PetClinic and Bookstore systems. We propose an automated validation pipeline based on static dependency analysis and compare zero-shot and few-shot prompting using dependency preservation (TPD) and dependency violation (TVD) metrics. A robustness analysis was conducted to control for differences in class-to-service mapping coverage. After normalization, both prompting strategies produced equivalent structural adherence, achieving TPD values of 68.0% (PetClinic) and 83.3% (Bookstore). The findings demonstrate that structural evaluations of LLM-generated decompositions should explicitly control for mapping coverage, as apparent differences between prompting strategies may otherwise reflect methodological bias rather than genuine architectural quality.",
+        "authors": [
+          "Daniel Silva",
+          "Renan Alves",
+          "Emanuel Dantas Filho",
+          "Ademar Sousa Neto",
+          "Mirko Perkusich",
+          "Danyllo Wagner Albuquerque",
+          "Kyller Gorgônio",
+          "Angelo Perkusich"
+        ],
+        "published": "2026-07-30T15:00:21Z",
+        "id": "2607.28331v1",
+        "url": "http://arxiv.org/abs/2607.28331v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28331v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.28330v1": {
+      "paper": {
+        "title": "Paying for Honesty Without Knowing the Truth: Reputation-Penalty Design for LLM Marketplace Agents",
+        "summary": "LLM agents increasingly act as autonomous merchants that write their own product listings, and under competitive pressure, they fabricate attributes to win sales. Even under instructions to be honest, they fabricate attributes in a majority of listings across models. A platform's obvious remedy---verifying each claim against the truth---is unavailable, because it observes only a noisy, biased complaint signal, never the ground truth. We design CARP, a reputation-penalty mechanism with a deadband that forgives complaint noise and a state-dependent severity that counters reputation-driven detection erosion. CARP requires no product-level ground truth and is robust to strategic gaming. CARP protects consumers by suppressing the sales volume of low-rated liars while sparing honest sellers. Paired with SPARC, it closes most of the consumer-welfare gap relative to a perfect-information oracle, without ever accessing the truth. It also achieves the best welfare of the policies we compare. We further show that this felt penalty becomes behaviorally binding through SPARC, a byte-clean code-gated reflection mechanism: LLM merchants fabricate when lying is free but restrain themselves when fabrication costs them sales, a self-interested response rather than compliance. We trace this distinction to penalty-gated self-correction reasoning, and observe the binding across models, with supporting confidence intervals.",
+        "authors": [
+          "Mingdai Yang",
+          "Shicheng Fan",
+          "Kejing Yu",
+          "Duohao Wang",
+          "Li Sun",
+          "Hao Peng",
+          "Philip S. Yu",
+          "Zhiwei Liu"
+        ],
+        "published": "2026-07-30T14:59:29Z",
+        "id": "2607.28330v1",
+        "url": "http://arxiv.org/abs/2607.28330v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28330v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.28323v1": {
+      "paper": {
+        "title": "Optimal Execution with Passive Market Impact",
+        "summary": "We derive a mesoscopic model for optimal execution with limit orders that incorporates microstructural features of passive price impact. Our framework is based on two empirical observables: the approximately exponential decay of limit-order fill probabilities with distance from the midprice, and the short-term linear response of price changes to order flow imbalance. Combining these ingredients, we obtain a reduced-form passive impact rate that decays exponentially with quote distance. The model describes passive execution at a tactical level, where fills arise from a sequence of quote adjustments that balance execution probability, adverse selection, and opportunity cost. We formulate and solve an optimal liquidation problem in which the trader controls the aggressiveness of passive sell quotes. This generates a trade-off between higher fill intensity and larger accumulated impact on the one hand, and lower impact but greater non-execution risk on the other. Empirical calibration using NASDAQ equities and public FX supports the empirical foundations of the model. We also analyse extensions with heterogeneous decay rates, transient impact, and target execution schedules.",
+        "authors": [
+          "Alexander Barzykin",
+          "Robert Boyce",
+          "Eyal Neuman",
+          "Sturmius Tuschmann"
+        ],
+        "published": "2026-07-30T14:57:03Z",
+        "id": "2607.28323v1",
+        "url": "http://arxiv.org/abs/2607.28323v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28323v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI金融",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.28319v1": {
+      "paper": {
+        "title": "Fairness Pruning: Locating Demographic Bias in GLU-MLP Layers via Differential Activations",
+        "summary": "This work presents Fairness Pruning, a lightweight structural intervention method designed for the management and future mitigation of demographic bias in large language models (LLMs). As a foundational empirical validation of this method, this work focuses on causal bias localization. Using minimally contrastive prompt pairs and inference-time activation capture, the method identifies neurons that react differentially when processing demographic attributes in GLU architectures, evaluating the signal at the down_proj input. Empirical evaluation was conducted on models of up to 3 billion parameters (Llama-3.2 family and Salamandra-2B), combining standardized benchmark evaluation with qualitative text generation experiments. Results demonstrate that zeroing the identified neurons alters how the model responds to associated demographic variables. However, rather than producing flat mitigation, the intervention causes bidirectional bias destabilization: because BiasScore is unsigned, candidate sets mix neurons that push toward and against the stereotype, and the net effect on aggregate bias depends on which sign dominates. The intervention is extremely surgical: zeroing at most 40 neurons in Llama-3.2-1B (less than 0.031% of total MLP width) achieves a mean retention of 99.49% in reasoning and general knowledge capabilities. These findings empirically confirm that demographic bias processing and model capabilities operate on dissociable circuits, establishing the methodological foundations for transitioning from blind zeroing toward directional behavior modulation.",
+        "authors": [
+          "Pere Martra",
+          "Eugenio Martínez Cámara",
+          "Alfonso Ureña López"
+        ],
+        "published": "2026-07-30T14:54:33Z",
+        "id": "2607.28319v1",
+        "url": "http://arxiv.org/abs/2607.28319v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28319v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.28317v1": {
+      "paper": {
+        "title": "One Human, $N$ Agents: Audit-Budget Allocation for LLM Agent Fleets under Miscalibrated, Correlated Confidence",
+        "summary": "A single human must audit $N$ LLM agents under a budget of $B \\ll N$ audits per round, guided by self-reported confidence that may be adversarially miscalibrated and by correlated errors. We model this as budgeted noisy inspection over a two-level Gaussian copula and locate the miscalibration threshold $δ^*$ past which confidence-ranked auditing is \\emph{worse} than random. Two a-priori expectations reverse: $δ^*$ \\emph{rises} as the budget shrinks, and cross-family correlation is not low---shared difficulty dominates lineage. Five open-weight LLMs show operationally useless (near-constant) confidence, point estimates at or beyond the flip though CIs straddle it; a proprietary model is informative and lands below it. We give a quantitative criterion for \\emph{vacuous} oversight, and replaying policies on recorded traces confirms the ordering.",
+        "authors": [
+          "Cesare Zavattari",
+          "Alessandro Tommasi",
+          "Giuseppe Prencipe"
+        ],
+        "published": "2026-07-30T14:52:36Z",
+        "id": "2607.28317v1",
+        "url": "http://arxiv.org/abs/2607.28317v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28317v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.28337v1": {
+      "paper": {
+        "title": "SU(3)-structures on quotients of 3-Sasakian manifolds",
+        "summary": "We show that if $(S,g,ξ_i,η_i,Φ_i)$ is a quasi-regular $3$-Sasakian orbifold of dimension $7$, then its quotient $Z$ by one of the Reeb vector fields inherits an $SU(3)$-structure parametrized by two real parameters. We compute its torsion and show that it is an LT-structure. Moreover, for certain values of the parameters, we can provide a nearly Kähler structure on $Z$ appearing as a special case of our construction. We give several examples in the regular, quasi-regular and orbifold cases.",
+        "authors": [
+          "Quentin Peres",
+          "Dimitrios Tsimpis"
+        ],
+        "published": "2026-07-30T15:04:00Z",
+        "id": "2607.28337v1",
+        "url": "http://arxiv.org/abs/2607.28337v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28337v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI能源与环境"
+      ]
+    },
+    "2607.28336v1": {
+      "paper": {
+        "title": "Correcting What You Cannot See: Credit Assignment for Perception Distillation in Multimodal Reasoners",
+        "summary": "On-policy distillation provides dense supervision for multimodal reasoners, but its trajectory-level reward cannot determine whether a failed answer arose from perception or subsequent reasoning. Perception Success Rate (PSR), estimated from multiple reasonings sharing one perception, remains ambiguous because low success conflates perceptual insufficiency with reasoning difficulty. We introduce \\textbf{Perception-Correction Distillation (PCD)}, a label-free method that identifies correctable perception failures using downstream failure and teacher--student disagreement as complementary witnesses. Their product, , forms a soft AND gate that strengthens distillation only when both witnesses are present. We motivate this rule through Bayesian evidence combination and show that multiplication is the unique normalized bilinear gate that vanishes when either witness is absent. PCD uses separated perception--reasoning rollouts and mean-preserving weights, leaving the reasoning objective unchanged. Across eight benchmarks, PCD improves the 8B 2B macro average from 44.50 with OPD to 47.28 and the 32B 8B result from 56.94 to 61.22. In matched 2B ablations, removing PCD and separated rollout reduces held-out average by 2.22 and 0.88 points, respectively. Effective multimodal distillation therefore depends not only on what the teacher predicts, but also on identifying when perception is the appropriate target of correction.",
+        "authors": [
+          "Feng Xiong",
+          "Leyan Xue",
+          "Hongyu Lin"
+        ],
+        "published": "2026-07-30T15:03:55Z",
+        "id": "2607.28336v1",
+        "url": "http://arxiv.org/abs/2607.28336v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28336v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.28329v1": {
+      "paper": {
+        "title": "Coupled Spin-Density-Wave and Bond-Order Driven Metal-Insulator Transition in Altermagnetic CsCr$_2$S$_2$O",
+        "summary": "A metal-insulator transition (MIT) driven by bond order (BO) coupled with a secondary spin-density wave (SDW) is identified in CsCr$_2$S$_2$O. Such coupling is enabled as a result of the broken time-reversal symmetry due to the pre-existing C-type antiferromagnetic (C-AFM) order. First-principles calculations reveal an orbital-selective physics that Cr-$d_{yz}$ orbitals form local moments and establish the altermagnetic order, while the Cr-$d_{xz}$ orbitals remain metallic and hybridize with S-$p_z$. Thus the low-energy physics is governed by the Cr-$d_{xz}$ and S-$p_z$ orbitals. On-site interactions then enhance a secondary SDW ($s$SDW) instability of the itinerant $d_{xz}$ electrons, which couples to the Cr-$d_{xz}$-S-$p_z$ bonding order. The resulting coupled $s$SDW-BO simultaneously produces experimentally observed structural distortion, charge disproportionation, local Cr-moment modulation, and gap opening. Our results establish an orbital-selective mechanism upon which pre-existing altermagnetism and electronic correlations cooperate to drive a structural MIT.",
+        "authors": [
+          "Chenchao Xu",
+          "Wansheng Bai",
+          "Guo-Xiang Zhi",
+          "Yi Liu",
+          "Xiaoqun Wang",
+          "Jianhui Dai",
+          "Chao Cao"
+        ],
+        "published": "2026-07-30T14:58:50Z",
+        "id": "2607.28329v1",
+        "url": "http://arxiv.org/abs/2607.28329v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28329v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.28327v1": {
+      "paper": {
+        "title": "Same Branches, Different Trees: A Bifurcation Connectedness Metric for Coronary Artery Segmentation and FFR-CT Decision Agreement",
+        "summary": "Fractional flow reserve derived from CT angiography (FFR-CT) simulates flow through a patient-specific vessel model, so its accuracy depends on the connectedness of the segmented tree, not only on volumetric overlap: a segmentation can reach high Dice yet sever a bifurcation, dropping the downstream subtree and reversing the treatment decision. Topology-aware losses such as clDice and Skeleton Recall act on the global centreline and can miss localised breaks. We study the Bifurcation Connectedness Score (BCS), which scores connectedness at each ground-truth bifurcation, and soft-BCS, its differentiable training surrogate. BCS captures a property of segmentation quality the standard metrics miss: it responds strongly to breaks in connectedness while staying largely unchanged under connectedness-preserving narrowing. Higher BCS accompanies closer agreement between the FFR-CT decisions a solver makes on predicted versus ground-truth geometry, most clearly in severe disease (OR 2.16, CI [1.23, 4.18]). Both decisions come from the same solver, so this reflects geometric, not clinical, fidelity. In training, soft-BCS and Skeleton Recall recover the same branches but build different trees. Recovering branches and keeping them connected are separable properties, so we recommend reporting a measure of each.",
+        "authors": [
+          "Maame Owusu-Ansah",
+          "Kelvin Lee",
+          "Dr Vinod Venugopal",
+          "Muhammad Moazzam Jawaid",
+          "Wenting Duan",
+          "James Brown"
+        ],
+        "published": "2026-07-30T14:57:42Z",
+        "id": "2607.28327v1",
+        "url": "http://arxiv.org/abs/2607.28327v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28327v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI安防与监控",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2607.28304v1": {
+      "paper": {
+        "title": "Semi-Supervised Learning for Molecular Graphs via Ensemble Consensus",
+        "summary": "Machine learning is transforming molecular sciences by accelerating property prediction, simulation, and the discovery of new molecules and materials. Acquiring labeled data in these domains is often costly and time-consuming, whereas large collections of unlabeled molecular data are readily available. Standard semi-supervised learning methods often rely on label-preserving augmentations, which are challenging to design in the molecular domain, where minor changes can drastically alter properties. In this work, we show that semi-supervised methods that rely on an ensemble consensus can boost predictive accuracy across a diverse range of molecular datasets, task types, and graph neural network architectures. We find that training with an ensemble consensus objective increases robustness in models and exhibits an effect similar to knowledge distillation; an individual member of an ensemble trained this way outperforms a full ensemble trained in a traditional supervised fashion in almost all cases. In addition, this type of semi-supervised training reduces calibration error.",
+        "authors": [
+          "Rasmus Tirsgaard",
+          "Laurits Fredsgaard",
+          "Marisa Wodrich",
+          "Mikkel Jordahn",
+          "Mikkel N. Schmidt"
+        ],
+        "published": "2026-07-30T14:43:55Z",
+        "id": "2607.28304v1",
+        "url": "http://arxiv.org/abs/2607.28304v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28304v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因"
+      ]
+    },
+    "2607.28318v1": {
+      "paper": {
+        "title": "PathView-Bench: Can Multimodal Large Language Models Achieve Fine-grained Multiscale Understanding of Pathology Images?",
+        "summary": "Multimodal large language models (MLLMs) are increasingly used to analyze pathology images. However, dominant multimodal benchmarks in pathology mainly score final diagnostic answers, captions, or reports. These evaluations provide limited insight into whether a model understands the multiscale visual content needed for pathology reasoning and decision-making. We introduce PathVU, a vision-anchored benchmark for fine-grained and multiscale visual understanding in computational pathology. Built from 23 public pathology imaging datasets with human-supervised labels and spatial annotations, PathVU evaluates MLLM understanding in two fields of view: Region FOV for high-resolution local regions and Slide FOV for macro whole-slide views. By converting raw annotations into deterministic task targets, PathVU enables programmatic scoring of region localization, visual recognition, quantity estimation, spatial reasoning, and insufficient-context judgment. The benchmark contains 14 VQA-style tasks, 61,673 images, and 308,070 samples across 28 organs and 7,253,526 annotations. Evaluating 18 representative general-purpose, medical-domain, and pathology-oriented MLLMs, we observe substantial limitations even in advanced models on fine-grained visual tasks across multiscale pathology images. PathVU provides a reproducible basis for developing and evaluating pathology MLLMs with explicit multiscale visual understanding.",
+        "authors": [
+          "Zongyi Chen",
+          "Yu Liang",
+          "Jie Lin",
+          "Liansheng Wang"
+        ],
+        "published": "2026-07-30T14:53:51Z",
+        "id": "2607.28318v1",
+        "url": "http://arxiv.org/abs/2607.28318v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28318v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI法律与合规"
+      ]
+    },
+    "2607.28334v1": {
+      "paper": {
+        "title": "Search for high-mass dilepton resonances in $pp$ collisions at $\\sqrt{s}=13.6$ TeV combined with 13 TeV results using the ATLAS detector",
+        "summary": "A search for spin-1 $ee$ and $μμ$ resonances in the high-mass range is presented. Two proton-proton ($pp$) collision datasets recorded by the ATLAS detector at CERN's Large Hadron Collider are utilised. A search is first performed using a dataset recorded at a center-of-mass energy of 13.6 TeV between 2022 and 2024, corresponding to an integrated luminosity of 165 fb$^{-1}$. The results of this search are subsequently statistically combined with results using 140 fb$^{-1}$ of data recorded between 2015 and 2018 at 13 TeV. The dilepton invariant mass spectrum is fitted with a functional form to model the contribution from Standard Model background processes. A generic spin-1 signal shape is used to determine the significance of observed deviations from the background expectation. No significant deviation is observed, therefore upper limits are placed at the 95% confidence level on the fiducial cross-section times branching ratio for a spin-1 resonance with various width hypotheses, individually for $ee$, $μμ$ final states and for their combination. From the combined 13 TeV and 13.6 TeV results, mass limits are extracted for various benchmark model bosons, including a $Z^{\\prime}_{\\text{SSM}}$ (5.5 TeV), $Z^{\\prime}_χ$ (5.1 TeV) and $Z^{\\prime}_ψ$ (4.8 TeV). These results represent the most stringent limits to date on high-mass dilepton resonances on the considered $Z'$ models.",
+        "authors": [
+          " ATLAS Collaboration"
+        ],
+        "published": "2026-07-30T15:02:03Z",
+        "id": "2607.28334v1",
+        "url": "http://arxiv.org/abs/2607.28334v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28334v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI法律与合规",
+        "AI能源与环境"
+      ]
+    },
+    "2607.28313v1": {
+      "paper": {
+        "title": "Current-based RF charge sensing in a carbon nanotube",
+        "summary": "Ultra-sensitive charge detection is a widely used tool for quantum electronics with applications in quantum information processing and in probing the physics of condensed matter systems. Existing approaches require either an impedance-matched resonant circuit, or millimeter-scale proximity between amplifier and sample, both adding complexity and constraining device design. In this work, we introduce a current-mode charge sensor in a suspended carbon nanotube, operating at the $1.25$ MHz resonance of an RLC tank circuit and achieving a charge sensitivity of $0.15~μe/\\sqrt{\\mathrm{Hz}}$. We utilize it to measure a double quantum dot (DQD) electrostatically defined in the same nanotube, revealing a highly regular charge stability diagram. We perform single-shot readout of the DQD charge state at an integration time of $3.56~μ\\mathrm{s}$, without any false assignments over $10^{7}$ measurements and a signal-to-noise ratio of 17 exceeding the state of the art.",
+        "authors": [
+          "Marta Cagetti",
+          "Stefan Forstner",
+          "Victor Champain",
+          "Roger Tormo-Queralt",
+          "Christoffer B. Møller",
+          "Sergio L. De Bonis",
+          "Chandan Samanta",
+          "Elsa Vázquez-Rodriguez",
+          "Eneko Mateos-Madinabeitia",
+          "David A. Czaplewski",
+          "Adrian Bachtold"
+        ],
+        "published": "2026-07-30T14:48:42Z",
+        "id": "2607.28313v1",
+        "url": "http://arxiv.org/abs/2607.28313v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28313v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI安防与监控",
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2607.28294v1": {
+      "paper": {
+        "title": "Bootstrap inference in autoregressive duration models",
+        "summary": "This paper develops bootstrap inference for autoregressive conditional duration (ACD) models observed over a fixed calendar span, so that the number of durations is random. We study recursive schemes that either fix the calendar span or the realized event count. For the fixed-count bootstrap, we establish consistency when the duration tail index satisfies $κ\\geq1$. When $0<κ<1$, classical consistency fails because the estimator has a mixed-normal limit, but the bootstrap reproduces its conditional Gaussian component. Consequently, basic percentile intervals remain first-order valid and bootstrap $t$-statistics are asymptotically standard normal. Monte Carlo experiments show accurate finite-sample inference across finite- and infinite-mean regimes and robustness to non-exponential innovations. An application to cryptocurrency ETF transaction durations finds strong persistence and illustrates the practical difference between fixed-count and random-count inference.",
+        "authors": [
+          "Giuseppe Cavaliere",
+          "Thomas Mikosch",
+          "Anders Rahbek",
+          "Frederik Vilandt"
+        ],
+        "published": "2026-07-30T14:38:37Z",
+        "id": "2607.28294v1",
+        "url": "http://arxiv.org/abs/2607.28294v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28294v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融"
+      ]
+    },
+    "2607.28292v1": {
+      "paper": {
+        "title": "CACHE-UK: A Stability-Aware Memory Editor for Sequentially Updated Quantized LLMs in Finance",
+        "summary": "Large Language Models (LLMs) deployed in dynamic financial environments face a critical challenge: maintaining factual accuracy as market conditions, regulations, and corporate facts change continuously. While 4-bit quantization enables efficient deployment, it severely limits the viability of sequential memory editing: existing methods undergo catastrophic performance degradation under this \"quantization stability crisis.\" We introduce CACHE-UK (Contextual Adaptive Continual Hybrid Editor for UK Finance), a stability-aware memory editing framework specifically designed for domain-specific, quantized LLMs. CACHE-UK integrates three components: a rank-1 LoRA perturbation mechanism that confines edits to the low-rank adapter subspace, a financial domain prioritization module for content-adaptive edit strength, and a closed-loop Stability Controller that tracks \"degradation debt\" to prevent catastrophic forgetting across sequential updates. Evaluated on a 4-bit quantized OpenLLaMA-3B model with a curated UK financial corpus of 88,021 documents, CACHE-UK reduces knowledge degradation by 11-17% relative to adapted baselines under identical 4-bit constraints -- its most robust effect -- while attaining the highest test success (generalization) rate observed in our setting (28%, a 6 percentage point improvement over the strongest adapted baseline). These results indicate that stability-aware editing can improve factual maintenance in resource-constrained financial LLM deployments, though absolute generalization rates remain low.",
+        "authors": [
+          "Anubhav Lakra",
+          "Yue Feng"
+        ],
+        "published": "2026-07-30T14:36:11Z",
+        "id": "2607.28292v1",
+        "url": "http://arxiv.org/abs/2607.28292v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28292v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融"
+      ]
+    },
+    "2607.28312v1": {
+      "paper": {
+        "title": "ObjectStream: Latent Objects as Memory Anchors for Streaming Video Understanding",
+        "summary": "Streaming video understanding requires models to continuously retain useful visual evidence before future questions are known. Existing approaches primarily manage the growing visual context according to token importance, temporal redundancy, or segment-level relevance, but rarely organize evidence around objects that persist and evolve over time. Thus, in this paper, we introduce ObjectStream, a training-free framework that treats latent objects as memory anchors for streaming video understanding. ObjectStream induces spatially coherent latent objects directly from frozen Video-LLM representations, links them across frames into persistent anchors, and maintains their histories under a bounded memory budget, without requiring external object detectors or segmentation models. Built on these anchors, ObjectStream preserves three complementary forms of evidence: persistent object histories, transient object changes, and recent visual context. This design enables existing Video Large Language Models (Video-LLMs) to reason over object identities, interactions, and state changes while leaving the underlying model unchanged. Extensive experiments on online streaming and offline long-video benchmarks demonstrate both effectiveness and efficiency. In online streaming evaluation, ObjectStream improves Qwen2.5-VL-7B by 10.0 points on OVO-Bench Real-Time Visual Perception, while reducing peak GPU mem-ory and TTFT by approximately 50%. On offline long-video benchmarks, it surpasses the full-token baseline while discarding 82.5% of visual tokens. These results highlight latent objects as a practical and effective organizing principle for compact streaming video memory.",
+        "authors": [
+          "Mingkang Dong",
+          "Muxin Pu",
+          "Jie Li",
+          "Bohan Guo",
+          "Songruo Chen",
+          "Bin Ren",
+          "Xu Zheng",
+          "Chen Zhao",
+          "Tianwen Qian",
+          "Mohamed Elhoseiny",
+          "Yuqian Fu"
+        ],
+        "published": "2026-07-30T14:47:00Z",
+        "id": "2607.28312v1",
+        "url": "http://arxiv.org/abs/2607.28312v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28312v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商"
+      ]
+    },
+    "2607.28338v1": {
+      "paper": {
+        "title": "Encryption-Compatible Clustered Federated Learning via Distributed Expectation-Maximization over Metadata",
+        "summary": "Clustered Federated Learning (CFL) addresses data heterogeneity in federated settings by grouping clients with similar data distributions to enable effective training. Existing methods face a trade-off between privacy preservation, communication cost, and computational efficiency. We formalize this as the CFL trilemma, according to which improving two of these dimensions comes at the expense of the third. A prominent paradigm relies on metadata (i.e., low-dimensional representations of client datasets shared with the server) to enable communication- and computation-efficient clustering. However, such approaches are not compatible with standard FL privacy-preserving mechanisms. To address this limitation, we propose FLAMECHE, which reformulates metadata-based CFL as a distributed Expectation-Maximization (EM) procedure, restricting server updates to additive operations while preserving efficiency. This design enables compatibility with practical secure FL schemes. We conducted extensive experiments on multiple datasets under various heterogeneous scenarios. Results show that FLAMECHE improves the effectiveness of client models. It enables encryption-compatible metadata-based clustering, enhancing its positioning within the CFL trilemma.",
+        "authors": [
+          "Michael Ben Ali",
+          "Imen Megdiche",
+          "André Péninou",
+          "Olivier Teste"
+        ],
+        "published": "2026-07-30T15:04:59Z",
+        "id": "2607.28338v1",
+        "url": "http://arxiv.org/abs/2607.28338v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28338v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融",
+        "AI教育",
+        "AI安防与监控"
+      ]
+    },
+    "2607.28308v1": {
+      "paper": {
+        "title": "Beyond Geometric Complementarity: Coherent Overlap in Sparse Mixture-of-Experts Routing",
+        "summary": "Sparse mixture-of-experts (MoE) language models route each token to multiple experts, suggesting a geometric account of their benefit: co-selected experts should contribute distinct representation directions. Existing evidence often conflates route coherence, candidate quality, and candidate-by-context interaction. We distinguish these quantities using an Expert Subspace Separation Index (ESSI), matched-route residuals, and a prefix-controlled $2\\times2$ factorial; frozen-route interventions and a controlled Top-$k$ study assess functional value. Three paired contrasts organize the findings. First, across six MoE architectures, expert subspaces overlap substantially, yet actual routes explain token representations better than matched alternatives. Second, across the 39 factorial cells in OLMoE, Mixtral, and DeepSeek, the selected candidate explains more of the residual representation than the strongest unselected rival in every cell, yet the actual prefix narrows this advantage throughout: all interactions are negative, and every 95% confidence interval lies below zero. Third, this geometric narrowing does not imply functional redundancy: adding later experts improves next-token prediction in 24 of 39 frozen-route comparisons, while the other 15 estimates are inconclusive; a controlled training study also favors Top-2 over Top-1 in all three seeds. We call this joint pattern coherent overlap: routing selects token-relevant experts from a shared geometric neighborhood, while useful multi-expert computation persists without disjoint linear coverage. Separating these quantities clarifies why geometric similarity alone cannot determine redundancy or pruning value.",
+        "authors": [
+          "Huiyuan Tian",
+          "Bonan Xu",
+          "Shijian Li"
+        ],
+        "published": "2026-07-30T14:45:39Z",
+        "id": "2607.28308v1",
+        "url": "http://arxiv.org/abs/2607.28308v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28308v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融",
+        "AI制造与工业"
+      ]
+    },
+    "2607.28307v1": {
+      "paper": {
+        "title": "From Textual Requirements to Microservice Architectures - A Comprehensive Evaluation of LLM-Based Design Synthesis",
+        "summary": "Microservice architectures have become dominant for modernizing monolithic systems, yet identifying appropriate services remains challenging and largely manual. Existing decomposition approaches are predominantly code-centric, limiting applicability in early design stages where only textual requirements are available. Despite advances in Large Language Models (LLMs), limited empirical evidence exists on their ability to synthesize complete microservice architectures from natural-language requirements, including service definitions and inter-service interactions. This study investigates whether an LLM can bridge requirements engineering and architectural design, generating architectures solely from textual requirements and evaluating structural agreement and perceived quality of results. We conduct a mixed-method study using OpenAI o3 under zero-shot (ZS) and few-shot (FS) prompting across two systems (Bookstore, PetClinic), one execution per system/condition. Architectures are evaluated through (i) comparison with reference architectures using precision, recall, and F1-score for service identification and communication recovery, and (ii) a blinded expert assessment of correctness, completeness, modularity, and plausibility, plus open feedback synthesis. OpenAI o3 identifies services with higher agreement under FS prompting (F1 = 0.79 for ZS versus = 0.97 for FS). Communication recovery is more challenging: ZS produces dense architectures with high recall but low precision (F1 = 0.61), while FS improves agreement, reaching F1 = 0.82 and reducing unsupported dependencies. Expert evaluation corroborates these results, with FS architectures perceived as more modular, coherent, and plausible than ZS outputs. OpenAI o3 shows potential for requirements-driven synthesis when guided by exemplar prompting. Results are model- and context-specific from two small systems, not model-independent proof.",
+        "authors": [
+          "Danyllo Albuquerque",
+          "José Renan",
+          "Guillermo Rodríguez",
+          "Guillermo Rodríguez",
+          "Emanuel Dantas",
+          "Ademar França",
+          "Mirko Perkusich",
+          "Kyller Gorgônio",
+          "Angelo Perkusich"
+        ],
+        "published": "2026-07-30T14:45:18Z",
+        "id": "2607.28307v1",
+        "url": "http://arxiv.org/abs/2607.28307v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28307v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融",
+        "AI农业"
+      ]
+    },
+    "2607.28335v1": {
+      "paper": {
+        "title": "FFLO transition and quantum criticality in polarized Fermi gases",
+        "summary": "We investigate the zero-temperature transition from the polarized normal phase to the FFLO state in a two-dimensional Fermi gas by means of a diagrammatic t-matrix approach. We first show that the standard non-self-consistent theory produces an unphysical phase diagram because of a severe violation of the Luttinger theorem. Motivated by this observation, we introduce a minimal self- consistent extension that largely restores compliance with the Luttinger theorem while preserving the analytical simplicity of the original formalism. This leads to a physically consistent phase diagram over the whole interaction range. Building on this improved description, we characterize the quantum critical behavior of the FFLO transition through the quasiparticle decay rates, quasiparticle weights, momentum distributions, and the critical dynamics of both fermionic and bosonic degrees of freedom. We further compare the two- and three-dimensional systems, showing that their critical properties can be understood within a unified geometrical picture based on the nesting of the majority and minority Fermi surfaces. Finally, for the three-dimensional case, we demonstrate within the Hertz-Millis framework that vertex corrections are irrelevant, thereby placing the FFLO quantum phase transition in the mean-field universality class, in close analogy with itinerant antiferromagnets.",
+        "authors": [
+          "Francesco Pirolo",
+          "Leonardo Pisani",
+          "Pierbiagio Pieri"
+        ],
+        "published": "2026-07-30T15:03:23Z",
+        "id": "2607.28335v1",
+        "url": "http://arxiv.org/abs/2607.28335v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28335v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商"
+      ]
+    },
+    "2607.28321v1": {
+      "paper": {
+        "title": "Systematic derivation of the Boltzmann equation for electroweak baryogenesis",
+        "summary": "We derive the Boltzmann equation for electroweak baryogenesis within a field-theoretical framework. We first algebraically solve the Kadanoff--Baym equations by incorporating the effects of gradients of the CP-violating bubble-wall background order by order. We then apply approximations and assumptions appropriate for electroweak baryogenesis and identify the on-shell parts of the solutions, which describe quasiparticle states propagating in a plasma. Using these on-shell solutions, we derive the Boltzmann equations for flavor-diagonal quasiparticle modes, while neglecting the off-diagonal components describing quantum coherence between different flavor modes. Our derivation generalizes previous field-theoretical treatments by retaining self-energy corrections, and our results are consistent with the known Boltzmann equations when these corrections are neglected. This framework provides a systematic and transparent derivation applicable to multi-flavor bosonic and fermionic systems.",
+        "authors": [
+          "Motoi Endo",
+          "Yushi Mura",
+          "Tenta Tsuji"
+        ],
+        "published": "2026-07-30T14:55:40Z",
+        "id": "2607.28321v1",
+        "url": "http://arxiv.org/abs/2607.28321v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28321v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2607.28315v1": {
+      "paper": {
+        "title": "Post-Newtonian Roche-Lobe-Overflow Prescription for Compact Binary Mass Transfer and the Corresponding Gravitational Waveforms",
+        "summary": "Mass transfer in binary systems is central to many astrophysical phenomena, including the evolution of compact interacting binaries. Starting from the first post-Newtonian hydrodynamic equations in the corotating frame, we derive the first post-Newtonian Roche potential and construct the corresponding post-Newtonian form of the Roche lobe overflow mass transfer prescription. We then include the time dependence of the component masses in the binary dynamics and compute the associated corrections to the equations of motion, gravitational-wave energy and angular-momentum fluxes, and far-zone polarization waveforms. Finally, we apply the model to representative ultracompact binary systems. We find that mass transfer can play an important role in the dynamical evolution of compact binaries. For gravitational-wave observations, its main effect appears as a secular phase drift accumulated over long observation times.",
+        "authors": [
+          "Shuai Zhang",
+          "Jie Yang",
+          "Zi-Han Zhang",
+          "Shenghua Yu"
+        ],
+        "published": "2026-07-30T14:49:26Z",
+        "id": "2607.28315v1",
+        "url": "http://arxiv.org/abs/2607.28315v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28315v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育"
+      ]
+    },
+    "2607.28324v1": {
+      "paper": {
+        "title": "Measuring Distortion in the Empty Regions of Dimensionality Reduction Scatterplots with the Gap Index",
+        "summary": "Quality metrics play a crucial role in the proper use of dimensionality reduction projections for visual analysis of high-dimensional data. They quantify the degree of distortion of a projection compared to the high-dimensional data and provide a reliable indication of how confident users can be in the structures they see in the resulting layouts. However, most popular metrics focus on capturing direct relationships between points (e.g., distances or neighborhoods) while neglecting distortions in empty areas of the layout, even though these often compose visually relevant features of a 2D layout. In this paper, we introduce the Gap Index (GI), a quality metric for 2D projections that captures visual distortion by measuring spatial distortion in empty areas of a projection. It does so by decomposing the space into empty triangles, which are then compared to their high-dimensional counterparts to compute the deformation. This per-triangle deformation can be aggregated into a single scalar value or overlaid on a projection to visualize regional distortion patterns. Results show that, contrary to popular quality metrics, the GI is sensitive to small structural deformations that have high visual impact. It is also fast to compute and interpretable.",
+        "authors": [
+          "Jaume Ros",
+          "Alessio Arleo",
+          "Fernando Paulovich"
+        ],
+        "published": "2026-07-30T14:57:19Z",
+        "id": "2607.28324v1",
+        "url": "http://arxiv.org/abs/2607.28324v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28324v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI法律与合规",
+        "AI制造与工业"
+      ]
+    },
+    "2607.28322v1": {
+      "paper": {
+        "title": "Non-partitioned e-detectors for nonparametric sequential change detection",
+        "summary": "We study the problem of sequential change detection over a general class of probability distributions ($\\mathcal P$), where both the pre-change and post-change distributions are unknown and belong to $\\mathcal P$. We do not assume a pre-specified partition of $\\mathcal P$ into pre- and post-change families. We propose a general class of sequential change detectors obtained by aggregating point-null e-processes over possible changepoints and taking an infimum over candidate no-change distributions. The weights in the aggregation scheme determine whether they attain average run length (ARL) control and probability-of-false-alarm (PFA) control. Under suitable assumptions, we prove that our methods achieve first-order asymptotically optimal detection delay. Concrete examples include sub-Gaussian and bounded mean changes, Gaussian mean changes with unknown variance, as well as changes in Markov transition matrices.",
+        "authors": [
+          "Aytijhya Saha",
+          "Aaditya Ramdas"
+        ],
+        "published": "2026-07-30T14:57:03Z",
+        "id": "2607.28322v1",
+        "url": "http://arxiv.org/abs/2607.28322v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28322v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI安防与监控",
+        "AI农业"
+      ]
+    },
+    "2607.28320v1": {
+      "paper": {
+        "title": "AdaAnchor4D: Anchor-Conditioned Spatiotemporal Feature Aggregation for Monocular UAV 4D Reconstruction",
+        "summary": "Monocular UAV videos provide valuable observations for dynamic reconstruction of complex urban scenes. However, such scenes exhibit pronounced spatiotemporal heterogeneity: different regions follow distinct temporal activity patterns, while the motion states of some dynamic regions may further evolve over time. Although dynamic Gaussian methods based on decomposed shared spatiotemporal feature fields have achieved efficient and accurate reconstruction in object-centric or relatively compact scenes, their commonly adopted fixed plane-wise feature combination mechanisms are less suited to the heterogeneous local dynamics of UAV scenes, often leading to ghosting artifacts and blurred dynamic details. To address this challenge, we propose AdaAnchor4D, an adaptive anchor deformation framework for monocular UAV dynamic scene reconstruction. At its core, Anchor-Conditioned Feature Aggregation (ACFA) adaptively aggregates shared spatiotemporal features using anchor-specific aggregation embeddings and temporal information, allowing different local units to obtain dynamic representations tailored to their local and temporal states. Decoupled Local Geometry Deformation (DLGD) separates anchor-state deformation from local Gaussian geometry deformation, while Density-Adaptive Coordinate Warping (DACW) reparameterizes feature-query coordinates according to the axis-wise anchor distributions, alleviating the mismatch between non-uniform geometric sampling and uniform grid parameterization. Experiments on UAV-Arc4D, VisDrone, and UAVDT show that AdaAnchor4D achieves higher rendering quality than representative dynamic Gaussian methods while maintaining real-time rendering performance. The code will be made publicly available.",
+        "authors": [
+          "Peiyi Xu",
+          "Junpeng Zhang",
+          "Guanbin Li",
+          "Ronghua Shang",
+          "Mingtao Feng",
+          "Le Dong",
+          "Weisheng Dong",
+          "Guangming Shi",
+          "Jie Feng"
+        ],
+        "published": "2026-07-30T14:55:06Z",
+        "id": "2607.28320v1",
+        "url": "http://arxiv.org/abs/2607.28320v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28320v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控",
+        "AI制造与工业",
+        "AI能源与环境"
+      ]
+    },
+    "2607.28333v1": {
+      "paper": {
+        "title": "Compressible solved-volatility stochastic fluid thermodynamics: source-consistent energy, finite-correlation reservoirs, entropy admissibility and boundary conditions",
+        "summary": "A variable-density thermodynamic extension is developed for the solved-volatility stochastic-fluid formulation of arXiv:2607.25536. Source-inclusive stochastic transport separates mass, momentum and total-energy conservation into time-evolution partial differential equations and martingale compatibility constraints. Density and temperature are the primitive thermodynamic fields: mass conservation determines density, internal energy determines temperature, and the equation of state determines pressure evolution along stochastic particle paths. The resolved kinetic-energy identity is combined with a finite-correlation reservoir, Green--Kubo calibration, an equilibrium counterterm and adjoint resolved-unresolved exchange. A stochastic Gibbs identity and Gaussian relative entropy yield a conditional entropy-admissibility result for a Hencky-reservoir formulation. Equation-of-state pressure fluctuations are distinguished from mechanical stress impulses; regular finite-Mach fluctuations produce no independent white-noise bulk pressure impulse, while fast mechanical pressure is represented by a causal finite-correlation carrier. Conservative boundary conditions and a calorically perfect ideal-gas specialization are given. In the zero-volatility limit, the classical compressible Navier--Stokes--Fourier equations are recovered. A frozen descriptor analysis identifies a mixed hyperbolic--parabolic drift subsystem coupled to algebraic martingale constraints, with closure-dependent elliptic blocks and a singular low-Mach pressure limit. Canonical calculations verify the pressure carrier, acoustic dispersion, viscous-thermal energy balance and low-Mach scaling. Nonlinear well-posedness, shock admissibility and developed turbulence are not claimed.",
+        "authors": [
+          "Hsieh-Chen Tsai"
+        ],
+        "published": "2026-07-30T15:02:01Z",
+        "id": "2607.28333v1",
+        "url": "http://arxiv.org/abs/2607.28333v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28333v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI能源与环境"
+      ]
+    },
+    "2607.28325v1": {
+      "paper": {
+        "title": "Influence of Rotational Diffusion on Macromolecular Self-Assembly Kinetics",
+        "summary": "Macromolecular self-assembly underlies a plethora of biological processes and provides a versatile route for fabricating functional soft materials. The kinetics of self-assembly in solution are inherently stochastic and are fundamentally governed by the interplay of translational and rotational diffusion of the constituent macromolecules. While most computational studies model macromolecules as patchy spherical colloids, thereby neglecting the influence of polymer architecture and internal conformational dynamics, the role of these factors in macromolecular self-assembly kinetics remains poorly understood. Here, we investigate the self-assembly of two patchy macromolecules with different architectures, namely linear chains and star polymers with four and seven arms. The hydrodynamic radii of the macromolecules are chosen to be nearly identical, thereby matching their translational diffusion coefficients and thus isolating the influence of rotational diffusion on the self-assembly process. The binding probability of the patchy macromolecules is found to depend strongly on their internal architecture. Furthermore, reactive path density analysis reveals that self-assembly pathways are influenced by the rotational diffusion coefficient of the individual macromolecules. Overall, this study establishes a bridge between the equilibrium dynamics of macromolecules and their self-assembly kinetics, highlighting the importance of polymer internal architecture in the process of self-assembly.",
+        "authors": [
+          "Prabeen Kumar Pattnayak",
+          "Aloke Kumar",
+          "Gaurav Tomar"
+        ],
+        "published": "2026-07-30T14:57:26Z",
+        "id": "2607.28325v1",
+        "url": "http://arxiv.org/abs/2607.28325v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28325v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI法律与合规",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI法律与合规",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2607.28268v1": {
+      "paper": {
+        "title": "LLM-Guided Evolutionary Search for Constraint Model Reformulation to Improve Solver Efficiency",
+        "summary": "Combinatorial problems appear in numerous industrial applications. A common approach is to formulate these problems as declarative constraint models that can subsequently be compiled to and solved by a range of back-end solvers. Recent work shows that Large Language Models (LLMs) can produce correct models from natural language, but even a correct model can be expensive to solve because performance remains sensitive to modelling choices. In this work, we investigate whether LLMs can automate performance-oriented model reformulation. Inspired by Automatic Heuristic Design (AHD), we use an evolutionary framework in which an LLM proposes candidate reformulations that are verified and benchmarked against the user-defined baseline model. We compare AHD-adapted search strategies that control which prior attempts, instructions, and measured feedback enter each prompt. Existing retention strategies prioritize recency or performance, but do not explicitly diversify the context. To cover this gap, we introduce Profile-Diverse Retention (PDR), which applies Maximal Marginal Relevance (MMR) to instance-level runtime vectors to retain behaviourally diverse attempts. We systematically evaluate the strategies on eight CSPLib problems using validation-based final model selection. The results show that: (i) iterative reformulation can produce substantial held-out speedups; (ii) strategies that keep the retained context diverse outperform those that retain only recent or the fastest attempts; and (iii) validation-based selection improves the held-out speedup of every strategy.",
+        "authors": [
+          "Kostis Michailidis",
+          "Dimos Tsouros",
+          "Nguyen Dang",
+          "Tias Guns"
+        ],
+        "published": "2026-07-30T14:21:55Z",
+        "id": "2607.28268v1",
+        "url": "http://arxiv.org/abs/2607.28268v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28268v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2607.28257v1": {
+      "paper": {
+        "title": "Operationally Guided Placement-Aware Learning for Industrial Online 3D Bin Packing",
+        "summary": "The online three-dimensional bin packing problem (3D-BPP) is a longstanding challenge in logistics and industrial palletizing. Recent learning-based methods use a learned policy to select among feasible candidate placements. Performance depends on the candidate generator and representation, especially in industrial settings where packings must be space-efficient, stable, compact, and balanced. However, prior work has mainly optimized the policy, while candidate generation and representation remain largely geometry-driven. We address this gap with OPAL, an operationally guided placement-aware learning framework for industrial online 3D-BPP which combines an Operationally Guided Empty-Maximal-Space generator (OG-EMS), an operational representation for each candidate placement, and a masked ranking policy trained with proximal policy optimization. OG-EMS evaluates multiple anchors within each free-space region and prioritizes low, well-supported, compact, and spatially diverse placements. An xLSTM-based Placement Encoder models dependencies among geometric and operational candidate attributes, while a lightweight recurrent core combines the resulting embeddings with the current item and pallet state to rank feasible actions. On the BED-BPP benchmark, OPAL achieves a mean space utilization of 0.49, with improvements of 15.1% from operationally guided candidate generation and 6.3% from learned ranking, while maintaining robust inference-time performance.",
+        "authors": [
+          "Dheeraj Poolavaram",
+          "Aanchal Rajesh Chugh",
+          "Sebastian Dorn"
+        ],
+        "published": "2026-07-30T14:16:42Z",
+        "id": "2607.28257v1",
+        "url": "http://arxiv.org/abs/2607.28257v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28257v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2607.28311v1": {
+      "paper": {
+        "title": "Fully Inductive Cardinality Estimation",
+        "summary": "Query optimization of Basic Graph Patterns (BGP) SPARQL queries over Knowledge Graphs (KG) requires accurate cardinality estimation. Recently published learned estimators outperform statistics- and sampling-based approaches, but share a limitation preventing their adoption in real-world triplestores: they are transductive and require retraining when the underlying graph changes or when applied to new graphs. We present FICE (Fully Inductive Cardinality Estimation), the first learned cardinality estimator for BGP queries over KGs that generalizes to entirely unseen graphs (including unseen relations), without any retraining. FICE is a graph neural network (GNN) with two coupled components. First, an encoder GNN over a factor-graph view of the KG produces entity and relation embeddings. We prove that BGP cardinality is a local function of the 2-hop neighborhood around bound terms in this view, motivating the local message-passing encoder. A decoder GNN then composes these embeddings along the join topology of the query to predict log-cardinality. The encoder and decoder are trained jointly, making the embeddings specialized for cardinality estimation. FICE is trained using neighborhood sampling to scale to KGs with millions of triples, and decouples embedding generation from cardinality decoding to enable estimation latency below a millisecond. Compared to learned and non-learned baselines over 10 KGs, FICE reduces the overall median q-error from 13.54 (for the best competitor) to 5.34 and dominates all approaches in tail behavior.",
+        "authors": [
+          "Tim Schwabe",
+          "Lukas Ketzer",
+          "Maribel Acosta"
+        ],
+        "published": "2026-07-30T14:46:43Z",
+        "id": "2607.28311v1",
+        "url": "http://arxiv.org/abs/2607.28311v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28311v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境"
+      ]
+    },
+    "2607.28310v1": {
+      "paper": {
+        "title": "Charge-to-spin conversion in epitaxial and polycrystalline Bi and Bi/Ag layers",
+        "summary": "Bi is predicted to be an efficient generator of spin-orbit torques (SOTs), with charge-to-spin conversion efficiency comparable to those of prototypical heavy metals, such as Ta, W, and Pt. However, experimental reports provide widely scattered interconversion efficiencies, while the origin of the large conversion signal in Bi/Ag bilayers remains controversial. Here, we investigate charge-to-spin conversion in epitaxial and polycrystalline Bi-based magnetic heterostructures by measuring the damping-like SOT using magneto-optic Kerr effect magnetometry, complemented by structural and spectroscopic analyses and harmonic Hall resistance measurements. We show that inserting an Ag spacer between Bi(001) and metallic ferromagnets (FeCo or Ni) enhances the SOT efficiency by more than one order of magnitude, reaching an effective spin Hall conductivity of approximately $2 \\times 10^5 (\\hbar/2e)$ S/m, in excellent agreement with theoretical expectations for bulk Bi. This enhancement can be consistently explained by the preservation of the structural and chemical integrity of Bi, otherwise compromised by the direct deposition of a ferromagnetic overlayer, rather than by Rashba spin-orbit coupling at the Bi/Ag interface. Comparative studies across epitaxial, polycrystalline, and intentionally surface-oxidized Bi films, beyond oxygen doses known to destroy Bi(001) surface states, reveal that structural disorder has a negative impact on the SOT efficiency and indicate a dominant bulk contribution to spin-current generation in Bi/Ag heterostructures, yielding an effective Bi spin Hall angle of approximately 1. By establishing a direct correlation between atomic-scale integrity and charge-to-spin conversion, this study provides design principles to improve the reliability of Bi-based SOT devices and offers a robust framework for interpreting spin-charge interconversion in Bi and Bi/Ag systems.",
+        "authors": [
+          "Federica Nasr",
+          "Emir Karadža",
+          "Santos F. Alvarado",
+          "Federico Binda",
+          "Tobias Goldenberger",
+          "Carlo Zucchetti",
+          "Myriam H. Aguirre",
+          "Paolo Moras",
+          "Andrey V. Matetskiy",
+          "Polina M. Sheverdyaeva",
+          "Paul Noël",
+          "Pietro Gambardella"
+        ],
+        "published": "2026-07-30T14:46:04Z",
+        "id": "2607.28310v1",
+        "url": "http://arxiv.org/abs/2607.28310v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28310v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI能源与环境"
+      ]
+    },
+    "2607.27980v1": {
+      "paper": {
+        "title": "Tunable Conformal Graphene Growth on Oxide Nanotube scaffolds: Towards Superwettable Hierarchical 2D-3D Architectures",
+        "summary": "Hierarchical hybrid nanoarchitectures that integrate vertically oriented graphene nanowalls, GNWs, with metal oxide, MeOx, nanotube scaffolds offer versatile platform for smart surfaces, nanoelectronics, and electrochemical technologies. Herein we present rapid, dry, plasma-assisted fabrication route that enables direct and conformal growth of GNWs on mechanically robust MeOx nanoforests. The method combines supported single-crystalline organic nanowires as a 1D soft template with sequential plasma-enabled oxide deposition and GNW growth, all performed under mild temperature, power, and vacuum conditions. This approach yields an unprecedented 2D-3D hierarchical architecture consisting of tunable-thickness MeOx nanotubes uniformly decorated with radially oriented graphene nanosheets, forming re-entrant, multiscale surface. Resulting hierarchical roughness imparts fluorine-free, long-term omniphobicity, with contact angles exceeding 170 degree for water, bovine serum, and other complex fluids. GNWs dominate the wetting response across TiO2, Al2O3, and SiO2 nanotube scaffolds, effectively decoupling surface behavior from intrinsic oxide chemistry and maintaining robust repellency under UV irradiation and water condensation. Comprehensive SEM, TEM, XPS, angle-resolved NEXAFS, and Raman analyses elucidate growth mechanism and confirm preservation of the sp2 graphitic framework, together with controlled degree of edge functionalization. Overall, this work establishes universal, substrate-compatible, low-temperature, and scalable route for the fabrication of tunable graphene-metal oxide nano-microstructured multifunctional surfaces.",
+        "authors": [
+          "Fernando Nunez Galvez",
+          "Muhammad Hamza",
+          "Johannes Berndt",
+          "Thomas Strunskus",
+          "Franziska Traeger",
+          "Nicolo di Novo",
+          "Juan R. Sanchez-Valencia",
+          "Carmen Lopez-Santos",
+          "Ana Borras",
+          "Eva Kovacevic"
+        ],
+        "published": "2026-07-30T10:24:43Z",
+        "id": "2607.27980v1",
+        "url": "http://arxiv.org/abs/2607.27980v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.27980v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2607.27861v1": {
+      "paper": {
+        "title": "Back to All-Entity Ranking: Sampler-Dependent Evaluation in Continuous-Time Dynamic Graphs",
+        "summary": "Next-destination prediction in continuous-time dynamic graphs (CTDGs) commonly ranks an observed interaction against sampled negative destinations. The resulting score is conditional on both the negative distribution and the number of candidates chosen by the researcher. We show that a non-uniform negative distribution changes the Bayes-optimal ranking, while even a finite candidate set drawn uniformly can destabilize model rankings and measured module effects.   Time-varying source-destination history membership and model operations that use this information directly transmit the sampler's influence to the evaluation score. We examine this mechanism using a factorial evaluation of repeated and new positives against seen and unseen negatives, a minimal scorer based solely on pair-history membership, and controlled representation interventions. Across six models on LastFM, MOOC, Reddit, and Wikipedia, at least one model pair changes relative order between the expected Uniform-20 metric and the full catalog on three of the four datasets. The measured effect of the same module also changes in magnitude and direction with the candidate-set size and training objective.   These results establish that model-superiority and ablation conclusions from sampled-negative benchmarks are conditional on the stated candidate configuration. All-entity ranking evaluates every destination in a fixed catalog, eliminating negative-selection freedom and sampling variation while retaining the original CTDG scorer. We therefore recommend all-entity ranking as the primary evidence for architecture comparisons on CTDG benchmarks with an enumerable, fixed destination catalog.",
+        "authors": [
+          "Minwoo Yu",
+          "Young-guk Ha"
+        ],
+        "published": "2026-07-30T08:37:43Z",
+        "id": "2607.27861v1",
+        "url": "http://arxiv.org/abs/2607.27861v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.27861v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2607.27755v1": {
+      "paper": {
+        "title": "EgoGVAE: Ego-body Mesh Reconstruction via Guided Variational Autoencoder",
+        "summary": "We address the problem of recovering the full-body mesh from only the head pose. This task has become essential for various applications based on head-mounted devices or smart glasses. The challenge of this task lies in estimating the pose information of unobserved body parts based solely on a single joint (i.e., head) trajectory. Several studies have begun to adopt head-conditioned generative models, however, such previous methods are costly and time-consuming due to the diffusion-based iterative process. As an alternative, we propose a simple yet novel method that leverages the latent space of the guidance network, which is designed as a variational autoencoder taking full-body poses as inputs. By enforcing latent distributions of this guidance network and our head-to-motion network to be similar, latent features sampled from the 'guided' distribution, i.e., distribution learned in our head-to-motion network, can be reliably decoded for natural representations of full-body poses even only with the head pose. One important advantage of the proposed method is that one-step sampling scheme achieves remarkably fast inference (more than 50 times faster) compared to diffusion-based approaches. Experimental results on benchmark datasets show that the proposed method efficiently improves the performance of ego-body mesh reconstruction.",
+        "authors": [
+          "Jaehun Jung",
+          "Wonjun Kim"
+        ],
+        "published": "2026-07-30T06:52:59Z",
+        "id": "2607.27755v1",
+        "url": "http://arxiv.org/abs/2607.27755v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.27755v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2607.27584v1": {
+      "paper": {
+        "title": "Who heeds the call to conserve in an energy emergency? Evidence from smart thermostat data",
+        "summary": "In 2019, a fire at a natural gas plant and historically low temperatures caused an emergency shortage of natural gas in Michigan. A statewide emergency text alert asked households to turn thermostats down to 65°F. We analyze the effectiveness of this request using high-frequency smart-thermostat data from Michigan and four neighboring states. Using a difference-in-differences research design, we find that Michigan households reduced thermostat settings by 1.1 degrees on average. Our results suggest that the use of the wireless emergency alert system was critical in creating an effective emergency response. We examine heterogeneity in responsiveness by whether a household's baseline thermostat setting was above or below the compliance target of 65°F and by Democratic Party gubernatorial vote share.",
+        "authors": [
+          "Dylan Brewer",
+          "R. Jim Crozier"
+        ],
+        "published": "2026-07-30T02:01:02Z",
+        "id": "2607.27584v1",
+        "url": "http://arxiv.org/abs/2607.27584v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.27584v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2607.28270v1": {
+      "paper": {
+        "title": "Grid-Forming Converter DC-link Control Considering the Primary Energy Source",
+        "summary": "The gradual substitution of conventional synchronous generators by converter-interfaced renewable energy sources raises concerns about the reduction of conventional inertia in electric power systems and the ensuing threat to their stability. In this regard, grid-forming voltage source converters have been proposed as a key solution to address this challenge. Although a growing body of literature addresses DC-link voltage regulation in grid-forming converters, most existing approaches implicitly assume an ideal and unconstrained DC power source. As a result, the dynamic response and operational limits of the primary energy source, which can critically shape the available DC-side power during transients, are rarely modeled or explicitly accounted for in the design of the DC-link control. This paper demonstrates that incorporating these aspects at the design stage reduces the risk of converter disconnection from the power grid under sudden power imbalances, while enhancing system resilience. A systematic methodology based on a Genetic Algorithm is proposed to tune the control parameters. The performance of the proposed control is validated by simulation using a detailed electromagnetic transient model.",
+        "authors": [
+          "Carlo de Paolis Robles",
+          "Andrés Tomás-Martín",
+          "Ignacio Egido",
+          "Aurelio García-Cerrada"
+        ],
+        "published": "2026-07-30T14:24:54Z",
+        "id": "2607.28270v1",
+        "url": "http://arxiv.org/abs/2607.28270v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28270v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境"
+      ]
+    },
+    "2607.28326v1": {
+      "paper": {
+        "title": "Growth, geometry, and early-universe split of the matter density parameter $Ω_{\\rm m}$",
+        "summary": "While the $Λ$ cold dark matter ($Λ$CDM) model can successfully reproduce the measurements of many cosmological probes, some discrepancies have recently emerged. Therefore, it is necessary to test the standard cosmological model for consistency. An important stress test is to separate the influence of different cosmological regimes on the parameter inference. We treat three regimes separately here: geometry, growth, and the early universe. The geometrical regime concerns the expansion and curvature history, while the growth regime governs structure formation and the early-universe regime affects physics prior to recombination. Previous analyses have performed the split between geometry and growth, whereas we also consider the early universe influence separately. We perform this split for the present day matter density parameter $Ω_{\\rm m}$ using multiple cosmological observables. The used data are galaxy clustering and weak lensing statistics (3x2pt) from the Dark Energy Survey (DES), cosmic microwave background (CMB) data from Planck, spectroscopic baryon acoustic oscillations (BAO) from the Dark Energy Spectroscopic Instrument (DESI), type-Ia supernovae (SNe Ia) samples from Pantheon+, and redshift-space distortions (RSD) from a collection of galaxy surveys. For each of these probes, we introduce a phenomenological split into these three regimes. This work shows a strong correlation between the geometric and the early regime for the matter density, but no strong correlation between the growth regime and the others. All regimes are compatible in the posterior distribution, however the difference between the geometry and the early regimes, $ΔΩ_{\\rm m}^{\\rm geo,early}$, is 2$σ$ apart from 0.",
+        "authors": [
+          "Felicitas Keil",
+          "Isaac Tutusaus",
+          "Alain Blanchard"
+        ],
+        "published": "2026-07-30T14:57:39Z",
+        "id": "2607.28326v1",
+        "url": "http://arxiv.org/abs/2607.28326v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28326v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI政务与公共服务",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI政务与公共服务"
+      ]
+    },
+    "2607.28286v1": {
+      "paper": {
+        "title": "A MATLAB Tool for the Stable Generation of Matrix Polynomial Evaluation Schemes with Two-Product Savings",
+        "summary": "Computing numerical approximations of matrix functions frequently relies on the efficient evaluation of high-degree matrix polynomials. Although computational bounds are historically governed by the Paterson--Stockmeyer (PS) method, recent theoretical developments have demonstrated the viability of evaluation schemes that eliminate two matrix products ($2M$). Existing literature documents stable instances of this $2M$ reduction only for isolated cases, such as specific degrees of Taylor approximations for the matrix exponential and the matrix logarithm. However, a generalized approach for arbitrary polynomials remains unestablished. To address this limitation, this work presents a software-driven procedure that extends these computational savings to polynomials of degrees $m \\in \\{18, 21, 24, 26, 27, 28\\}$ and all $m \\ge 30$, requiring primarily a non-zero leading coefficient. Since the underlying evaluation coefficients must be determined by solving systems of nonlinear equations (SNEs), selecting a numerically stable solution set is critical. We introduce an automated verification routine designed to filter and validate robust coefficient sets for floating-point execution. The primary contribution is a MATLAB implementation leveraging variable precision arithmetic to handle the underlying SNEs, verify stability, and project precision bounds. Numerical experiments involving various matrix functions verify that the developed implementation preserves or, in some instances, enhances the numerical accuracy of the classic PS method, while systematically achieving the theoretical reduction of $2M$.",
+        "authors": [
+          "J. Ibáñez",
+          "J. Sastre",
+          "J. M. Alonso",
+          "E. Defez"
+        ],
+        "published": "2026-07-30T14:32:33Z",
+        "id": "2607.28286v1",
+        "url": "http://arxiv.org/abs/2607.28286v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28286v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.28279v1": {
+      "paper": {
+        "title": "On Sirakov's equal-frequency uniqueness conjecture",
+        "summary": "Let $N\\in\\{2,3\\}$, $0<μ_1\\leqμ_2$, and $0<β<μ_1$. We prove that the equal-frequency two-component cubic Schrödinger system \\[   -Δu+u=μ_1u^3+βuv^2,   \\qquad   -Δv+v=μ_2v^3+βu^2v   \\quad\\text{in }\\mathbb{R}^N \\] has exactly one positive solution in $H^1(\\mathbb{R}^N)\\times H^1(\\mathbb{R}^N)$ modulo simultaneous translations. More precisely, every positive solution is a simultaneous translate of the synchronized state constructed from the unique positive radial solution of $-Δw+w=w^3$ in $\\mathbb{R}^N$. This settles Sirakov's equal-frequency uniqueness conjecture throughout the weak-coupling range.   The main difficulty in the proof is to exclude radial solutions for which the ratio of the normalized components is nonconstant. After normalization, the two components satisfy scalar equations with a common potential. We construct a weighted Pohozaev functional for the system together with a correction term and prove that both the corrected functional and the associated weighted functional are strictly positive. Combining these sign properties with a radial flux identity and an auxiliary quotient associated with the component ratio forces synchronization.",
+        "authors": [
+          "Hong-Ge Chen",
+          "Yong Liu",
+          "Juncheng Wei",
+          "Wen Yang"
+        ],
+        "published": "2026-07-30T14:28:43Z",
+        "id": "2607.28279v1",
+        "url": "http://arxiv.org/abs/2607.28279v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28279v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.28247v1": {
+      "paper": {
+        "title": "Space2Ground 2.0: A Multi-Source Dataset and Framework for Agricultural Monitoring through Fusion of Street-Level and Satellite Imagery",
+        "summary": "Accurate and scalable parcel-level agricultural monitoring remains challenging because satellite Earth Observation alone provides only an overhead perspective of agricultural parcels, while optical observations are further affected by cloud-induced temporal gaps. This paper presents Space2Ground 2.0, a multi-source framework integrating Sentinel-1 SAR and Sentinel-2 multispectral time series with geo-tagged street-level imagery acquired using vehicle-mounted cameras and shared through the Mapillary platform. A largely automated processing pipeline performs semantic filtering, image quality assessment, viewpoint-based parcel association, and dataset refinement, transforming large volumes of crowdsourced imagery into parcel-linked, analysis-ready data. Applied over Cyprus during the 2022 growing season, the pipeline produced a curated dataset of 46,050 annotated street-level images, selected from an initial collection exceeding 900,000 images and linked with satellite information for 8,581 agricultural parcels. The practical value of the dataset was assessed through parcel-level crop classification experiments using both single- and multi-source observations. The results demonstrate that street-level imagery provides complementary fine-scale visual information that enhances classification when integrated with satellite time series. Overall, Space2Ground 2.0 provides an openly available benchmark dataset and a reproducible methodology for multimodal agricultural monitoring, with potential applications in visual verification, reduced reliance on costly field inspections, and data-driven agricultural policy implementation.",
+        "authors": [
+          "Iason Tsardanidis",
+          "Alkiviadis Koukos",
+          "George Choumos",
+          "Vasileios Sitokontantinou",
+          "Charalampos Kontoes"
+        ],
+        "published": "2026-07-30T14:10:25Z",
+        "id": "2607.28247v1",
+        "url": "http://arxiv.org/abs/2607.28247v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28247v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.28053v1": {
+      "paper": {
+        "title": "A data-driven stage-structured host-parasitoid model for optimizing Trichogramma interventions against soybean pod borer (Leguminivora glycinivorella) outbreaks",
+        "summary": "The soybean pod borer (Leguminivora glycinivorella) poses a severe threat to global soybean production.In this study, we developed a stage-structured host-parasitoid dynamic model that explicitly couples the holometabolous life cycle of the pest with the obligate egg-parasitism mechanism of Trichogramma wasps. Utilizing field monitoring data from Changchun, Jilin Province, key biological parameters were rigorously estimated via the Markov Chain Monte Carlo (MCMC) method.This calibration facilitated the establishment of a precise Economic Injury Level ($Q_{EIL}$) of 0.0389 individuals/$m^2$, based solely on the destructive larval stage. Through theoretical and numerical analyses of different intervention scenarios, we identified an optimal continuous release rate ($C^* = 2.645$) that efficiently suppresses the outbreak without causing wasteful parasitoid accumulation. Furthermore, simulations demonstrate that a 5-day impulsive release interval provides the optimal balance between strict pest suppression and field operational costs. This study bridges the gap between theoretical population dynamics and applied agricultural management, providing a directly applicable mathematical decision-making tool for the precise biological control of crop pests.",
+        "authors": [
+          "Wenxuan Li",
+          "Xu Chen",
+          "Yu Gao",
+          "Suli Liu"
+        ],
+        "published": "2026-07-30T11:31:15Z",
+        "id": "2607.28053v1",
+        "url": "http://arxiv.org/abs/2607.28053v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28053v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2607.28280v1": {
+      "paper": {
+        "title": "Adaptive Demand-Driven Energy Management of PCM-Integrated District Heating Systems: Operational Flexibility and Techno-Economic Assessment",
+        "summary": "Latent heat thermal energy storage (LHTES) using phase change materials (PCMs) is a promising solution to shifting heat supply and reducing peak demand in district heating (DH). However, the combined impacts of PCM thermophysical properties and practical control strategies on DH system-level operational and economic performance remain insufficiently understood. To bridge the research gap, this study investigates a PCM-integrated DH system with heat pump assisted waste heat recovery under an adaptive demand-driven (ADD) control strategy to enhance operational flexibility. A dynamic simulation model was developed and the system performance was evaluated against a baseline case and a rule-based control (RBC) approach based on peak-load reduction, operational cost, heat pump performance, and indoor thermal comfort. Furthermore, sensitivity analyses were conducted to examine the influence of PCM thermophysical properties on system performance. The results showed that the RBC can shift peak demand but tends to generate secondary peaks during charging periods. In contrast, the ADD strategy effectively smoothed the heat demand profile and achieved up to 5.3% peak-load reduction while maintaining thermal comfort. Sensitivity analysis revealed that a phase-change temperature of 80$^\\circ$C and thermal conductivity above 2 W/(m$\\cdot$K) achieved a higher peak-load reduction and improved economic performance. Despite the enhanced peak-shaving capability achieved by the proposed control strategy, the system exhibited a payback period of 25.3 years, indicating that further cost reductions and supportive market incentives are required. Nevertheless, the proposed approach provides significant potential for enhancing DH flexibility and supporting the transition toward future low-carbon energy systems.",
+        "authors": [
+          "Xin Jin",
+          "Chunjun Huang",
+          "Pei Huang",
+          "Natasa Nord"
+        ],
+        "published": "2026-07-30T14:30:12Z",
+        "id": "2607.28280v1",
+        "url": "http://arxiv.org/abs/2607.28280v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.28280v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    }
+  }
+}

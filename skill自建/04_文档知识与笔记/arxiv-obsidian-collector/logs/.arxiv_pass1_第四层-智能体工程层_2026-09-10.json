@@ -1,0 +1,1139 @@
+{
+  "date": "2026-09-10",
+  "layer": "第四层-智能体工程层",
+  "collected": {
+    "2609.10540v1": {
+      "paper": {
+        "title": "Programmable World Model",
+        "summary": "Recent video world models generate increasingly realistic and interactive visual experiences, yet lack reliable mechanisms for maintaining persistent world state and enforcing programmable rules over extended interactions. We introduce Programmable World Model, a framework that decouples world-state evolution from visual observation generation. An agent translates natural-language instructions into executable programs that specify entity states and state-transition rules, enabling direct control over individual entities and their interactions. A lightweight engine executes these programs to update and maintain an explicit, persistent global world state, including off-screen entities and non-visual attributes. To connect world state with visual generation, we introduce state-augmented 3D oriented bounding boxes (OBBs) as an intermediate representation. This representation, together with the target camera trajectory, is deterministically compiled into pixel-aligned spatiotemporal conditioning signals for a pretrained video model serving as the generative renderer. This design allows users to create playable games with predefined mechanics, direct control over individual entities, and persistent world state throughout gameplay. We further introduce CombatStateBench, a benchmark for evaluating programmable world models. On CombatStateBench, our method achieves 94% Count Accuracy and 98% State Accuracy, substantially outperforming existing interactive video world models while supporting coherent long-horizon generation. These results demonstrate the effectiveness of separating explicit state evolution from generative rendering for building persistent, programmable worlds.",
+        "authors": [
+          "Zheng-Hui Huang",
+          "Guixu Lin",
+          "Jiacheng Lin",
+          "Yi-Chuan Huang",
+          "Ruihan Yu",
+          "Muyao Niu",
+          "Siqi Yang",
+          "Yu-Lun Liu",
+          "Yung-Yu Chuang",
+          "Kaipeng Zhang",
+          "Zhixiang Wang"
+        ],
+        "published": "2026-09-09T17:59:32Z",
+        "id": "2609.10540v1",
+        "url": "http://arxiv.org/abs/2609.10540v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10540v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "RAG技术",
+        "知识图谱与结构化知识",
+        "智能体记忆与规划",
+        "智能体反思与自我改进",
+        "智能体工具使用与代码执行",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试",
+        "智能体测试",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10539v1": {
+      "paper": {
+        "title": "IdeaAMBIG: Benchmarking Implementation-Critical Gaps in Research-Idea Specifications",
+        "summary": "A research idea may be novel, coherent, and scientifically plausible, yet its proposed method may remain insufficiently specified for faithful implementation. We study the codification readiness of implementation-facing research-method specifications, defined by whether they provide sufficient methodological information for a competent implementer or coding agent to construct the intended method without unsupported assumptions. We construct evidence-grounded specifications and their supported resolutions from papers, codebases, issue threads, and reproduction artifacts. We introduce IdeaAMBIG, a benchmark of 660 evidence-grounded instances: 163 real-world gaps from reproducibility reports and GitHub issues, and 497 controlled synthetic gaps injected into codification-ready references. IdeaAMBIG evaluates three capabilities: codification-readiness assessment, defect localization, and clarification action generation. Defect localization receives only the specification, whereas clarification additionally receives the annotated defect. Across 13 LLMs, the best model achieves 9.6% Macro Defect Recovery Rate on real-world instances but 80.6% Macro Clarification Action Success Rate when given the defect. In an oracle study, supplying the gold resolution raises the downstream codification-ready rate from 14% to 98%. Across all evaluated models, defect localization is the main bottleneck, with stronger clarification given the defect.",
+        "authors": [
+          "Yiling Ma",
+          "Yilun Zhao",
+          "Sihong Wu",
+          "Manasi Patwardhan",
+          "Arman Cohan"
+        ],
+        "published": "2026-09-09T17:59:04Z",
+        "id": "2609.10539v1",
+        "url": "http://arxiv.org/abs/2609.10539v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10539v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "RAG技术",
+        "知识图谱与结构化知识",
+        "智能体记忆与规划",
+        "智能体反思与自我改进",
+        "智能体工具使用与代码执行",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试",
+        "智能体测试",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10537v1": {
+      "paper": {
+        "title": "Towards Tackling Application Logic Flaws through Autonomous Formal-Logic Modeling and Automated Reasoning",
+        "summary": "Logic flaws pose significant challenges in the design and implementation of modern, semantically rich systems and applications, impacting security, privacy, and trust. These flaws are inherently tied to business-specific semantics and threat models, making their discovery and reasoning difficult and hard to scale. Real-world systems often exhibit diverse application features, complex protocol logic, and domain-specific threat models, necessitating substantial human effort and domain expertise for effective security analysis. In this paper, we introduce LL-Verifier, a novel, automated framework for identifying logic vulnerabilities built on (1) large language models for autonomous modeling, and (2) logic model checkers for rigorous reasoning. LL-Verifier processes natural language inputs, in particular protocol descriptions and security goals, to automatically generate formal logic models and properties expressed in a new logic language built on a generic logic language Maude, optimized for modeling arbitrary application-level semantics. These formal models are then converted into logical state machines, enabling exhaustive, rigorous verification through logic level model checking. This approach streamlines the analysis of diverse, application-level protocols deployed in real-world scenarios, offering automated, exhaustive, and precise reasoning within their logical constraints. We evaluated the high effectiveness, efficiency, and practicality of LL-Verifier by applying it to 27 access control protocols of widely used IoT devices, which come with vendor-specific logic flows and semantics. While LL-verifier tackles a hard problem in application security, i.e., automatic logic flaws discovery, our analysis uncovers a range of sophisticated logic vulnerabilities in IoT protocols and devices with serious security and privacy implications.",
+        "authors": [
+          "Yiwei Fang",
+          "Yichen Liu",
+          "Ze Jin",
+          "Haoqiang Wang",
+          "Qixu Liu",
+          "Luyi Xing"
+        ],
+        "published": "2026-09-09T17:58:58Z",
+        "id": "2609.10537v1",
+        "url": "http://arxiv.org/abs/2609.10537v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10537v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "RAG技术",
+        "智能体记忆与规划",
+        "智能体反思与自我改进",
+        "智能体工具使用与代码执行",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试",
+        "智能体测试",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10531v1": {
+      "paper": {
+        "title": "Guiding Image-to-3D Generation with Test-Time Partial Observations",
+        "summary": "Image-to-3D models can generate visually compelling 3D assets from a single RGB image, but their geometry is often only loosely constrained by the available observations, limiting their use in applications that require geometric fidelity. In many real-world settings, however, partial geometric observations of the object may be available at test time. We introduce a training-free framework for incorporating such evidence into pretrained image-to-3D generative models without retraining or finetuning. To do this, we guide generation using a ray-consistent observation likelihood defined over the model's occupancy representation, combining surface occupancy and free-space evidence. Applied to SAM 3D and its multi-view extension, our approach substantially improves geometric fidelity across different levels of observability, as well as visual quality. Our results demonstrate that pretrained image-to-3D models can effectively integrate partial geometric observations through explicit test-time guidance, complementing their learned generative priors without modifying the underlying model.",
+        "authors": [
+          "Jerred Chen",
+          "Simon Weber",
+          "Ronald Clark"
+        ],
+        "published": "2026-09-09T17:58:04Z",
+        "id": "2609.10531v1",
+        "url": "http://arxiv.org/abs/2609.10531v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10531v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试",
+        "智能体测试"
+      ]
+    },
+    "2609.10524v1": {
+      "paper": {
+        "title": "Precision in Rice Variety Classification using Stacking-Based Ensemble Learning",
+        "summary": "Rice, a staple food for a significant portion of the global population, exhibits remarkable diversity in its varieties, presenting substantial challenges for accurate identification by consumers, traders, and farmers. This complexity often facilitates fraudulent practices, such as the unauthorized mixing of rice types, which undermines quality and trust in the supply chain. Despite its critical importance, existing research falls short of providing robust and efficient methods for precise rice variety classification based on external characteristics like color, size, and texture. To address this gap, our study introduces a comprehensive rice variety identification framework designed to enhance transparency and quality assurance. We developed a stacked ensemble model tailored for rice variety classification and curated a comprehensive dataset comprising 20 rice varieties, each distinguished by unique visual attributes. The proposed approach achieved an unprecedented classification accuracy of 100%. Furthermore, we integrated our model into a mobile application, enabling even novice users to effortlessly identify rice varieties using grain images from a smartphone camera. These findings underscore the transformative potential of advanced machine learning techniques in mitigating fraudulent practices and ensuring stringent rice quality control. Our work holds significant implications for agricultural stakeholders, paving the way for automated crop identification systems and advancing precision agriculture practices.",
+        "authors": [
+          "Md. Masudul Islam",
+          "Galib Muhammad Shahriar Himel",
+          "Md. Golam Moazzam",
+          "Mohammad Shorif Uddin"
+        ],
+        "published": "2026-09-09T17:53:50Z",
+        "id": "2609.10524v1",
+        "url": "http://arxiv.org/abs/2609.10524v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10524v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "RAG技术",
+        "知识图谱与结构化知识",
+        "自主测试系统"
+      ]
+    },
+    "2609.10522v1": {
+      "paper": {
+        "title": "Show-Harness: Just a VLM Agent Can Play Robots",
+        "summary": "Foundation vision-language models (VLMs) exhibit broad intelligence about the world, yet translating this intelligence into robot control remains challenging. We present Show-Harness, an Embodied Harness that enables VLMs to \"play\" robots through a compact semantic interface linking intent to action. Show-Harness exposes discrete semantic action units that VLMs can naturally reason over, while embodiment-specific interpreters deterministically ground them into local robot actions, keeping the VLM directly responsible for fine-grained physical decisions. Through the same interface, Show-Harness demonstrates the feasibility of (1) directly unlocking closed-source frontier VLMs for zero-shot robot control, and (2) adapting small-scale open-source VLMs for low-cost deployment with just a few GPU-hours of fine-tuning. We further develop GUMI (GUI Manipulation Interface), which extends the same semantic action space to GUI-based demonstration collection, allowing humans and agents to \"play\" robots across embodiments without specialized teleoperation hardware. Extensive experiments show that Show-Harness-equipped VLM agents generalize robustly across tasks, embodiments, and environments, outperforming representative agentic and VLA paradigms. These results suggest that the right interface can unlock substantial embodied capability from foundation VLMs, without requiring additional model capacity or costly embodiment-specific pretraining.",
+        "authors": [
+          "Yanzhe Chen",
+          "Zechen Bai",
+          "Zhijun Cao",
+          "Wenzheng Zeng",
+          "Kevin Qinghong Lin",
+          "Yiqi Lin",
+          "Guoqiang Liang",
+          "Kevin Yuchen Ma",
+          "Qiming Huang",
+          "Mike Zheng Shou"
+        ],
+        "published": "2026-09-09T17:53:38Z",
+        "id": "2609.10522v1",
+        "url": "http://arxiv.org/abs/2609.10522v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10522v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "知识图谱与结构化知识",
+        "智能体记忆与规划",
+        "智能体反思与自我改进",
+        "智能体工具使用与代码执行",
+        "机器人AI测试",
+        "智能体测试",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10515v1": {
+      "paper": {
+        "title": "PASCAL: A Phase-Aware Shared-Cache Model for Parallel Scans",
+        "summary": "In modern AI Accelerators and GPGPUs, many concurrent cores repeatedly access the same shared data. This pattern occurs in attention, where different query tiles share the same K/V block, GEMM, where every tile in a row reads the same panel, and many other operators. We name this pattern parallel scan. Due to a significant amount of data reuse in this pattern, the cache is expected to capture as much data reuse as possible and largely reduce requests sent to the main memory for both performance and energy consumption concerns. However, in reality, because of the intrinsic asynchrony of multi-cores, the actual cache miss rate and DRAM traffic can be much higher compared to ideal cases. In this paper, we propose PASCAL, a shared-cache model for parallel scans. It is aware of the dynamic feature of progress divergence across multi-cores, correlate the divergence with the combination of different factors such as occupancy, and predicts the cache miss rate before execution. Because prediction needs no target trace, timing, or counters, PASCAL supports design-space exploration at scales where cycle-accurate simulation is impractical, and its policy-independent bound states how much traffic no replacement policy can avoid. A MAPE of 13.84% is achieved in a 60-configuration dataset with various software pipeline depths, occupancies, and memory access data paths on an NVIDIA GB10 GPU, against 44.79% for physical-wave TileSight and 54.16% for exact symbolic SDCM.",
+        "authors": [
+          "Zhongchun Zhou",
+          "Chengtao Lai",
+          "Songtao Mao"
+        ],
+        "published": "2026-09-09T17:48:51Z",
+        "id": "2609.10515v1",
+        "url": "http://arxiv.org/abs/2609.10515v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10515v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "RAG技术",
+        "智能体记忆与规划"
+      ]
+    },
+    "2609.10509v1": {
+      "paper": {
+        "title": "Avatar: Toward Autonomous End-to-End Orchestration of Scientific Workflows using LLMs",
+        "summary": "Scientific workflow management (WMSs) systems automate execution, yet orchestrate using fixed, hand-tuned rules. LLM agents promise more autonomous orchestration, but it remains unclear where to introduce agentic reasoning, how to bound its risk, and when it actually helps. We present Avatar, an actor-based architecture comprising an orchestrator, an executor, and a provenance monitor. Each actor's decision policy is pluggable (rule-based or LLM-backed) via a single adapter-validated action catalog, so conventional and agentic control run on the same core across different WMSs. We present an implementation using the Academy framework and evaluate Avatar across three workloads. We observe that Avatar's rule mode reproduces native execution, with a single unchanged core running all three. Moreover, LLM-backed Avatar reports a reduction of compute wastage by $55\\%$ and cuts GPU-busy time by $40\\%$. Overall, we envision Avatar as a step toward workflow systems that reason about their own orchestration rather than follow pre-fixed rules.",
+        "authors": [
+          "Suman Raj",
+          "Hai Duc Nguyen",
+          "Haochen Pan",
+          "Ryan Chard",
+          "Kyle Chard",
+          "Ian Foster"
+        ],
+        "published": "2026-09-09T17:45:36Z",
+        "id": "2609.10509v1",
+        "url": "http://arxiv.org/abs/2609.10509v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10509v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "RAG技术",
+        "知识图谱与结构化知识",
+        "智能体记忆与规划",
+        "智能体反思与自我改进",
+        "智能体工具使用与代码执行",
+        "自动驾驶测试",
+        "智能体测试",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10499v1": {
+      "paper": {
+        "title": "Monitoring Hierarchies in Knowledge Production",
+        "summary": "We study peer monitoring design in knowledge production. A principal leads agents who work on different but related tasks. By working on their own tasks, agents acquire information that is useful for evaluating their peers' performance. We consider robust contracts under which effort by all agents is the unique rationalizable outcome. The optimal contract induces a hierarchy of monitoring authority: agents easier for the principal to monitor directly are assigned greater authority to evaluate other agents. Task diversity improves information value but weakens peer monitoring. This tension distorts optimal public task assignment toward the principal's core expertise. Confidential random assignment relaxes this distortion by decoupling information production from the perceived monitoring structure.",
+        "authors": [
+          "Shota Ichihashi",
+          "Fei Li",
+          "Dihan Zou"
+        ],
+        "published": "2026-09-09T17:35:30Z",
+        "id": "2609.10499v1",
+        "url": "http://arxiv.org/abs/2609.10499v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10499v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "智能体反思与自我改进",
+        "智能体工具使用与代码执行",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10541v1": {
+      "paper": {
+        "title": "Symplectic Hopf Insulator: Delicate Topology in Bosonic Bogoliubov-de Gennes Systems",
+        "summary": "Recent advances in topological phases have highlighted the role of symplectic (Krein-space) topology in the classification of bosonic Bogoliubov-de Gennes (BBdG) systems. In this work, we construct a BBdG realization of Hopf topology, which we dub the symplectic Hopf insulator, starting from a microscopic Bose-Hubbard generalization of the Moore-Ran-Wen model with weak on-site interactions treated within a Bogoliubov approximation. The resulting BBdG system admits a symplectic Hopf invariant, which we show to be integer-quantized for isolated bands. We establish that this topology is intrinsically delicate, requiring exactly two bosonic modes per unit cell, while remaining robust against weak interactions over a range of mass parameters. Upon terminating the three-dimensional insulator at a boundary, we find topologically protected in-gap surface states at finite excitation energy, whose protection is itself delicate. Our results establish the symplectic Hopf insulator as a robust yet delicate topological phase in weakly interacting bosonic systems lying beyond the tenfold-way classification.",
+        "authors": [
+          "Isaac Tesfaye",
+          "Giandomenico Palumbo"
+        ],
+        "published": "2026-09-09T17:59:46Z",
+        "id": "2609.10541v1",
+        "url": "http://arxiv.org/abs/2609.10541v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10541v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "RAG技术",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试"
+      ]
+    },
+    "2609.10536v1": {
+      "paper": {
+        "title": "Performance Comparison of the Nonlinear Curvature and Shack-Hartmann Wavefront Sensors in Strong Turbulence",
+        "summary": "Strong turbulence induces spatial variations in beam intensity that hinder the reconstruction process of many commonly deployed adaptive optics (AO) systems that use gradient-based wavefront sensors (WFS), such as the Shack-Hartmann wavefront sensor (SHWFS) and pyramid wavefront sensor. The nonlinear curvature WFS (nlCWFS) uses Fresnel diffraction to extract wavefront phase and amplitude information, suggesting that it may be able to operate under challenging turbulence conditions. In this work, we investigate nlCWFS reconstruction accuracy as a function of turbulence strength and relative flux by modeling high spherical-wave Rytov number ($R_{sw}$) environments where scintillation and branch points impact sensing performance. We present open-loop as well as static and dynamic closed-loop results benchmarked against a comparable Shack-Hartmann WFS (SHWFS). In static and weak-to-moderate scintillation regimes, the nlCWFS consistently outperforms the SHWFS by leveraging amplitude-phase coupling inaccessible to gradient-based sensors. However, dynamic closed-loop simulations reveal a crossover behavior at higher scintillation strengths, where deep intensity nulls and proliferating branch points degrade the performance of Gerchberg-Saxton-based nlCWFS reconstruction, while the SHWFS degrades more gradually due to its insensitivity to such topological phase structure. These results highlight the regime-dependent advantages of the nlCWFS and emphasize the need for branch-point-tolerant reconstruction algorithms to fully realize its potential in strong-turbulence, low-flux conditions.",
+        "authors": [
+          "Sam J. Potier",
+          "Arlene J. Aleman",
+          "Justin R. Crepp",
+          "Stanimir Letchev"
+        ],
+        "published": "2026-09-09T17:58:36Z",
+        "id": "2609.10536v1",
+        "url": "http://arxiv.org/abs/2609.10536v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10536v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "agent框架",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "agent框架",
+        "多智能体协作系统",
+        "知识图谱与结构化知识",
+        "智能体工具使用与代码执行",
+        "自主测试系统",
+        "机器人AI测试",
+        "智能体测试",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10535v1": {
+      "paper": {
+        "title": "For Whom Does Bell Hold?",
+        "summary": "Violations of Bell's inequalities offer a definitive signal of non-classical (quantum) behavior in local deterministic systems. Yet, in many physical settings where quantum mechanics is expected to play an important role, one cannot construct a Bell-type test using the available observables. Cosmology offers one concrete example, where cosmic structure may have originated from quantum vacuum fluctuations yet all observations are effectively classical. Nevertheless, recent work suggests that quantum and classical time evolution may still be differentiated by the pattern of statistical correlations of these observables. In this paper, we explore and generalize the use of correlations as Bell-type test of the nature of time evolution. We show that quantum vacuum fluctuations of closed systems undergoing Hamiltonian evolution produce unique correlations that are not mimicked by classical Hamiltonian systems. Correlations in the quantum vacuum are generally time-independent and are controlled by the energy gap between the ground and exited states. Classical systems exhibit apparent poles at physical frequencies that do not arise in the quantum vacuum. As one approaches the poles, the evolution becomes dominated by a resonant Hamiltonian giving rise to time dependent correlations that eventually decay through dephasing. Finally, we show that this behavior is distinct from other signals of quantum evolution, including applications to quantum optics, quantum walks, and quantum search.",
+        "authors": [
+          "Daniel Green",
+          "Kshitij Gupta",
+          "Qiya Zhang"
+        ],
+        "published": "2026-09-09T17:58:31Z",
+        "id": "2609.10535v1",
+        "url": "http://arxiv.org/abs/2609.10535v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10535v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统",
+        "RAG技术",
+        "知识图谱与结构化知识",
+        "智能体工具使用与代码执行",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试",
+        "智能体测试",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10532v1": {
+      "paper": {
+        "title": "The kinematics of tadpole galaxies at intermediate redshift $z \\sim 0.4 - 1.5$",
+        "summary": "Galaxy morphology and kinematics encode complementary information about the assembly history of galaxies, but the extent to which they evolve in tandem remains unclear. Tadpole galaxies, characterized by their distinct head-tail morphology and pronounced asymmetry, provide an ideal laboratory for investigating whether strongly asymmetric galaxies can exhibit ordered galaxy-scale kinematics. In this work, we present a detailed analysis of the ionized-gas kinematics of 20 morphologically selected tadpole galaxies at redshifts $z=0.4 - 1.5$ in the Hubble Ultra Deep Field, using deep VLT/MUSE spectroscopy together with HST and JWST imaging. In 13 out of 20 galaxies, the 2D velocity maps derived from the MUSE [O\\,{\\sc ii}] $λ\\lambda3726,3729$ emission show evidence for ordered motion, characterized by moderate velocity gradients along the kinematic major axis, while the remaining systems show no clear evidence for galaxy-scale ordered kinematics. In 16 galaxies, the [O\\,{\\sc ii}] and rest-frame optical emission, probed by HST/F775W, have spatially coincident centroids, with projected offsets of $<2$~kpc. The morpho-kinematic position angles are also generally well aligned, with a median misalignment of $Δ{\\rm PA}\\sim12^{\\circ}$. Despite the strongly asymmetric tadpole morphologies, these results indicate that a substantial fraction of these systems retain coherent galaxy-scale gaseous kinematics, suggesting that morphological asymmetry need not imply a globally disordered dynamical state. Together, our analyses suggest that morphological and kinematic settlement does not occur simultaneously and these tadpole galaxies might represent a transient evolutionary phase towards the combined morpho-kinematic settlement process.",
+        "authors": [
+          "Manish Kataria",
+          "Kanak Saha",
+          "Bruce Elmegreen"
+        ],
+        "published": "2026-09-09T17:58:06Z",
+        "id": "2609.10532v1",
+        "url": "http://arxiv.org/abs/2609.10532v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10532v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统",
+        "智能体安全与可信"
+      ]
+    },
+    "2609.10504v1": {
+      "paper": {
+        "title": "Can Elastic Neutrino Scattering Account for the LZ230616 Event?",
+        "summary": "Recently, the LUX-ZEPLIN (LZ) Collaboration reported an isolated nuclear-recoil event at $248\\pm 23_\\mathrm{stat}\\pm 23_\\mathrm{syst}~\\mathrm{keV_{nr}}$, in a region where the expected background is very small and conventional elastic dark matter (DM)-nucleus scattering cannot readily account for such a localized feature. We investigate whether LZ230616 could instead originate from coherent elastic neutrino-nucleus scattering (CE$ν$NS). We consider neutrino-nucleus interactions within and beyond the Standard Model, together with exotic neutrino fluxes from DM annihilation ($χχ\\to ν\\barν$) or decay ($χ\\to ν\\barν$) into neutrino pairs and from primordial black hole (PBH) evaporation. We show that kinematic considerations, the accompanying low energy recoil spectrum, and existing constraints exclude a viable interpretation of LZ230616 in terms of elastic neutrino-nucleus scattering for all scenarios considered.",
+        "authors": [
+          "Ayan Chattaraj",
+          "Anirban Majumdar",
+          "Dimitrios K. Papoulias",
+          "Rahul Srivastava"
+        ],
+        "published": "2026-09-09T17:39:44Z",
+        "id": "2609.10504v1",
+        "url": "http://arxiv.org/abs/2609.10504v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10504v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统"
+      ]
+    },
+    "2609.10451v1": {
+      "paper": {
+        "title": "JarvisGUI: Towards Cross-Device GUI Agents with Dynamic Task Composition",
+        "summary": "Real-world GUI usage frequently involves workflows that span multiple devices and platforms, requiring the transfer of intermediate results, maintenance of shared state, and coordination across heterogeneous environments. However, existing GUI benchmarks overwhelmingly evaluate agents on single-device, statically defined tasks, thus leaving such cross-device capabilities largely unexamined, resulting in an overly optimistic assessment of agents' readiness for real-world usage. We introduce JarvisGUI, a dynamic benchmark that evaluates GUI agents on cross-device workflows requiring coordinated interaction across heterogeneous platforms, including Android, Windows, and Ubuntu. Specifically, JarvisGUI formulates GUI tasks as input-output transformations under a lightweight type system, which allows us to automatically compose multi-step, cross-device workflows and dynamically evaluate agent performance within a unified framework. By evaluating agents in virtual environments spanning multiple operating systems, JarvisGUI reveals that state-of-the-art open-source GUI agents struggle with the state-transfer awareness, cross-platform contextual reasoning, and long-horizon dependency management required for real-world workflows, exposing a critical capability gap invisible to existing benchmarks.",
+        "authors": [
+          "Zixiang Chen",
+          "Yuheng Lu",
+          "Zihao Cheng",
+          "Zeming Liu",
+          "Jizeng Bai",
+          "Ziye Huang",
+          "Zhiyin Lin",
+          "Zihan Li",
+          "Yuhang Guo",
+          "Yunhong Wang",
+          "Haifeng Wang"
+        ],
+        "published": "2026-09-09T16:59:59Z",
+        "id": "2609.10451v1",
+        "url": "http://arxiv.org/abs/2609.10451v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10451v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统"
+      ]
+    },
+    "2609.10433v1": {
+      "paper": {
+        "title": "Multi-Agent Reinforcement Learning for Autonomous UAV Exploration in Wildfire Response",
+        "summary": "This study develops a deep reinforcement learning framework for training Unmanned Aerial Vehicle (UAV) agents to navigate and monitor simulated wildfire environments. Results show that agents learn increasingly stable and effective behaviors over time, as demonstrated by converging loss trends, improved reward signals, and more consistent navigation patterns such as fire-boundary tracking. Overall, these findings highlight the potential of deep reinforcement learning (DRL) based UAV systems for autonomous wildfire monitoring and suggest that environmental structure and reward design influence policy effectiveness.",
+        "authors": [
+          "Caden Chandra",
+          "Jerry Ng"
+        ],
+        "published": "2026-09-09T16:45:19Z",
+        "id": "2609.10433v1",
+        "url": "http://arxiv.org/abs/2609.10433v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10433v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统"
+      ]
+    },
+    "2609.10430v1": {
+      "paper": {
+        "title": "Glyph: A Multi-Strategy Agentic System for Column Description and Sensitivity-Ontology Tagging of Enterprise Data Catalogs",
+        "summary": "Enterprise data lakes accumulate tables faster than human stewards can document or classify them, leaving columns with missing descriptions and unassigned governance labels. This documentation debt undermines data discovery, access control, and regulatory compliance. We present Glyph, a production system that frames two coupled problems, column description generation and column type annotation for data classification, as cooperating LLM agents orchestrated as stateful graphs. The Descriptor grounds generation in the pipeline source code that produces each column, retrieved on demand from an enterprise GitHub via a reasoning--acting tool loop (active Retrieval-Augmented Generation). The Tagger assigns labels from a governed 275-leaf Data Classification Ontology by running three complementary strategies in parallel (a description tagger, a line-of-business regex tagger, and a metadata tagger backed by a fine-tuned contrastive encoder over a vector database), then fuses their ranked outputs with Reciprocal Rank Fusion (RRF). We fine-tune a 6-layer MiniLM metadata encoder with an in-batch contrastive objective, lifting same-tag retrieval on an in-distribution held-out split from NDCG@10 0.55 to 0.92 (MAP@100 $0.19 \\rightarrow 0.90$) relative to the stock base encoder. We report end-to-end multi-label tagging quality under a recall-weighted F2 objective across three evaluation groups, an ablation isolating each strategy and the RRF fusion, and the engineering decisions that distinguish Glyph from prior column-type-annotation work and from commercial value/regex sensitivity scanners: value-free and code-grounded design, per-tag provenance, and graceful degradation. Together these make multi-agent LLM cataloging auditable and operable as a production service.",
+        "authors": [
+          "Kostia Kudriavtsev",
+          "Parvez Rafi",
+          "Sha Sundaram"
+        ],
+        "published": "2026-09-09T16:43:26Z",
+        "id": "2609.10430v1",
+        "url": "http://arxiv.org/abs/2609.10430v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10430v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统",
+        "RAG技术",
+        "智能体反思与自我改进"
+      ]
+    },
+    "2609.10420v1": {
+      "paper": {
+        "title": "Pierce-Birkhoff conjecture is false",
+        "summary": "We provide a counterexample to the Pierce-Birkhoff conjecture: a continuous function that is piecewise quadratic on a finite collection of semialgebraic sets that partition $\\mathbb{R}^n$ but that cannot be expressed as a finite lattice combination of polynomials. The counterexample was found with the assistance of our multi-agent, multi-model setup that chains together GPT 5.6, GPT 6, Claude Opus 5, and Claude Fable 5.1.",
+        "authors": [
+          "Zehua Lai",
+          "Lek-Heng Lim",
+          "Junyu Ren"
+        ],
+        "published": "2026-09-09T16:37:18Z",
+        "id": "2609.10420v1",
+        "url": "http://arxiv.org/abs/2609.10420v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10420v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统"
+      ]
+    },
+    "2609.10520v1": {
+      "paper": {
+        "title": "Private communication via zero-private-capacity quantum channels",
+        "summary": "Private communication over a noisy quantum channel requires reliable transmission to the receiver and secrecy from the environment. Whether two channels with zero private capacity can jointly enable private communication is a longstanding open problem in quantum information theory. Here we resolve this problem by exhibiting a four-level channel and a qubit erasure channel with half erasure probability, each with zero private capacity, whose joint use achieves more than 0.0001903 private bits per product use. The encoding gives the receiver a linear information gain with at most quadratic environmental leakage, enabling privacy through a fixed joint measurement and classical coding. This superactivation, impossible for independent classical memoryless wiretap channels, shows that a channel's private capacity alone does not determine its value for secure communication. The initial activation example was identified through interactions with large language models, and the result has been formalized in Lean 4.",
+        "authors": [
+          "Chengkai Zhu",
+          "Xin Wang"
+        ],
+        "published": "2026-09-09T17:51:54Z",
+        "id": "2609.10520v1",
+        "url": "http://arxiv.org/abs/2609.10520v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10520v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统",
+        "智能体工具使用与代码执行"
+      ]
+    },
+    "2609.10528v1": {
+      "paper": {
+        "title": "The Ding--Song--Sun inequality via a maximum principle",
+        "summary": "We prove the Ding--Song--Sun inequality for continuous spin models on finite ferromagnetic graphs whose even single-site potentials have convex derivatives on the positive half of their domain. This class, introduced by Ellis, Monroe and Newman, includes the $\\varphi^4$ and sinh-Gordon potentials. The proof uses a rank-one interpolation of the interactions and a maximum principle for a cooperative parabolic system on a half-plane. The boundary conditions follow by induction on the number of vertices and the number of positive coordinates of the field increment. In particular, the truncated two-point function in an arbitrary external field is bounded above by its zero-field value.",
+        "authors": [
+          "Fu-Hsuan Ho"
+        ],
+        "published": "2026-09-09T17:56:51Z",
+        "id": "2609.10528v1",
+        "url": "http://arxiv.org/abs/2609.10528v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10528v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "多智能体协作系统",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "多智能体协作系统",
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10507v1": {
+      "paper": {
+        "title": "A Candidate Innermost Fifth Planet In the HR 8799 System Revealed By JWST NIRISS Aperture Masking Interferometry",
+        "summary": "We detect a candidate fifth planet in the HR 8799 system, directly imaged with the JWST/NIRISS Aperture Masking Interferometer (AMI). The detected source lies just above a $3σ$ contrast curve at a contrast of $\\sim2\\times10^{-4}$ in the F380M filter at a projected separation of $\\sim150$ mas, corresponding to a few-to-several Jupiter mass planet at an orbital radius of $\\sim 7$au. The separation of the candidate is compatible with absolute proper-motion constraints from Gaia and Hipparcos assuming it is bound, while its orbital position lies near a stable orbital solution of a fifth planet in a 3:1 mean motion resonance with planet e. This detection was made possible by a new JWST/NIRISS AMI data pipeline that reaches the photon noise limited potential of AMI by accounting for the optical and electronic systematics that limited sensitivity in prior analyses. Confirmation of this candidate would make HR 8799 the first directly imaged five-planet system and provide insight into the orbital dynamics and the dynamical evolution of planetary systems with widely-separated gas giants.",
+        "authors": [
+          "Jayke S. Nguyen",
+          "Louis Desdoigts",
+          "Alexandra Z. Greenbaum",
+          "Benjamin J. S. Pope",
+          "Max Charles",
+          "Quinn M. Konopacky",
+          "Kaitlyn Hessel",
+          "Dori Blakely",
+          "Matthew De Furio",
+          "Clarissa R. Do Ó",
+          "René Doyon",
+          "Doug Johnstone",
+          "Jens Kammerer",
+          "David Lafrenière",
+          "Bruce A. Macintosh",
+          "Michael R. Meyer",
+          "Eric L. Nielsen",
+          "Anne E. Peck",
+          "William Roberson",
+          "Anand Sivaramakrishnan",
+          "Peter Tuthill",
+          "Thomas Vandal",
+          "Marie Ygouf"
+        ],
+        "published": "2026-09-09T17:43:51Z",
+        "id": "2609.10507v1",
+        "url": "http://arxiv.org/abs/2609.10507v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10507v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "RAG技术",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "RAG技术"
+      ]
+    },
+    "2609.10490v1": {
+      "paper": {
+        "title": "Learning with Covariance Matrices: Principal Component Analysis Meets Learning with Graphs",
+        "summary": "This feature article provides an overview of the theoretical foundations for coVariance neural networks (VNNs), i.e., graph neural networks (GNNs) operating on covariance matrices as graphs. Covariance matrices are ubiquitous across domains, and hence, the deployment of GNNs often leverages graphs of pairwise statistical dependencies. Existing theoretical contributions on GNNs consider abstract graph representations and cannot accommodate the data-driven nuances associated with covariance matrices. This tutorial brings into focus various novel theoretical insights via mathematical analyses of VNNs that have broad signal processing implications, including: (i) a conceptual equivalence between VNNs and principal component analysis (PCA)-based information processing; (ii) refined stability bounds on predictive outcomes in the presence of finite sample-induced covariance matrix perturbations; and (iii) refined characterization of transferability of VNNs across multiscale datasets. The theoretical insights discussed herein provide the underlying principles and justification towards adopting VNNs over workhorse PCA-based learning pipelines, in applications where covariance matrices are useful descriptors of data structure. We also convey how impact of these foundational advances permeates to \\textit{principled} designs and applications of learning methods across broad domains where covariance matrices emerge. Notably, we elucidate the conceptual insights facilitated by VNNs to the specific task of characterizing brain age gap for neurodegenerative conditions using neuroimaging datasets, a timely problem in computational neuroscience. Broader impacts to other application domains are discussed as well.",
+        "authors": [
+          "Saurabh Sihag",
+          "Andrea Cavallo",
+          "Elvin Isufi",
+          "Gonzalo Mateos",
+          "Alejandro Ribeiro"
+        ],
+        "published": "2026-09-09T17:28:46Z",
+        "id": "2609.10490v1",
+        "url": "http://arxiv.org/abs/2609.10490v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10490v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "RAG技术",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "RAG技术",
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10484v1": {
+      "paper": {
+        "title": "Coastal Environment Generation with HoloOcean",
+        "summary": "Marine robotic simulation provides a safe and inexpensive method of developing and testing algorithms for unmanned underwater vehicle (UUV) and unmanned surface vessel (USV) autonomy and perception before full field deployment. However, these simulations are often limited by the availability of simulated environments. Current marine robotics simulation suites offer manual ways to edit or create environments, but they require existing data or specialized knowledge of the environment system. To address these issues, we introduce a novel Unreal Engine 5 level generation pipeline that enables automatic creation of coastal environments for HoloOcean. Our pipeline relies on a user-provided overhead image of a coastal scene. The pipeline then uses the image to generate height map data, as well as automatically select assets and place them in the environment.",
+        "authors": [
+          "Abigail Austin",
+          "Brady Moon",
+          "Joshua G. Mangelson"
+        ],
+        "published": "2026-09-09T17:25:05Z",
+        "id": "2609.10484v1",
+        "url": "http://arxiv.org/abs/2609.10484v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10484v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "RAG技术",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "RAG技术"
+      ]
+    },
+    "2609.10518v1": {
+      "paper": {
+        "title": "BrainTaskonomy: Learning How to Pretrain and What to Transfer in fMRI Foundation Models",
+        "summary": "fMRI foundation models increasingly aggregate heterogeneous data across brain states, cohorts, and acquisition settings, yet pretraining domains are commonly treated as a flat mixture and downstream tasks are adapted independently. We study whether measured learning relations can organize both stages without modifying the backbone. During pretraining, a lightweight Brain-DiT proxy estimates difficulty and directed facilitation across ten fMRI domains, yielding a priority-guided cumulative domain curriculum combined with high-to-low-noise timestep scheduling and joint consolidation. During adaptation, controlled first- and higher-order transfer across fifteen tasks constructs a directed taskonomy, from which budgeted integer programming (BIP) selects directly supervised source tasks and target-specific routes. The joint priority-domain and high-to-low-timestep curriculum reduces v-NMSE, PSD-NMSE, and FC-MSE by 6.5%, 16.3%, and 10.5%, respectively, relative to uniform sampling over both dimensions, and shows strong downstream performance across six in- and out-of-domain tasks. The taskonomy reveals asymmetric, target-dependent transfer, while exploratory sealed-test evaluation shows larger descriptive gains for BIP policies when higher-order route spaces are available than for matched random controls. Together, these findings support organizing fMRI pretraining and adaptation by measured learning relations rather than treating domains and tasks as independent flat sets.",
+        "authors": [
+          "Junfeng Xia",
+          "Wenhao Ye",
+          "Junxiang Zhang",
+          "Jiayu Zuo",
+          "Mo Wang",
+          "Quanying Liu"
+        ],
+        "published": "2026-09-09T17:50:39Z",
+        "id": "2609.10518v1",
+        "url": "http://arxiv.org/abs/2609.10518v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10518v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "RAG技术",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "RAG技术",
+        "智能体记忆与规划",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试",
+        "智能体测试"
+      ]
+    },
+    "2609.10489v1": {
+      "paper": {
+        "title": "Artificial Intelligence Literacy and Sustainable Development: An Ethical Governance and Development Goals Framework",
+        "summary": "AI literacy provides foundational competencies that support ethical, transparent, and sustainable technological development, although higher-order capabilities such as governance, critical evaluation, and strategic decision-making extend beyond basic literacy into advanced levels of AI competency. This study positions AI literacy as a governance capacity that complements and strengthens all 17 SDGs. It introduces a six-level taxonomy of artificial intelligence reasoning and ethics that extends traditional learning models by incorporating ethical judgement and strategic foresight. This taxonomy forms the foundation of an integrated framework linking education, governance, and sustainable development. A survey of 300 participants from diverse professional backgrounds within a national context which reveals strong technical awareness but limited ethical and governance readiness, highlighting critical gaps in public capacity to manage artificial intelligence responsibly. Findings show that ethical reasoning and reflective thinking are the strongest predictors of sustainable and trustworthy artificial intelligence use. The study proposed to embed literacy-based competencies into curricula, institutional policies, and governance mechanisms to accelerate equitable and responsible progress toward sustainable development goals",
+        "authors": [
+          "Md. Masudul Islam",
+          "Mirza Niaz Morshed",
+          "Md. Shafiqul Islam"
+        ],
+        "published": "2026-09-09T17:28:08Z",
+        "id": "2609.10489v1",
+        "url": "http://arxiv.org/abs/2609.10489v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10489v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "RAG技术",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "RAG技术",
+        "知识图谱与结构化知识",
+        "智能体反思与自我改进"
+      ]
+    },
+    "2609.10477v1": {
+      "paper": {
+        "title": "Multivariate linear regression without prior assumptions",
+        "summary": "Recovering the linear relationships that govern a system from noisy measurements is a basic task across the physical and engineering sciences. Because every measured variable may carry an unknown amount of noise, classical regression must commit in advance to a set of structural assumptions: ordinary least squares requires a declared input-output partition with input variables being noise-free, total least squares assumes equal noise variance across all variables, and generalized total least squares additionally requires the noisy-variable partition and variances to be known beforehand. Kalman~\\cite{Kalman:1982} showed that any procedure returning a unique linear model from inexact data must rest on such unverifiable a priori assumptions -- ``prejudices'' -- that cannot be checked against the data itself, and that removing them leaves the identification problem fundamentally indeterminate. Whether these prejudices can instead be resolved directly from the data has remain unresolved. Here we show that an iterative generalized-eigenvalue algorithm, QZ-IPCA, recovers the noisy-variable partition, noise variances, number of linear relations, and regression coefficients of a multivariate linear system simultaneously, using only the raw data. Across all possible exhaustive noise configurations of a five-variable benchmark network, QZ-IPCA correctly identifies model structure and recovers coefficients with error below 6.4\\%. It outperforms ordinary least squares even when given the best partition, and succeeds in rank identification precisely where standard total least squares falls once noise variances differ across variables. These results show that the assumptions conventionally required for multivariate regression are not necessary, recasting model identification as a problem solvable from data geometry alone.",
+        "authors": [
+          "Mayank S. K. Gupta",
+          "Deepanjhan Das",
+          "Arun K. Tangirala",
+          "Shankar Narasimhan"
+        ],
+        "published": "2026-09-09T17:18:04Z",
+        "id": "2609.10477v1",
+        "url": "http://arxiv.org/abs/2609.10477v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10477v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "RAG技术",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "RAG技术",
+        "智能体反思与自我改进"
+      ]
+    },
+    "2609.10534v1": {
+      "paper": {
+        "title": "Likelihood-free inference with nuisance parameters through normalizing flows",
+        "summary": "We present a simple decomposition of a neural-network-based normalizing flow that naturally uncovers a pivotal statistic (or something close) in the presence of nuisance parameters, based only on a sample generator from the distribution of interest. We show that the statistic is near-pivotal in the sense of minimum average KL-divergence of its $p$-values versus uniform and we argue that it can be expected to have good power when the dimension of the statistic equals the dimension of the parameter. It is able to incorporate prior knowledge about group invariances such as translation and scale. It can discover the one-sample $t$-test almost exactly, outperforms the Welch test in terms of worst-case size over a constrained variance-ratio range and achieves good calibration on partial biserial correlations, while showing higher power (and being much faster) on small-to-moderate samples than profile likelihood-ratio techniques.",
+        "authors": [
+          "Phil Assheton"
+        ],
+        "published": "2026-09-09T17:58:15Z",
+        "id": "2609.10534v1",
+        "url": "http://arxiv.org/abs/2609.10534v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10534v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识",
+        "智能体记忆与规划",
+        "智能体工具使用与代码执行",
+        "自主测试系统",
+        "机器人AI测试",
+        "自动驾驶测试",
+        "智能体测试"
+      ]
+    },
+    "2609.10516v1": {
+      "paper": {
+        "title": "Subexponential Approximation of the Permanent in Deterministic Polynomial Time",
+        "summary": "We give the first deterministic polynomial time algorithm that approximates the permanent of arbitrary nonnegative rational matrices within a subexponential factor. For a matrix of order $n$, the approximation factor is \\[   \\exp\\!\\left(O\\!\\left(\\frac{n(\\log\\log n)^2}{\\log n}\\right)\\right)=\\exp(o(n)). \\] All previously known deterministic polynomial time guarantees for unrestricted inputs had approximation factors $\\exp(Ω(n))$.   Our proof uses convex optimization to tighten an upper bound on the permanent. The bound is based on weighted sums over all matchings in a bipartite graph representing the matrix, and correlations between unmatched vertices control its error. We approximate these sums deterministically using correlation decay and a bound on the effect of vertex deletion.",
+        "authors": [
+          "Sergei Kudria",
+          "Jason Luo",
+          "Mahbod Majid"
+        ],
+        "published": "2026-09-09T17:49:33Z",
+        "id": "2609.10516v1",
+        "url": "http://arxiv.org/abs/2609.10516v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10516v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10487v1": {
+      "paper": {
+        "title": "Nonmaximal sums of maximally monotone operators under Rockafellar's constraint qualification",
+        "summary": "We construct counterexamples to Rockafellar's sum conjecture in which two maximally monotone operators satisfy the interior-domain condition but their sum is not maximally monotone. We give one counterexample on $c_0$ and another on $\\ell^1$ with its usual norm. We establish a general construction theorem that computes the entire monotone polar of a class of graphs, gives a necessary and sufficient condition for their maximal monotonicity, and shows how a positive rank-one perturbation yields a nonmaximal sum under this condition. We verify the theorem's hypotheses and its maximality criterion on $c_0$, thereby obtaining a counterexample to the conjecture. Furthermore, we construct a bounded linear surjection from $\\ell^1$ onto $c_0$ and use it to obtain the counterexample on $\\ell^1$.",
+        "authors": [
+          "Weifeng Yang"
+        ],
+        "published": "2026-09-09T17:26:26Z",
+        "id": "2609.10487v1",
+        "url": "http://arxiv.org/abs/2609.10487v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10487v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10450v1": {
+      "paper": {
+        "title": "Aldous' spectral gap phenomena in stochastic exchange models",
+        "summary": "We consider a broad class of exchange dynamics with arbitrary weighted graph or hypergraph update structures, which includes the Kipnis--Marchioro--Presutti (KMP) model and the energies of Kac's walk on the sphere. These are conservative continuous-spin systems whose reversible measures are Dirichlet distributions. We prove that their spectral gap is always attained by a polynomial of degree at most two in the energy variables. Equivalently, through an intertwining with the associated discrete particle systems, the dominant mode is always represented by either a one-particle or a two-particle observable. We interpret this as a manifestation of an Aldous-type spectral gap phenomenon. In particular, the resulting two-particle spectral gap identity settles a recent conjecture of Alon and Puder. We also characterize sharply when one particle suffices and when a genuinely two-particle mode dominates. Under a common rescaling of the Dirichlet parameters, segment-like geometries are precisely those for which the gap is always of one-particle type, mean-field geometries are precisely those for which it is always of two-particle type, and all other geometries exhibit a nontrivial transition. The proof relies on the analysis of the so-called hidden model, a dual representation of the original process. The mechanism underlying the degree-two reduction is remarkably robust and extends to a much broader class of stochastic exchange models and their associated particle systems, including the harmonic process, the immediate exchange model, averaging-type processes, and nonreversible variants. Finally, we analyze boundary-driven versions of the KMP model, in which the bulk exchange dynamics interacts with reservoirs, generally resulting in nonreversible processes. In contrast to the conservative setting, we prove that the spectral gap of a boundary-driven model is always of one-particle type.",
+        "authors": [
+          "Pietro Caputo",
+          "Matteo Quattropani",
+          "Federico Sau"
+        ],
+        "published": "2026-09-09T16:59:40Z",
+        "id": "2609.10450v1",
+        "url": "http://arxiv.org/abs/2609.10450v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10450v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10533v1": {
+      "paper": {
+        "title": "Noether Symmetries Generate Deterministic Energy-Harvesting Protocols",
+        "summary": "We consider the general principles for when deterministic energy harvesting (DEH) is possible. DEH means absorbing energy from a fluctuating source without entropy being absorbed. We show that the symmetry structure of the source--harvester dynamics gives a general route beyond existing examples to identify DEH capable source states. Any continuous symmetry with a conserved Noether charge induces a source-side orbit of states that all implement the same deterministic harvester transition, provided the harvester boundary states are symmetry invariant. Consequently, one DEH capable source state with nonzero asymmetry between charge sectors can generate infinitely many simultaneously DEH capable source states. A Jaynes-Cummings model, a three-spin XX chain, and an SU(2) model illustrate the construction. We further extend Noether's theorem to generalised probabilistic theories and thereby generalise our main result. We further establish an asymmetry bound for harvesting, showing that source asymmetry cannot increase on average, while DEH saturates the bound exactly preserving asymmetry.",
+        "authors": [
+          "Ali Akil",
+          "M. Hamed Mohammady",
+          "Zihan Wang",
+          "Oscar Dahlsten"
+        ],
+        "published": "2026-09-09T17:58:08Z",
+        "id": "2609.10533v1",
+        "url": "http://arxiv.org/abs/2609.10533v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10533v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识",
+        "智能体测试"
+      ]
+    },
+    "2609.10505v1": {
+      "paper": {
+        "title": "Quantum Feature Engineering for Credit Default Prediction: When and Why IQP Circuits Help Linear Classifiers",
+        "summary": "Credit default prediction is a tabular classification problem in which modest gains in F1 translate directly into reduced financial exposure. We ask whether Instantaneous Quantum Polynomial-time (IQP) circuits can produce features that improve a classifier over both its raw classical baseline and Kernel PCA - the strongest unsupervised classical non-linear alternative - at an equal feature budget. The dataset provides 23 financial attributes per client; for an n-qubit circuit we select n of them, encode each as a rotation angle, and read 2n expectation values back out as new features. The motivation for using a quantum circuit is computational: an n-qubit IQP circuit runs in constant depth and encodes feature correlations in a 2^n-dimensional Hilbert space, whereas classical simulation of its exact output statistics scales exponentially in n. Using the UCI Default of Credit Card Clients dataset and five-fold cross-validation, we find that appending 16 IQP features (n = 8 qubits) to a Logistic Regression model raises F1 from 0.462 to 0.517 (+0.055, p < 0.0001). Kernel PCA, the next-best method, reaches only 0.493 at the same feature count; the gap survives Benjamini-Hochberg correction across 12 tests (p = 0.00007). No other classifier - Random Forest, SVM, XGBoost, or k-NN - benefits, which points to a linear-expressivity mechanism rather than a generic improvement. We also show that how the 8 input features are chosen matters: Random Forest importance-guided selection reaches F1 = 0.523, while encoding maximally uncorrelated features drops it to 0.496, demonstrating that the circuit amplifies informative structure rather than creating it from scratch.",
+        "authors": [
+          "Menachem Finkelstein",
+          "Diana Legziel Levy",
+          "Zohar Yakhini",
+          "Sarel Cohen"
+        ],
+        "published": "2026-09-09T17:41:27Z",
+        "id": "2609.10505v1",
+        "url": "http://arxiv.org/abs/2609.10505v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10505v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10449v1": {
+      "paper": {
+        "title": "On Medial Quandle Coloring Link Invariant and Detecting Causality",
+        "summary": "We investigate the capability of medial quandles to detect causality in (2+1) dimensional globally hyperbolic spacetime by determining if their coloring link invariants can distinguish between the connected sum of two Hopf links and an infinite series of relevant three-component links constructed by Allen and Swenberg in 2020, who suggested that any link invariant must be able to distinguish those links for them to detect causality in the given setting. We show that these quandles fail to do so as long as $a\\sim b\\Leftrightarrow a*b=a$ defines an equivalence relation. The Alexander quandles are an example to which this result applies. We also give a sufficient condition for a medial quandle to distinguish between the connected sum of two Hopf links and all links in Allen-Swenberg series, and give an example of such a quandle. Inspired by this result, we also derive a generalized theorem about the coloring of medial quandles on a specific type of tangle, which helps to determine whether these quandles can distinguish between a wider range of knots and links or not.",
+        "authors": [
+          "Hongxu Chen"
+        ],
+        "published": "2026-09-09T16:59:29Z",
+        "id": "2609.10449v1",
+        "url": "http://arxiv.org/abs/2609.10449v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10449v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10416v1": {
+      "paper": {
+        "title": "TrajMark: Ownership Attribution and Segment-Level Tamper Localization for Coding-Agent Trajectories",
+        "summary": "Watermarking the final patch produced by a coding agent provides provenance evidence for the submitted artifact, but does not authenticate the visible process that produced it. Behavioral watermarking methods primarily provide a global detection or identifier-recovery signal, so a locally edited trajectory may retain sufficient ownership evidence without revealing which protected region has become inconsistent. To address this limitation, we propose TrajMark, a training-free, symmetric-key, visible-only trajectory watermarking framework that separates robust ownership attribution from fragile local integrity verification. Our framework consists of two complementary layers: a sparse owner layer that encodes a six-bit deployment identifier by rewriting a keyed subset of naturally occurring READ actions into masked linear equations, and a localization layer that inserts linked Q12 ordinary, group, and terminal seals to commit to protected critical-action segments. This separation allows ownership evidence to accumulate robustly across trajectories, while local modifications perturb nearby keyed commitments and expose the affected protocol region. We further provide a design-level analysis of owner recoverability, integrity collision probability, structural overhead, and localization behavior. Across three coding-agent frameworks and three LLMs, TrajMark recovers the exact owner in all evaluated clean full-watermark batches. Under exhaustive eligible single-site attacks it detects 95.5%-100% of edits, and under random single-action corruption it localizes 95.8% of modified sites to an accepted protocol region rather than to the individual action. Owner marking adds no trajectory actions; the integrity layer adds explicit read-only seals, and matched Pass@1 is 26.9% versus 26.3% for unwatermarked runs.",
+        "authors": [
+          "Bokang Zeng",
+          "Zheng Gao",
+          "Xiaoyu Li",
+          "Xiaoyan Feng",
+          "Jiaojiao Jiang"
+        ],
+        "published": "2026-09-09T16:33:02Z",
+        "id": "2609.10416v1",
+        "url": "http://arxiv.org/abs/2609.10416v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10416v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "知识图谱与结构化知识",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "知识图谱与结构化知识"
+      ]
+    },
+    "2609.10506v1": {
+      "paper": {
+        "title": "DUET-DINO: Simultaneous Cross-View World Modeling for Latent Planning in Robot Manipulation",
+        "summary": "Action-conditioned latent world models predict future visual representations, enabling zero-shot goal-conditioned robot planning and control. However, their predictions for fine-grained spatial and rotational actions are unreliable for full 7-DoF end-effector control. To address this gap, we introduce DUET-DINO, a simultaneous cross-view latent world model that jointly learns action-conditioned predictions from static side- and wrist-camera observations through cross-view conditioning. By exploiting complementary global scene and gripper-centric information, DUET-DINO enables latent planning over the full 7-DoF action space. Across spatially diverse reach, orientation-intensive angled-reach, and multi-goal grasp-and-lift tasks, DUET-DINO consistently outperforms single-view and independent dual-view baselines, achieving 92% success on reach, 72.5% on angled-reach, and 60.0% on lift tasks. DUET-DINO is trained from scratch on DROID and RoboArena datasets and generalizes robustly under visual distribution shifts. We further show that while V-JEPA 2 wrist-view predictions underestimate visual dynamics induced by fine-grained actions, DINOv3 predictions better capture action-conditioned scene changes, leading to stronger downstream planning. The code and model checkpoints will be open-sourced. Project page: https://utn-air.github.io/DUET-DINO",
+        "authors": [
+          "Nisarga Nilavadi",
+          "Ralf Römer",
+          "Moritz Reuss",
+          "Michael Krawez",
+          "Tobias Jülg",
+          "Angela P. Schoellig",
+          "Rudolf Lioutikov",
+          "Wolfram Burgard"
+        ],
+        "published": "2026-09-09T17:41:38Z",
+        "id": "2609.10506v1",
+        "url": "http://arxiv.org/abs/2609.10506v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10506v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "智能体记忆与规划",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "智能体记忆与规划"
+      ]
+    },
+    "2609.10479v1": {
+      "paper": {
+        "title": "Deep Learning-Based Detection of Electrical Faults and Power Quality Disturbances in Aerospace Power Systems",
+        "summary": "More Electric Aircraft require fast and reliable monitoring of high-frequency electrical networks, yet most power quality disturbance and fault diagnosis methods are developed for conventional 50 or 60 Hz grids. This work presents a hardware-aware deep learning framework for multiclass detection of electrical faults and power quality disturbances in a 400 Hz aerospace power system. A high-fidelity simulation model inspired by the Boeing 787 electrical architecture generates voltage and current waveforms for 21 normal, disturbance, switching, open-circuit, and short-circuit conditions. Two datasets, each containing 73,500 samples, are formed from one-dimensional time-series signals and short-time Fourier transform time-frequency representations. Signal-processing augmentation, domain randomization, and class-specific generative adversarial networks increase waveform diversity, and the time-series dataset is released through IEEE DataPort. We compare 1D and 2D convolutional neural networks, long short-term memory networks, CNN-LSTM hybrids, ResNet, MobileNet, and VGG models under common training conditions. A compact ResNet provides the best accuracy-complexity tradeoff, achieving 96.94 percent software test accuracy with 175,685 parameters. After 8-bit quantization and deployment on a Xilinx Zynq UltraScale Plus MPSoC ZCU102, the model achieves 95.87 percent accuracy and a measured mean neural-network accelerator latency of 6.90 ms per input record. The results establish simulation-based, accelerator-level feasibility for embedded edge AI in aircraft electrical health monitoring and motivate future end-to-end data acquisition and experimental validation.",
+        "authors": [
+          "Ian C. Guzmán",
+          "Radu Babiceanu",
+          "Berker Peköz"
+        ],
+        "published": "2026-09-09T17:19:14Z",
+        "id": "2609.10479v1",
+        "url": "http://arxiv.org/abs/2609.10479v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10479v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "智能体记忆与规划",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "智能体记忆与规划"
+      ]
+    },
+    "2609.10441v1": {
+      "paper": {
+        "title": "ConvMem: Convolutional Memory for Long-Context Reasoning",
+        "summary": "While Large Language Models (LLMs) have demonstrated impressive capabilities, they often struggle with extremely long contexts due to fixed context limits. To address this, sequential approaches like MemAgent extend the effective context by reading text in segments and iteratively updating a fixed-size memory. However, this sequential paradigm suffers from high latency and requires costly reinforcement learning (RL) training, which can lead to overfitting on specific datasets. To overcome these limitations, we propose ConvMem, a training-free, highly parallelizable framework that reformulates long-context reasoning as a hierarchical convolution. Inspired by CNNs, ConvMem treats an LLM prompted with a specific query as a convolutional kernel. This kernel summarizes text segments hierarchically, shortening the reasoning path from a linear chain into a logarithmic tree. Specifically, ConvMem integrates \\textit{Configurable Strides} and \\textit{Skip Connections} to ensure robust evidence capture and propagation, while employing \\textit{Multi-Kernel Convolution} to decompose complex queries into disentangled semantic channels. This design not only mitigates error accumulation but also enables massive parallelization across both text segments and reasoning threads. Experiments on RULER-HotpotQA and RULER-2WikiMultiHopQA demonstrate that ConvMem outperforms training-free baselines and avoids the risk of overfitting to parametric priors often observed in RL-trained models on out-of-distribution tasks.",
+        "authors": [
+          "Hongming Zhang",
+          "Zhaozhen Gu",
+          "Fengshuo Bai",
+          "Ming Hao",
+          "Qingyang Zhang",
+          "Yuanyuan Wang",
+          "Shiyang Tang",
+          "Yanna Wang",
+          "Bo Xu"
+        ],
+        "published": "2026-09-09T16:53:02Z",
+        "id": "2609.10441v1",
+        "url": "http://arxiv.org/abs/2609.10441v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10441v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "智能体记忆与规划",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "智能体记忆与规划",
+        "智能体反思与自我改进"
+      ]
+    },
+    "2609.10525v1": {
+      "paper": {
+        "title": "Characterizing Language Generation in the Limit: Finite Witnesses and a Separation-Width Hierarch",
+        "summary": "Language generation in the limit asks for valid unseen elements from every exhaustive positive presentation of an unknown infinite language. We characterize this task for arbitrary families over a countable universe. Generation is possible exactly when each target can be assigned a finite positive witness so that the targets activated by any finite sample have an infinite common intersection. The necessary direction follows from a universal normalization: a search through unconfirmed histories converts any successful generator into one depending only on the observed set. We then ask how large compatible witnesses must be. Positive separation width records the smallest uniform size bound, with two further levels for unbounded finite witnesses and the absence of any compatible finite-witness assignment. Every level occurs. Countable families admit singleton witnesses, explicit families realize every finite width, and a union of two families with infinite common cores requires unbounded finite witnesses. Finally, countable-support and finite-profile obstructions explain why local combinatorial data cannot determine generation in the limit. The characterization and full width hierarchy are checked in Lean, including the simplified normalization and a direct diagonal capture lemma. The accompanying Lean development is maintained at https://github.com/xiaoyulics/language-generation-characterization",
+        "authors": [
+          "Xiaoyu Li",
+          "Andi Han",
+          "Jiaojiao Jiang",
+          "Junbin Gao"
+        ],
+        "published": "2026-09-09T17:54:30Z",
+        "id": "2609.10525v1",
+        "url": "http://arxiv.org/abs/2609.10525v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10525v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "智能体记忆与规划",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "智能体记忆与规划"
+      ]
+    },
+    "2609.10530v1": {
+      "paper": {
+        "title": "Fluctuations of additive martingale limits of branching Brownian motion",
+        "summary": "Consider a one-dimensional branching Brownian motion. Let $W_\\infty(β)$ denote the limit of the additive martingale in the subcritical regime $\\lvert β\\rvert < β_c$ and $Z_\\infty$ be the limit of the derivative martingale at criticality. Madaule (Stochastic Process. Appl. 126 (2016), no. 2, 470--502) established the following convergence \\[ \\frac{W_\\infty(β)}{β_c-β}\\xrightarrow[β\\nearrow β_c]{\\mathbb{P}} 2Z_\\infty. \\] The goal of this paper is twofold: firstly, we strengthen this result into an almost sure convergence; secondly, we describe the fluctuations occurring in this convergence by proving \\[ \\frac{1}{β_c-β}\\left( \\frac{W_\\infty(β)}{β_c-β} - 2 Z_\\infty +2(β_c-β)\\log(β_c-β) Z_\\infty\\right) \\xrightarrow[β\\nearrow β_c]{(d)} S, \\] where, conditionally on $Z_\\infty$, $S$ follows a spectrally negative 1-stable distribution with scale and shift parameters proportional to $Z_\\infty$. Furthermore, these results are extended to the setting of complex additive martingales and the fluctuations to a multi-dimensional convergence.",
+        "authors": [
+          "Xinxin Chen",
+          "Michel Pain"
+        ],
+        "published": "2026-09-09T17:57:28Z",
+        "id": "2609.10530v1",
+        "url": "http://arxiv.org/abs/2609.10530v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10530v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "智能体记忆与规划",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "智能体记忆与规划"
+      ]
+    },
+    "2609.10497v1": {
+      "paper": {
+        "title": "Dynamic Reduced-Order Data Assimilation from Sparse Velocity Measurements",
+        "summary": "We present a novel reduced-order data assimilation framework, termed Reduced-Order Dynamical Assimilation (RODAS), for reconstructing high-resolution, time-resolved flow fields from sparse velocity measurements. The method combines low-dimensional experimental observations with a physics-based parametric reduced-order model, enabling both spatial extrapolation beyond the measurement region and temporal super-resolution. The approach first identifies the dominant dynamics from sparse measurements through Dynamic Mode Decomposition (DMD), and subsequently reconstructs the corresponding full-order flow evolution by projecting the identified dynamics onto a parametric Proper Orthogonal Decomposition (POD) manifold generated from high-fidelity numerical simulations. Unlike conventional reduced-order data assimilation methods that estimate independent snapshots or treat time as an additional parameter, RODAS reconstructs an entire dynamical trajectory in a single inference step while naturally incorporating parametric variability. We assess the proposed methodology on vortex shedding behind a circular cylinder for both Newtonian and non-Newtonian (Carreau-Yasuda) fluids. Numerical experiments demonstrate accurate reconstruction of high-resolution velocity fields from localized, low-resolution measurements, achieving sub-percent reconstruction errors with sufficiently rich reduced bases, robust performance under severe temporal undersampling, and accurate prediction of engineering quantities of interest such as the drag coefficient. These results demonstrate that RODAS provides an efficient framework for real-time, physics-informed reconstruction of unsteady flows from sparse experimental data.",
+        "authors": [
+          "Mauricio Portilla",
+          "Felipe Galarce",
+          "Ernesto Castillo",
+          "Benjamin Herrmann"
+        ],
+        "published": "2026-09-09T17:35:11Z",
+        "id": "2609.10497v1",
+        "url": "http://arxiv.org/abs/2609.10497v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10497v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "智能体记忆与规划",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "智能体记忆与规划"
+      ]
+    },
+    "2609.10439v1": {
+      "paper": {
+        "title": "Forgetting Only What Matters: Layer-Selective Unlearning toward Robust LLMs",
+        "summary": "Large Language Models (LLMs) can memorize and reproduce sensitive, copyrighted, or otherwise undesirable training content, creating privacy, safety, and regulatory concerns. Machine unlearning offers a practical alternative to full retraining, but many existing methods apply broad or fixed parameter updates that can degrade utility and remain brittle under deployment changes such as post-training quantization, where forgotten knowledge may partially re-emerge. We propose Forgetting Only What Matters via Unlearning Layers (FOM-UL), a layer-level unlearning framework that selects transformer layers using a forget-to-retain significance score. This score identifies layers with high influence on the forget set and low sensitivity to the retain set, allowing FOM-UL to concentrate updates where they are most effective while leaving most of the model unchanged. This targeted update strategy improves the forgetting-utility trade-off and provides an empirical path toward quantization-resilient unlearning by reducing the chance that small, diffuse updates are erased by low-bit rounding. Across TOFU, KnowUnDo, and MUSE-style evaluations, FOM-UL reduces residual memorization compared with strong GA, NPO, KLD, SURE, ReLearn, and LUNAR-based baselines while preserving retain-set utility close to the vanilla model. Under 8-bit and 4-bit post-training quantization, FOM-UL maintains stronger memorization suppression and utility preservation than competing methods, and adversarial prompt evaluations show lower recovery of forgotten content. Overall, FOM-UL provides an efficient unlearning strategy that improves targeted forgetting, utility preservation, and deployment robustness without claiming formal guarantees of erasure.",
+        "authors": [
+          "Ravi Ranjan",
+          "Olivera Kotevska",
+          "Agoritsa Polyzou"
+        ],
+        "published": "2026-09-09T16:50:41Z",
+        "id": "2609.10439v1",
+        "url": "http://arxiv.org/abs/2609.10439v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10439v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "智能体反思与自我改进",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "智能体反思与自我改进"
+      ]
+    },
+    "2609.10538v1": {
+      "paper": {
+        "title": "Exact dimensionality of stationary measures for nonuniformly conformally contracting random diffeomorphisms",
+        "summary": "We prove exact dimensionality of ergodic stationary measures for random $C^1$ diffeomorphisms in the single negative Lyapunov scale setting. Let $ν$ be a Borel probability measure on $\\mathrm{Diff}^1(M)$ satisfying a logarithmic $C^1$ moment condition, and let $μ$ be a $ν$-stationary ergodic probability measure. If $λ_{\\mathrm{top}} = λ_{\\mathrm{bot}} = λ<0,$ then $μ$ is exact dimensional and $ \\mathrm{dim}(μ)={h_μ^{\\mathrm{F}}(ν)}/{(-λ)}.$ No discreteness assumption is imposed on the driving measure.",
+        "authors": [
+          "Subhasish Mukherjee"
+        ],
+        "published": "2026-09-09T17:58:59Z",
+        "id": "2609.10538v1",
+        "url": "http://arxiv.org/abs/2609.10538v1",
+        "pdf_url": "https://arxiv.org/pdf/2609.10538v1"
+      },
+      "primary_layer": "第四层-智能体工程层",
+      "primary_category": "自动驾驶测试",
+      "matched_layers": [
+        "第四层-智能体工程层"
+      ],
+      "matched_categories": [
+        "自动驾驶测试"
+      ]
+    }
+  }
+}

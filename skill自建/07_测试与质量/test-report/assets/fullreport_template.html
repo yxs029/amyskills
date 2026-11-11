@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{SYSTEM_NAME}} 全量自动化测试报告 {{VERSION}}</title>
+<!-- ============================================================
+     test-report skill · V2样式全量报告模板
+     数据从子模块报告自动提取（见 scripts/gen_full_report.py）
+     变量：{{MODULE_COUNT}} {{CASE_COUNT}} {{PASS_COUNT}} {{FAIL_COUNT}} {{SKIP_COUNT}} {{PASS_RATE}} {{P0_PASS}} {{P0_TOTAL}} {{P0_RATE}} {{GATE_VERDICT}} {{GATE_REASONS}} {{MOD_TABLE_ROWS}} {{DONUT_SVG}} {{MODULE_CARDS}} {{DEFECT_P0_CARDS}} {{DEFECT_P1_CARDS}} {{DEFECT_OTHER_CARDS}} {{REC_CARDS}} {{GEN_TIME}}
+============================================================ -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%);min-height:100vh;color:#262626;line-height:1.6}
+.container{max-width:1320px;margin:0 auto;padding:24px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);border-radius:16px;padding:32px 36px;margin-bottom:20px;box-shadow:0 10px 40px rgba(0,0,0,.2);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,#52c41a 0%,#52c41a {{PASS_RATE}}%,#f5222d {{PASS_RATE}}%,#f5222d 100%)}
+.hero h1{font-size:30px;color:#1a1a2e;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.hero .subtitle{color:#666;font-size:14px;margin-bottom:18px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:#595959}
+.hero .meta span{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:#f0f5ff;border-radius:16px}
+.hero .verdict{position:absolute;top:32px;right:36px;padding:10px 22px;border-radius:24px;background:linear-gradient(135deg,#cf1322,#a8071a);color:#fff;font-weight:700;font-size:15px;box-shadow:0 4px 16px rgba(207,19,34,.4)}
+
+/* KPI Grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 20px rgba(0,0,0,.15);position:relative;overflow:hidden;transition:transform .2s}
+.kpi:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.2)}
+.kpi::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%}
+.kpi.total::before{background:#1890ff}
+.kpi.passed::before{background:#52c41a}
+.kpi.failed::before{background:#f5222d}
+.kpi.skipped::before{background:#faad14}
+.kpi.rate::before{background:#722ed1}
+.kpi.p0::before{background:#cf1322}
+.kpi .label{font-size:12px;color:#8c8c8c;margin-bottom:8px;font-weight:500}
+.kpi .value{font-size:30px;font-weight:700;color:#1a1a2e;line-height:1;margin-bottom:4px}
+.kpi .sub{font-size:11px;color:#bfbfbf}
+.kpi.p0 .value{color:#cf1322}
+
+/* Sections */
+.section{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.section h2{font-size:20px;color:#1a1a2e;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid #f0f2f5;display:flex;align-items:center;gap:10px}
+.section h2 .icon{font-size:24px}
+.two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;margin-bottom:20px}
+
+/* Module table */
+table.mod-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+table.mod-table thead th{background:#1a1a2e;color:#fff;padding:12px 10px;font-weight:600;text-align:left;font-size:13px}
+table.mod-table thead th:first-child{border-radius:8px 0 0 0}
+table.mod-table thead th:last-child{border-radius:0 8px 0 0}
+table.mod-table tbody td{padding:12px 10px;border-bottom:1px solid #f0f2f5}
+table.mod-table tbody tr:hover{background:#fafafa}
+table.mod-table .num{color:#1890ff;font-weight:600;font-size:13px}
+.tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;color:#fff}
+.tag.pass{background:#52c41a}.tag.warn{background:#faad14}.tag.fail{background:#f5222d}
+
+.bar-cell{display:flex;align-items:center;gap:8px}
+.bar-cell .track{flex:1;height:8px;background:#f0f2f5;border-radius:4px;overflow:hidden}
+.bar-cell .fill{height:100%;border-radius:4px;transition:width .8s}
+.bar-cell .pct{font-weight:700;font-size:13px;min-width:50px;text-align:right}
+
+/* Module detail card */
+.module-card{background:#fff;border-radius:10px;padding:0;margin-bottom:14px;border:1px solid #f0f2f5;overflow:hidden}
+.module-card .head{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#fafafa,#fff);border-bottom:1px solid #f0f2f5;flex-wrap:wrap;gap:12px}
+.module-card .head h4{font-size:15px;color:#1a1a2e;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.module-card .head .seq{width:30px;height:30px;border-radius:6px;background:#1890ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.module-card .head .stats{display:flex;align-items:center;gap:16px;font-size:13px;color:#595959}
+.module-card .head .stats b{color:#1a1a2e}
+.module-card .body{padding:18px;background:#fafbfc}
+.module-card .finding{background:#fff7e6;border-left:3px solid #faad14;padding:10px 14px;border-radius:4px;font-size:13px;color:#262626;margin-bottom:12px}
+.module-card.fail .finding{background:#fff1f0;border-left-color:#f5222d}
+.module-card.pass .finding{background:#f6ffed;border-left-color:#52c41a}
+
+/* Defect cards */
+.defects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:12px;margin-top:14px}
+.defect{border-radius:8px;padding:14px 18px;background:#fff;border:1px solid #f0f0f0;border-left:4px solid #d9d9d9}
+.defect.p0{border-left-color:#cf1322;background:linear-gradient(90deg,#fff5f5 0%,#fff 70%)}
+.defect.p1{border-left-color:#fa8c16;background:linear-gradient(90deg,#fff7e6 0%,#fff 70%)}
+.defect.info{border-left-color:#1890ff}
+.defect .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.defect .id{font-family:'Courier New',monospace;font-weight:700;font-size:13px;color:#1a1a2e}
+.defect .sev{padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;color:#fff}
+.defect .desc{font-size:13px;color:#595959;line-height:1.5}
+.defect .module{font-size:11px;color:#8c8c8c;margin-top:6px}
+
+/* Donut */
+.donut-wrap{display:flex;align-items:center;justify-content:center;flex-direction:column;padding:10px;position:relative}
+.donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,calc(-50% - 18px));text-align:center}
+.donut-center .num{font-size:36px;font-weight:700;color:#1a1a2e}
+.donut-center .lab{font-size:12px;color:#8c8c8c;margin-top:4px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:14px}
+.legend .item{display:flex;align-items:center;gap:6px;font-size:12px;color:#595959}
+.legend .dot{width:12px;height:12px;border-radius:3px}
+
+/* Gate banner */
+.gate-banner{background:linear-gradient(135deg,#cf1322,#820014);color:#fff;padding:24px 32px;border-radius:12px;margin-bottom:20px;display:flex;align-items:center;gap:24px;box-shadow:0 8px 28px rgba(207,19,34,.3)}
+.gate-banner .icon{font-size:48px;line-height:1}
+.gate-banner .text h3{font-size:22px;margin-bottom:8px}
+.gate-banner .text .reasons{font-size:14px;opacity:.95;line-height:1.7}
+
+/* Recommendation */
+.rec-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px;margin-top:14px}
+.rec{background:#fff;border:1px solid #f0f0f0;border-radius:10px;padding:18px;border-top:4px solid #1890ff}
+.rec.urgent{border-top-color:#cf1322}
+.rec.high{border-top-color:#fa8c16}
+.rec h4{font-size:15px;color:#1a1a2e;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.rec ul{padding-left:18px;font-size:13px;color:#595959;line-height:1.8}
+.rec ul li{margin-bottom:4px}
+.rec code{background:#f5f5f5;padding:1px 5px;border-radius:3px;font-family:'Courier New';font-size:12px}
+
+footer{text-align:center;color:rgba(255,255,255,.7);font-size:12px;padding:30px 0;line-height:1.8}
+
+@media (max-width:1024px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.two-col{grid-template-columns:1fr}.hero .verdict{position:static;margin-top:14px;display:inline-block}}
+@media (max-width:640px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.defects-grid{grid-template-columns:1fr}.rec-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ========== Hero ========== -->
+<div class="hero">
+  <h1>📋 {{SYSTEM_NAME}} 全量自动化测试报告 <span style="font-size:14px;color:#cf1322;font-weight:600;background:#fff1f0;padding:4px 10px;border-radius:6px">{{VERSION}}</span></h1>
+  <div class="subtitle">{{MODULE_COUNT}} 模块 · {{CASE_COUNT}} 用例 · 全自动化执行 · {{ENGINE}}</div>
+  <div class="meta">
+    <span>📅 {{TEST_DATE}}</span>
+    <span>🌐 {{TEST_URL}}</span>
+    <span>👥 {{TEST_USERS}}</span>
+    <span>🤖 {{TEST_TOOLS}}</span>
+    <span>📸 {{SCREENSHOT_COUNT}} 张截图证据</span>
+  </div>
+  <div class="verdict">{{GATE_VERDICT}}</div>
+</div>
+
+<!-- ========== KPI Grid ========== -->
+<div class="kpi-grid">
+  <div class="kpi total"><div class="label">📋 总用例</div><div class="value">{{CASE_COUNT}}</div><div class="sub">{{MODULE_COUNT}} 个模块</div></div>
+  <div class="kpi passed"><div class="label">✅ 通过</div><div class="value">{{PASS_COUNT}}</div><div class="sub">{{PASS_RATE_PCT}}%</div></div>
+  <div class="kpi failed"><div class="label">❌ 失败</div><div class="value">{{FAIL_COUNT}}</div><div class="sub">{{FAIL_RATE_PCT}}%</div></div>
+  <div class="kpi skipped"><div class="label">⏭️ 跳过</div><div class="value">{{SKIP_COUNT}}</div><div class="sub">{{SKIP_RATE_PCT}}%</div></div>
+  <div class="kpi rate"><div class="label">🎯 通过率</div><div class="value">{{PASS_RATE}}%</div><div class="sub">门禁要求 ≥85%</div></div>
+  <div class="kpi p0"><div class="label">🚨 P0 通过率</div><div class="value">{{P0_RATE}}%</div><div class="sub">{{P0_PASS}}/{{P0_TOTAL}} · 要求 100%</div></div>
+</div>
+
+<!-- ========== Gate Banner ========== -->
+<div class="gate-banner">
+  <div class="icon">🚫</div>
+  <div class="text">
+    <h3>发布门禁判定：{{GATE_VERDICT_TEXT}}</h3>
+    <div class="reasons">{{GATE_REASONS}}</div>
+  </div>
+</div>
+
+<!-- ========== 双栏：模块表 + 严重度饼图 ========== -->
+<div class="two-col">
+  <div class="section" style="margin:0">
+    <h2><span class="icon">📊</span>各模块执行结果</h2>
+    <table class="mod-table">
+      <thead><tr>
+        <th style="width:40px">#</th>
+        <th>模块</th>
+        <th style="width:60px;text-align:center">用例</th>
+        <th style="width:60px;text-align:center">P0</th>
+        <th style="width:160px">通过率</th>
+        <th style="width:80px;text-align:center">判定</th>
+      </tr></thead>
+      <tbody>
+{{MOD_TABLE_ROWS}}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section" style="margin:0">
+    <h2><span class="icon">🍩</span>缺陷严重度分布</h2>
+    <div class="donut-wrap">{{DONUT_SVG}}<div class="donut-center"><div class="num">{{DEFECT_COUNT}}</div><div class="lab">缺陷总数</div></div></div>
+    <div class="legend">
+      <div class="item"><div class="dot" style="background:#cf1322"></div><span><b>P0</b> {{P0_DEFECT_COUNT}} ({{P0_DEFECT_PCT}}%)</span></div>
+      <div class="item"><div class="dot" style="background:#fa8c16"></div><span><b>P1</b> {{P1_DEFECT_COUNT}} ({{P1_DEFECT_PCT}}%)</span></div>
+      <div class="item"><div class="dot" style="background:#faad14"></div><span><b>P2</b> {{P2_DEFECT_COUNT}} ({{P2_DEFECT_PCT}}%)</span></div>
+      <div class="item"><div class="dot" style="background:#1890ff"></div><span><b>INFO</b> {{INFO_DEFECT_COUNT}} ({{INFO_DEFECT_PCT}}%)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 模块详细 ========== -->
+<div class="section">
+  <h2><span class="icon">🔍</span>模块详细发现</h2>
+{{MODULE_CARDS}}
+</div>
+
+<!-- ========== P0 缺陷聚焦 ========== -->
+<div class="section">
+  <h2><span class="icon">🚨</span>P0 关键缺陷聚焦（{{P0_DEFECT_COUNT}} 个 · 必须修复）</h2>
+  <div class="defects-grid">
+{{DEFECT_P0_CARDS}}
+  </div>
+</div>
+
+<!-- ========== P1 缺陷 ========== -->
+<div class="section">
+  <h2><span class="icon">⚠️</span>P1 高优缺陷（{{P1_DEFECT_COUNT}} 个）</h2>
+  <div class="defects-grid">
+{{DEFECT_P1_CARDS}}
+  </div>
+</div>
+
+<!-- ========== P2/INFO 缺陷 ========== -->
+<div class="section">
+  <h2><span class="icon">📝</span>P2/INFO 其他缺陷（{{P2_DEFECT_COUNT_INFO_TOTAL}} 个）</h2>
+  <div class="defects-grid">
+{{DEFECT_OTHER_CARDS}}
+  </div>
+</div>
+
+<!-- ========== 修复建议 ========== -->
+<div class="section">
+  <h2><span class="icon">🔧</span>修复建议（按优先级）</h2>
+  <div class="rec-list">
+{{REC_CARDS}}
+  </div>
+</div>
+
+<footer>
+  📋 {{SYSTEM_NAME}} · 全量自动化测试报告 {{VERSION}}<br>
+  测测 (CeCe) · 服务对象：袁雪松（老大）· 生成时间：{{GEN_TIME}}<br>
+  数据来源：子模块报告自动聚合 · 缺陷数据从子模块报告提取
+</footer>
+
+</div>
+</body>
+</html>

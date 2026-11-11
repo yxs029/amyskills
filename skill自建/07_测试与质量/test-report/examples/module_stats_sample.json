@@ -1,0 +1,16 @@
+[
+  {"name": "数据权限控制", "total": 10, "pass": 3, "fail": 3, "skip": 4, "p0_pass": 0, "p0_total": 5, "rate": 30.0, "verdict": "失败", "cls": "fail", "finding": "P0安全缺陷：testadmin看到全量数据与admin一致，权限控制未生效", "time": "07-07 14:22"},
+  {"name": "安全测试", "total": 12, "pass": 11, "fail": 0, "skip": 1, "p0_pass": 4, "p0_total": 4, "rate": 91.7, "verdict": "通过", "cls": "pass", "finding": "XSS/SQL注入/CSRF防护均通过", "time": "07-07 14:45"},
+  {"name": "数据一致性测试", "total": 8, "pass": 4, "fail": 4, "skip": 0, "p0_pass": 0, "p0_total": 4, "rate": 50.0, "verdict": "失败", "cls": "fail", "finding": "卡片与树形列表数据不一致", "time": "07-07 15:10"},
+  {"name": "报表下载", "total": 10, "pass": 5, "fail": 4, "skip": 1, "p0_pass": 1, "p0_total": 4, "rate": 50.0, "verdict": "失败", "cls": "fail", "finding": "Excel文件验证失败(openpyxl缺失)", "time": "07-07 15:38"},
+  {"name": "筛选区", "total": 13, "pass": 11, "fail": 2, "skip": 0, "p0_pass": 4, "p0_total": 4, "rate": 84.6, "verdict": "通过", "cls": "pass", "finding": "P0 100%通过，2个P1体验问题", "time": "07-07 16:01"},
+  {"name": "树形列表区", "total": 16, "pass": 12, "fail": 2, "skip": 2, "p0_pass": 1, "p0_total": 2, "rate": 75.0, "verdict": "警告", "cls": "warn", "finding": "2个P1失败(点击超时/JS语法错误)", "time": "07-07 16:25"},
+  {"name": "统计卡片区", "total": 6, "pass": 0, "fail": 0, "skip": 6, "p0_pass": 0, "p0_total": 1, "rate": 0.0, "verdict": "警告", "cls": "warn", "finding": "6个用例全部执行异常", "time": "07-07 16:50"},
+  {"name": "集成测试", "total": 7, "pass": 4, "fail": 1, "skip": 2, "p0_pass": 1, "p0_total": 2, "rate": 57.1, "verdict": "警告", "cls": "warn", "finding": "1个P1弹窗未触发", "time": "07-07 17:15"},
+  {"name": "E2E端到端测试", "total": 4, "pass": 2, "fail": 2, "skip": 0, "p0_pass": 1, "p0_total": 2, "rate": 50.0, "verdict": "失败", "cls": "fail", "finding": "Happy Path弹窗未打开", "time": "07-07 17:40"},
+  {"name": "并发竞态测试", "total": 12, "pass": 12, "fail": 0, "skip": 0, "p0_pass": 2, "p0_total": 2, "rate": 100.0, "verdict": "通过", "cls": "pass", "finding": "并发操作无竞态问题", "time": "07-07 18:05"},
+  {"name": "异常容错测试", "total": 18, "pass": 18, "fail": 0, "skip": 0, "p0_pass": 3, "p0_total": 3, "rate": 100.0, "verdict": "通过", "cls": "pass", "finding": "异常处理全部正确", "time": "07-07 18:30"},
+  {"name": "用户场景测试", "total": 14, "pass": 14, "fail": 0, "skip": 0, "p0_pass": 2, "p0_total": 2, "rate": 100.0, "verdict": "通过", "cls": "pass", "finding": "7个典型用户场景全部通过", "time": "07-07 18:55"},
+  {"name": "文档详情弹窗", "total": 0, "pass": 0, "fail": 0, "skip": 0, "p0_pass": 0, "p0_total": 0, "rate": 0, "verdict": "—", "cls": "warn", "finding": "无独立报告", "time": ""},
+  {"name": "性能响应测试", "total": 0, "pass": 0, "fail": 0, "skip": 0, "p0_pass": 0, "p0_total": 0, "rate": 0, "verdict": "—", "cls": "warn", "finding": "无独立报告", "time": ""}
+]

@@ -1,0 +1,43 @@
+{
+  "name": "hermes-model-switchover-drill",
+  "version": "1.4.0",
+  "created": "2026-09-28",
+  "updated": "2026-11-10",
+  "changelog": {
+    "1.0.0": "切换七步+T0-T3断联演练",
+    "1.1.0": "LiteLLM网关provider配合",
+    "1.2.0": "轻量切换流水线",
+    "1.3.0": "key_env坑+fake429验证法",
+    "1.3.1": "主备同provider同源论证",
+    "1.4.0": "可移植链方案v2全公网直连"
+  },
+  "source": "测测(CeCe)实战沉淀，服务袁雪松测试团队，2026-11-10发布",
+  "entry": "./SKILL.md",
+  "files": {
+    "SKILL.md": {
+      "sha256": "6bc9468a7b6405b2ed58e2597a0bec2214d60261652bbc2a08343c03d00645f1",
+      "bytes": 24810,
+      "lines": 283
+    },
+    "scripts/failover_drill.py": {
+      "sha256": "61d039ca4c481309139ebf21b1b9325a53f4f1edafaaa128f2a07032f1ff7b5a",
+      "bytes": 4386,
+      "lines": 94
+    },
+    "README.md": {
+      "sha256": "b39d3743799bed37d6d42f7aea4b26149af83b7adfab7ae946f8b8639a514457",
+      "bytes": 2278,
+      "lines": 57
+    },
+    "CHANGELOG.md": {
+      "sha256": "cda612d866e091a79f7d6d46d858e52600d548d9b84a11d81444c6b0da1f0862",
+      "bytes": 1312,
+      "lines": 33
+    },
+    "LICENSE": {
+      "sha256": "ebd1d25094622607a65899871504aa438dc07a56eb8a36f10f5aebfe3f5434f5",
+      "bytes": 1075,
+      "lines": 22
+    }
+  }
+}

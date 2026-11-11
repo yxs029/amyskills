@@ -1,0 +1,799 @@
+{
+  "started_at": "2026-08-24T14:29:37",
+  "total_candidates": 88,
+  "fixed": [
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\AI软件测试模型\\Magic Velocity Selection in Atom Interferometry.md",
+      "arxiv_id": "2608.21350v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "general",
+      "tl_dr": "在Cs原子干涉仪中实验表征了velocity selection引入的~10 mrad系统相移,并找到抑制该效应的magic detuning。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\传统软件测试\\Beyond Fault Localization A Trajectory-Level Study of LLM Agents for Microservice Root Cause Analysi.md",
+      "arxiv_id": "2608.21310v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "general",
+      "tl_dr": "将微服务 RCA 评估从结果正确性拓展到诊断轨迹层面,归纳出三类证据处理失误并据此设计 DiagGuard 双阶段防御框架,在独立验证集上将 Acc@1 从 43.5% 提升至 52.5%。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\传统软件测试\\Prompt-Model Interaction Reaches the Fixed Points A deterministic, task-free structural readout -- a.md",
+      "arxiv_id": "2608.21315v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "below_average",
+      "tl_dr": "作者在 6 个语言模型上考察短窗口 argmax 固定点结构对 9-token prompt 的敏感性,发现 prompt 能剧烈改变该结构,但自己提出的四个解释性假说均在扩展样本后被撤回,与 attention-sink 机制的对比也仅 "
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\内容安全检测模型\\Difficulty-Calibrated Interpolation Paths for Conditional Flow Matching.md",
+      "arxiv_id": "2608.21286v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "below_average",
+      "tl_dr": "提出基于pilot loss的难度自适应插值调度CFM方法,在CIFAR-10/MNIST上做有限实验,但理论分析缺失、对比基线不足、写作粗糙,本质为curriculum learning的轻量套用。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\内容安全检测模型\\Human-AI Collaboration in Requirements Engineering Evidence of the Negative Effect of LLMs on Requir.md",
+      "arxiv_id": "2608.21298v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "通过34人交叉实验实证发现LLM支持会降低新手需求审查者的气味检测准确率,并可能阻碍技能习得,为LLM辅助需求工程提供了谨慎的负面证据"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\内容安全检测模型\\SPARCL Spectral Partitioned Analytic Continual Learning.md",
+      "arxiv_id": "2608.21307v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "SPARCL 针对分析式持续学习中共享逆自相关算子被新任务'谱稀释'导致旧类漂移的问题,提出将自相关矩阵分解为高能核心与残差互补子空间,冻结旧类核心分类器分量、仅用 RLS 更新残差块,声称在 ViT-B/16 协议下取得 SOTA 接近的"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\内容安全检测模型\\The [Ne V] AGN Diagnostic in SDSS-IVeBOSS An Anticorrelation Between Ionization State and AGN Lumino.md",
+      "arxiv_id": "2608.21280v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "general",
+      "tl_dr": "利用SDSS-IV/eBOSS光谱识别33,817个[Ne V]检出AGN(较已有文献增加一个数量级),通过统计与堆叠分析发现[Ne V]/[O III]与[O III]亮度强反相关,为高低/硬软吸积态连续谱提供观测支持,但诊断概念本身非全"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\内容安全检测模型\\VLASS Discovery of a Luminous Galactic Radio Transient Evolving on Decade Timescales.md",
+      "arxiv_id": "2608.21320v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.0,
+      "new_category": "high_quality",
+      "tl_dr": "基于 VLASS 数据发现并多波段表征了一个演化时标约十年的高光度银河系射电暂现源 VT J1906+0849,提出其可能是 SS 433 的年轻类天体。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\AudioWorldSim Realistic Binaural Audio Datasets For World Models.md",
+      "arxiv_id": "2608.21075v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "low_quality",
+      "tl_dr": "在 SoundSpaces 2.0 之上封装随机导航数据生成脚本并修复一处连续音频合成 bug 的开源工具说明,无新方法、无下游模型实验,工程报告而非研究论文。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\Automated Estimation of MBIST Area and Test Time in Heterogeneous Memory IPs via Stacked Ensemble Fr.md",
+      "arxiv_id": "2608.19705v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "low_originality_weak_empirics",
+      "tl_dr": "用 XGBoost/LightGBM/NN 堆叠集成直接从 RTL 参数预测 MBIST 的面积和测试时间,在单一商业 EDA 流程生成的小规模数据集上报告 ±10% 误差内的精度,方法本身无新意,实证和严谨性均不足。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\Bern2Edge A Neurosymbolic Compiler for Edge Deployment via Bernstein Polynomial Networks.md",
+      "arxiv_id": "2608.20497v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出基于Bernstein多项式激活的端到端神经符号编译框架,通过LUT硬件实现与符号规则提取两条路径实现边缘FPGA部署,在KV260上取得显著延迟与BRAM节省,但核心增量偏工程整合且缺乏深入消融与对比"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\EviRank Structured Relevance Evidence for Multimodal Image Re-ranking.md",
+      "arxiv_id": "2608.20886v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "EviRank 将多模态图像重排序形式化为语义约束满足问题,用 MLLM 把 query 解析为六类槽位+三态标签的结构化证据包,再以确定性 rubric 打分与 listwise 比较做训练无关重排,并可选蒸馏为轻量学生,在 5 个基准上"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\Proper Learning of Shallow All-to-All Quantum Circuits.md",
+      "arxiv_id": "2608.20162v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "moderate_below_average",
+      "tl_dr": "将学习 Haar 随机 brickwork 电路的局部反演方法推广到 all-to-all two-local 电路,通过 lightcone 分析给出 d* ~ log₂n + log₂log₂n 的可学习相变,但理论分析与实验验证均不充"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\Sharing the Control Authority Between Deep Reinforcement Learning and Model Predictive Control Appli.md",
+      "arxiv_id": "2608.20858v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出一种分层 DRL-MPC 框架(MPC 慢层决策、DRL 快层补偿)用于多类别高速公路网络控制,声称降低在线计算时间并提升模型失配下的约束处理能力,但分层思路不新,多类别建模与现有方法的差异化贡献论证薄弱。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Mode.md",
+      "arxiv_id": "2608.18884v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "unknown",
+      "tl_dr": ""
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\小样本与零样本学习\\Truthful Calibration Measures for Sequential Prediction.md",
+      "arxiv_id": "2608.21348v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.5,
+      "new_category": "high_quality",
+      "tl_dr": "在序列二元预测中证明精确truthful校准度量不可能同时满足soundness与completeness,并构造乘性近似truthful校准度量,改进了Haghtalab等人的近似保证"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\数学与逻辑推理小模型\\Almost sure upper bound for sums of random multiplicative functions and critical chaos.md",
+      "arxiv_id": "2608.21354v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.5,
+      "new_category": "high_quality",
+      "tl_dr": "利用临界混沌方法对 Steinhaus/Rademacher 随机乘性函数部分和建立一族几乎处处上界 M_f(x) ≪ √x (log x)^{1/4} G(log log x)，精确确定相关对数指数并证实了 Harper 猜想。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\数学与逻辑推理小模型\\Inclusive Radiation and Backreaction from the Phase-Space S-Matrix.md",
+      "arxiv_id": "2608.21318v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.0,
+      "new_category": "high_quality",
+      "tl_dr": ""
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\数学与逻辑推理小模型\\Sums of products of Kloosterman sums to prime power moduli.md",
+      "arxiv_id": "2608.21346v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.0,
+      "new_category": "high_quality",
+      "tl_dr": "将 Kloosterman 乘积和在素数幂模 p^n (n≥1, 奇素数 p) 下的经典 cancellation bound 从素数模推广到高次幂,给出 ~q^{-1/⌈k/2⌉} 的 power-saving,并引入刻画加性 shift"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Asymmetric Capacity Allocation in Self-Refinement Pipelines.md",
+      "arxiv_id": "2608.21345v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "在Qwen3和Gemma 3上系统性地扫描了self-refinement三阶段(generator/critic/refiner)的模型大小影响,得出critic对容量最不敏感、generator和refiner更需大模型的结论,但理论深"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Classical dynamics from QFT via Stratonovich-Weyl correspondence.md",
+      "arxiv_id": "2608.21328v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.0,
+      "new_category": "high_quality",
+      "tl_dr": "用协变 Stratonovich-Weyl 量子化器把 S 矩阵的指数化(Magnus 展开)映回经典相空间,得到混合 Dirac/对易子括号的经典可观测量公式,并给出 Murua 系数的可计算算法,为引力波物理中经典动力学提取提供统一框架"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Does Cumulative XUV Unify the Neptunian Desert.md",
+      "arxiv_id": "2608.21285v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "用1850颗Kepler/TESS行星测试累积XUV辐照能否统一M矮星与FGK宿主下的海王星沙漠下边界,发现点估计压缩65%、bootstrap中位73%,但null test不显著,作者承认无法约束普适XUV侵蚀阈值。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\From a Static Multi-Level Small Semantic Codebook to a Dynamic Single-Level Large Semantic Codebook .md",
+      "arxiv_id": "2608.21012v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "将推荐系统中多层残差语义码本压缩为单层大语义码本+协作消码,并提出曝光感知的动态码本更新机制,在工业推荐场景取得小幅在线收益,工程改造性质明显,方法论贡献有限。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Hypothesis testing between quantum ensembles.md",
+      "arxiv_id": "2608.21321v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "acceptable",
+      "tl_dr": "针对有限量子态 ensemble(label-invariant)的二元假设检验问题,提出基于 power-weighted moment hierarchy 的最优测量与有限样本误差公式,并在 t-design 和光通信场景给出 Cher"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Jacobian-guided Noise Injection for Quantization Robustness in Large Language Models.md",
+      "arxiv_id": "2608.20988v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "用 softmax Jacobian Frobenius 范数指导的高斯噪声注入,试图提升 LLM/VLM 低比特量化鲁棒性,理论深度与实验广度均不足以支撑其声称的贡献。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Llama-Mobile Efficient 2.7-Bit Quantization of VLMs.md",
+      "arxiv_id": "2608.21134v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "提出 2.7-bit S3D8 数值格式结合自生成数据的 QAT 流程,在 Llama 3.2 11B Vision 上实现 ~3.7GB 压缩,但方法新意有限且缺少硬件实测与系统对比"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\PerturbRx Learning Treatment-Conditioned Latent Transitions for Patient Drug Response Prediction.md",
+      "arxiv_id": "2608.21349v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "average",
+      "tl_dr": "PerturbRx 通过在单细胞扰动数据上预训练药物/剂量条件化的状态转移预测器,将其冻结后用于患者-药物对的潜变量转移表示,从而在 TCGA/PDX 上预测临床药物反应,本质是扰动建模思路向患者级响应的迁移应用。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Primal Acceleration of Newton's Method.md",
+      "arxiv_id": "2608.21359v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "high_quality",
+      "tl_dr": "提出一种仅使用原始变量、每步一次线性求解即可达到O(1/k³)全局收敛率的加速Newton方法,无需cubic正则化子问题或外梯度校正"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Rethinking Expressivity and Efficiency in Test-Time Training.md",
+      "arxiv_id": "2608.21308v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "average",
+      "tl_dr": "提出 E2-TTT,通过闭式并行核在 chunk 级复现 per-token TTT 更新,在 1.3B 规模上验证长上下文检索与长度外推优势,但创新幅度有限、与强 SOTA 对比不足。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Slepian Bounds on the Success Probability of Virtual Distillation.md",
+      "arxiv_id": "2608.21342v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "将Slepian集中不等式套用于虚拟蒸馏,证明有限傅里叶带变分态的成功概率不能被功率滤波突破,并给出Krawtchouk核显式形式,但创新性偏弱且实证不充分。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\Target-Aware Calibration Data Selection for Preserving Uncertainty in Quantized Language Models.md",
+      "arxiv_id": "2608.21019v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出 DPQ 系列量化前校准数据选择方法,通过混合高 uncertainty 样本与通用 anchor 来保持量化模型的不确定性行为,但方法新颖性有限且理论支撑薄弱。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\The first tight classification of skew-constacyclic codes over finite fields.md",
+      "arxiv_id": "2608.21339v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "通过Petit环框架将skew constacyclic codes的所有Hamming-weight保持同构纳入考量,实现比现有工作更紧的等距分类,并给出参数化算法与类数计数,但本质是前人分类工作的精细化修正,缺乏大规模实验验证与工程落地"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\模型量化与压缩\\The spin-12 Heisenberg XXZ chain and the Lorentz mirror model with loop weight 2.md",
+      "arxiv_id": "2608.21306v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "high_quality",
+      "tl_dr": "用概率耦合方法（mirror model、六/八顶点模型）严格证明自旋-1/2 Heisenberg XXZ 链在 ∆∈[-1,1/2] 区间基态收敛与多项式关联衰减，并给出 mirror model 连接概率的多项式衰减结果，无需 Bet"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\A Modular Agent for Reliable and Auditable Spatial Relation Verification in CT Scans.md",
+      "arxiv_id": "2608.21140v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.8,
+      "new_category": "low_empirical_or_incremental",
+      "tl_dr": "用 LLM+YOLO+几何规则的三阶段模块化 pipeline 替代端到端 VLM,在二元 CT 空间关系判断任务上取得 94% 准确率,方法偏工程化、缺乏新算法贡献且实验对比面较窄"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Across-Design Uncertainty in Short Pricing Panels Evidence from Simulated Price Trajectories.md",
+      "arxiv_id": "2608.21334v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "low_quality",
+      "tl_dr": "在模拟的短定价面板中形式化区分 within-design 与 across-design 不确定性,提出 Paule-Mandel 方差组件来改善经验覆盖率,但全部结论依赖单一合成 DGP、无真实数据验证、无新方法,本质上是已知 DML "
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Beyond Clear Skies Synthetic Seasonal and Weather Variations for Real-World Drone Detection.md",
+      "arxiv_id": "2608.16191v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "提出SDV-W合成无人机检测数据集,通过游戏引擎渲染雨雪雾等多季节/天气变体,以缓解真实数据采集困难,实验表明其作为通用合成数据的补充可提升YOLO在恶劣天气下的检测鲁棒性。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Calibration-Free Vehicle Speed Estimation A Monocular Keypoint-Template Approach.md",
+      "arxiv_id": "2608.16785v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "medium_quality",
+      "tl_dr": "用 YOLO 检测车辆 36 个关键点 + 单应矩阵将像素位移映射到尺度,提出无需相机标定的单目车速估计流程,在两个数据集上获得约 10-15% MAE,本质上是经典几何视觉框架的工程组合。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Classical versus non-classical photon states for detecting vacuum non-linearity.md",
+      "arxiv_id": "2608.21361v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "incremental_or_weak_empirical",
+      "tl_dr": "提出用经典或非经典(如squeezed)光态替代真空初态以提升Euler-Heisenberg真空非线性(四波混频/双折射)探测灵敏度,思路为量子计量学已知技术的跨领域移植,但缺乏定量实证和对实验可行性的深入论证"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Comparative Study of Out-of-the-Box Technology for Automatic Target Detection and Recognition.md",
+      "arxiv_id": "2608.17917v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "empirical_but_shallow",
+      "tl_dr": "在自采军事目标数据集上对YOLO六代与DETR两种变体进行out-of-the-box及VisDrone微调的对比benchmark,结论均为'大模型好、小目标难、需in-domain数据',缺乏新方法或可公开复现的资源。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Continuity-Driven Representation Learning for Industrial Defect Detection.md",
+      "arxiv_id": "2608.17362v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "提出基于 patch 序列连续性预测和邻接 patch 特征差分的两种正则化损失,作为检测器无关的辅助监督用于工业缺陷检测,在小数据场景下获得较明显提升,但方法本质是现有自监督思路的拼凑,新意有限。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Diversity of Galaxy Centers from Small-Scale Isocurvature.md",
+      "arxiv_id": "2608.21323v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "average",
+      "tl_dr": "通过N-body模拟证明:若亚主导ULDM分量携带大幅小尺度等曲率扰动,即使其宇宙学丰度低于10%,仍可在小暗晕中心区域占主导,为星系中心密度轮廓的多样性提供一种暗物质物理层面的解释"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\视觉专用小模型\\Time-Aware Tranformer-Based Prediction Model for AECOPD.md",
+      "arxiv_id": "2608.21324v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "low_quality",
+      "tl_dr": "将 Time-Aware Transformer 直接应用于 AECOPD 家用呼吸机数据分类预测,方法上为现有时序 Transformer 的简单套用,实验对比有限,创新与证据均不足。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\语音专用小模型\\Dynamics of localized solutions in three core coupled waveguides with quasi-periodic nonlinearity.md",
+      "arxiv_id": "2608.21331v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "weak_empirical",
+      "tl_dr": "在三波导耦合NLS方程中数值引入准周期非线性调制,观察孤子吸引/排斥现象,属经典模型的参数扫描,缺乏方法与理论层面的实质贡献"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\语音专用小模型\\Pattern avoidance in canon permutations.md",
+      "arxiv_id": "2608.21351v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "在 Elizalde 的 canon permutations 框架下系统研究 pattern avoidance，枚举了若干避免模式类的 k-Catalan 计数结果，并给出与 k-叉树的双射及归约方法。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\$Z^2$-ACT End-to-End Verifiable Agentic Intent Control for Open 6G RAN.md",
+      "arxiv_id": "2608.21049v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "weak_empirical",
+      "tl_dr": "将zero-trust prompt过滤、形式化intent合约、zero-knowledge审计与agentic技能编排拼装进O-RAN双层RIC的端到端可验证控制架构,核心为系统集成工作,闭环验证与原创性均有限。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\AT-ViT Area-Targeted Multi-View Vision Transformer with Cross-Attention and Multi-Scale Patching for.md",
+      "arxiv_id": "2608.21067v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "提出 AT-ViT,在双分支 ViT 中通过 cross-attention 融合原始与分割引导视图并加入 mask 加权 patch,以抑制 herbarium 图像背景,但方法为已有组件的拼装,实验对比面窄且严谨性不足。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\Classifying Directional Trajectories Near Criticality in the Three-State Majority-Vote Model with De.md",
+      "arxiv_id": "2608.18235v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "weak_empirical",
+      "tl_dr": "在三人多数投票模型的四种临界轨迹分类任务上,把预训练 DBN 与 Bi-GRU 串起来做层级分类,得到近乎完美的序列分离结果,但整体属于既有深度组件的拼凑应用,缺乏与基线的对比、严谨消融和对实际迁移性的讨论。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\COMET Contrastive Motion-Enhanced Temporal Reasoning for Video Multimodal Large Language Models.md",
+      "arxiv_id": "2608.21030v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "marginal",
+      "tl_dr": "提出 COMET,通过 Taylor frame difference 运动分支、temporal attention bias 融合和 forward-reverse TC-GRPO 优化,声称在 Qwen3-VL/InternVL2.5"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\MaLViL Multi-axis Low-rank Vision-LSTM for Medical Image Segmentation.md",
+      "arxiv_id": "2608.17635v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "将 Vision-LSTM (xLSTM) 通过低秩正交子空间投影、多轴扫描与跨方向混合器扩展到多尺度解码器，提出 MaLViL 医学图像分割网络，试图以更低显存实现与 SOTA 接近的精度。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\Natural Language Code Retrieval for 1CEnterprise An Open Benchmark and Efficient Bi-Encoder.md",
+      "arxiv_id": "2608.19957v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.8,
+      "new_category": "low_contribution",
+      "tl_dr": "发布1C:Enterprise代码检索的俄语基准与合成训练集,并基于通用bi-encoder做领域微调,无新方法,实证覆盖薄弱。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\Newton Support Functions and Metric Completion of Singular Conformal Metrics at Corners.md",
+      "arxiv_id": "2608.17714v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "below_average",
+      "tl_dr": "在 codim-2 角落处对单峰奇异共形度量 g=Fg0 用齐次 Newton 支撑函数 H(p,q) 给出可达性判据 H<2min{p,q} 及 Hausdorff 维数公式,属于经典 Newton 多面体 + blow-up 框架的组合"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\Resonance crossings as entire functions of the Koopman operator.md",
+      "arxiv_id": "2608.21193v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "medium",
+      "tl_dr": "用Koopman算子的函数演算对EMRI穿越共振做去平均化,在3:2共振单例子上演示有限窗生成元达到解析精度并恢复共振跳跃,但理论迁移性大于实质新方法,实证规模有限。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化Embedding模型\\VT-MUSE Multimodal Unified Sequential Visuotactile Representation Learning for Manipulation.md",
+      "arxiv_id": "2608.21290v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "提出两阶段视触觉序列统一表征学习框架,通过跨模态时序对齐与条件VAE联合编码视觉触觉,在仿真和真实插孔等任务上提升策略性能,但方法本质上是已有组件的组合,新意有限"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\AI with Authority, from Application to Silicon.md",
+      "arxiv_id": "2608.21356v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.5,
+      "new_category": "low_quality",
+      "tl_dr": "作者以个人回忆录形式报告一名研究者用消费级AI订阅在五周内从应用代码到RISC-V流片完成验证栈的工程案例,提出'Salt方法'以证明内核为信任锚,但本质是叙事性案例描述而非可复现的方法论,缺乏对照实验和定量评估。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\Anatomy-Informed Neural Networks Encoding Anatomic Priors in Loss and Architecture, with an SE(3) Fo.md",
+      "arxiv_id": "2608.21332v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.0,
+      "new_category": "below_average",
+      "tl_dr": "提出 Anatomy-Informed Neural Network 概念,将解剖学先验类比 PINN 编码进损失与架构,并以导丝诱发主动脉-髂动脉形变为临床用例搭建 SE(3) Cosserat-rod + 最优传输框架,但全文未训练任何"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\Maximal right ideals of the Banach algebra of bounded operators on a Banach space.md",
+      "arxiv_id": "2608.21335v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.5,
+      "new_category": "high_quality",
+      "tl_dr": "在B(E)上系统刻画有限生成极大右理想，以Lift(T)给出算子论显式刻画，并证明对自反、可分KB、ℓ1(Γ)⊕H等一大类Banach空间均存在非有限生成的极大右理想，从而推进右侧Dales–Żelazko猜想。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\Maxwell's Demon in Markov Chain Monte Carlo Cooling Information Flow and Entropy Balance.md",
+      "arxiv_id": "2608.21337v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "将 MCMC 的接受/拒绝模块形式化为 Maxwell's demon,推导出相对熵衰减率分解为冷却信息流与 Shannon 熵变化之和的恒等式,但缺乏数值验证与算法贡献,本质为既有信息热力学框架在 MCMC 上的概念性复述。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\Mining beyond Earth with Space Robots Exploration, Sampling, and Extraction.md",
+      "arxiv_id": "2608.21358v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "survey_only",
+      "tl_dr": "一篇关于太空采矿机器人(探测-采样-提取)的综述文章,提出六阶段任务架构并梳理相关数据集、仿真平台和开放挑战,无新技术贡献。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\OmniAssistBench Assistant-style Interaction Benchmark for Omni-LLMs.md",
+      "arxiv_id": "2608.21360v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "moderate",
+      "tl_dr": "提出OmniAssistBench,一种通过从互联网视频反向工程并强制固定交互路径来评测omni-modal LLM作为实时视频助手的benchmark,概念上回应了交互路径发散的评测难题,但方法论属于数据集工程而非算法创新,实证覆盖与严谨"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\On-Detector Machine Learning for Beam-Induced Background Rejection at a 10 TeV Muon Collider.md",
+      "arxiv_id": "2608.21327v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "general",
+      "tl_dr": "在 10 TeV muon collider 顶点探测器场景下,使用轻量神经网络对像素簇形状做 BIB 抑制,经 HLS 综合验证 ASIC 可实现,实现 88-90% 数据压缩且 99% 信号保留率"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\Stable $s$-minimal cones in $mathbb{R}^3$ are flat for $s$ close to zero.md",
+      "arxiv_id": "2608.21340v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 8.5,
+      "new_category": "high_quality",
+      "tl_dr": "本文证明三维空间中,当分数阶参数 s 充分接近零时,所有稳定的 s-极小锥必为半空间,并据此推出有限 Morse 指标下的非局部 Bernstein 定理及三维闭流形上光滑 s-极小曲面的存在性。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\VIALS A Benchmark for Visual Interpretation of Artifacts in the Life Sciences.md",
+      "arxiv_id": "2608.21357v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出包含 161 个生命科学视觉工件问答任务的小型基准 VIALS,用于评估 VLM 在专业实验流程图解读能力上的不足,本质是数据集贡献而非方法创新。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\轻量化模型架构\\ViTacPhys Physical Property-Aware Grasping from Human Visual-Tactile Demonstrations.md",
+      "arxiv_id": "2608.21355v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出 ViTacPhys 视触觉框架,从人类演示中预测物体质量、刚度、摩擦系数并据此调节机器人抓取策略,方法以现成模块堆叠为主,实验规模偏小且对比/消融不够充分,整体定位为可行性验证而非突破性工作"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\A Multiplication-Free Feature Extractor for Signal Classification Keyword Spotting Case Study.md",
+      "arxiv_id": "2608.17108v2",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "average_weak",
+      "tl_dr": "在已有 multiplier-free iRDT 特征提取器基础上提出改进版本 next iRDT,用于 KWS 任务,声称在 Google KWS 12 类数据集上达到 94.7% 准确率且硬件复杂度低于 MFCC,但原创性、对比充分性和"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\AI-to-AI Code Reviews of GitHub Pull Requests.md",
+      "arxiv_id": "2608.21311v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "基于 CodAGE 数据集构建了一个 24.8 万条 AI 作者 PR 与 AI 审核配对的数据集,并做了描述性统计,发现跨产品 AI-to-AI 审核占比约 1.6% 且快速增长,但全文以观察为主、缺乏因果分析与方法贡献。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\Cohomological Reduction for Fiber-Contracting ExtensionsFrom Subcohomology to Thermodynamic Formalis.md",
+      "arxiv_id": "2608.21352v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "weak_empirical",
+      "tl_dr": "在纤维收缩扩展上建立一类上同调/变分/热力学形式问题的归约原理,把 Hölder 势约化到商空间,但概念上是对既有 skew-product/Livšic 理论的整合延伸,缺乏新机制与系统数值验证,且分类与内容严重不匹配。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\Dirac Surface States and Nonlocal Quantum Tunneling in Topological Semiconductor Mo$_2$SeTe$_3$ for .md",
+      "arxiv_id": "2608.21333v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "用第一性原理计算宣称Mo2SeTe3为弱拓扑半导体并展示其光学/热电性质,再通过TCAD模拟将其用作TFET沟道,属于'拓扑材料筛选+器件模拟'的标准流程化工作,缺乏新物理洞见和严格的器件级benchmark。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\Efficient Event Generation for High-Multiplicity LHC Processes An End-to-End GPU Workflow with Norma.md",
+      "arxiv_id": "2608.21338v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.5,
+      "new_category": "high_quality",
+      "tl_dr": "将 normalizing flow 提议器与 Pepper 矩阵元生成器深度耦合,实现高粒子数 LHC 过程的端到端 GPU 驻留事件生成工作流,在 4×H100 上对多 jet 过程达到最多两个数量级的端到端加速,使十亿事件级生产从数周"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\Hyperelliptic Brill-Noether loci.md",
+      "arxiv_id": "2608.21301v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.5,
+      "new_category": "high_quality",
+      "tl_dr": "证明超椭圆曲线上的 Brill-Noether 局部（特别包括 theta 除子）etale 局部同构于 catalecticant 行列式簇，从而移植 secant variety 理论得到局部结构、奇点不变量、Milnor 纤维及 Mo"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\Invisible Agents, Uninformed Patients Towards Responsible Deployment Of Autonomous AI Diagnostic Age.md",
+      "arxiv_id": "2608.21326v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 3.0,
+      "new_category": "low_originality_weak_evidence",
+      "tl_dr": "针对撒哈拉以南非洲自主AI诊断代理部署,从患者知情同意与问责角度做政策导向综述,提出三条治理原则,无方法创新亦无系统实验,属跨领域拼凑式工作"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\Natural-Language Workflows Are Not Software Yet Artifact-Driven Compilation for Reliable Agent Execu.md",
+      "arxiv_id": "2608.21341v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "提出 ARTIC,将自然语言工作流编译为显式 artifact 依赖与控制流的 artifact-driven 工作流,并通过约束优化重写困难步骤以提升 agent 执行可靠性,在 488 实例上取得显著一致性与成功率提升。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\边缘端推理部署\\VTRQ Enabling Verifiable Trajectory Range Queries in Hybrid-Storage Blockchains.md",
+      "arxiv_id": "2608.21314v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "在混合存储区块链上提出轨迹范围查询的可验证框架,通过空间层级哈希 ADS 与时间区间树 ADS 的组合实现时空过滤与结果验证,相比 SOTA 取得一定查询与验证效率提升,但整体属于工程化拼装,缺乏核心方法论创新与深度理论分析。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Bottomonium transport in the sQGP at RHIC and the LHC.md",
+      "arxiv_id": "2608.21344v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.5,
+      "new_category": "high_quality",
+      "tl_dr": "将9态bottomonium kinetic rate equation嵌入(3+1)D viscous hydro演化,使用lattice-QCD约束的T-matrix反应率,在统一框架下同时描述RHIC与LHC的Υ产额和pT谱,阐明了r"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\CLEAR Continuous Latent Adapter Routing for Utility-Preserving LLM Safety Alignment.md",
+      "arxiv_id": "2608.21278v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "average",
+      "tl_dr": "提出CLEAR框架,用隐藏状态门控连续控制LoRA强度以平衡安全对齐与模型utility,在Llama-3-8B上降低HarmBench ASR同时保留GSM8K能力,但方法新颖性有限、实验覆盖面不足,属中等水平工作"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Frequency-Aware Continual Learning for Smart Contract Vulnerability Detection with Large Language Mo.md",
+      "arxiv_id": "2608.19680v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "针对智能合约漏洞检测,提出 FA-LoRA + Forget-Aware Replay + Anchor-Protected Progressive Merging 三阶段 pipeline,在 DIVE 基准上以 0.4% 可训练参数实现"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\High-Energy Neutrino Constraints on memory burdened Bardeen and Kerr Primordial Black Holes.md",
+      "arxiv_id": "2608.21353v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "将 memory burden 效应分别与 Bardeen 正规化和 Kerr 旋转结合,计算 PBH 蒸发产生的高能中微子通量,并用 IceCube、Super-K、ANTARES 及未来实验给出 f_PBH 约束,发现 Bardeen "
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Latent Ordinal Evidence, Misaligned Outputs Inference-Time Ordinal Lens Alignment for Multimodal LLM.md",
+      "arxiv_id": "2608.20999v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "诊断多模态 LLM 在序数回归任务上 hidden state 与 digit-token 输出失对齐,提出 OLA 在冻结 backbone 上训练浅层 lens 并仅纠正 digit-token logits,在多数设置下超越 Orde"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Move by Move Measuring and Steering How LLMs Conduct Psychotherapy.md",
+      "arxiv_id": "2608.21325v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "将MULTI-60编码体系压缩为10类治疗动作本体，用作LLM心理咨询行为的测量工具和prompt-time引导信号，发现模型过度使用询问、缺乏心理教育，并展示了工具暴露可缩小与人类治疗师的动作分布差距。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\NeSAM Neuro-Symbolic Kinodynamics with Soil Adaptation for Off-Road Mobility.md",
+      "arxiv_id": "2608.21330v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 6.0,
+      "new_category": "average",
+      "tl_dr": "将 Bekker-Wong 解析 terramechanics 与 Transformer 残差动力学结合并用 EKF 在线辨识土壤参数,在仿真与真机上相对若干 baseline 提升约 30% 预测精度,但方法论上属于神经-符号范式的工程"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Oblique Bragg-Doppler scattering at relativistic grating created by backward Raman amplification in .md",
+      "arxiv_id": "2608.21282v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.5,
+      "new_category": "high_quality",
+      "tl_dr": "首次在氢气填充空芯光纤中通过背向受激拉曼散射产生以接近光速运动的相干波光栅,并实验观测到斜入射时的相对论性Bragg-Doppler散射效应,实现125 THz的单向多普勒频移,可作为深紫外至真空紫外的角度可调谐频率转换器。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\PSK at WMT 2026 MIST Task-Specialized QLoRA Adapters for Multilingual Summarization and Question Ans.md",
+      "arxiv_id": "2608.20757v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "为 WMT 2026 MIST 提交,基于 Tiny Aya Global 加三个 QLoRA 适配器做多语言摘要与问答,工程导向但无方法贡献"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Re$^3$Cap Retrieval-Guided Refinement for Image Captioning Enhancement via Reinforcement Learning.md",
+      "arxiv_id": "2608.21305v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "unknown",
+      "tl_dr": ""
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Roadside-Cooperative Autonomous Driving From Data Platform to Vision-Language End-to-End Reasoning.md",
+      "arxiv_id": "2608.21032v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "提出V2XBench仿真平台、Chat-V2XBench VQA数据集与AURORA端到端V2X-VLM框架,通过跨视角query对齐融合ego与路侧特征并用LoRA微调的VLM输出轨迹,在闭环仿真中取得较高Route Completion"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Self-Routed Tensor Adapters for Parameter-Efficient Universal Visual Adaptation.md",
+      "arxiv_id": "2608.16384v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.0,
+      "new_category": "unknown",
+      "tl_dr": ""
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Thermo-FL Thermal-Aware Robust Federated Fine-Tuning of Large Language Models for Edge AI.md",
+      "arxiv_id": "2608.21172v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "在联邦LoRA微调中同时引入热感知负载调节和稀疏更新的鲁棒聚合流水线(TERRA),并以emulator+Jetson原型做验证,但本质是已有技术的拼凑,缺乏理论深度与系统对比。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Ultralow-Field Triplon Condensation in a Spin-Ladder Magnet.md",
+      "arxiv_id": "2608.21316v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 7.0,
+      "new_category": "high_quality",
+      "tl_dr": "在自旋梯磁体Henmilite中实现μ0Hc1仅0.17T的超低场三激子BEC,结合多实验手段与QMC,将其确立为涨落主导的量子临界调谐平台。"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\Vision-Language Models for Analog Gauge Reading An Empirical Study of Specialization, Transfer and R.md",
+      "arxiv_id": "2608.17723v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 4.5,
+      "new_category": "below_average",
+      "tl_dr": "对Qwen2.5-VL-7B-Instruct在模拟/视频/工业仪表数据集上做zero-shot、ICL与QLoRA微调的实证评估,报告range-normalized MPE并分析迁移、鲁棒性与可靠性,但方法无新意且缺乏与现有指针读数pi"
+    },
+    {
+      "path": "F:\\移动云盘同步盘\\30AI技术知识树\\arxivForAI\\第一层-专用小模型\\领域微调技术\\When Adaptation Hurts Connecting Representational Drift to OOD Failures in MedSAM Fine-Tuning.md",
+      "arxiv_id": "2608.21300v1",
+      "old_score": 5.0,
+      "old_category": "unknown",
+      "new_score": 5.5,
+      "new_category": "average",
+      "tl_dr": "系统比较六种微调策略在MedSAM上的IN/OOD表现,用CKA证明decoder表征漂移与far-OOD退化强相关,得出encoder-only LoRA+prompt jitter最鲁棒的工程经验。"
+    }
+  ],
+  "failed": []
+}

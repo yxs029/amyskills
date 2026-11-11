@@ -1,0 +1,1170 @@
+import type { OrchestrateState } from "../types.ts"
+import type { ToolContext, AgentSubmitParams } from "./types.ts"
+import type { WorkItem, Severity, StepConfig } from "../workflow/types.ts"
+import { loadWorkflowFile, resolveWorkflowPath, type LoadedWorkflow } from "../workflow/loader.ts"
+import {
+  submitForStep, adjudicateExempt, adjudicateRecheck, assertSubmitRouting, chainPassAdvance,
+} from "../workflow/submit.ts"
+import {
+  createInitialWorkItem, checkpointTriggered,
+  applyCheckpointContinue, applyCheckpointGiveup,
+  getStepVerdict, clearStepTags, isBlockingSeverity, isInfoSeverity, isTerminalPhase, applyTransition,
+} from "../workflow/engine.ts"
+import { resetReviewTagsOnFix, dedupeNewChildren, resolveChildIssueFields } from "../workflow/reset.ts"
+import { agentToReviewDimension, agentToReviewLayer, isReviewerFamily, readIssueSource } from "../constants.ts"
+import { REVIEW_DIMENSIONS } from "../types.ts"
+import type { Dimension } from "../types.ts"
+import { taskChildrenOf, taskChildById, normalizeTaskChildIds, taskListOf, issueChildrenOf } from "../task-children.ts"
+import {
+  autoCommitWorktreeChanges, listDirtyNonDocFiles, reconcileMainPollution, getCurrentHead, isWorktreeClean,
+  detectChanges, isDocLikePath,
+} from "../git.ts"
+import { assertIssueFilesWithin } from "../paths.ts"
+import {
+  readStateByWorktree, writeState, getLockPath, acquireLock, releaseLock,
+} from "../state.ts"
+import { readExemptions, applyExemptionDowngrade, writeDismissedExemption } from "../exemptions.ts"
+import {
+  assertMustDoCoverage, uncoveredMustDo, resolveStepMustDo, hasNoChangeDeclaration,
+  mustDoChecksOfStep, isValidSkipData, SKIP_REASON_FORMAT,
+} from "./gate.ts"
+
+/** 按 state.mode 读取 workflow 配置（simple → task-simple.yaml，否则 task.yaml），进程内按路径缓存。 */
+const loadTaskWorkflow = (state: OrchestrateState) => loadWorkflowFile(resolveWorkflowPath(state))
+
+/** issue id 归一化：去 # 前缀（review 工具按 tg.issue 序号引用时可能带 #）。 */
+function normalizeIssueId(id: string): string {
+  return String(id).trim().replace(/^#/, "")
+}
+
+/**
+ * 判定本次 review 提交是否「仅携带裁定类参数」（recheck_adjudications / exempt_adjudications，无其他实质参数）。
+ * 供重复提交守卫的补交豁免：reviewer 上次 passed 提交漏带复核/豁免裁定导致本层 review 态 issue
+ * 阻塞门禁时（见 engine.blockedSupplementAgents 推导），允许仅补带 recheck_adjudications /
+ * exempt_adjudications 重提解除阻塞；空提交或携带其他实质参数（含 fixed_issue_ids /
+ * exempt_issue_ids / new_children）的重复提交仍被守卫拒绝。
+ */
+function isSupplementOnly(params: AgentSubmitParams): boolean {
+  const hasAdjudication =
+    (params.recheck_adjudications?.length ?? 0) > 0 ||
+    (params.exempt_adjudications?.length ?? 0) > 0
+  if (!hasAdjudication) return false
+  return (
+    (params.fixed_issue_ids?.length ?? 0) === 0 &&
+    (params.exempt_issue_ids?.length ?? 0) === 0 &&
+    (params.new_children?.length ?? 0) === 0 &&
+    (params.verified_tasks?.length ?? 0) === 0 &&
+    (params.failed_tasks?.length ?? 0) === 0 &&
+    !params.boundary_expansion &&
+    (params.must_do_checks?.length ?? 0) === 0
+  )
+}
+
+/**
+ * 判定本次提交是否「仅携带任务验证补交」（verified_tasks 非空，其余实质参数全空）。
+ * 供重复提交守卫的补交豁免：任务验证归属 step（verify_task/quality_review）上次 passed 提交
+ * 漏带 verified_tasks 导致 task children 卡 review 态（done 收口被拦截，见 engine
+ * recommendForItem 的 gateBlock 补交推导）时，允许仅补带 verified_tasks 重提解除阻塞；
+ * 空提交或携带其他实质参数的重复提交仍被守卫拒绝。放行须叠加「存在 review 态 task child」
+ * 条件（与引擎推导条件同源），防止放行面过宽。
+ */
+function isTaskVerificationSupplement(params: AgentSubmitParams): boolean {
+  if ((params.verified_tasks?.length ?? 0) === 0) return false
+  return (
+    (params.failed_tasks?.length ?? 0) === 0 &&
+    (params.new_children?.length ?? 0) === 0 &&
+    (params.fixed_issue_ids?.length ?? 0) === 0 &&
+    (params.exempt_issue_ids?.length ?? 0) === 0 &&
+    (params.exempt_adjudications?.length ?? 0) === 0 &&
+    (params.recheck_adjudications?.length ?? 0) === 0 &&
+    !params.boundary_expansion &&
+    (params.must_do_checks?.length ?? 0) === 0
+  )
+}
+
+/**
+ * 任务验证补交放行判定（重复提交守卫的豁免与必做清单门禁的跳过共用同源条件）：仅携带
+ * verified_tasks 的严格补交形态，且该 agent 在该 step 已 passed、item 存在 review 态
+ * （submitted）task child——与守卫放宽、引擎 gateBlock 补交推导条件同源。
+ * 必做门禁的跳过绑定本条件（而非仅形态判定）：首次提交（step 尚未 passed）不得借补交形态
+ * 跳过必做清单覆盖度校验——补交跳过的理由是完整审查在首次 passed 时已做过。
+ */
+function isTaskVerifySupplementAllowed(
+  item: WorkItem,
+  params: AgentSubmitParams,
+  stepId: string,
+  agent: string,
+): boolean {
+  return (
+    isTaskVerificationSupplement(params) &&
+    getStepVerdict(item, stepId, agent) === "passed" &&
+    taskChildrenOf(item).some((c) => c.phase === "review")
+  )
+}
+
+/**
+ * 统一裁定一致性守卫：任一裁定参数含「驳回（rejected）」时，提交级 verdict 必须为 failed。
+ * - exempt_adjudications 含 action==="rejected"（issue 回 todo 继续修复）→ verdict 必须为 failed
+ * - recheck_adjudications 含 verdict==="rejected"（issue 回 todo + refix_count 递增 + 写 reject_reason）→ verdict 必须为 failed
+ * 驳回意味着该 issue 需修复，审查不能判定通过：rejected+passed 会让 review 态 issue 以非终态滞留，
+ * 门禁要求本层 blocking issue 终态（stepCanPass=false 且无补交推导），形成静默死锁。
+ * dismissed/passed 是合法组合（裁定完成且维度通过），不受此守卫限制。
+ * 零副作用：守卫在一切裁定写入（adjudicateExempt/adjudicateRecheck）与 submitForStep 应用 verdict 之前调用，
+ * 拒绝时保证零状态变更（含混合裁定清单）。
+ */
+function assertRejectedAdjudicationNotPassed(params: AgentSubmitParams): void {
+  if (params.verdict !== "passed") return
+  const rejectedExempt = params.exempt_adjudications?.find((adj) => adj.action === "rejected")
+  if (rejectedExempt) {
+    throw new Error(
+      `豁免裁定失败：issue "${rejectedExempt.issue_id}" 被驳回（rejected），该 issue 需修复，verdict 必须为 failed，不能以 passed 提交。`
+    )
+  }
+  const rejectedRecheck = params.recheck_adjudications?.find((adj) => adj.verdict === "rejected")
+  if (rejectedRecheck) {
+    throw new Error(
+      `复核失败：issue "${rejectedRecheck.issue_id}" 被驳回（rejected），该 issue 需修复，verdict 必须为 failed，不能以 passed 提交。`
+    )
+  }
+}
+
+/** 以 tg.issue 原始 id 解析 child（externalId 优先，兜底 issue: 前缀），供豁免裁定定位。
+ *  issue child 优先匹配（与 childById 语义对称）：task child 短数字 id 可能与 issue externalId 撞车，
+ *  fixed/exempt 归因解析须命中 issue child，未命中再兜底 task child。 */
+function resolveChildByIssueId(item: WorkItem, issueId: string): WorkItem | null {
+  const match = (c: WorkItem): boolean =>
+    c.externalId === issueId || c.id === issueId || c.id === `issue:${issueId}`
+  return issueChildrenOf(item).find(match) ?? taskChildrenOf(item).find(match) ?? null
+}
+
+/**
+ * 定位当前 taskGroup 对应的活跃 task WorkItem。
+ * 单轨下 workItems 为唯一事实源（init 构造 / 旧格式读兼容自动升级），缺失即未初始化。
+ */
+function resolveTaskWorkItem(state: OrchestrateState): WorkItem {
+  const taskId = `task:${state.taskGroupId}`
+  const item = state.workItems.find((w) => w.id === taskId)
+  if (!item) {
+    throw new Error(`工作项 "${taskId}" 缺失，请重新调用 opx_orch_init 初始化。`)
+  }
+  return item
+}
+
+/** implement 端必做清单门禁上下文：生效清单由调用方按「当前 step 声明 + 会话项目栈」解析后传入
+ *  （与视图/checkpoint 共用 resolveStepMustDo 单一解析入口，禁止各算一遍）。 */
+interface MustDoGateContext {
+  requiredItems: string[]
+}
+
+/** 正常提交路径的固定返回体：提交状态与推进详情对子代理无意义，仅告知提交成功并结束会话。 */
+const SUBMIT_OK_MESSAGE = "提交成功，请直接结束当前会话"
+
+// ─── M1a 参数面处理：task children / metadata.blockers / 分层重置 ───
+
+interface ItemBlocker {
+  id: string
+  sourceRole: string
+  taskId: string | null
+  category: string
+  description: string
+  evidence: string
+  attemptedActions: string
+  options: string[]
+  status: "awaiting_user" | "resolved"
+  userResponse: string | null
+  architectConclusion: string | null
+}
+
+/** 读取 metadata.blockers（analyze/implement 上报的 blocker 清单）。 */
+function itemBlockers(item: WorkItem): ItemBlocker[] {
+  return Array.isArray(item.metadata["blockers"]) ? (item.metadata["blockers"] as ItemBlocker[]) : []
+}
+
+/** 新增 blocker 到 metadata.blockers，id 按 b{n} 递增，status=awaiting_user。 */
+function addItemBlockers(item: WorkItem, raw: NonNullable<AgentSubmitParams["blockers"]>): void {
+  const list = itemBlockers(item)
+  let nextId = list.reduce((max, b) => Math.max(max, Number(b.id.replace(/^b/, "")) || 0), 0) + 1
+  for (const b of raw) {
+    list.push({
+      id: `b${nextId++}`,
+      sourceRole: b.source_role,
+      taskId: b.task_id ?? null,
+      category: b.category,
+      description: b.description,
+      evidence: b.evidence,
+      attemptedActions: b.attempted_actions,
+      options: b.options ?? [],
+      status: "awaiting_user",
+      userResponse: null,
+      architectConclusion: null,
+    })
+  }
+  item.metadata["blockers"] = list
+}
+
+/** 汇总 fixed/exempt issue 的归因分层（报源层 + quality 维度），供 resetReviewTagsOnFix 使用。
+ *  fixed（实际修改代码）触发 quality 维 tag 清除（含显式声明维度的跨维归因标签）；exempt（豁免=接受现状、
+ *  不修改代码）不触发 quality 维 tag 清除——已 passed 的维度无需因豁免重审。 */
+function collectFixedExemptLayers(
+  item: WorkItem,
+  fixedIds: string[],
+  exemptIds: string[],
+): { fixedSourcePhases: string[]; exemptSourcePhases: string[]; touchedQualityDims: string[] } {
+  const fixedSourcePhases = new Set<string>()
+  const exemptSourcePhases = new Set<string>()
+  const touchedQualityDims = new Set<string>()
+  /** 归因维 tag 纳入（仅 fixed）：报源层为 quality（本维 issue，含缺省维度）或显式声明了维度（tool/task 跨维归因标签）
+   *  都计入——跨维 issue 修复后目标维 verify_quality tag 须清，否则回退重审期该维恒 failed 永不分派（死锁）。
+   *  exempt 不调用本函数：豁免不改代码，清除维度 tag 会触发无实际待办的重复调度。 */
+  const touchQualityDim = (child: WorkItem): void => {
+    const f = resolveChildIssueFields(child)
+    const declaredDim = (REVIEW_DIMENSIONS as readonly string[]).includes(child.metadata["dimension"] as string)
+      ? (child.metadata["dimension"] as Dimension)
+      : undefined
+    if (f.sourcePhase === "quality" || declaredDim) touchedQualityDims.add(declaredDim ?? f.dimension)
+    // 报源维度兜底：quality 报源未显式声明 dimension（缺省回落 style）时，补报源 reviewer 自身维度 tag——
+    // 否则仅清 style 而报源维残留，回退重审期该维恒 failed 多一轮不必要重审。
+    if (!declaredDim && f.sourcePhase === "quality") {
+      const source = readIssueSource(child) ?? ""
+      const sourceDim = agentToReviewDimension(source)
+      if (sourceDim) touchedQualityDims.add(sourceDim)
+    }
+  }
+  for (const id of fixedIds) {
+    const child = resolveChildByIssueId(item, id)
+    if (!child) continue
+    // 报源层 tag 必清（谁提谁裁定：tool 报的跨维 issue 修复后 verify_tool 必重跑）
+    fixedSourcePhases.add(resolveChildIssueFields(child).sourcePhase)
+    touchQualityDim(child)
+  }
+  for (const id of exemptIds) {
+    const child = resolveChildByIssueId(item, id)
+    if (!child) continue
+    // 报源层 tag 语义保留（tool/task 报源 exempt 仍清本层 tag——「谁提谁裁定」派发报源 reviewer 裁定豁免申请的通道），
+    // 但不触发 touchQualityDim：exempt 不改代码，quality 维度 tag 保留 passed。
+    exemptSourcePhases.add(resolveChildIssueFields(child).sourcePhase)
+  }
+  return {
+    fixedSourcePhases: [...fixedSourcePhases],
+    exemptSourcePhases: [...exemptSourcePhases],
+    touchedQualityDims: [...touchedQualityDims],
+  }
+}
+
+/** 由 new_children 参数构造 issue child，透传全部分子段到 metadata（source/dimension/file/line/suggestion/rule/root_cause_guess）。
+ *  报源层由 metadata.source 反推（见 agentToReviewLayer），不再写入 source_phase。
+ *  dimension 提交语义：quality reviewer（agentToReviewDimension 命中）由报源维度推断写入；
+ *  tool/task reviewer 透传显式声明的归因维度（校验循环已保证必填且合法）。 */
+function buildIssueChild(nc: NonNullable<AgentSubmitParams["new_children"]>[number], sourceAgent: string): WorkItem {
+  const child = createInitialWorkItem({
+    id: nc.id,
+    source: sourceAgent,
+    externalId: nc.id,
+    type: "issue",
+    title: nc.title,
+    description: nc.description,
+    severity: nc.severity as Severity | undefined,
+  })
+  child.metadata["source"] = sourceAgent
+  const sourceDim = agentToReviewDimension(sourceAgent)
+  child.metadata["dimension"] = sourceDim ?? nc.dimension
+  if (nc.file) child.metadata["file"] = nc.file
+  if (nc.line !== undefined) child.metadata["line"] = nc.line
+  if (nc.suggestion) child.metadata["suggestion"] = nc.suggestion
+  if (nc.rule) child.metadata["rule"] = nc.rule
+  if (nc.root_cause_guess) child.metadata["root_cause_guess"] = nc.root_cause_guess
+  return child
+}
+
+/** 清空 review 三个验证 step 的裁决 tags（审查未过/任务驳回回退时复核标记重置，下次进入 review 各层重新分派）。 */
+function clearReviewVerificationTags(item: WorkItem): void {
+  clearStepTags(item, "verify_tool")
+  clearStepTags(item, "verify_task")
+  clearStepTags(item, "verify_quality")
+}
+
+/** blocker 提交后的 reset 助手：task children 仅 todo/review 态回 todo（done 已验证不得降级，
+ *  对齐 handleImplementParams 提交时对 done 态的跳过语义）+ 清 review 层验证标记（对齐旧 resetForBlocker）。 */
+function resetTasksForBlocker(item: WorkItem): void {
+  for (const child of taskChildrenOf(item)) {
+    if (child.phase === "done") continue
+    child.phase = "todo"
+    delete child.metadata["reject_reason"]
+  }
+  clearReviewVerificationTags(item)
+}
+
+/**
+ * blocker_updates 目标可更新性校验（analyze / implement 两端共用）。
+ * 旧数据兼容：metadata.blockers 可能残留缺 status 的历史条目——hasUnresolvedBlocker 口径为
+ * `status !== "resolved"`，缺 status 会被保守视为未解决（不静默放行 passed）；若更新入口只认
+ * awaiting_user，该条目既算未解决又无法经 blocker_updates 解除，形成永久阻塞。故此处把缺 status
+ * 归一为 awaiting_user（可被解除）；其余非 awaiting_user 状态仍拒绝更新（保守，留人工核对）。
+ */
+function assertBlockerUpdatable(blocker: ItemBlocker): void {
+  const raw = blocker as unknown as { status?: string; id: string }
+  if (raw.status === undefined) raw.status = "awaiting_user"
+  if (raw.status !== "awaiting_user") {
+    throw new Error(`blocker "${blocker.id}" 状态不是 awaiting_user，无法更新。`)
+  }
+}
+
+/** analyze step（blocker 回退落点，仅职责：blocker 裁决 + 用户确认 + 执行边界修订）参数处理：
+ *  execution_boundary 可选（回退时修订边界；提案阶段已把边界写入 clarify.md，此处不再是 passed 必传项）、
+ *  blockers/blocker_updates、无未解决 blocker 门禁。 */
+function handleAnalyzeParams(item: WorkItem, params: AgentSubmitParams): void {
+  if (params.execution_boundary) {
+    item.metadata["execution_boundary"] = params.execution_boundary
+  }
+  if (params.blockers?.length) addItemBlockers(item, params.blockers)
+  if (params.blocker_updates?.length) {
+    for (const u of params.blocker_updates) {
+      const blocker = itemBlockers(item).find((b) => b.id === u.blocker_id)
+      if (!blocker) throw new Error(`blocker "${u.blocker_id}" 不存在于 metadata.blockers 中。`)
+      assertBlockerUpdatable(blocker)
+      blocker.userResponse = u.user_response
+      blocker.status = "resolved"
+    }
+  }
+  if (params.verdict === "passed" && itemBlockers(item).some((b) => b.status !== "resolved")) {
+    throw new Error("存在未解决的 blocker，无法以 passed 提交 analyze step。请先通过 blocker_updates 处理全部 blocker。")
+  }
+}
+
+/**
+ * simple 模式 implement blocker 参数拒绝（提交参数处理入口，先于一切校验与状态写入，拒绝时零状态变更）。
+ * simple 流程没有 analyze 回退步骤：blocker 进入 awaiting_user 后没有裁决落点，后续 implement 会被
+ * 「存在未解决的 blocker」永久拦截。simple 的阻塞处理走「当场向用户确认 / 无人值守自行裁决」并把
+ * 处理方式与结论留痕在 must_do_checks 的 evidence；需要架构裁决的场景改用 full 模式。
+ */
+function assertSimpleModeNoBlockerParams(params: AgentSubmitParams): void {
+  if (!params.blocker && !(params.blockers?.length)) return
+  throw new Error(
+    "simple 模式不走 blocker 状态机：implement 提交不接受 blocker / blockers 参数。\n" +
+    "simple 流程没有 analyze 回退步骤，blocker 进入待裁决后没有裁决落点，后续 implement passed 会被未解决的 blocker 永久拦截。\n" +
+    "遇阻塞时，应当场用 question 向用户确认（无人值守时按准则自行裁决），并把处理方式与结论写进 must_do_checks 对应项的 evidence；\n" +
+    "需要架构裁决者裁决的场景请改用 full 模式（full 模式 blocker 会回退 analyze 裁决）。"
+  )
+}
+
+/** implement step 参数处理：blocker（on_fail）、blocker_updates 消费闭环 + 无未解决 blocker 门禁、
+ *  completed_task_ids + 覆盖门禁、must_do_checks 门禁与存档、deployment_notes 存档。 */
+function handleImplementParams(item: WorkItem, params: AgentSubmitParams, mustDoContext?: MustDoGateContext): void {
+  if (params.blocker) {
+    // 同轮组合显式拒绝（置于分支最前，先于一切写入）：blocker 分支在下方 return，同轮携带的
+    // blocker_updates 会被静默丢弃（丢失申报）。校验放行面只有分两轮：先 failed+blocker 上报新
+    // 阻塞，用户确认后下一轮再 blocker_updates + 重新提交。
+    if (params.blocker_updates?.length) {
+      throw new Error(
+        "不可在同一轮提交中同时上报新 blocker（blocker 参数）与更新旧 blocker（blocker_updates）。\n" +
+        "请分两轮处理：先以 verdict=failed + blocker 上报新阻塞；用户确认后，下一轮再携带 blocker_updates 记录答复并重新提交。"
+      )
+    }
+    if (params.verdict !== "failed") {
+      throw new Error("blocker 参数仅支持 verdict=failed 提交（on_fail 回退 analyze）。")
+    }
+    addItemBlockers(item, [params.blocker])
+    resetTasksForBlocker(item)
+    return
+  }
+
+  // blocker_updates 消费闭环（校验语义与 handleAnalyzeParams 一致）：按 blocker_id 置 resolved 并记录
+  // 用户答复。task 指向型 blocker（人工执行/环境不可验证任务）经用户确认留痕后，开发者凭该记录将对应
+  // 任务列入 completed_task_ids 重新申报，审查者核验留痕后方可在任务验证层确认。
+  // 位于 blocker 分支之外：blocker 是本轮上报参数（上方分支 return），blocker_updates 是后续轮次参数。
+  if (params.blocker_updates?.length) {
+    for (const u of params.blocker_updates) {
+      const blocker = itemBlockers(item).find((b) => b.id === u.blocker_id)
+      if (!blocker) throw new Error(`blocker "${u.blocker_id}" 不存在于 metadata.blockers 中。`)
+      assertBlockerUpdatable(blocker)
+      blocker.userResponse = u.user_response
+      blocker.status = "resolved"
+    }
+  }
+  if (params.verdict === "passed" && itemBlockers(item).some((b) => b.status !== "resolved")) {
+    throw new Error("存在未解决的 blocker，无法以 passed 提交 implement step。请先通过 blocker_updates 处理全部 blocker。")
+  }
+
+  const tasks = taskListOf(item)
+  const completed = normalizeTaskChildIds(params.completed_task_ids ?? [], item)
+  const validIds = new Set(tasks.map((t) => t.id))
+  for (const id of completed) {
+    if (!validIds.has(id)) {
+      throw new Error(
+        `completed_task_ids 中包含无效 task id: "${id}"。\n有效 task ID: ${Array.from(validIds).sort((a, b) => Number(a) - Number(b)).join(", ")}`
+      )
+    }
+  }
+  // 仅 todo 态 task child 置 review（submitted 语义）+ 清 reject_reason；
+  // done 态（已 verified）跳过不降级——质量层回退后已验证任务不得重新验证。
+  for (const id of completed) {
+    const child = taskChildById(item, id)
+    if (child && child.phase === "todo") {
+      child.phase = "review"
+      delete child.metadata["reject_reason"]
+    }
+  }
+  // 按条目状态重投影（而非 id 集合）判定遗漏：置 review 循环之后仍存在任何 open/rejected 条目即显式失败。
+  // 重复 id 的第二套条目（id 已在 completed_task_ids 中但状态未变更）与真遗漏条目都会在此暴露，
+  // 避免旧逻辑按 id 集合判定漏检而让下游 forwardGatePassed 静默死锁。
+  const remaining = taskListOf(item).filter(
+    (t) => t.status === "open" || t.status === "rejected"
+  )
+  if (remaining.length > 0) {
+    throw new Error(
+      `以下 task 处于 open/rejected 状态且未在 completed_task_ids 中：\n` +
+      remaining.map((t) => `- #${t.id}(${t.status}) ${t.title}`).join("\n") +
+      `\ncompleted_task_ids 仅申报已完成可供验证的任务；无法完成或人工执行的任务不得虚报，` +
+      `应以 verdict=failed + blocker 上报（task_id 指向该任务），经用户确认后凭 blocker 留痕重新申报。`
+    )
+  }
+
+  // 必做清单门禁（implement 端）：只读本轮提交参数，不回落 metadata 存档——上一轮的申报不等于本轮通过。
+  // blocker 分支已在上方 return，故 failed+blocker / blocker_updates 路径不进入本门禁。
+  if (params.verdict === "passed" && mustDoContext) {
+    assertMustDoCoverage(mustDoContext.requiredItems, params.must_do_checks)
+  } else if (params.must_do_checks) {
+    // 非 passed 路径不查覆盖度，但显式申报仍受格式约束（与 review 端同口径）。
+    assertMustDoCoverage([], params.must_do_checks)
+  }
+  if (params.must_do_checks) {
+    archiveMustDoChecks(item, "implement", params.must_do_checks)
+  }
+  // deployment_notes：规划文档未记载、实施时新发现的部署注意点，收尾汇总时原样转述。
+  if (params.deployment_notes?.length) {
+    item.metadata["deployment_notes"] = params.deployment_notes.filter((n) => n.trim() !== "")
+  }
+}
+
+// ─── 必做清单申报存档与门禁（implement / review 双端共用） ───
+
+/** 按 step 存档必做项申报：metadata.must_do_checks_by_step[stepId]（各 step 分档，互不覆盖）。 */
+function archiveMustDoChecks(item: WorkItem, stepId: string, checks: NonNullable<AgentSubmitParams["must_do_checks"]>): void {
+  const raw = item.metadata["must_do_checks_by_step"]
+  const byStep = typeof raw === "object" && raw !== null && !Array.isArray(raw)
+    ? (raw as Record<string, unknown>)
+    : {}
+  byStep[stepId] = checks
+  item.metadata["must_do_checks_by_step"] = byStep
+}
+
+/**
+ * implement 侧 no_change 豁免的事实核对：声明「本轮无代码/配置变更」时，用变更检测
+ * （baseRef..HEAD 已提交区间 + 工作区未提交改动）核对确实不存在非文档类变更，拒绝仅凭自述豁免。
+ * 无 base_ref（无法界定区间）时不放行豁免——豁免理由无法核对即视为未成立。
+ */
+async function assertImplementNoChangeFact(item: WorkItem, params: AgentSubmitParams, wtPath: string): Promise<void> {
+  if (params.verdict !== "passed") return
+  if (!hasNoChangeDeclaration(params.must_do_checks)) return
+  const baseRef = typeof item.metadata["base_ref"] === "string" ? item.metadata["base_ref"] : null
+  if (!baseRef) {
+    throw new Error(
+      "implement 提交声明了 no_change（本轮无代码/配置变更）整体豁免，但当前无法界定变更区间（缺少 base_ref），豁免理由无法核对。\n" +
+      "请按必做清单逐项执行并申报结果；确属无变更的轮次也须逐项附执行证据（如构建/格式检查的空跑输出）。"
+    )
+  }
+  const changes = await detectChanges(wtPath, { baseRef })
+  // 判定口径统一走 isDocLikePath（与视图/自动提交的文档类白名单同源）：openspec/ 与 .md 都属文档类。
+  // 不用 DetectChangesResult.hasNonDocChange 作放行依据——它只把 openspec/ 当文档，根目录或 docs/ 下的
+  // .md 会被判为代码变更，使「仅改文档」这条合法路径恒被拒绝。
+  const nonDoc = changes.files.filter((f) => !isDocLikePath(f))
+  if (nonDoc.length > 0) {
+    throw new Error(
+      "implement 提交的 no_change 豁免被拒绝：no_change 仅适用于本轮确无代码/配置变更的情形，" +
+      "且须经变更检测核对成立；检测结果显示本轮存在代码/配置变更。" +
+      `\n检出非文档类改动文件：\n${nonDoc.map((f) => `  - ${f}`).join("\n")}` +
+      "\n请按本 step 必做清单逐项执行并附证据申报；确无法执行的必做项以 completed=false + 结构化 skip_reason 申报降级理由。"
+    )
+  }
+  // 无文件可列却带变更标记：hasNonDocChange 在 git 查询失败时恒为 true 且 files 为空，
+  // 「确实无变更」与「读不到变更」无法区分，按无法核对处理（安全侧），不放行豁免。
+  if (changes.files.length === 0 && changes.hasNonDocChange) {
+    throw new Error(
+      "implement 提交的 no_change 豁免被拒绝：变更检测未能产出可核对的文件清单（git 查询失败），" +
+      "无法确认「无代码/配置变更」，豁免理由无法核对。" +
+      "\n请按本 step 必做清单逐项执行并附证据申报；确属无变更的轮次也须逐项附执行证据（如构建/格式检查的空跑输出）。"
+    )
+  }
+}
+
+/** 把 boundary_expansion 的目录/包合并进执行边界。
+ *  无基础边界（metadata.execution_boundary 缺失）的语义是「默认整个 worktree」——边界本就覆盖全量，
+ *  expansion 无可合并对象，保持不合并（显式跳过，不得因 boundary 为 null 抛 TypeError）。 */
+function mergeBoundaryInto(item: WorkItem, expansion: NonNullable<AgentSubmitParams["boundary_expansion"]>): void {
+  const boundary = item.metadata["execution_boundary"] as {
+    allowed_directories: string[]
+    allowed_packages: string[]
+    notes: string
+  } | undefined
+  if (!boundary) return
+  for (const dir of expansion.allowed_directories ?? []) {
+    if (!boundary.allowed_directories.includes(dir)) boundary.allowed_directories.push(dir)
+  }
+  for (const pkg of expansion.allowed_packages ?? []) {
+    if (!boundary.allowed_packages.includes(pkg)) boundary.allowed_packages.push(pkg)
+  }
+}
+
+/**
+ * verdict=failed 必须有具体不通过理由（对齐 main assertPassedConsistency）。
+ * 理由判定（认遗留 issue 或实际接受的 new_children）：
+ * - verify_task：本次 failed_tasks 非空，或 new_children 含 Low+，或存在未终态的 Low+ task 报源层阻塞 child
+ * - verify_tool：本次 new_children 含 Low+，或存在未终态的 Low+ tool 报源层阻塞 child
+ * - verify_quality：本次 new_children 含 Low+ 且维度属于当前提交 agent，或存在未终态的 Low+ quality 报源层
+ *   阻塞 child 且 dimension 属于当前提交 agent 维度（新报与遗留理由均按维度过滤，F3；报源层由 source 反推）
+ * - quality_review（simple 合并审查）：本次 failed_tasks 非空，或 new_children 含 Low+，或存在未终态的
+ *   Low+ quality 报源层阻塞 child（不按维度过滤——openspec-reviewer 无固定维度，对全部质量层负责；按
+ *   agentToReviewDimension 过滤会对该身份恒为 undefined 导致 failed 提交死锁。simple 审查者合并承担任务
+ *   验证语义，failed_tasks 驳回任务与 Low+ issue 同为合法 failed 理由，与 verify_task 分支对齐）
+ * - verify_cleanup：本次 new_children 含 Low+，或存在未终态的 Low+ 阻塞 child（不按维度/报源层过滤——
+ *   收尾层须对全部残留阻塞负责，任何层的遗留阻塞都构成不通过理由）
+ * 理由判定在 dedupeNewChildren 之后调用（F4）：传入的 newChildren 为已去重的 accepted，重复新报不构成理由。
+ * 不满足即抛错，handleReviewParams 在 submitForStep 之前调用，零状态变更。
+ */
+function assertFailedHasReason(
+  item: WorkItem,
+  params: AgentSubmitParams,
+  newChildren: WorkItem[],
+  stepId: string,
+  agent: string,
+): void {
+  const hasNewBlocking = newChildren.some((c) => isBlockingSeverity(c.severity))
+  const existingBlocking = item.children.filter((c) => !isTerminalPhase(c.phase) && isBlockingSeverity(c.severity))
+  let layerName: string
+  let hasReason: boolean
+  if (stepId === "verify_task") {
+    layerName = "任务层"
+    hasReason =
+      (params.failed_tasks?.length ?? 0) > 0 ||
+      hasNewBlocking ||
+      existingBlocking.some((c) => resolveChildIssueFields(c).sourcePhase === "task")
+  } else if (stepId === "verify_tool") {
+    layerName = "工具层"
+    hasReason = hasNewBlocking || existingBlocking.some((c) => resolveChildIssueFields(c).sourcePhase === "tool")
+  } else if (stepId === "verify_cleanup") {
+    layerName = "收尾层"
+    hasReason = hasNewBlocking || existingBlocking.length > 0
+  } else if (stepId === "quality_review") {
+    // simple 合并审查 step：审查者（openspec-reviewer）不归属固定质量维度，理由判定不按
+    // agentToReviewDimension 过滤（该值对 openspec-reviewer 为 undefined，按维度过滤会导致任何
+    // failed 提交都报「不存在未解决的阻塞 issue」死锁）。simple 审查者承担任务验证（verify_task
+    // 语义），failed_tasks 与 Low+ issue 同为合法 failed 理由：本次 failed_tasks 非空（驳回任务回退
+    // implement），或本次新报含 Low+ issue，或存在 quality 报源（sourcePhase === "quality"）未终态
+    // 阻塞 issue，均构成不通过理由——simple 审查者对全部质量层负责，与 full 模式 verify_quality
+    // 各维度分支互不影响。
+    layerName = "AI 审查层"
+    hasReason =
+      (params.failed_tasks?.length ?? 0) > 0 ||
+      hasNewBlocking ||
+      existingBlocking.some((c) => resolveChildIssueFields(c).sourcePhase === "quality")
+  } else {
+    const dimension = agentToReviewDimension(agent)
+    layerName = dimension ? `AI 审查层(${dimension})` : "AI 审查层"
+    // 新报与遗留阻塞理由均按当前 agent 维度过滤（对齐 main：verify_quality failed 理由须归属本维）。
+    const dimMatches = (c: WorkItem): boolean => resolveChildIssueFields(c).dimension === dimension
+    hasReason =
+      newChildren.some((c) => isBlockingSeverity(c.severity) && dimMatches(c)) ||
+      existingBlocking.some(
+        (c) => resolveChildIssueFields(c).sourcePhase === "quality" && dimMatches(c),
+      )
+  }
+  if (!hasReason) {
+    throw new Error(
+      `${layerName} 审核声称 passed=false，但不存在未解决的阻塞 issue。passed=false 时必须提供至少一个 Low+ issue 或 failed_task_id 作为不通过理由。`
+    )
+  }
+}
+
+/** review step（verify_tool/verify_task/verify_quality/quality_review）参数处理。 */
+function handleReviewParams(
+  item: WorkItem,
+  params: AgentSubmitParams,
+  newChildren: WorkItem[],
+  stepId: string,
+  opts: { step: StepConfig; skipMustDoGate: boolean; session?: OrchestrateState["stacks"] | null },
+): void {
+  // passed=true 与 Low+ 新报一致性：passed 只能带 Info 新报
+  if (params.verdict === "passed" && newChildren.some((c) => isBlockingSeverity(c.severity))) {
+    throw new Error(
+      "review step 声称 passed=true，但 new_children 中包含 Low 及以上级别 issue。passed=true 只能带 Info 新报；有 Low+ issue 时必须设 verdict=failed。"
+    )
+  }
+  // boundary_expansion 仅 passed=false 允许
+  if (params.boundary_expansion) {
+    if (params.verdict === "passed") {
+      throw new Error("passed=true 时不允许边界扩展。boundary_expansion 仅 verdict=failed 有效。")
+    }
+    mergeBoundaryInto(item, params.boundary_expansion)
+  }
+
+  if (params.must_do_checks) {
+    archiveMustDoChecks(item, stepId, params.must_do_checks)
+  }
+
+  // 必做清单覆盖度门禁（review 端）：verdict=passed 且非补交豁免（仅裁定参数 / 任务验证补交）时，
+  // must_do_checks 须逐项覆盖本 step 的生效必做清单（按会话项目栈分组取并集，与视图/checkpoint
+  // 共用 resolveStepMustDo 单一解析入口）。遗漏必做项且无有效降级证据 → 拒绝提交。
+  // 无必做清单的 step（生效清单为空）只校验申报格式，不设覆盖门槛（不误伤）。
+  // 覆盖口径：核验申报（completed=true + evidence 含核验方式与抽验样本，step 名首段 token 命中必做项）
+  // 是高成本必做项的合法覆盖形态，仅限 workflow 指令白名单限定的高成本必做项（deep_scan）；低成本
+  // 必做项必须实跑后申报（机制层只认 token 命中不区分形态，白名单口径在错误提示中明示）。
+  if (params.verdict === "passed" && !opts.skipMustDoGate) {
+    assertMustDoCoverage(resolveStepMustDo(opts.step, opts.session), params.must_do_checks)
+  } else if (params.must_do_checks) {
+    // 非 passed / 补交豁免路径：不查覆盖度，但显式申报仍受格式约束（不留「申报了但无证据」的空转）。
+    assertMustDoCoverage([], params.must_do_checks)
+  }
+
+  // 任务验证覆盖门禁（兜底）：verify_task / quality_review（任务验证归属 step）以 passed 提交时，
+  // 「submitted task 必须被 verified/failed 全覆盖」为无条件必查——reviewer 不得 passed 而不对任何
+  // 已申报任务表态（漏带 verified_tasks 会让 task children 卡 review 态，done 收口被拦截形成死锁）。
+  // 其余 review step 维持既有条件式（携带任一数组才进入校验）；verdict=failed 不做此强制
+  // （报 issue 回退时无须给全部任务表态）。
+  const isTaskVerifyStep = stepId === "verify_task" || stepId === "quality_review"
+  if (
+    params.verified_tasks?.length ||
+    params.failed_tasks?.length ||
+    (params.verdict === "passed" && isTaskVerifyStep)
+  ) {
+    const tasks = taskListOf(item)
+    const validIds = new Set(tasks.map((t) => t.id))
+    const verified = normalizeTaskChildIds(params.verified_tasks ?? [], item)
+    const failed = (params.failed_tasks ?? []).map((f) => ({
+      task_id: normalizeTaskChildIds([f.task_id], item)[0],
+      reason: f.reason,
+    }))
+    for (const id of [...verified, ...failed.map((f) => f.task_id)]) {
+      if (!validIds.has(id)) {
+        throw new Error(`非法 task id: "${id}"。\n合法 id：${Array.from(validIds).join(", ")}。`)
+      }
+    }
+    if (params.verdict === "passed" && failed.length > 0) {
+      throw new Error("passed=true 时不允许提供 failed_tasks；有任务未通过必须设 verdict=failed。")
+    }
+    // review 态 task child（submitted 语义）必须被 verified/failed 覆盖
+    const submitted = tasks.filter((t) => t.status === "submitted")
+    const covered = new Set([...verified, ...failed.map((f) => f.task_id)])
+    const uncovered = submitted.filter((t) => !covered.has(t.id))
+    if (uncovered.length > 0) {
+      throw new Error(
+        `以下 submitted task 未被 verified_tasks 或 failed_tasks 覆盖：\n` +
+        uncovered.map((t) => `- #${t.id} ${t.title}`).join("\n") +
+        `\nverified_tasks 用于逐项确认已完成的任务；验证未通过的任务须以 failed_tasks 逐项驳回并设 verdict=failed 回退；` +
+        `人工执行或环境不可验证的任务不得虚报确认，应以 verdict=failed + failed_tasks 驳回，` +
+        `由开发者经 verdict=failed + blocker（task_id 指向该任务）上报、用户确认留痕后凭记录重新申报完成。`
+      )
+    }
+    for (const id of verified) {
+      const child = taskChildById(item, id)
+      if (child && child.phase === "review") {
+        child.phase = "done"
+        delete child.metadata["reject_reason"]
+      }
+    }
+    for (const f of failed) {
+      const child = taskChildById(item, f.task_id)
+      if (child && child.phase === "review") {
+        child.phase = "todo"
+        child.metadata["reject_reason"] = f.reason
+      }
+    }
+  }
+}
+
+/**
+ * 通用 step 提交（opx_agent_submit 的 execute）。
+ *
+ * 单轨操作 state.workItems：定位活跃 task WorkItem → 按 step 处理业务参数 → 调 submitForStep 驱动
+ * workflow 状态机 → 把 item 的 phase/children/tags 变更直接持久化回 state.workItems（唯一事实源）。
+ *
+ * 全局写锁：整个 execute 的读-改-写全程持有 acquireLock/releaseLock，覆盖所有角色提交，
+ * 防止多 agent 并行 read-modify-write 丢 tag。越权/校验失败抛错时零落盘。
+ *
+ * checkpoint_decision 为检查点决策入口：仅当 item 处于检查点态（_checkpoint 标记
+ * 或 retryCount 达上限且存在未终态 children）时可用，直接应用决策并落盘，不走提交路径。
+ */
+export async function agentSubmitExecute(params: AgentSubmitParams, ctx: ToolContext): Promise<string> {
+  const lockPath = await getLockPath(ctx.worktree, params.change_id)
+  await acquireLock(lockPath)
+  try {
+    const state = await readStateByWorktree(ctx.worktree, params.change_id)
+    if (!state) throw new Error("编排会话未初始化。请先调用 opx_orch_init。")
+    const workflow = loadTaskWorkflow(state)
+    const item = resolveTaskWorkItem(state)
+
+    if (params.checkpoint_decision) {
+      return applyCheckpointDecision(params, item, workflow, ctx, state)
+    }
+
+    // worktree 就绪硬门禁：worktree_path 缺失时拒绝提交（checkpoint_decision 不走提交路径，已在上方绕过）。
+    // 所有 step（analyze/implement/verify_tool/verify_task/verify_quality）统一受此门禁约束。
+    const wtPath = typeof item.metadata["worktree_path"] === "string" ? item.metadata["worktree_path"] : undefined
+    if (!wtPath) {
+      throw new Error(
+        "worktree 未就绪，当前拒绝提交。\n请编排者先调用 opx_orch_set_worktree 确保 worktree 就绪后再提交。"
+      )
+    }
+
+    // 参数归一化：issue id 去 # 前缀（fixed/exempt/adjudication/recheck 均接受带 # 的 tg.issue 序号引用）。
+    // 归一化结果必须回写到 params 绑定：其后的读取点全部依赖归一化后的值。宿主（DSH）可能把入参整份
+    // 冻结为只读，因此只能在可写副本上归一化，不能动传入对象（含嵌套元素）。
+    const normalized: AgentSubmitParams = { ...params }
+    if (normalized.fixed_issue_ids) normalized.fixed_issue_ids = normalized.fixed_issue_ids.map(normalizeIssueId)
+    if (normalized.exempt_issue_ids) normalized.exempt_issue_ids = normalized.exempt_issue_ids.map(normalizeIssueId)
+    if (normalized.exempt_adjudications) {
+      normalized.exempt_adjudications = normalized.exempt_adjudications.map((adj) => ({
+        ...adj,
+        issue_id: normalizeIssueId(adj.issue_id),
+      }))
+    }
+    if (normalized.recheck_adjudications) {
+      normalized.recheck_adjudications = normalized.recheck_adjudications.map((adj) => ({
+        ...adj,
+        issue_id: normalizeIssueId(adj.issue_id),
+      }))
+    }
+    params = normalized
+
+    // 无效 fixed/exempt id 入口显式拒绝（不静默吞掉修复/豁免声明）：未命中的 id 抛错并列出可用 id 清单。
+    // 以 resolveChildByIssueId 做权威判定，与 submitForStep 的 childById 及 collectFixedExemptLayers 消费端解析语义一致。
+    const knownChildIds = new Set<string>()
+    for (const c of item.children) {
+      knownChildIds.add(c.id)
+      if (c.externalId) knownChildIds.add(c.externalId)
+    }
+    const availableIssueIds = (): string => [...knownChildIds].sort().join(", ")
+    for (const id of params.fixed_issue_ids ?? []) {
+      if (!resolveChildByIssueId(item, id)) {
+        throw new Error(`fixed_issue_ids 中包含无效 issue id: "${id}"。\n可用 issue ID: ${availableIssueIds()}`)
+      }
+    }
+    for (const id of params.exempt_issue_ids ?? []) {
+      const child = resolveChildByIssueId(item, id)
+      if (!child) {
+        throw new Error(`exempt_issue_ids 中包含无效 issue id: "${id}"。\n可用 issue ID: ${availableIssueIds()}`)
+      }
+      // Info 级 issue 不阻塞任何流程，豁免无意义且白耗一轮申报/裁定：developer 提交豁免申请的唯一入口在此拦截。
+      // 存量的已带 exempt_request 标记的 Info issue 不受影响（adjudicateExempt 裁定路径不经过此处）。
+      if (isInfoSeverity(child.severity)) {
+        throw new Error(`豁免申请失败：issue "${child.id}" 为 Info 级 issue，不阻塞提交，无需申请豁免。`)
+      }
+    }
+    for (const id of params.recheck_adjudications?.map((a) => a.issue_id) ?? []) {
+      if (!resolveChildByIssueId(item, id)) {
+        throw new Error(`recheck_adjudications 中包含无效 issue id: "${id}"。\n可用 issue ID: ${availableIssueIds()}`)
+      }
+    }
+
+    // 重复提交守卫（仅 review step）：同 step 同 agent 已以 passed 通过后不允许重复提交；failed 允许重提
+    // （回退重审期 failed tag 未被归因清空时须可重提，如 verify_task 仅 failed_tasks 驳回）。
+    // 补交豁免（两条对称通道，均要求严格形态——仅携带对应补交参数，无其他实质提交内容）：
+    // - 裁定补交：仅携带 recheck_adjudications / exempt_adjudications——上次提交漏带复核/豁免裁定导致
+    //   本层 review 态 issue 阻塞门禁时（engine.blockedSupplementAgents 已推导应补交的报源 reviewer），
+    //   reviewer 可补带裁定重提解除阻塞；
+    // - 任务验证补交：仅携带 verified_tasks 且存在 review 态 task child（与引擎 gateBlock 补交推导
+    //   条件同源）——任务验证归属 step 上次 passed 漏带 verified_tasks 导致 task children 卡 review
+    //   态、done 收口被拦截时，审查者可补交 verified_tasks 覆盖待验证任务后推进。
+    // 空提交或携带其他实质参数（含 fixed_issue_ids / exempt_issue_ids / new_children）的重复提交仍被拒绝。
+    // 守卫在一切裁定（豁免/复核）之前执行，保证守卫拒绝时零副作用。step 归属按 stepMap 直接判定
+    // （不依赖 assertSubmitRouting，保持越权 step 提交的裁定拦截语义不变）。
+    const guardStepPhase = workflow.stepMap.get(params.step_id)?.phase.name
+    if (
+      guardStepPhase === "review" &&
+      getStepVerdict(item, params.step_id, ctx.agent) === "passed" &&
+      !isSupplementOnly(params) &&
+      !isTaskVerifySupplementAllowed(item, params, params.step_id, ctx.agent)
+    ) {
+      throw new Error(`重复提交守卫：agent "${ctx.agent}" 已在 step "${params.step_id}" 以 passed 通过，不允许重复提交。`)
+    }
+
+    // 裁定一致性守卫（统一判定 exempt/recheck 驳回组合）：任一裁定参数含 rejected 且提交级 verdict=passed
+    // 即抛错（驳回 issue 需修复，审查不能判定通过）。守卫在一切裁定（adjudicateExempt/adjudicateRecheck）写入
+    // 与 submitForStep 应用 verdict 之前执行，拒绝时零副作用（含混合裁定清单）。
+    assertRejectedAdjudicationNotPassed(params)
+
+    // 本次提交待写入项目级跨 change 豁免清单的 issue child（仅 dismissed 收集）。
+    // 只收集不落盘：submitForStep 成功后再统一写入，保证同批后续校验（路由 / new_children /
+    // assertFailedHasReason 等）抛错时清单与内存状态同步零变更。
+    const pendingExemptions: WorkItem[] = []
+
+    // 先裁定豁免申请（越权/不可路由/跨维抛错）：submitForStep 尚未执行，保证越权裁定零副作用。
+    for (const adj of params.exempt_adjudications ?? []) {
+      const child = resolveChildByIssueId(item, adj.issue_id)
+      if (!child) {
+        throw new Error(`豁免裁定失败：issue "${adj.issue_id}" 不存在于 item "${item.id}" 的 children 中。`)
+      }
+      adjudicateExempt(item, workflow, { issueId: child.id, agentKey: ctx.agent, action: adj.action })
+      // dismissed 且携带 rule 时记入待落盘豁免清单（后续 change 同 rule+file+line 命中按 Info
+      // 处理，避免 worktree 全量扫描把存量已豁免问题反复报为阻塞）。此处仅收集，submitForStep
+      // 成功后再统一调用 writeDismissedExemption 落盘——同批后续校验抛错时清单不落盘（零状态变更
+      // 一致性）。giveup 走 applyCheckpointGiveup，不经此路径，天然排除。
+      if (adj.action === "dismissed") {
+        pendingExemptions.push(child)
+      }
+    }
+
+    // 复核已修复待复核（review 态）issue：passed→done，rejected→todo + refix_count + reject_reason。
+    // 谁提谁裁定，越权/非 review 态/缺驳回原因抛错零副作用，先于 submitForStep 执行使门禁按新 phase 判定。
+    for (const adj of params.recheck_adjudications ?? []) {
+      const child = resolveChildByIssueId(item, adj.issue_id)
+      if (!child) {
+        throw new Error(`复核失败：issue "${adj.issue_id}" 不存在于 item "${item.id}" 的 children 中。`)
+      }
+      adjudicateRecheck(item, workflow, {
+        issueId: child.id,
+        agentKey: ctx.agent,
+        verdict: adj.verdict,
+        rejectReason: adj.reject_reason,
+      })
+    }
+
+    // 路由/归属校验前置（与 submitForStep 共用），越权/错 step 在参数处理前拦截。
+    assertSubmitRouting(workflow, item, params.step_id, ctx.agent)
+    const stepPhase = workflow.stepMap.get(params.step_id)!.phase.name
+
+    if ((params.new_children?.length ?? 0) > 0 && stepPhase !== "review") {
+      throw new Error(`仅 review 阶段的 step 允许提报新 issue（new_children），当前 step "${params.step_id}" 属于 "${stepPhase}" 阶段，拒绝提报。`)
+    }
+
+    // worktree 编辑边界强化（56ddfe9 意图）：review 提报的 issue 文件路径必须位于 worktree 内，路径逃逸拒绝。
+    if (stepPhase === "review" && (params.new_children?.length ?? 0) > 0) {
+      assertIssueFilesWithin(params.new_children as Array<{ file?: string }>, wtPath ?? ctx.worktree)
+    }
+
+    // new_children 空字段入口显式拒绝：空 id/title/description 会污染后续引用与去重 key，禁止入库。
+    // dimension 提交语义按报源身份分类（校验在一切状态写入之前，抛错零副作用）：
+    // - quality reviewer（agentToReviewDimension 命中）：维度由报源推断；显式填写须与报源维度一致，
+    //   不一致抛错（等价推断不抛错）；未填写由 buildIssueChild 推断写入。
+    // - tool/task reviewer：dimension 必填（归因维度），缺失或非法值抛错。
+    const sourceDim = agentToReviewDimension(ctx.agent)
+    for (const nc of params.new_children ?? []) {
+      if (!nc.id || !nc.id.trim()) {
+        throw new Error("new_children 中的 issue id 不能为空，请为每个新 issue 指定唯一 id。")
+      }
+      if (!nc.title || !nc.title.trim()) {
+        throw new Error(`new_children 中 issue "${nc.id}" 的 title 不能为空。`)
+      }
+      if (!nc.description || !nc.description.trim()) {
+        throw new Error(`new_children 中 issue "${nc.id}" 的 description 不能为空。`)
+      }
+      if (sourceDim) {
+        if (nc.dimension !== undefined) {
+          if (!(REVIEW_DIMENSIONS as readonly string[]).includes(nc.dimension)) {
+            throw new Error(
+              `new_children 中 issue "${nc.id}" 的 dimension 非法："${nc.dimension}"。合法维度：${REVIEW_DIMENSIONS.join(", ")}。`
+            )
+          }
+          if (nc.dimension !== sourceDim) {
+            throw new Error(
+              `new_children 中 issue "${nc.id}" 显式声明的 dimension "${nc.dimension}" 与报源维度 "${sourceDim}" 不一致。quality reviewer 报 issue 的维度由报源推断，显式填写时必须与报源维度一致。`
+            )
+          }
+        }
+      } else {
+        if (nc.dimension === undefined) {
+          throw new Error(
+            `new_children 中 issue "${nc.id}" 未声明归因维度 dimension。tool/task reviewer 报 issue 必须显式声明 dimension（归因维度），合法值：${REVIEW_DIMENSIONS.join(", ")}。`
+          )
+        }
+        if (!(REVIEW_DIMENSIONS as readonly string[]).includes(nc.dimension)) {
+          throw new Error(
+            `new_children 中 issue "${nc.id}" 的 dimension 非法："${nc.dimension}"。合法维度：${REVIEW_DIMENSIONS.join(", ")}。`
+          )
+        }
+      }
+    }
+
+    const newChildren = (params.new_children ?? []).map((nc) => buildIssueChild(nc, ctx.agent))
+
+    if (stepPhase === "review") {
+      // 机制层预检：工作区不得残留「非文档类」未提交改动。reviewer 家族提交后会对 wtPath 自动
+      // commit 工作区改动（见下方 isReviewerFamily 分支），反向探针改坏的实现若未还原会被静默
+      // 提交掉；这里在一切参数处理与状态写入之前拦截，拒绝时零状态变更（与 simple implement
+      // 检查同守则）。failed 提交同样拦截——failed 也会触发自动 commit，不拦会把探针残留提交掉。
+      // 文档类（openspec/ 与 .md）放行，由自动 commit 兜底；verify_cleanup 是 developer 身份，
+      // 非 reviewer 家族，不经此预检。
+      if (isReviewerFamily(ctx.agent)) {
+        const dirtyNonDoc = await listDirtyNonDocFiles(wtPath)
+        if (dirtyNonDoc.length > 0) {
+          const fileLines = dirtyNonDoc.map((f) => `  - ${f}`).join("\n")
+          throw new Error(
+            `提交被拒绝：工作区存在未提交的代码类改动，工具不允许这类改动随审查提交。\n` +
+            `常见来源有两种：① 反向探针改坏的实现未还原；② 审查过程中临时修改的代码未清理。\n` +
+            `这两种都必须先还原，不得以 commit 方式提交掉。\n` +
+            `涉及文件：\n${fileLines}\n` +
+            `请先还原或清理，再重新提交：\n` +
+            `  - 已跟踪文件的改动：git checkout -- <文件> 还原\n` +
+            `  - 新增的临时文件：直接删除\n` +
+            `允许提交的范围只有注释修正与文档类：\n` +
+            `  - 文档类（openspec/ 下文件与 .md 文件）：提交时自动 commit，无需手工处理。\n` +
+            `  - 源码内的注释修正：可以先 commit，但该提交必须只含注释改动，不得夹带任何逻辑改动或探针改动。\n` +
+            `代码类改动不在此列：不要把探针改动或临时改动 commit 掉来绕过本检查；审查者不应修改代码逻辑，发现问题请报 issue。`,
+          )
+        }
+      }
+      // 必做清单覆盖度门禁以「当前 step 的 must_do 声明」为准（按会话项目栈分组取并集），与视图/checkpoint
+      // 共用 gate.resolveStepMustDo 单一解析入口。
+      const stepCfg = workflow.stepMap.get(params.step_id)!.step
+      handleReviewParams(item, params, newChildren, params.step_id, {
+        step: stepCfg,
+        // 会话项目栈过滤：生效清单只并入会话命中的栈分组（与视图 skill 过滤同口径）；
+        // 旧会话无 stacks → null（只取 always 分组）
+        session: state.stacks ?? null,
+        // 补交豁免（仅裁定参数 / 仅 verified_tasks 的任务验证补交，均无实质审查内容）不重复校验
+        // 必做清单覆盖度——完整审查在首次 passed 时已做过。任务验证补交的跳过与守卫放宽同源
+        //（isTaskVerifySupplementAllowed：已 passed 且存在 review 态 task child），首次提交
+        //（step 尚未 passed）不借补交形态跳过必做门禁。
+        skipMustDoGate:
+          isSupplementOnly(params) ||
+          isTaskVerifySupplementAllowed(item, params, params.step_id, ctx.agent),
+      })
+    } else if (stepPhase === "todo") {
+      handleAnalyzeParams(item, params)
+    } else if (stepPhase === "in_progress") {
+      // simple 模式无 analyze 回退落点，blocker 会永久卡死：入口显式拒绝（早于一切校验与写入）
+      if (state.mode === "simple" && params.step_id === "implement") {
+        assertSimpleModeNoBlockerParams(params)
+      }
+      // implement 提交工作区干净校验：工作区必须无未提交内容，不干净直接拒绝并提示先 commit。
+      // 两种模式口径不同：
+      // - simple：无 analyze 环节，执行边界来自 clarify.md、缺失时默认整个 worktree，dev 提交即
+      //   收尾合并的载体，未提交内容会让收尾裸合并携带脏状态——无条件检查（含 verdict=failed）。
+      // - full：仅 verdict=passed 时检查。failed 提交多为 blocker/需求缺口上报，此时半成品脏工作区
+      //   属正常，强查会把 dev 报 blocker 的路径堵死。
+      // 检查在一切参数处理与状态写入之前，拒绝时零状态变更（含内存态）；收尾门禁
+      // （completeTaskGroupExecute 的 worktree 干净检查）仍原样保留作最终兜底。
+      if (params.step_id === "implement" && (state.mode === "simple" || params.verdict === "passed")) {
+        const clean = await isWorktreeClean(wtPath)
+        if (!clean) {
+          throw new Error(
+            state.mode === "simple"
+              ? "simple 模式 implement 提交被拒绝：工作区存在未提交内容。\n请先 git commit 提交全部变更后再提交 implement。"
+              : "full 模式 implement 提交被拒绝：工作区存在未提交内容。\n请先 git commit 后再提交 implement。"
+          )
+        }
+      }
+      // implement 端必做清单门禁：生效清单按当前 step 声明 + 会话项目栈解析（旧会话无 stacks → null，只取 always）。
+      // no_change 豁免先经 diff 事实核对（声明「本轮无代码/配置变更」不能仅凭自述）。
+      const implStep = workflow.stepMap.get(params.step_id)!.step
+      await assertImplementNoChangeFact(item, params, wtPath)
+      handleImplementParams(item, params, {
+        requiredItems: resolveStepMustDo(implStep, state.stacks ?? null),
+      })
+    }
+
+    const { accepted } = dedupeNewChildren(item, newChildren)
+
+    // 命中项目级跨 change 豁免清单降级（顺序敏感：必须在 assertFailedHasReason 之前）：
+    // 存量已裁定豁免的 (rule+file+line) 本轮再报时降为 Info 级，不阻塞、无需再次豁免；
+    // 否则仅含存量豁免问题的 change 中 reviewer 能 failed 却无真实待办，形成死锁。
+    if (stepPhase === "review" && accepted.length > 0) {
+      const store = await readExemptions(ctx.worktree)
+      applyExemptionDowngrade(accepted, store)
+    }
+
+    // verdict=failed 必须有具体不通过理由：理由判定在去重之后，仅依据实际接受的 new_children——
+    // 重复新报（或与既有 child 同 key 被去重）不构成不通过理由，避免守卫放行但实际零新增 issue。
+    if (stepPhase === "review" && params.verdict === "failed") {
+      assertFailedHasReason(item, params, accepted, params.step_id, ctx.agent)
+    }
+
+    // dev 修复/豁免后按归因分层重置 review 验证标记（仅 implement step）
+    if (stepPhase === "in_progress" && (params.fixed_issue_ids?.length || params.exempt_issue_ids?.length)) {
+      resetReviewTagsOnFix(
+        item,
+        collectFixedExemptLayers(item, params.fixed_issue_ids ?? [], params.exempt_issue_ids ?? []),
+      )
+    }
+
+    submitForStep(item, workflow, {
+      stepId: params.step_id,
+      agentKey: ctx.agent,
+      verdict: params.verdict,
+      fixedIds: params.fixed_issue_ids,
+      exemptIds: params.exempt_issue_ids,
+      newChildren: accepted,
+    })
+
+    // reviewer 家族（openspec-architect + 全部审查者逻辑身份）worktree 直改修正自动提交兜底：
+    // 审查者/架构师按文档直改义务修正文档/注释后，提交时自动 commit（openspec/states/ 编排状态
+    // 除外，仅纳入已跟踪文件的修改/删除）。
+    // 时序硬约束：必须在 _tool_review_checkpoint 捕获之前（否则修正会被下一轮增量检测误判为新
+    // 变更）、必须在 reconcileMainPollution 之前（其干净树预检要求 worktree 无未提交内容——架构师
+    // 身份的 worktree md 修正无人提交会在该预检处死锁）。
+    // 硬边界（防事故）：自动提交目标恒为 wtPath（任务组 worktree），严禁对 ctx.worktree（主仓库）
+    // 执行 add/commit。失败不阻塞 verdict 写入，仅在返回体提示编排者安排补提交。
+    const autoCommitLines: string[] = []
+    if (isReviewerFamily(ctx.agent)) {
+      const ac = await autoCommitWorktreeChanges(wtPath, ctx.agent, params.step_id)
+      if (ac.status === "committed") {
+        autoCommitLines.push(
+          `- ✅ worktree 直改修正已自动提交（${ac.files.length} 个文件，commit message: \`docs(opx): direct fixes by ${ctx.agent} (${params.step_id})\`）`,
+        )
+      } else if (ac.status === "failed") {
+        autoCommitLines.push(
+          `- ⚠️ worktree 直改修正自动提交失败：${ac.stderr || "未知错误"}。请编排者安排补提交（在 worktree 内手工 add 并 commit：已跟踪改动用 git add -u，未跟踪文档用 git add -- <文件>）`,
+        )
+      }
+      if (ac.untrackedFiles.length > 0) {
+        autoCommitLines.push(
+          `- ⚠️ 存在未跟踪的非文档类文件未纳入自动提交（文档类已自动提交；这些须由编排者/开发者自行处理）：${ac.untrackedFiles.join("、")}`,
+        )
+      }
+    }
+
+    // 主仓库污染文档自动合并兜底（56ddfe9 意图）：触发点从「analyze passed」改为「首次 implement passed」——
+    // 文档复核前移后首轮不再跑 analyze，挂在 analyze 上会永不执行。首次 implement passed 时执行一次
+    // （metadata._main_pollution_reconciled 标记去重，成功后才置位，前置校验失败仍可在后续轮次重试）。
+    if (
+      stepPhase === "in_progress" &&
+      params.step_id === "implement" &&
+      params.verdict === "passed" &&
+      wtPath &&
+      typeof item.metadata["branch_name"] === "string" &&
+      item.metadata["_main_pollution_reconciled"] !== true
+    ) {
+      const baseRef = typeof item.metadata["base_ref"] === "string" ? item.metadata["base_ref"] : null
+      await reconcileMainPollution(ctx.worktree, wtPath, {
+        changeId: state.changeId,
+        baseRef,
+      })
+      item.metadata["_main_pollution_reconciled"] = true
+    }
+
+    // 审查检查点增量检测（A3）：full 的 verify_tool（reviewer-tool）与 simple 的 quality_review
+    // （合并审查者 openspec-reviewer）提交成功后记录当前 HEAD，供下次重进该 step 时仅对比「检查点 →
+    // 当前 HEAD」区间的变更（无代码/配置变更时直提 passed，省去全量工具扫描）。两者写同一 metadata key
+    // `_tool_review_checkpoint`，但 simple / full 两 workflow 无对方 step，读写互不交叉。写入位于
+    // submitForStep 成功与 writeState 之间，任何异常路径均不落盘（零状态变更）。
+    if (
+      (params.step_id === "verify_tool" && agentToReviewLayer(ctx.agent) === "tool") ||
+      (params.step_id === "quality_review" && ctx.agent === "openspec-reviewer")
+    ) {
+      const head = await getCurrentHead(wtPath)
+      if (head) item.metadata["_tool_review_checkpoint"] = head
+    }
+
+    // 项目级豁免清单统一落盘（submitForStep 成功之后、writeState 之前，与 checkpoint 写入同一位次）：
+    // 任何前置校验（路由 / new_children / dimension / assertFailedHasReason）抛错均不落盘。
+    // 写入失败仅告警，不阻断主流程（writeDismissedExemption 内部容错）。
+    for (const child of pendingExemptions) {
+      await writeDismissedExemption(ctx.worktree, child, { changeId: state.changeId, exemptedBy: ctx.agent })
+    }
+
+    await writeState(ctx.worktree, state)
+    if (autoCommitLines.length === 0) return SUBMIT_OK_MESSAGE
+    return [
+      `## ✅ ${SUBMIT_OK_MESSAGE}`,
+      "",
+      "### worktree 自动提交",
+      "",
+      ...autoCommitLines,
+      "",
+    ].join("\n")
+  } finally {
+    releaseLock(lockPath)
+  }
+}
+
+/**
+ * 检查点决策应用：校验 item 处于检查点态（_checkpoint 标记或 retryCount 达上限且
+ * 存在未终态 children）后，按决策应用引擎状态变更，并落盘 state。
+ * 决策应用后不经过 submitForStep 提交路径。
+ */
+async function applyCheckpointDecision(
+  params: AgentSubmitParams,
+  item: WorkItem,
+  workflow: LoadedWorkflow,
+  ctx: ToolContext,
+  state: OrchestrateState,
+): Promise<string> {
+  const decision = params.checkpoint_decision as "continue" | "giveup"
+  const stepId = item.currentStep
+  if (!stepId) throw new Error(`检查点决策失败：item "${item.id}" 无 currentStep，无法定位当前检查点 step。`)
+  const entry = workflow.stepMap.get(stepId)
+  if (!entry) throw new Error(`检查点决策失败：当前 step "${stepId}" 未在 workflow 中声明。`)
+  const step = entry.step
+  const atCheckpoint = item.metadata["_checkpoint"] === true || checkpointTriggered(item, workflow, step)
+  if (!atCheckpoint) throw new Error(`检查点决策失败：当前不在检查点状态，无法执行 ${decision}。`)
+  if (decision === "continue") {
+    applyCheckpointContinue(item, step)
+  } else {
+    // giveup 必做清单核对（堵 giveup 侧门）：当前 step 若无必做清单则 uncovered 为空、行为不受影响；
+    // 有清单时未覆盖项必须有结构化降级理由（checkpoint_skip_reasons），否则拒绝 giveup——
+    // 杜绝「放弃审查 → 自动推进 → 收尾合码」的无痕绕过通道。
+    // 申报依据取「当前 step 的按 step 存档」（must_do_checks_by_step[stepId]），不取其他 step 的存档。
+    const prevChecks = mustDoChecksOfStep(item.metadata, stepId)
+    const uncovered = uncoveredMustDo(step, prevChecks, state.stacks ?? null)
+    if (uncovered.length > 0) {
+      const provided = new Map<string, unknown>()
+      for (const r of params.checkpoint_skip_reasons ?? []) {
+        if (isValidSkipData(r) && typeof r.item === "string") provided.set(r.item, r)
+      }
+      const missing = uncovered.filter((m) => !provided.has(m))
+      if (missing.length > 0) {
+        throw new Error(
+          `giveup 无法应用：当前 step 的必做清单存在未覆盖项，须逐项提供结构化降级理由。\n` +
+          `缺少降级理由的必做项：${missing.join("、")}\n` +
+          `请通过 checkpoint_skip_reasons 逐项提供（giveup 未覆盖项不可跳过申报）：\n` +
+          `[${SKIP_REASON_FORMAT}]`
+        )
+      }
+      // 留痕：giveup 时对未覆盖必做项的结构化降级申报，供收尾审计（giveup 不再无痕放行）
+      item.metadata["_giveup_validation"] = params.checkpoint_skip_reasons
+    }
+    applyCheckpointGiveup(item, step)
+    // giveup 留痕：写来源元数据供审计，避免「放弃」变成无痕放行。
+    item.metadata["_giveup"] = true
+    // B3：giveup 同步处理 blockers——未 resolved 条目随放弃置 resolved（记录原因），
+    // 与收尾门禁（lifecycle.ts 的 unresolved blockers 拦截）对齐，避免 giveup 后无法收尾。
+    for (const blocker of itemBlockers(item)) {
+      if (blocker.status !== "resolved") {
+        blocker.status = "resolved"
+        blocker.architectConclusion = "随放弃处理"
+      }
+    }
+    // B1：giveup 应用后沿 on_pass 链式推进（末位 giveup → done 可收尾；非末位 → 落下一个待执行 step），
+    // 复用 submitForStep 的推进路径（chainPassAdvance）。giveup 已把所有未解决 children 置 cancelled、
+    // 当前 step 全 passed，applyTransition 的 done 拦截（task children 终态检查）应恒通过；
+    // 若仍被拦截（异常态），原因写 _advance_block_reason 供 opx_status 视图诊断。
+    const advance = applyTransition(item, workflow, "pass")
+    if (advance.advanced) {
+      delete item.metadata["_advance_block_reason"]
+      chainPassAdvance(item, workflow, advance.target)
+    } else {
+      item.metadata["_advance_block_reason"] = advance.reason
+    }
+  }
+  await writeState(ctx.worktree, state)
+  return renderCheckpointDecisionResult(decision, item, step)
+}
+
+/** 渲染检查点决策结果 markdown：决策已应用 + 后续动作。 */
+function renderCheckpointDecisionResult(decision: "continue" | "giveup", item: WorkItem, step: StepConfig): string {
+  if (decision === "continue") {
+    return [
+      "## ✅ 检查点决策已应用：continue",
+      "",
+      `- **step**: \`${step.id}\` 的 agent 裁决已重置为 pending，可重新提交该 step。`,
+      `- **当前 phase**: ${item.phase}`,
+      "",
+    ].join("\n")
+  }
+  const cancelled = item.children.filter((c) => c.phase === "cancelled").map((c) => c.id)
+  const blockReason = typeof item.metadata["_advance_block_reason"] === "string"
+    ? item.metadata["_advance_block_reason"]
+    : null
+  const lines = [
+    "## ✅ 检查点决策已应用：giveup",
+    "",
+    `- **step**: \`${step.id}\` 已标记 completed（所有 agent 视为 passed）。`,
+    `- **未解决 children**（${cancelled.length} 个）已置 cancelled：${cancelled.join("、") || "(无)"}`,
+    `- **当前 phase**: ${item.phase}${item.currentStep ? `（step \`${item.currentStep}\`）` : ""}`,
+  ]
+  if (blockReason) {
+    lines.push(`- **⚠️ 推进被拦截**: ${blockReason}`)
+    lines.push(`- 请用 \`opx_status\` 查看诊断，必要时 \`opx_orch_init(recovery=...)\` 恢复。`)
+  }
+  lines.push("")
+  return lines.join("\n")
+}

@@ -1,0 +1,1153 @@
+{
+  "date": "2026-08-28",
+  "layer": "第五层-行业应用层",
+  "collected": {
+    "2608.27454v1": {
+      "paper": {
+        "title": "WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution",
+        "summary": "Agent skills package specialized knowledge and workflows into reusable resources that extend AI agent capabilities. Recent work automatically discovers such skills from agent experience, which enables agents to progressively adapt through interaction. However, the insights that guide skill development typically remain scattered across optimization histories, limiting their systematic reuse across iterations. We introduce WikiSkill, a framework that co-evolves agent skills with a persistent knowledge base (wiki). At a high level, WikiSkill separates raw execution experience, accumulated knowledge, and executable skills, while continuously consolidating experience into the wiki, which subsequent skill updates can build on. Across diverse benchmarks and models, WikiSkill consistently outperforms state-of-the-art skill-evolution methods and improves over no-skill baselines in most model-benchmark settings. We find that skill evolution complements model scaling: larger models generally benefit more from evolved skills, while smaller models with skills can outperform substantially larger models without them. We also find that evolved skills transfer effectively across models and model families, and skills evolved by other models can outperform self-evolved skills. Finally, our ablation studies confirm that persistent knowledge accumulation in the wiki is critical for effective skill evolution. These results demonstrate the benefits of systematically accumulating and refining agent experience for developing reusable and transferable skills.",
+        "authors": [
+          "Liyan Tang",
+          "Cyrus Rashtchian",
+          "Chun-Sung Ferng",
+          "Andrew Tomkins",
+          "Da-Cheng Juan",
+          "Tu Vu"
+        ],
+        "published": "2026-08-27T17:59:11Z",
+        "id": "2608.27454v1",
+        "url": "http://arxiv.org/abs/2608.27454v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27454v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.27443v1": {
+      "paper": {
+        "title": "Do User-Authored Permission Policies Improve Protection Against AI Agent Overreach?",
+        "summary": "AI agents are poised to become a primary interface to digital products, acting across email, files, payments, and personal data. People without professional software backgrounds need understandable, reusable ways to control actions across services. We examine a mechanism in which a language model maps actions to plain-language consequence categories with user-authored \"allow\", \"ask\", or \"never\" rules. We ask what is gained and lost when decisions are made in advance as reusable rules rather than separately for each action.   We analyzed 113 participants without professional software backgrounds across three conditions: per-action human-in-the-loop approval (HITL), automated per-action model review (AUTO), or user-authored consequence policy (POLICY). Participants judged 2 examples in each of 4 consequence categories; POLICY participants then set one rule per category. All supervised an 18-action simulated day, including 7 overreach actions. POLICY blocked less overreach than HITL (-20.1 percentage points, 95% CI [-32.1, -8.1]) and AUTO (-14.5 points, 95% CI [-25.8, -3.2]). POLICY lowered runtime prompts from 18.0 to 10.9, but total intervention time was not reliably lower when rule setup was included.   Exploratory analysis showed that participants chose \"ask\" for 114 of 140 POLICY rules, returning most overreach actions to runtime. Of the 148 overreach actions executed in POLICY, 133 followed human approval and 15 ran automatically under \"allow\" rules. Across all 7 overreach actions, POLICY had the highest approval rate. Counterintuitively, user-authored rules did not by themselves provide stronger protection: many actions outside users' original requests went through after users approved them. These results reveal a gap between preference and commitment: repeatedly choosing \"ask\" preserves case-by-case choice but prevents a standing policy from settling decisions in advance.",
+        "authors": [
+          "Ting Yan"
+        ],
+        "published": "2026-08-27T17:56:38Z",
+        "id": "2608.27443v1",
+        "url": "http://arxiv.org/abs/2608.27443v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27443v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.27424v1": {
+      "paper": {
+        "title": "Beyond F1: Evaluating Coverage and Failure Recovery in AI Model Security Scanners",
+        "summary": "Static scanners are increasingly used to identify executable or otherwise unsafe content in machine- learning artifacts, yet conventional evaluation metrics characterize only cases where a scanner yields a usable security judgment. We evaluate ModelScan, ModelAudit, and Fickling using a controlled, artifact-backed benchmark on a synthetic corpus of 170 Pickle and PyTorch focused artifacts across 145 specimen families, 135 of which have binary security ground truth and 10 of which are intentionally malformed without labels. We explicitly distinguish non-N/A coverage, analysis completion, definitive security decisions, non-security findings, and unsupported outcomes. On labeled families, ModelAudit produced definitive security decisions for all 135 families (100%), Fickling for 110 (81.5%), and ModelScan for 67 (49.6%). Conditional on making a definitive judgment, ModelScan achieved 100% precision, recall, and F1. Fickling identified no unique true- positive families beyond those found by the combination of ModelAudit and ModelScan. Furthermore, for the 48 malicious families where ModelScan failed to complete its analysis, both ModelAudit and Fickling generated detections consistent with ground truth. These findings underscore the need to separate judgment accuracy from judgment availability, as well as incremental detection coverage from tool-level redundancy.",
+        "authors": [
+          "Qianlong Lan",
+          "Vinothini Pandurangan",
+          "Anuj Kaul",
+          "Indranil Sanyal"
+        ],
+        "published": "2026-08-27T17:49:28Z",
+        "id": "2608.27424v1",
+        "url": "http://arxiv.org/abs/2608.27424v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27424v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.27408v1": {
+      "paper": {
+        "title": "Reservoir: A Large-Scale Simulated Dataset for Training and Evaluating Epidemiological Models",
+        "summary": "Large-scale, standardized datasets have driven many advances in AI-based scientific modeling, from protein structure prediction to natural language processing. Infectious disease epidemiology is increasingly adopting AI methods for forecasting, surveillance, and outbreak analytics, but the time-series data available to train them remains orders of magnitude smaller than the corpora behind the advances seen in other fields. Because the scope of real-world epidemiological data cannot practically reach the scale needed to train truly large-scale AI methods, simulated data provides a possible alternative. Here we introduce Reservoir, a large open simulator and dataset of realistic epidemic simulations in which every trajectory carries complete ground-truth labels, including quantities that cannot be measured directly in a real outbreak, such as true infection counts, time-varying reproduction numbers, and counterfactual intervention effects. Reservoir is generated by a stochastic simulator with realistic noise and reporting artifacts, together with interventions with configurable timing, compliance, and age-dependent efficacy. The current release contains 500,000 outbreak trajectories spanning one billion simulated days across diverse pathogen characteristics, population structures, and intervention regimes. Reservoir enables counterfactual experiments, surveillance-design studies, and training of epidemic models at a scale real-world datasets cannot provide.",
+        "authors": [
+          "Carson Dudley",
+          "Reiden Magdaleno",
+          "Marisa Eisenberg"
+        ],
+        "published": "2026-08-27T17:36:46Z",
+        "id": "2608.27408v1",
+        "url": "http://arxiv.org/abs/2608.27408v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27408v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.27407v1": {
+      "paper": {
+        "title": "Reconstructing Humans and Objects in Interaction using Large Reconstruction Models",
+        "summary": "Estimation of Human-Object Interactions in 3D (3D HOI) is a fundamental problem in 3D computer vision with applications in AR/VR, robotics, and embodied AI. However, reconstructing these interactions in 3D remains challenging due to depth ambiguities, occlusions, and object shape variability. Existing approaches are primarily concerned with reprojection and contact constraints, fitting parametric human models and object templates to 2D images. In this paper, we explore a different avenue. We present MILO, a framework that leverages the visual capabilities of Large Reconstruction Models (LRMs) to recover detailed 3D human-object interactions from a single image. Our key observation is that LRMs provide a powerful geometric scaffold that preserves relative human-object arrangement and proximity cues. This significantly simplifies the reconstruction procedure, reframing the problem as interpreting the LRM mesh: we segment it into human and object components, fit a parametric body model to the human part, and optionally align an object template to the object part (if such a template is available). MILO achieves strong reconstruction accuracy and outperforms existing baselines across multiple benchmarks and interaction scenarios. Our code is available at https://ac5113.github.io/MILO.",
+        "authors": [
+          "Agniv Chatterjee",
+          "Georgios Pavlakos"
+        ],
+        "published": "2026-08-27T17:35:46Z",
+        "id": "2608.27407v1",
+        "url": "http://arxiv.org/abs/2608.27407v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27407v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.27455v1": {
+      "paper": {
+        "title": "CritICL: Inference-Time Weak-to-Strong Generalization from Small Language Model Failure Modes",
+        "summary": "Recent advances in inference-time scaling have significantly improved the reasoning performance of large language models (LLMs). However, these methods typically rely on repeated generation or external verification. To address this limitation, we introduce CritICL, a novel inference-time framework that improves reasoning while maintaining high efficiency. Our key insight is that LLM failure modes exhibit structured patterns across model scales within the same family. Instead of treating failures as undesirable outputs, CritICL leverages them as a source of guidance. Specifically, we utilize failure modes derived from weaker models and incorporate them into inference through critique-based in-context examples. We propose two variants: CritICL-dynamic, which adaptively predicts input-specific failure modes and retrieves critiques, and CritICL-static, which uses a global failure mode profile to provide stable guidance. Experimental results show that CritICL consistently outperforms standard in-context learning and achieves performance competitive with or superior to test-time scaling methods, while requiring significantly fewer generations and lower token cost. Code available at: https://github.com/umwyf/CRITICL",
+        "authors": [
+          "Yufan Wu",
+          "Yinghui He",
+          "Zhengyi Hu",
+          "Lang Wei",
+          "Ruichen Li",
+          "Qifan Yang",
+          "Ting Zhu"
+        ],
+        "published": "2026-08-27T17:59:30Z",
+        "id": "2608.27455v1",
+        "url": "http://arxiv.org/abs/2608.27455v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27455v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.27449v1": {
+      "paper": {
+        "title": "SWE-Prime: Fewer Trajectories, Better Performance",
+        "summary": "To improve large language models' ability to resolve real-world software issues, prior work has focused on constructing large-scale agent trajectory datasets and performing supervised fine-tuning (SFT) on successful trajectories. However, task success does not guarantee high-quality supervision: successful trajectories may still contain ineffective, redundant, or risky steps. Directly using such trajectories for SFT can introduce noisy supervision and encourage models to imitate undesirable problem-solving behaviors. Therefore, we propose SWE-Prime, a multi-granularity, two-stage SFT data selection method that progressively filters training data at the trajectory and segment levels. Specifically, the first stage performs trajectory-level screening based on process quality, result quality, and data representativeness, selecting a high-quality and representative subset of successful trajectories. The second stage performs segment-level selection by grouping consecutive steps into semantic segments and assessing each segment based on its contribution to the final solution, learnability, and potential risks. During SFT, all segments remain in the sequence to preserve context, while only selected segments contribute to the loss computation. Experiments on SWE-Bench Pro and SWE-Bench Verified show that training on the 10% trajectory subset selected by SWE-Prime outperforms training on the full resolved dataset, yielding relative performance gains of up to 12.2% and 24.2%, respectively.",
+        "authors": [
+          "Dewu Zheng",
+          "Ruizhe Ye",
+          "Yanlin Wang",
+          "Yang Ye",
+          "Hongyu Zhang",
+          "Ensheng Shi",
+          "Xilin Liu",
+          "Yuchi Ma",
+          "Jianxing Yu",
+          "Zibin Zheng"
+        ],
+        "published": "2026-08-27T17:58:10Z",
+        "id": "2608.27449v1",
+        "url": "http://arxiv.org/abs/2608.27449v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27449v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI金融",
+        "AI教育",
+        "AI制造与工业",
+        "AI零售与电商"
+      ]
+    },
+    "2608.27442v1": {
+      "paper": {
+        "title": "From Static to Dynamic: Benchmarking Real-World Code Review with MCR-Bench",
+        "summary": "In real-world software development, code review typically involves iterative interactions between developers and reviewers to improve software quality, making the process costly and time-consuming. Although recent work explores large language models (LLMs) for automated code review, most approaches oversimplify code review into a single-round, static decision task, which fails to capture the multi-round interactive nature and the complex problem-solving processes inherent in realistic review scenarios. To bridge this gap, we introduce MCR-Bench, the first defect state-aware benchmark designed for realistic multi-round code review. MCR-Bench covers five commonly-used programming languages and consists of 2,269 real-world multi-round code review tasks, each of which is annotated with fine-grained defect information and cross-round state labels. Each task in MCR-Bench is equipped with fine-grained defect metadata (e.g., description, type, severity) alongside dynamic state annotations, capturing the complete evolutionary trajectory of a defect throughout the multi-round process. We obtain several findings through extensive experiments on MCR-Bench with mainstream LLMs. (1) Limited overall capability: experiments reveal that mainstream LLMs exhibit limited overall performance in defect detection and defect lifecycle state tracking, with performance degrading significantly as the number of interaction rounds increases; (2) Defect-sensitive performance: LLMs' performance varies substantially across different defect types and severity levels, with semantically complex or low-salience defects being significantly more likely to be missed; (3) Underlying Failure Mechanisms: our in-depth error analysis dissects the distinct drivers of false positives and false negatives, revealing critical weaknesses such as cross-round temporal misalignment and inadequate long-range memory.",
+        "authors": [
+          "Dewu Zheng",
+          "Yanlin Wang",
+          "Xiwen Wang",
+          "Kefeng Duan",
+          "Hongyu Zhang",
+          "Xilin Liu",
+          "Yuchi Ma",
+          "Zibin Zheng"
+        ],
+        "published": "2026-08-27T17:56:24Z",
+        "id": "2608.27442v1",
+        "url": "http://arxiv.org/abs/2608.27442v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27442v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI零售与电商",
+        "AI政务与公共服务",
+        "AI农业"
+      ]
+    },
+    "2608.27439v1": {
+      "paper": {
+        "title": "RedEvoAgent: Automatic Red-Teaming Agent with Experience-Driven Skill Evolution",
+        "summary": "LLM-based agents are increasingly deployed in product-level execution harnesses, where jailbreaks can trigger harmful tool use and persistent state changes, creating greater risks than unsafe text generation alone. Existing automatic red-teaming methods often rely on fixed attacks, while recent agentic attackers coordinate multiple jailbreak tools and show stronger potential through trajectory-based retrieval. However, such retrieval can reuse misleading experiences due to retrieval bias and unclear tool credit, and full trajectories add context overhead while reducing interpretability. We propose RedEvoAgent, a black-box red-teaming agent that distills cross-case attack trajectories into a concise, human-readable attack skill. The attack skill adaptively evolves through tool-effectiveness profiling and Deciding-Tool Attribution for skill updates, and a validation ratchet that retains only updates improving validation performance. Experiments on multiple benchmarks, target models, and target execution harnesses show that RedEvoAgent outperforms fixed and agentic baselines, improves tool efficiency, and transfers across attacker models and target execution harnesses.",
+        "authors": [
+          "Junjie Zhang",
+          "Hui Liu",
+          "Kecheng Chen",
+          "Xianbo Mo",
+          "Changsheng Chen",
+          "Haoliang Li"
+        ],
+        "published": "2026-08-27T17:55:33Z",
+        "id": "2608.27439v1",
+        "url": "http://arxiv.org/abs/2608.27439v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27439v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.27433v1": {
+      "paper": {
+        "title": "Scalar curvature on Kähler blow-ups and systolic inequalities",
+        "summary": "In this paper, we develop the weighted level set method for a Kähler manifold $(X^n,ω)$ admitting an almost holomorphic map to a possibly singular base $Z$, which is not uniruled. As a key intermediate result, we prove that any blowup $\\operatorname{Bl}_SX$ of $X$ along smooth submanifolds $S$ of $ \\operatorname{codim} S\\ge2$ admits a sequence of Kähler metrics with scalar curvature globally and arbitrarily $C^0$-close to the scalar curvature of $ω$. As a consequence, we establish the sharp \\(2\\)-systole estimate for every positive scalar curvature Kähler manifold $(X,ω)$ and prove $\\min_XS(ω) \\cdot\\operatorname{sys}_2(ω) \\le 2πr(r+1)$, where \\(r\\) is the rational dimension of $X$, with equality if and only if the universal cover splits as $(\\widetilde X,\\widetilde ω) \\cong (\\mathbb P^r,ω_{\\mathrm{FS}}) \\times(Y^{n-r},ω_{\\mathrm{RF}})$ up to normalization where $ω_{\\mathrm{FS}}$ is the Fubini-Study metric and $ω_{\\mathrm{RF}}$ is Ricci-flat. We also show a sharp even-systolic inequality in the same setting when the general fibre is the projective space.",
+        "authors": [
+          "Zehao Sha",
+          "Jian Wang"
+        ],
+        "published": "2026-08-27T17:53:27Z",
+        "id": "2608.27433v1",
+        "url": "http://arxiv.org/abs/2608.27433v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27433v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因"
+      ]
+    },
+    "2608.27458v1": {
+      "paper": {
+        "title": "The Atacama Cosmology Telescope: Constraints on the anisotropic screening and birefringence effects with DR6",
+        "summary": "While we have learned much from recent surveys of the mm-wave sky, many secondary anisotropies of the CMB remain under-explored. We consider two of these here: the anisotropic screening induced by Thomson scattering of CMB photons off free electrons, and cosmic birefringence, the rotation of CMB polarization due to parity-violating physics beyond the standard model. To measure these effects, we apply state-of-the-art estimators for statistical anisotropy to the ACT Data Release 6 CMB data and construct noisy maps and power spectra of both effects. For anisotropic screening, we find no significant detection with the baseline data, and place an upper limit on its power spectrum that is two orders of magnitude above predictions from current reionization models. We obtain evidence for some foreground contamination at one of our frequencies that is consistent with expectations from extragalactic simulations. For our anisotropic birefringence analysis, we also find no detection and place an upper limit on the signal that is consistent with previous analyses. We report a corresponding upper limit on the Chern-Simons coupling term $g_{a γ} < 4.9 \\times 10^{-2} / H_\\mathrm{I}$, with $H_\\mathrm{I}$ the inflationary Hubble scale. These analyses pave the way toward obtaining improved constraints with the next generation of ground-based CMB surveys.",
+        "authors": [
+          "Darby M. Kramer",
+          "Alexander van Engelen",
+          "Frank J. Qu",
+          "Christopher Cain",
+          "Irene Abril-Cabezas",
+          "J. Richard Bond",
+          "Vera Gluscevic",
+          "Carlos Hervías-Caimapo",
+          "Niall MacCrann",
+          "Mathew S. Madhavacheril",
+          "Jeff McMahon",
+          "Toshiya Namikawa",
+          "Bruce Partridge",
+          "Emmanuel Schaan",
+          "Neelima Sehgal",
+          "Cristóbal Sifón",
+          "Ed Wollack"
+        ],
+        "published": "2026-08-27T17:59:59Z",
+        "id": "2608.27458v1",
+        "url": "http://arxiv.org/abs/2608.27458v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27458v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2608.27451v1": {
+      "paper": {
+        "title": "Tacet: A Language and Type System for Automatic Statistical Validity Accounting",
+        "summary": "Empirical comparisons between systems are a standard form of evidence in computer science research, but few are checked for statistical validity: most are never framed as statistical tests at all. Existing multiple-comparison procedures could control the resulting error, but need inputs (what an analysis examined, and how its observations are arranged) that are not recoverable from a list of p-values.   We introduce Tacet, a language in which an analysis declares what it generated, states what it expects to find, and is refused any claim it cannot afford or cannot properly test. Its core calculus T pairs a free estimation sublanguage, carrying a reported footprint and a purity bit that records whether any outcome was consulted in building a value, with a priced claim sublanguage, carrying a wealth transformer, connected only by a mechanism that prices a comparison. A sample selected by reading outcomes sets the purity bit and is recorded as having examined everything it read, permanently, so it can never be granted a one-sided or confirmatory price, without the system ever asking whether the analyst intended to cherry-pick. Whether a comparison is paired or clustered is computed statically from the artifact schema, from declared functional dependencies between key fields alone and before any data is read, and a mechanism that assumes that structure away is refused rather than priced. Because the wealth transformer is antitone in the realized p-value, affordability can be checked before the analysis runs too, turning pre-registration into a typing rule. We prove the metatheory machine-checked in Lean 4 with no admitted gaps, and demonstrate the approach on a reference implementation and two case studies on published artifacts, the SWE-bench Verified leaderboard and BIG-Bench Hard.",
+        "authors": [
+          "Chiké Abuah"
+        ],
+        "published": "2026-08-27T17:59:01Z",
+        "id": "2608.27451v1",
+        "url": "http://arxiv.org/abs/2608.27451v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27451v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI教育",
+        "AI法律与合规",
+        "AI零售与电商"
+      ]
+    },
+    "2608.27446v1": {
+      "paper": {
+        "title": "Exact Stiffness and Dynamical Responses from Fock-Space Fragmentation",
+        "summary": "Exactly solvable quantum many-body models are rare, and even when their spectra are algebraically organized, dynamical responses generally remain difficult to obtain because they probe an extensive number of excited states. Here we show that quantum geometric nesting (QGN) models admit an unusually strong form of solvability rooted in \\emph{Fock-space fragmentation}: excitations on top of the exact frustration-free ground states decouple into Krylov subspaces with a fixed number of particle and hole operators, and hence remain dynamically invariant. Exploiting this structure, we prove that the stiffness of the spontaneously broken continuous symmetry in QGN models is exactly equal to its variational value in the Gaussian manifold, confirming a conjecture from quantum many-body bootstrap~\\cite{GaoHanKhalaf2026}. The proof shows that an infinitesimal phase twist couples the ground state only to the one-particle, one-hole fragment, which coincides with the tangent space of the ground state within the variational manifold, thereby making the variational curvature exact. More generally, perturbations whose action remains within a fixed Fock-space fragment have response functions determined exactly by the corresponding few-body sector, enabling exact access to quantities including static susceptibility, optical conductivity, dynamical structure factors, and single-particle Green's functions.",
+        "authors": [
+          "Jonah Herzog-Arbeitman",
+          "Eslam Khalaf",
+          "Zhaoyu Han"
+        ],
+        "published": "2026-08-27T17:58:06Z",
+        "id": "2608.27446v1",
+        "url": "http://arxiv.org/abs/2608.27446v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27446v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因"
+      ]
+    },
+    "2608.27445v1": {
+      "paper": {
+        "title": "Band's Geometry Origin of Quantum Spin Transport Phenomena",
+        "summary": "We develop a geometric description of spin-dependent transport based on the local geometric structure of electronic bands and the Fermi surfaces. For quasi-two-dimensional systems, we show that hyperbolic regions of constant-energy surfaces generate a geometrical contribution to the Fermi velocity that couples naturally to electron spin and produces a spin-current response. We further show that, in the presence of time-reversal symmetry, the algebra of spin operators can be related to the exterior algebra of the band's tangent space, providing an additional geometric interpretation of spin in momentum space. This framework motivates a symplectic description of spin-separated transport on Fermi surfaces and its extension to three-dimensional band manifolds through contact geometry. Our results establish a direct connection between Fermi-surface geometry and intrinsic spin transport.",
+        "authors": [
+          "Elena Derunova",
+          "Mazhar N. Ali"
+        ],
+        "published": "2026-08-27T17:57:36Z",
+        "id": "2608.27445v1",
+        "url": "http://arxiv.org/abs/2608.27445v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27445v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "生物医疗与基因",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "生物医疗与基因",
+        "AI医疗健康",
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2608.27447v1": {
+      "paper": {
+        "title": "Proof of the AGT Conjecture at Generic $β$",
+        "summary": "We give an all-level proof of the four-point $SU(2)$ AGT correspondence with four fundamental hypermultiplets at generic $β=-ε_1/ε_2$, by proving an all-level factorization formula for Selberg averages of generalized Jack polynomials. Taking a coefficientwise Jack limit of the generalized Macdonald Pieri rule, we obtain the required one-box matrix elements in the strict Cauchy dual basis. A rational corner-function identity then evaluates the sum over all parent double partitions, while an explicit total derivative of the Selberg kernel yields a triangular recursion on the Dotsenko-Fateev charge balance hyperplane. The unique solution of this recursion is the generalized Kadell formula previously verified only through finite level. Combining this result with the generalized Cauchy identity identifies each double partition term with the corresponding Nekrasov fixed-point contribution.",
+        "authors": [
+          "Le-Feng Chen",
+          "Kilar Zhang"
+        ],
+        "published": "2026-08-27T17:58:06Z",
+        "id": "2608.27447v1",
+        "url": "http://arxiv.org/abs/2608.27447v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27447v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI能源与环境"
+      ]
+    },
+    "2608.27429v1": {
+      "paper": {
+        "title": "Mechanistic Reaction Prediction via Discrete Flow Matching on Graph-Structured Electron Occupation",
+        "summary": "Chemical reactions are fundamentally transformations in electron space, yet most machine learning approaches model them either through \\textit{de novo} generation of product molecules or through heuristic graph edits that operate directly on molecular topology.   We introduce MAELLE (\\textbf{M}ech\\textbf{A}nistic \\textbf{E}dit f\\textbf{L}ow-matching on e\\textbf{L}ectron r\\textbf{E}arrangements), which instead models reactions as discrete flow matching over electron occupation vectors.   Concretely, we formulate the reactant-to-product mapping as a Continuous-time Markov Chain (CTMC) over the graph-structured integer-valued electron occupation space defined on all bonding, non-bonding, and hydrogen sites.   To construct the intermediate edit trajectories, we generalize the discrete flow matching mixture path to discrete electron rearrangements using Optimal Transport, yielding a sequence of mechanistically interpretable edit moves without requiring elementary step annotations.   MAELLE achieves competitive performance on the USPTO-480K benchmark compared with leading reaction prediction models.   Beyond in-distribution accuracy, we evaluate robustness across two out-of-distribution settings - structural complexity and reaction type - and find that MAELLE maintains strong performance where existing methods degrade.   Finally, because the learned flow operates over the full electron redistribution, MAELLE naturally recovers mechanistic trajectories that align with known chemistry and can predict side products of a reaction.",
+        "authors": [
+          "Nguyen Xuan-Vu",
+          "Octavian Susanu",
+          "Daniel Armstrong",
+          "Philippe Schwaller"
+        ],
+        "published": "2026-08-27T17:50:44Z",
+        "id": "2608.27429v1",
+        "url": "http://arxiv.org/abs/2608.27429v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27429v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI安防与监控",
+        "AI制造与工业",
+        "AI能源与环境",
+        "AI农业"
+      ]
+    },
+    "2608.27428v1": {
+      "paper": {
+        "title": "Stochastic Estimation of Transduced Language Models",
+        "summary": "Transduced language models (TLMs) compose a pretrained \\emph{source} language model with a functional finite-state transducer to induce a language model over \\emph{target} strings. Computing the probability of a target prefix under a TLM amounts to summing the source-model probabilities of all source strings that the transducer maps to target strings beginning with that prefix. This set can be exponentially large or infinite. Prior work uses a computational shortcut based on source prefix probabilities, then approximates the resulting sum with threshold-pruned beam summing. This produces a lower bound with unknown error. Instead, we resample source prefixes without replacement and reweight each selected prefix by the inverse of its inclusion probability. We show that applying this correction recursively gives an unbiased estimator of the target prefix probability and lets us estimate the mass lost by threshold pruning. Our beam-summing algorithm extends the retained source prefixes and samples which prefixes to keep, reducing their number as more probability mass is added to the running estimate. This can save computation and guarantees that the run halts with probability one. We evaluate the method on encyclopedic text and DNA against sequential Monte Carlo baselines that resample with replacement. It achieves a better compute--variance tradeoff on text and lower error at the same maximum number of particles on DNA. On a DNA-to-amino-acid transduction, it reduces runtime by several orders of magnitude relative to threshold-pruned beam summing and makes estimating prefix probabilities for long target strings feasible. Replacing threshold pruning with unbiased sampling in a published reading-time analysis substantially lowers the estimated corpus surprisal but leaves the published conclusions unchanged.",
+        "authors": [
+          "Vésteinn Snæbjarnarson",
+          "Samuel Kiegeland",
+          "Manuel de Prada Corral",
+          "Ryan Cotterell",
+          "Tim Vieira"
+        ],
+        "published": "2026-08-27T17:50:21Z",
+        "id": "2608.27428v1",
+        "url": "http://arxiv.org/abs/2608.27428v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27428v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康"
+      ]
+    },
+    "2608.27427v1": {
+      "paper": {
+        "title": "Persona-Execution Separation: An Architecture Pattern for Evolving LLM Agents under Execution Audit",
+        "summary": "Large language model (LLM) agents in governed organizations must let the persona (instructions, tone, self-presentation) evolve freely, while keeping execution (stateful, audited work) traceable. A single trust domain does not satisfy both cheaply. We present Persona-Execution Separation (PES): persona and execution reside in different trust domains, connected by a governed contract bridge. The persona is singly-homed and may drift; execution is faceless and audited. Status summaries may return; data bodies remain in the restrictive domain except a graded data-loss-prevention (DLP) exception; identity stays continuous. An approval matrix, DLP, and audit enforce the crossing. PES follows from three goals---free drift, execution traceability, and decoupling. Under LLM representational indistinguishability, any single-domain mechanism that meets all three must re-introduce typed change objects, an external gate, and a stable audit anchor: PES rebuilt at higher coupling cost. A development/pilot case in a regulated digital-employee platform records five decisions over one month, each with a rejected alternative. A mechanism check on the shipped implementation found no execution-side re-validation under persona perturbation (five model configurations) and no persona fingerprint on hard-asserted fields. A probe of a recovered pre-separation build found the governed execution path decoupled from the persona by omission, not by construction; a later wiring change could reverse that isolation, which PES makes an audited architectural rule. The pattern applies when multi-user deployment, execution audit, and expected persona churn hold jointly.",
+        "authors": [
+          "Yisen Xi"
+        ],
+        "published": "2026-08-27T17:50:07Z",
+        "id": "2608.27427v1",
+        "url": "http://arxiv.org/abs/2608.27427v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27427v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.27420v1": {
+      "paper": {
+        "title": "Boosting LLM Exploration via Weak-Model Guidance in RLVR",
+        "summary": "Reinforcement Learning with Verifiable Rewards (RLVR) significantly improves LLM reasoning but often causes a drop in policy entropy, leading to narrowed reasoning coverage and degraded pass@$k$ for large $k$. While existing methods mitigate this entropy collapse through algorithmic regularizations, cross-model non-parametric perturbation is also neglected. In this work, we propose a simple yet effective approach to preserve the generative diversity of LLMs during RLVR. Instead of relying solely on internal exploration, we force the target model to generate answers based on partial reasoning trajectories generated by a smaller, weaker language models. These unfamiliar prefixes effectively disrupt over-confidence and encourage the exploration of distinct reasoning paths. We empirically study the potential of outer prefixes, revealing the mechanism of the impact of distributional discrepancy to the exploration dynamics in RLVR training. Experiments across multiple mathematical benchmarks show that our method consistently outperforms vanilla RLVR. Notably, the performance gain becomes increasingly pronounced as $k$ scales up, demonstrating a substantial expansion of reasoning coverage. Furthermore, our approach efficiently mitigates entropy collapse without requiring additional SFT, intricate reward designs, or complex prompting.",
+        "authors": [
+          "Xingyu Shen",
+          "Huishuai Zhang",
+          "Peng Li",
+          "Yinchun Wang",
+          "Dongyan Zhao"
+        ],
+        "published": "2026-08-27T17:45:50Z",
+        "id": "2608.27420v1",
+        "url": "http://arxiv.org/abs/2608.27420v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27420v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI教育",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.27448v1": {
+      "paper": {
+        "title": "TTPO: Test-Time Policy Optimization",
+        "summary": "Recent prominent post-training methods, such as Reinforcement Learning (RL) and On-Policy Self-Distillation (OPSD), have driven rapid progress in mathematical reasoning for large language models, yet their reliance on ground-truth labels precludes test-time training (TTT). Replacing ground truth with majority-vote pseudo-labels is a natural alternative, yet it is fragile: an incorrect vote corrupts the teacher and misleads every token. We observe that this failure mode is asymmetric: rollouts that disagree with the pseudo-label are typically wrong regardless of whether the vote itself is correct. Building on this observation, we propose Test-Time Policy Optimization (TTPO), an asymmetric objective that distills agreeing rollouts via OPSD and penalizes disagreeing rollouts with Grouped RL. Token-level selection further refines both branches: distillation down-weights already-converged positions, while RL penalizes only confident errors. Both updates remain well-grounded even under frequent pseudo-label errors, and majority-vote routing yields tighter self-supervision as the model improves. Without any labels, TTPO matches label-supervised OPSD on five competition-level benchmarks, raises Qwen3-1.7B from 38.0% to 45.2% in TTT, yields +25.2% to +36.4% without thinking, and shows strong cross-task generalization.",
+        "authors": [
+          "Aozhe Wang",
+          "Zhengxi Lu",
+          "Jianze Wang",
+          "Shangke Lv",
+          "Ying Liu",
+          "Weiming Lu",
+          "Jun Xiao",
+          "Yueting Zhuang",
+          "Hua Yang",
+          "Qianglong Chen",
+          "Yongliang Shen"
+        ],
+        "published": "2026-08-27T17:58:10Z",
+        "id": "2608.27448v1",
+        "url": "http://arxiv.org/abs/2608.27448v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27448v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI金融",
+        "AI法律与合规",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.27453v1": {
+      "paper": {
+        "title": "Metallogenic quantum criticality: Fermi surface nucleation at transitions between gapped phases",
+        "summary": "Continuous quantum phase transitions in interacting many-body systems exhibit universal phenomena that are largely independent of microscopic details. An organizing principle distilled from canonical examples such as the magnetic transition in Ising models is that the low-energy physics of transitions between gapped phases is governed by scale-invariant quantum field theories with gapless degrees of freedom at isolated points in momentum space. In this paper, we show that this principle can fail in a radical way: an entire gapless Fermi surface can emerge at a quantum critical point separating two fully gapped insulators. These exotic phase transitions are dubbed \\textit{metallogenic quantum critical points} (MGQCP). We construct a controlled family of effective field theories for MGQCPs between distinct fractional Chern insulators and propose a periodically modulated quantum Hall bilayer as a minimal microscopic setting. The critical theory exhibits an unusual mixture of physical signatures: while transport and compressibility follow scaling laws compatible with a conformal field theory, the electron spectral function develops a power-law non-analyticity at the Fermi momentum, characteristic of non-Fermi-liquid metals. We discuss how the concept of MGQCP may shed new light on critical phenomena in moire materials with tunable Chern bands. More generally, our results point to a broader class of quantum critical phenomena in which extended manifolds of gapless excitations emerge in momentum space despite being absent in both neighboring phases.",
+        "authors": [
+          "Zhengyan Darius Shi"
+        ],
+        "published": "2026-08-27T17:59:10Z",
+        "id": "2608.27453v1",
+        "url": "http://arxiv.org/abs/2608.27453v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27453v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI医疗健康",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI医疗健康",
+        "AI教育",
+        "AI安防与监控",
+        "AI零售与电商",
+        "AI能源与环境",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.27430v1": {
+      "paper": {
+        "title": "Factorized Boolean representations for efficient quantum synthesis",
+        "summary": "Quantum algorithms promise advantages beyond classical reach, but running them on error-corrected hardware requires translating Boolean specifications into reversible circuits, and the resources that translation demands determine what is executable. Established methods minimize a Boolean expression and map it to a circuit, assuming the minimized form is best. Here we show that minimized expressions retain algebraic structure minimization cannot reach, arising from containment and complementary-polarity relationships among their terms, and that extracting it yields circuits cheaper to execute despite having more operations. The decisive quantity is not a circuit's operation count but the control count of its widest operation, a superlinear cost; extracting shared factors trades a few wide operations for many narrow ones and reduces qubit count. Across benchmarks and oracles from quantum search and factoring algorithms, at the representation level the transformation never increases either cost measure, a guarantee from its construction. Translation to an executable circuit returns part of that advantage, since auxiliary lines must be uncomputed, yet the factorized circuit still left a leading circuit-level optimizer reaching lower final counts, and faster, than unaided. The representation of a computation is therefore itself a resource, optimizable before compilation and distinct from both logic minimization and circuit-level optimization.",
+        "authors": [
+          "Mehul Shah",
+          "Robert Fiszer",
+          "Marek Perkowski"
+        ],
+        "published": "2026-08-27T17:52:31Z",
+        "id": "2608.27430v1",
+        "url": "http://arxiv.org/abs/2608.27430v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27430v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI金融",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI金融",
+        "AI法律与合规"
+      ]
+    },
+    "2608.27440v1": {
+      "paper": {
+        "title": "Dynamics of local quantum information in random unitary circuits",
+        "summary": "The physics of information scrambling in quantum many-body systems is intimately related to thermalisation and emergence of chaos. However, its standard characterisation through bipartite entanglement or operator growth remains inherently coarse-grained, obscuring the spatiotemporal anatomy of how quantum information flows between different regions of the system and across various length scales. In this work, we develop a theory for the dynamics of local information in local random unitary circuits which resolves the fine-grained microscopic structures of local information flow in such systems. Using the framework of information lattice which systematises the information content at each length scale within each subsystem, we identify a distribution of length scales at which information resides and obtain the dynamics of the distribution. For Haar-random circuits with infinite local Hilbert-space dimensions, we map this dynamics onto an exact classical stochastic process which reveals that this distribution is described by a Tracy-Widom form which moves ballistically in time ($ \\propto t$) toward larger scales, accompanied by a $\\sim t^{1/3}$ broadening. We also find the same qualitative behaviour for random Clifford circuits acting on qubits. The similar scaling behaviour in two rather different settings hints strongly towards the universality of our results. In the case of Clifford circuits, we develop a phenomenological Markov process for the dynamics of the stabiliser generators in a specific gauge which confirms the Tracy-Widom distribution and the $t^{1/3}$ scaling of the fluctuations. Ultimately, our results establish the universal properties of the dynamics of local quantum information in a length scale-resolved fashion and provide a possible route towards bridging exact microscopic theories for information dynamics with emergent hydrodynamic descriptions of information flow.",
+        "authors": [
+          "Ratul Thakur",
+          "Sthitadhi Roy"
+        ],
+        "published": "2026-08-27T17:55:50Z",
+        "id": "2608.27440v1",
+        "url": "http://arxiv.org/abs/2608.27440v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27440v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2608.27437v1": {
+      "paper": {
+        "title": "The JWST/NIRCam Scattered Light Disks GTO 2780 program: panchromatic coronagraphic imaging of the HD 10647, HD 32297, HD 61005, HD 107146, and HD 181327 debris disk systems",
+        "summary": "Debris disks, composed of rocks, boulders, planetesimals, and the dust produced in their collisions, present the most readily observable components of mature planetary systems. They also serve as valuable diagnostic tools, enabling studies of planetary dynamical interactions and mineral compositions. Observed from optical to radio wavelengths, each band reveals unique information about the dust populations. Optical and near-infrared observations are specifically sensitive to light scattered off the surfaces of the micron-sized particles. Here, we present results from the JWST/NIRCam GTO program 2780, designed to observe five disk systems previously identified to be exceptionally bright at optical wavelengths (HD 10647, HD 32297, HD 61005, HD 107146, and HD 181327) with six filters using the NIRCam coronagraphs. The NIRCam data complement previous shorter-wavelength images of these same systems. They reveal scattered light from the disks and from the extended halos of tiny grains under the influence of radiative forces, at high resolution and signal to noise. All the systems show evidence for water ice, although it can have differing radial distributions and tends to show stronger signatures in the halos. In the two cases we could analyze, the scattering phase function in the disks resembles the behavior of dust in the Solar System with evidence for enhanced forward scattering in the halos, consistent with the latter being composed of tiny grains. MIRI images for two systems are more centrally concentrated than the shorter wavelength ones, suggesting a role for dragged-in larger grains.",
+        "authors": [
+          "András Gáspár",
+          "Jarron M. Leisenring",
+          "Schuyler Grace Wolff",
+          "Kellen Lawson",
+          "George H. Rieke",
+          "Dingshan Deng",
+          "Marcia J. Rieke",
+          "Antranik A. Sefilian",
+          "Charles Beichman",
+          "Joshua B. Lovell",
+          "John Krist",
+          "Marie Ygouf",
+          "Jorge Llop-Sayson",
+          "Geoffrey Bryden",
+          "Christopher C. Stark",
+          "Christine H. Chen"
+        ],
+        "published": "2026-08-27T17:55:03Z",
+        "id": "2608.27437v1",
+        "url": "http://arxiv.org/abs/2608.27437v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27437v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI零售与电商"
+      ]
+    },
+    "2608.27457v1": {
+      "paper": {
+        "title": "Spectral Fingerprints of Gauge Theories on a Quantum Computer",
+        "summary": "Maximally mixed state spectral sampling is an unbiased quantum algorithm that allows for extraction of a finite-resolution spectral distribution from a Hamiltonian over potentially the entire allowed range of energies. We show how it may be focused on any desired area of the spectrum in order to learn about the full \\textit{fingerprint} of the model of interest: from its ground state phenomena such as quantum criticality, obtained from the lowest lying energies, to its thermalization behavior, obtained from the mid-spectrum. We demonstrate this technique specifically on a $(1+1)d$ non-Abelian $SO(3)$ gauge theory, providing a comprehensive analysis of the steps necessary for performing this algorithm, as well as what is possible in the near-term with superconducting quantum hardware, performing simulations with circuits that are $78$ two-qubit gates deep. We show how this algorithm is able to take advantage of emerging dynamical circuit capabilities in near-term hardware to roughly halve the number required qubits, as well as how quantum readout error mitigation is trivial for this method. Along the way, we propose a novel strategy for compiling the controlled-time evolutions needed for spectral sampling by means of Pauli-frame optimizations. We illustrate two physical applications of quantum spectral sampling -- disordered many-body transitions, and mid-spectrum densities of states -- and what postprocessing steps they require beyond the Fourier outputs of the algorithm.",
+        "authors": [
+          "Graham Van Goffrier",
+          "Debasish Banerjee",
+          "Bipasha Chakraborty",
+          "Emilie Huffman"
+        ],
+        "published": "2026-08-27T17:59:51Z",
+        "id": "2608.27457v1",
+        "url": "http://arxiv.org/abs/2608.27457v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27457v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI能源与环境"
+      ]
+    },
+    "2608.27456v1": {
+      "paper": {
+        "title": "UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City",
+        "summary": "Multimodal large language models (MLLMs) can interpret a street view, but urban agency depends on whether such local evidence remains useful after the agent starts to move. In this paper, we investigate how far current MLLM agents can turn local urban perception into reliable action in a complicated real-scale city. We propose UrbanGround, the first sandbox to make this question testable in a physically constrained replica of Hong Kong built from territory-wide 3D geospatial data. UrbanGround supports closed-loop interaction from a first-person view and provides an interactive map for navigation. Agents can directly enter the 3D city and explore from a first-person view. Our analysis follows the growth of the spatial problem through three research questions. We first test whether an agent can ground a local scene well enough to answer spatial questions after active observation. Then we ask whether that grounding supports navigation as destinations become farther away and less explicit. Finally, we examine whether the resulting behavior survives changes in route availability and pedestrian motion. Contemporary MLLM agents usually show useful atomic abilities in visual recognition and short-range spatial reasoning, while orientation and pedestrian-aware movement remain unreliable. Their central failure emerges over extended exploration, where local abilities do not compose into sustained goal-directed behavior and errors accumulate without effective correction. We hope UrbanGround will support broader study of how far current MLLM agents can explore reliably in complex, open-ended urban environments.",
+        "authors": [
+          "Tianjie Ju",
+          "Zheng Wu",
+          "Yueqing Sun",
+          "Yuhan Cui",
+          "Bobo Li",
+          "Shengqiong Wu",
+          "Pengzhou Cheng",
+          "Haodong Zhao",
+          "Zongru Wu",
+          "Xinbei Ma",
+          "Doris Zhang",
+          "Kunling Li",
+          "Mong-Li Lee",
+          "Wynne Hsu",
+          "Hao Fei",
+          "Qi Gu",
+          "Gongshen Liu",
+          "Zhuosheng Zhang"
+        ],
+        "published": "2026-08-27T17:59:33Z",
+        "id": "2608.27456v1",
+        "url": "http://arxiv.org/abs/2608.27456v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27456v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI教育",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI教育",
+        "AI安防与监控",
+        "AI法律与合规",
+        "AI零售与电商",
+        "AI政务与公共服务"
+      ]
+    },
+    "2608.27415v1": {
+      "paper": {
+        "title": "Wedge problems and dispersive shock waves in the two-dimensional Toda lattice",
+        "summary": "We study the formation and interaction of dispersive shock waves (DSWs) in the two-dimensional Toda lattice subject to wedge-type initial conditions, and show that their interaction gives rise to a discrete analog of Mach reflection for dispersive shock waves in discrete systems. The initial jump across each leg of the wedge acts locally as a Riemann problem for the one-dimensional Toda lattice, producing two oblique DSWs whose leading-edge soliton amplitude is determined explicitly by the one-dimensional Whitham modulation theory. The two-dimensional nature of the problem manifests when these oblique DSWs meet along the symmetry axis. We show that, for compressive wedges (i.e., when the initial conditions are such that two oblique DSWs that are generated propagate toward each other), a critical slope $q_{\\mathrm{cr}}$ separates two regimes: in the subcritical regime ($q<q_{\\mathrm{cr}}$) the interaction is resonant and it produces an expanding DSW whose amplitude, length and velocity are explicitly computed by using exact soliton solutions of the two-dimensional Toda lattice; in the supercritical regime ($q>q_{\\mathrm{cr}}$) the interaction is ordinary and produces a localized peak whose amplitude is determined analytically. We also show qualitatively that a similar dichotomy between two regimes exists for expansive wedges (i.e., when the initial conditions are such that the two oblique DSWs propagate away from each other). We confirm all analytical predictions by comparing them with the results of direct numerical simulations. Finally, we show that the continuum limit of the result is consistent with the analogous theory for the Kadomtsev-Petviashvili equation, providing an independent validation of the analytical framework.",
+        "authors": [
+          "Marco Calabrese",
+          "Gino Biondini",
+          "Christopher Chong",
+          "Panayotis Kevrekidis"
+        ],
+        "published": "2026-08-27T17:42:36Z",
+        "id": "2608.27415v1",
+        "url": "http://arxiv.org/abs/2608.27415v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27415v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控",
+        "AI能源与环境"
+      ]
+    },
+    "2608.27425v1": {
+      "paper": {
+        "title": "Leading term strandings for webs",
+        "summary": "A web is a plane graph encoding an invariant vector in a tensor product of fundamental representations of a quantum group. A stranding of an $\\mathfrak{sl}_n$ web is a system of colored oriented curves recording one monomial of the vector it encodes. This article focuses on identifying and constructing leading term strandings, those recording the leading term of a web's vector with respect to a lexicographic order on monomials. We show that every open strand of a leading term stranding is clockwise, which constrains the boundary data of such strandings enough to yield a sufficient criterion for a set of webs to form a web basis. From a row-strict tableau, we construct a web with a prescribed leading term, and the resulting webs form a web basis, giving a non-recursive construction of Fontaine's $\\mathfrak{sl}_n$ web bases. For $\\mathfrak{sl}_3$ webs with no flat vertices, we identify a leading term stranding using the depths of the faces of the web. Finally, we show a leading term stranding for any $\\mathfrak{sl}_3$ web can be reached from an arbitrary stranding via a sequence of operations called strand reversals.",
+        "authors": [
+          "Michael Bo",
+          "Madelyn Burns",
+          "Junyang Chen",
+          "Blaise Marsho",
+          "Jacob Martin",
+          "Jade Mawn",
+          "Bella Mohren",
+          "Heather M. Russell",
+          "Caitlin Sales",
+          "Lance Wong"
+        ],
+        "published": "2026-08-27T17:49:45Z",
+        "id": "2608.27425v1",
+        "url": "http://arxiv.org/abs/2608.27425v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27425v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI安防与监控",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI安防与监控"
+      ]
+    },
+    "2608.27413v1": {
+      "paper": {
+        "title": "Scaling Graph Neural Networks for Friend Recommendation: Multi-Hash User Embeddings and Temporal Neighbor Sampling",
+        "summary": "Friend recommendation is inherently graph-structured: the relevance of a potential connection depends on multi-hop social context rather than user attributes alone. However, deploying message-passing GNNs on a production-scale social graph with hundreds of millions of users and tens of billions of edges requires addressing numerous modeling and systems challenges. We present a scalable end-to-end GNN ranking system for production social graphs, focusing on two design choices that are critical in this setting: multi-hash ID embeddings and temporal neighbor sampling. Multi-hash embeddings are common for high-cardinality features, but industrial GNN systems typically either ignore trainable IDs or accept full embedding tables, exceeding 200 GB for our graph. We integrate multi-hash as the primary node representation, reducing the ID-embedding table size by more than 98 percent while preserving ranking quality. Temporal neighbor sampling is well understood in principle, but existing implementations scan full adjacency lists, which is a non-starter for users with tens of thousands of friends. We implement timestamp-sorted CSR storage with binary search, reducing the per-node temporal sampling cost from $O(deg(v) + k)$ to $O(\\log(deg(v)) + k)$. Beyond these components, we show that this combination scales and yields measurable production impact. On a graph with 194M users and 28B edges, offline ablations isolate each design choice's contribution. In an online A/B test, our system increases friend additions from recommendations by 16 percent and unique friend adders by 11.5 percent over a strong production baseline. We release our framework for distributed training and inference on large temporal graphs.",
+        "authors": [
+          "Maksim Utushkin",
+          "Andrei Ovsiannikov",
+          "Alexander D'yakonov"
+        ],
+        "published": "2026-08-27T17:41:33Z",
+        "id": "2608.27413v1",
+        "url": "http://arxiv.org/abs/2608.27413v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27413v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.27247v1": {
+      "paper": {
+        "title": "Almost factorial many facets for 0/1-polytopes",
+        "summary": "A long-standing question posed by Fukuda (1995) and Ziegler (2000) inquires about the asymptotic behavior of $g(n)$, the maximum number of facets that an $n$-dimensional $0/1$-polytope can have. A remarkable result by Bárány and Pór (2001) via probabilistic methods established that $g(n)$ is at least superexponential in $n$. In this paper, we propose a drastic change of perspective, which leads us to show that for each $n\\geq 10$ there exists a $0/1$-polytope having at least $(n-\\lceil 2\\log_2 (n)\\rceil - 1)!$ facets. This provides a significant improvement over the currently known lower bounds for $g(n)$. Furthermore, when combined with known upper bounds, our construction establishes the asymptotic behavior of $\\log g(n)$ up to an error of $O((\\log n)^2)$. The methods employed throughout this paper are elementary and fully deterministic. The underlying ideas in our proof stem from the combinatorics of hypersimplices and permutohedra.",
+        "authors": [
+          "Federico Castillo",
+          "Luis Ferroni"
+        ],
+        "published": "2026-08-27T15:25:44Z",
+        "id": "2608.27247v1",
+        "url": "http://arxiv.org/abs/2608.27247v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27247v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.26858v1": {
+      "paper": {
+        "title": "Information Flow Control in Off-Chain Components",
+        "summary": "This paper develops a model of a smart-contract language for a blockchain architecture with off-chain components. Off-chain components are pieces of smart contracts that execute at designated locations outside of the network of blockchain nodes, but remain synchronised with the on-chain contract state. They react to changes to the on-chain state, but may also notify the on-chain component about events in the world, e.g. stock prices, weather data etc., or even act as a bridge between different blockchains. This affords greater flexibility for the developer, but may also enable new vulnerabilities. As a concrete example, we use the model to study the problem of ensuring integrity and secrecy of data between the on-chain and off-chain components, using static information flow control techniques. This fails, even in the absence of a loop construct, because off-chain components act as separate threads and can encode a blocking construct e.g. through recursive method calls. We end the paper with a discussion of possible ways to remedy this situation.",
+        "authors": [
+          "Stian Lybech",
+          "Eun-Young Kang",
+          "Riccardo Tonello",
+          "Anders Dalskov"
+        ],
+        "published": "2026-08-27T09:24:20Z",
+        "id": "2608.26858v1",
+        "url": "http://arxiv.org/abs/2608.26858v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.26858v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业",
+        "AI农业"
+      ]
+    },
+    "2608.26841v1": {
+      "paper": {
+        "title": "Muon acceleration at J-PARC",
+        "summary": "Muon acceleration is a key technology for producing low-emittance muon beams over a wide energy range. Various acceleration schemes have been proposed for applications ranging from low-energy $μ$SR and precision particle-physics measurements to neutrino factories and muon colliders. Experimental demonstrations of muon acceleration, however, have so far been limited. At J-PARC, a positive-muon accelerator based on the production and acceleration of ultraslow muons is being developed, and in 2024 the first RF acceleration of positive muons was demonstrated. In this review, we provide a brief overview of muon-acceleration methods and related experiments, and then review the acceleration method, current status, and future prospects at J-PARC.",
+        "authors": [
+          "Shusei Kamioka",
+          "Masato Kimura",
+          "Yuga Nakazawa"
+        ],
+        "published": "2026-08-27T09:12:50Z",
+        "id": "2608.26841v1",
+        "url": "http://arxiv.org/abs/2608.26841v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.26841v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.26597v1": {
+      "paper": {
+        "title": "Kawamata--Miyaoka type inequality for weak Fano varieties",
+        "summary": "Let $X$ be a $\\mathbb Q$-factorial $ε$-lc weak Fano variety of dimension $n\\geq 2$, where $0<ε\\leq 1$ is a real number. Then there exists a Kawamata--Miyaoka type inequality   \\[   c_1(X)^n\\leq \\frac{2(1+ε)}ε\\,\\hat c_2(X)\\cdot c_1(X)^{n-2}.   \\]",
+        "authors": [
+          "Haidong Liu"
+        ],
+        "published": "2026-08-27T04:24:52Z",
+        "id": "2608.26597v1",
+        "url": "http://arxiv.org/abs/2608.26597v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.26597v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.26526v1": {
+      "paper": {
+        "title": "High Probability Derivative Bounds for Random tanh Neural Networks on a Hypercube",
+        "summary": "We establish high-probability bounds for mixed input derivatives of wide random neural networks whose activation derivatives satisfy a factorial growth bound. Our main result specializes these estimates to $\\tanh$ networks with Xavier initialization. A direct deterministic analysis based on Euclidean operator norms of the weight matrices yields derivative bounds that generally grow exponentially with the depth. We show that this growth can be substantially improved for sufficiently wide Gaussian networks by isolating the term that is linear in the highest-order derivative and controlling the corresponding tangent directions by measurable finite nets.   For scalar-output $\\tanh$ networks with Gaussian weights and Xavier initialization, we prove that there exist constants $C,C_0,C_1>0$ such that, whenever the common hidden width satisfies $n \\geq C\\left(L^3n_0^2(1+\\log n_0)+L^2\\left(1+\\log(L/η)\\right)\\right)$, then, with probability at least $1-η$, the estimate $\\left|D^u\\mathcal{R}_{Φ^{(L)}}(x)\\right| \\leq C_0 |u|! (C_1L)^{|u|-1}\\prod_{j\\in u}β_j(η,n_0)$ holds simultaneously for every non-empty $u\\subseteq[n_0]$ and every $x\\in[0,1]^{n_0}$. Thus, the first-order derivative bound is independent of the depth, while a square-free mixed derivative of order $|u|$ grows at most polynomially as $L^{|u|-1}$, apart from the coordinate factors. As consequences, we obtain high-probability bounds for the Euclidean Lipschitz constant and for weighted Sobolev norms of the network realization. The latter connect the derivative estimates to quasi-Monte Carlo integration and indicate how such regularity can enter the analysis of QMC-based training.",
+        "authors": [
+          "Josef Dick",
+          "Michael Feischl",
+          "Fabian Zehetgruber"
+        ],
+        "published": "2026-08-27T02:01:50Z",
+        "id": "2608.26526v1",
+        "url": "http://arxiv.org/abs/2608.26526v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.26526v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI制造与工业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI制造与工业"
+      ]
+    },
+    "2608.27452v1": {
+      "paper": {
+        "title": "Distinguishing Quantum Capacitance Signatures of a Topological Majorana Wire from a Normal Wire Segment",
+        "summary": "Majorana zero modes (MZMs) are spatially separated, near-zero-energy excitations expected at the ends of a topological superconducting (TS) wire. A quantum-dot interferometer can be used to probe the quantum capacitance of the TS wire, and the location and magnitude of the capacitance resonances provide information about the MZMs, while their magnetic flux dependence probes coherent coupling to the two Majorana modes. It has been recently shown that, a gapless (i.e., $Δ=0$) wire segment can also exhibit flux-dependent quantum capacitance oscillations through Aharonov-Bohm interference and, with suitable tuning, can reproduce a Majorana-like response. Here we show that the two mechanisms can be distinguished experimentally. In the gapless normal wire segment, the two parity-dependent signals originate from separate energy resonances corresponding to the lack of generic zero-energy states. By contrast, in the topological wire, the pair of low energy levels with even and odd parity are nearly degenerate in energy, and therefore, the two parity branches remain within the same broader resonance region in the quantum-dot potential, and persist under independent variations of the dot potential and wire chemical potential. Our results show that the experimentally observed quantum capacitance response is distinguished not by a particular flux trace at one optimized point in parameter space, but by its persistence over a finite range of independently controlled parameters, including the quantum-dot potential. This parameter space stability provides a direct means of ruling out the gapless normal wire segment as the origin of the observed Majorana-like response.",
+        "authors": [
+          "Binayyak Bhusan Roy",
+          "Jay Deep Sau",
+          "Sumanta Tewari"
+        ],
+        "published": "2026-08-27T17:59:08Z",
+        "id": "2608.27452v1",
+        "url": "http://arxiv.org/abs/2608.27452v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27452v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境"
+      ]
+    },
+    "2608.27417v1": {
+      "paper": {
+        "title": "Retrieval Heads Meet Vision: Uncovering How VLMs Locate and Extract Visual Information",
+        "summary": "Vision-language models (VLMs) can locate an image region referred to by a text prompt and route the corresponding visual evidence to the output, yet the internal mechanism behind this behavior is not understood. Inspired by retrieval heads in large language models, we ask whether VLMs contain an analogous mechanism for visual retrieval. We answer affirmatively by introducing Visual Retrieval Heads (VRHs), a small subset of attention heads (about 1.7-2.6%) that are causally responsible for grounding text descriptions to image regions. To find them, we recast existing head-scoring methods under a unified design space over query tokens, key aggregation, and cross-sample aggregation. We then show that scoring attention from output prediction tokens with a sum over the ground-truth referent region most reliably identifies causal heads. Across eleven VLMs and five referring-expression benchmarks, masking only the top 20 VRHs reduces grounding accuracy by up to 80 percentage points, while masking the same number of random heads has little effect. Beyond replicating the causal-sparse-universal triad established for text retrieval heads, VRHs exhibit several properties not previously reported: they generalize across visual reference tasks, remaining causal on attribute, spatial, counting, and visual-math benchmarks despite being discovered through bounding-box prediction; they are functionally specific, preserving output format while corrupting localization; and they are architecturally shared, transferring causally across VLMs that share an LLM backbone but differ in vision encoder, projector, and instruction tuning.",
+        "authors": [
+          "Chanho Park",
+          "Daehyeon Choi",
+          "Jihyun Lee",
+          "Minhyuk Sung"
+        ],
+        "published": "2026-08-27T17:43:58Z",
+        "id": "2608.27417v1",
+        "url": "http://arxiv.org/abs/2608.27417v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27417v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI能源与环境",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI能源与环境"
+      ]
+    },
+    "2608.27402v1": {
+      "paper": {
+        "title": "How Language Models Organize and Structure Moral Knowledge",
+        "summary": "How do large language models (LLMs) organize moral knowledge? Models detect moral content broadly, but detection is a low bar. We ask whether they go further, distinguishing moral foundations from one another and organizing the relationships between them geometrically.   We train six independent linear probes on open-weight language models, one per Moral Foundations Theory (MFT) category (care/harm, fair/cheat, lib/oppress, loy/betray, auth/subv, sanc/degrade), and examine how the resulting directions relate to each other in representation space. We find the directions neither collapse into a single moral detector nor isolate from one another. Rather, they span a near-maximal number of independent dimensions while sharing a positive common component. The shared component is the signature of integration, and it is moral-specific relative to a matched non-moral concept battery built identically (mean pairwise cosine 0.26 vs. 0.013).   The geometry is consistent across architectures and scale and reaches its integration regime early in pre-training, well before probe accuracy saturates. The structure the model discovers shows no evidence of the individualizing/binding distinction predicted by Moral Foundations Theory (an underpowered test: only 20 candidate partitions exist) but rather reflects corpus statistics. Extending to moral dilemmas, each dilemma direction partially composes from its component foundations, at 2.7x a mismatched-pair baseline, while the majority of its variance encodes conflict-specific structure. The model represents moral tension itself, not a pre-resolved judgment.",
+        "authors": [
+          "Orion Reblitz-Richardson"
+        ],
+        "published": "2026-08-27T17:30:30Z",
+        "id": "2608.27402v1",
+        "url": "http://arxiv.org/abs/2608.27402v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27402v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.27199v1": {
+      "paper": {
+        "title": "Vision-centric generative AI models: A software-hardware perspective",
+        "summary": "Vision generative artificial intelligence (AI) has emerged as one of the most rapidly advancing areas of deep learning. The explosion of multimodal models has made them widely associated with text-to-image applications running on large datacentres. However, vision generative models are equally needed in applications that operate under strict hardware constraints at the edge, including autonomous vehicles, agricultural sensors, and mobile devices. In this Perspective, we argue that progress in vision generative AI has been driven by output quality, with hardware evolving reactively to accommodate growing model demands. We quantify the parameter cost and energy efficiency of these models across a range of accelerator platforms, and map four generative model families against seven real-world application domains. Finally, we advocate a software-hardware co-design approach, where deployment constraints are considered from the start of the design process, ensuring that the \"right model\" runs on the \"right hardware\" to serve the \"right application\", making generative AI deployment sustainable and accessible across a much broader range of platforms.",
+        "authors": [
+          "Eleni Tselepi",
+          "Cristian Sestito",
+          "Shady Agwa",
+          "Themis Prodromakis"
+        ],
+        "published": "2026-08-27T14:41:50Z",
+        "id": "2608.27199v1",
+        "url": "http://arxiv.org/abs/2608.27199v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27199v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.27088v1": {
+      "paper": {
+        "title": "Active sensing to characterize the heterogeneity of plant stress",
+        "summary": "While most phenotyping platforms rely primarily on image-based measurements, advanced plant characterization requires the integration of active physiological sensing modali- ties such as chlorophyll fluorescence. We present an autonomous robotic platform designed to perform targeted fluorescence measurements on plant leaves. The system combines 3D plant reconstruction, geometric analysis, and motion planning to localize suitable measurement points and generate collision-free trajectories for a robotic manipulator.   A dense 3D model of the plant is reconstructed from multi-view data and used to extract candidate leaf surfaces based on orientation, accessibility, and sensing constraints. These targets are then integrated into a task-level planning framework that guides the end-effector to precise contact or near-contact configurations required for point-based fluorescence acquisition. The platform enables automated, repeatable, and spatially resolved physiological measurements that go beyond passive imaging. By tightly coupling perception, geometric reasoning, and manipulation, the proposed system provides a robotics-driven approach to high-resolution plant phenotyping and opens new directions for autonomous agricultural inspection and plant-aware manipulation.",
+        "authors": [
+          "Ayman Laaroussi",
+          "Peter Hanappe",
+          "David Colliaux"
+        ],
+        "published": "2026-08-27T13:11:13Z",
+        "id": "2608.27088v1",
+        "url": "http://arxiv.org/abs/2608.27088v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.27088v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.26771v1": {
+      "paper": {
+        "title": "Cross-Architecture Knowledge Distillation from a Vision Foundation Model to a Lightweight Visual State Space Model for Tea Leaf Disease Classification",
+        "summary": "Automated tea leaf disease classification supports precision agriculture, yet deploying accurate models on edge devices remains challenging under tight compute budgets. Self-supervised vision foundation models such as DINOv2 provide strong features but are too large for field deployment, while lightweight models trained from scratch on small agricultural datasets often underfit. We study cross-architecture knowledge distillation (KD) from a fine-tuned DINOv2 teacher (Vision Transformer) to a compact bidirectional Visual State Space Model (LVSSM) student, an underexplored direction because the architectures use fundamentally different token-mixing mechanisms. We identify and fix two training-stability problems that prevent the from-scratch SSM student from learning on limited data: a single large patch-embedding convolution and a fusion layer that severs the residual path. With a progressive convolutional stem and gated bidirectional selective-scan block, the 4.45M-parameter student trains stably. Across three seeds, temperature-scaled logit distillation raises test accuracy from 92.32+/-2.14% to 95.41+/-1.17% (best single run: 96.20%; macro-F1: 94.45%), a +3.09 percentage-point mean gain. The student uses 5.0 times fewer parameters than the 22M-parameter teacher while retaining 98.3% of its accuracy. Ablations show that intermediate feature-alignment losses reduce accuracy, making simple logit-level KD the strongest configuration. A fair from-scratch comparison shows the gain is specific to students that start below the teacher. We report per-class metrics, confusion matrices, bootstrap confidence intervals, and FLOPs/latency measurements, and discuss limitations including the single-dataset scope and simplified non-official SSM implementation.",
+        "authors": [
+          "Zibo Zhou",
+          "Zongsen Qiu",
+          "Rui Chen",
+          "Yujie Yao",
+          "Yue Zhou",
+          "Jianjun Wang"
+        ],
+        "published": "2026-08-27T08:02:05Z",
+        "id": "2608.26771v1",
+        "url": "http://arxiv.org/abs/2608.26771v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.26771v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    },
+    "2608.26487v1": {
+      "paper": {
+        "title": "Efficient Scheduling of Discrete Industrial Processes Through Continuous Modeling",
+        "summary": "The resource-task network (RTN) model has been widely applied to represent the technical constraints of complex industrial processes (IPs) such as steel-making, providing the basis for industrial demand response. However, the legacy RTN model contains numerous binary variables and applies different formulations for non-flexible and flexible processes, restricting its computational efficiency and applicability. To systematically improve the computational performance of IP models, we propose continuous RTN model (cRTN), a novel modeling approach that uses continuous variables to represent production tasks and progresses, which are then integrated into unified as well as computationally favorable formulations for the technical constraints in discrete IPs, including resource balance, task execution, waiting time limits, and production targets. Compared to the legacy models, cRTN features fewer binary variables, shorter solving time, and better scalability while maintaining the same accuracy. Numerical tests based on a steel plant demonstrate that cRTN is in typical cases 10 times faster than legacy models and remains tractable with increasing batch sizes, which in legacy models leads to larger problem scales and infeasible solving time. cRTN also achieves a reduction in energy costs by resolving the issue of rounding errors reported in legacy models.",
+        "authors": [
+          "Ruike Lyu",
+          "Xiangbo Su",
+          "Ershun Du",
+          "Hongye Guo",
+          "Qixin Chen",
+          "Chongqing Kang"
+        ],
+        "published": "2026-08-27T00:20:48Z",
+        "id": "2608.26487v1",
+        "url": "http://arxiv.org/abs/2608.26487v1",
+        "pdf_url": "https://arxiv.org/pdf/2608.26487v1"
+      },
+      "primary_layer": "第五层-行业应用层",
+      "primary_category": "AI农业",
+      "matched_layers": [
+        "第五层-行业应用层"
+      ],
+      "matched_categories": [
+        "AI农业"
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "title": "示例：登录弹窗完全空白",
+  "severity": "Critical",
+  "category": "Functional",
+  "url": "https://example.com/dashboard",
+  "description": "点击登录按钮弹出的 dialog 完全空白，无任何可用内容",
+  "steps_to_reproduce": [
+    "访问 https://example.com/dashboard",
+    "点击左下角'登录公众号'按钮",
+    "观察弹窗内容"
+  ],
+  "expected": "弹窗显示扫码登录二维码或登录表单",
+  "actual": "弹窗只有标题和关闭按钮，无任何内容",
+  "screenshot": "screenshots/02-issue-1-empty-dialog.png",
+  "screenshot_annotated": "screenshots/02-issue-1-annotated.png",
+  "screenshot_compare": "screenshots/02-issue-1-compare.png",
+  "dom_snapshot": "- dialog\n  - heading \"登录微信公众号\" [level=2, ref=e1]\n  - button [ref=e2]",
+  "console_errors": ""
+}

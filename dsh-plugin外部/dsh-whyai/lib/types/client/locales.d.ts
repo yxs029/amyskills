@@ -1,0 +1,24 @@
+export declare const zh: {
+    title: string;
+    brand: string;
+    remaining: string;
+    eligible: string;
+    ineligible: string;
+    expiry: string;
+    reset: string;
+    accessExpiry: string;
+    dateLocale: string;
+    validityHint: string;
+    unknown: string;
+    loading: string;
+    paused: string;
+    unavailable: string;
+    auth: string;
+    limited: string;
+    timeout: string;
+    invalid: string;
+    disabled: string;
+    billingUnavailable: string;
+};
+export type LocaleKey = keyof typeof zh;
+export declare const en: Record<LocaleKey, string>;

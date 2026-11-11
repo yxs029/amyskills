@@ -1,0 +1,1010 @@
+import path from "path"
+import { execFile } from "node:child_process"
+import { readFile, writeFile, stat, rm, realpath } from "node:fs/promises"
+
+/** 判断路径是否存在于磁盘（fs 层判断，git 命令结果不作为存在性依据）。 */
+export async function pathExists(p: string): Promise<boolean> {
+  try {
+    await stat(p)
+    return true
+  } catch {
+    return false
+  }
+}
+
+export interface GitRunner {
+  run(worktree: string, args: string[]): Promise<string>
+  runChecked(
+    worktree: string,
+    args: string[]
+  ): Promise<{ success: boolean; stdout: string; stderr: string; exitCode: number }>
+}
+
+function execGit(args: string[]): Promise<{ stdout: string; stderr: string; exitCode: number }> {
+  return new Promise((resolve) => {
+    const child = execFile("git", args, { encoding: "utf-8", maxBuffer: 10 * 1024 * 1024 } as any, (err: Error | null, stdout: string, stderr: string) => {
+      resolve({
+        stdout: stdout || "",
+        stderr: stderr || "",
+        exitCode: err ? (err as any).code || 1 : 0,
+      })
+    })
+  })
+}
+
+const defaultRunner: GitRunner = {
+  async run(worktree, args) {
+    try {
+      const { stdout } = await execGit(["-C", worktree, ...args])
+      return stdout.trim()
+    } catch {
+      return ""
+    }
+  },
+  async runChecked(worktree, args) {
+    const { stdout, stderr, exitCode } = await execGit(["-C", worktree, ...args])
+    return { success: exitCode === 0, stdout: stdout.trim(), stderr: stderr.trim(), exitCode }
+  },
+}
+
+let gitRunner: GitRunner = defaultRunner
+
+export function __setGitRunner(r: GitRunner | null): void {
+  gitRunner = r ?? defaultRunner
+}
+
+export async function runGit(worktree: string, args: string[]): Promise<string> {
+  return gitRunner.run(worktree, args)
+}
+
+export async function runGitChecked(
+  worktree: string,
+  args: string[]
+): Promise<{ success: boolean; stdout: string; stderr: string; exitCode: number }> {
+  return gitRunner.runChecked(worktree, args)
+}
+
+/** worktree 清理结果：成功判定以目录从磁盘真实消失为准，不信任单条 git 命令的退出码。 */
+export interface WorktreeRemovalResult {
+  /** 目录最终是否已从磁盘消失。 */
+  dirResolved: boolean
+  /** 目录是否经文件系统兜底删除后才消失（true 表示主路径未直接达成，发生了补救）。 */
+  dirResolvedByFallback: boolean
+  /** worktree prune 是否执行成功（幽灵管理记录清理）。 */
+  pruned: boolean
+  /** 分支删除结果：null=未指定分支或因目录残留被跳过；true/false=删除断言结果。 */
+  branchDeleted: boolean | null
+  /** 各环节失败原因聚合（人类可读），全部成功时为空数组。 */
+  errors: string[]
+}
+
+/**
+ * 删除任务组 worktree 并清理关联管理记录（收尾清理与 set_worktree 复用失败重建共用）。
+ *
+ * 序列：
+ * 1. 目录不存在 → 直接 prune（清理只残留管理记录的幽灵 worktree）；
+ * 2. 目录存在 → `git worktree remove --force`；命令失败或目录仍在磁盘时走补救链：
+ *    fs 递归删除 + prune（prune 失败仅记入 errors，不阻断）；
+ * 3. 目录确认消失后才 `git branch -D`；仍残留则跳过删分支并记入 errors，
+ *    防止孤儿分支掩盖问题、以及向不完整状态发出被 git 拒绝的命令。
+ *
+ * @param repoRoot 主仓库根路径（worktree 管理命令的 -C 目标）
+ * @param wtPath 待删除的 worktree 路径
+ * @param opts.branchName 关联分支名；缺省/null 时只做 worktree 侧清理
+ */
+export async function removeTaskGroupWorktree(
+  repoRoot: string,
+  wtPath: string,
+  opts: { branchName?: string | null } = {},
+): Promise<WorktreeRemovalResult> {
+  const result: WorktreeRemovalResult = { dirResolved: false, dirResolvedByFallback: false, pruned: false, branchDeleted: null, errors: [] }
+
+  if (!(await pathExists(wtPath))) {
+    const pruneRes = await runGitChecked(repoRoot, ["worktree", "prune"])
+    if (pruneRes.success) result.pruned = true
+    else result.errors.push(`worktree prune 失败：${pruneRes.stderr}`)
+    result.dirResolved = true
+  } else {
+    const rmRes = await runGitChecked(repoRoot, ["worktree", "remove", wtPath, "--force"])
+    if (!rmRes.success) result.errors.push(`git worktree remove 失败：${rmRes.stderr}`)
+    if (await pathExists(wtPath)) {
+      // 补救链：fs 物理删除目录 + prune 清理残留管理记录
+      try {
+        await rm(wtPath, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 })
+      } catch (e) {
+        result.errors.push(`文件系统兜底删除 "${wtPath}" 失败：${e instanceof Error ? e.message : String(e)}`)
+      }
+      const pruneRes = await runGitChecked(repoRoot, ["worktree", "prune"])
+      if (pruneRes.success) result.pruned = true
+      else result.errors.push(`worktree prune 失败：${pruneRes.stderr}`)
+      if (!(await pathExists(wtPath))) {
+        result.dirResolved = true
+        result.dirResolvedByFallback = true
+      }
+    } else {
+      result.dirResolved = true
+    }
+  }
+
+  if (!result.dirResolved) {
+    if (opts.branchName) {
+      result.errors.push(`目录 "${wtPath}" 未能删除，跳过分支 "${opts.branchName}" 的删除以保留排查线索`)
+    }
+    return result
+  }
+  if (opts.branchName) {
+    const branchRes = await runGitChecked(repoRoot, ["branch", "-D", opts.branchName])
+    if (branchRes.success) result.branchDeleted = true
+    else {
+      result.branchDeleted = false
+      result.errors.push(`删除分支 "${opts.branchName}" 失败：${branchRes.stderr}`)
+    }
+  }
+  return result
+}
+
+export async function getCurrentHead(worktree: string): Promise<string> {
+  return runGit(worktree, ["rev-parse", "HEAD"])
+}
+
+export async function getCurrentBranch(worktree: string): Promise<string> {
+  const branch = (await runGit(worktree, ["rev-parse", "--abbrev-ref", "HEAD"])).trim()
+  if (branch === "HEAD") throw new Error("当前处于 detached HEAD 状态，无法自动推断 base_branch。请显式传入 base_branch 参数。")
+  return branch
+}
+
+export async function getMergeBase(worktree: string, baseBranch: string): Promise<string> {
+  return runGit(worktree, ["merge-base", "HEAD", baseBranch])
+}
+
+/**
+ * 判断 <a> 是否为 <b> 的祖先（`merge-base --is-ancestor`）。
+ * 退出码 0=是祖先、1=不是祖先；其余退出码（分支/oid 缺失等真实错误）抛错，不静默降级。
+ * 消费点：change 收口的基准分支漂移检查（基准 tip 须为 change 分支祖先）与 scope 端点历史校验。
+ */
+export async function isAncestor(worktree: string, a: string, b: string): Promise<boolean> {
+  const r = await runGitChecked(worktree, ["merge-base", "--is-ancestor", a, b])
+  if (r.success) return true
+  if (r.exitCode === 1) return false
+  throw new Error(`无法判断 "${a}" 是否为 "${b}" 的祖先：${r.stderr}`)
+}
+
+/** 查询基准侧漂移文件清单：`git diff --name-only --no-renames <sourceBranch>...<targetBranch>`
+ *  三点区间 = merge-base(source, target) 到 target 的内容差异（基准侧自分支切出点以来的净变化，非 commit 口径）。
+ *  参数方向固定：source 传变更分支，target 传基准分支（切出点在 source 一侧）。
+ *  返回 null 表示 git 查询失败，调用方须按非无害保守回退。 */
+export async function listBranchDriftFiles(worktree: string, sourceBranch: string, targetBranch: string): Promise<string[] | null> {
+  const r = await runGitChecked(worktree, ["diff", "--name-only", "--no-renames", `${sourceBranch}...${targetBranch}`])
+  if (!r.success) return null
+  return parseDiffNameOnly(r.stdout)
+}
+
+/**
+ * 判定单文件在三点区间（merge-base(source, target) → target）内的变更内容是否仅含 `"version"` 字段行：
+ * package.json 的版本号推进属发布元数据，无代码语义，收口漂移直通按无害漂移放行。
+ * 逐行解析 `git diff --no-renames <source>...<target> -- <filePath>` 的变更行（`+`/`-` 开头，跳过
+ * `+++`/`---` 文件头行）：每一行都须匹配 `"version"` 字段行才算 version-only；存在任一其他变更行
+ * （依赖、脚本等，具代码语义）→ false；无任何变更行（空 diff，内容无净变化）→ true。
+ * 返回 null 表示 git 查询失败，调用方须按非无害保守回退。
+ */
+export async function isVersionOnlyDrift(
+  worktree: string,
+  sourceBranch: string,
+  targetBranch: string,
+  filePath: string
+): Promise<boolean | null> {
+  const r = await runGitChecked(worktree, ["diff", "--no-renames", `${sourceBranch}...${targetBranch}`, "--", filePath])
+  if (!r.success) return null
+  for (const line of r.stdout.split("\n")) {
+    if (line.startsWith("+++") || line.startsWith("---")) continue
+    if ((line.startsWith("+") || line.startsWith("-")) && !/^[+-]\s*"version"\s*:/.test(line)) return false
+  }
+  return true
+}
+
+/** 校验本地分支存在（refs/heads/<name> 严格本地命名空间，不含远端跟踪 ref）。 */
+export async function isLocalBranch(worktree: string, branch: string): Promise<boolean> {
+  const r = await runGitChecked(worktree, ["rev-parse", "--verify", `refs/heads/${branch}`])
+  return r.success
+}
+
+/** 列出全部本地分支名（refs/heads 命名空间）。 */
+export async function listLocalBranches(worktree: string): Promise<string[]> {
+  const out = await runGit(worktree, ["for-each-ref", "--format=%(refname:short)", "refs/heads"])
+  return out.split("\n").map((l) => l.trim()).filter(Boolean)
+}
+
+/**
+ * 读取指定 ref 下某路径的 blob oid（`git rev-parse <ref>:<path>`）。
+ * 用于跨基准分支的规划文档逐文件比对（与 hashObjectOfFile 同为 blob oid 口径）；失败抛错不静默。
+ */
+export async function blobOidInRef(worktree: string, ref: string, relPath: string): Promise<string> {
+  const r = await runGitChecked(worktree, ["rev-parse", `${ref}:${relPath}`])
+  if (!r.success) throw new Error(`无法读取 ${ref}:${relPath} 的版本库对象：${r.stderr}`)
+  return r.stdout
+}
+
+/** 计算工作树文件内容的 blob oid（`git hash-object <file>`），与 blobOidInRef 同口径可比对。 */
+export async function hashObjectOfFile(worktree: string, filePath: string): Promise<string> {
+  const r = await runGitChecked(worktree, ["hash-object", filePath])
+  if (!r.success) throw new Error(`无法计算 "${filePath}" 的内容哈希：${r.stderr}`)
+  return r.stdout
+}
+
+/**
+ * 列出某 ref 指定目录下的全部路径（`git ls-tree -r --name-only <rev> -- <dir>`）。
+ * 返回空数组表示该目录未提交到该 ref（工作树里是未跟踪/未暂存内容）；命令失败抛错不静默降级，
+ * 调用方据此判定「规划文档是否已提交到当前分支」。
+ */
+export async function listTreePaths(worktree: string, rev: string, dirPath: string): Promise<string[]> {
+  const r = await runGitChecked(worktree, ["ls-tree", "-r", "--name-only", rev, "--", dirPath])
+  if (!r.success) throw new Error(`无法读取 ${rev} 下 "${dirPath}" 的版本库内容：${r.stderr}`)
+  return r.stdout.split("\n").map((l) => l.trim()).filter(Boolean)
+}
+
+export async function isWorktreeClean(worktree: string): Promise<boolean> {
+  const out = await runGit(worktree, ["status", "--porcelain"])
+  return out.length === 0
+}
+
+/**
+ * 文档类路径判定：`openspec/` 下文件与 `.md` 后缀文件属文档类（reviewer 直改自动提交的白名单）。
+ * 源码、配置、脚本等其余路径一律不算文档类。
+ */
+export function isDocLikePath(p: string): boolean {
+  return p.startsWith("openspec/") || /\.md$/i.test(p)
+}
+
+/**
+ * 列出 worktree 中「非文档类」的未提交改动文件（已跟踪修改/删除 + 未跟踪新文件）。
+ *
+ * 用途：reviewer 家族提交前的机制层预检——反向探针改坏的实现若未还原，其改动会被自动 commit
+ * 静默吞掉。过滤 `openspec/states/`（编排状态文件）与文档类，其余一律视为需要清理的代码类改动；
+ * 结果去重并保持 `git status --porcelain` 的出现顺序。
+ *
+ * status 查询失败时返回空数组，属 fail-open 降级：读不到工作区状态不阻断审查提交
+ * （与 runGit 失败返回空串的既有降级口径一致），不要误认为是 bug。
+ */
+export async function listDirtyNonDocFiles(worktree: string): Promise<string[]> {
+  // 用 -uall 让未跟踪目录展开成具体文件：默认 porcelain 会把新建目录折叠成 `?? docs/`，
+  // 目录路径既不是 openspec/ 前缀也不以 .md 结尾，会让「新目录里只放了 .md」被误判为代码类。
+  const res = await runGitChecked(worktree, ["status", "--porcelain", "-uall"])
+  if (!res.success) return []
+  const seen = new Set<string>()
+  const files: string[] = []
+  // 用 parseStatusEntries 而非 parsePorcelainPaths：rename 条目（`R  old -> new`）必须双向解析。
+  // 只取新路径会漏判「代码文件改名为 .md」——旧路径的代码删除被当成文档改动放行，删除会被自动
+  // commit 静默吞掉。任一方向路径非文档类即视为需清理的代码类改动。
+  for (const entry of parseStatusEntries(res.stdout)) {
+    for (const p of entry.paths) {
+      if (!p) continue
+      if (p.startsWith("openspec/states/")) continue
+      if (isDocLikePath(p)) continue
+      if (seen.has(p)) continue
+      seen.add(p)
+      files.push(p)
+    }
+  }
+  return files
+}
+
+export async function markTaskGroupCheckboxesComplete(
+  worktree: string,
+  changeId: string,
+  taskGroupId: string
+): Promise<void> {
+  const tasksMdPath = path.join(worktree, "openspec", "changes", changeId, "tasks.md")
+  let content: string
+  try {
+    content = await readFile(tasksMdPath, "utf-8")
+  } catch {
+    return
+  }
+  const lines = content.split("\n")
+  let inGroup = false
+  let modified = false
+  const result: string[] = []
+  for (const line of lines) {
+    const groupMatch = line.match(/^##\s+(\d+)\./)
+    if (groupMatch) {
+      inGroup = groupMatch[1] === taskGroupId
+      result.push(line)
+      continue
+    }
+    if (inGroup && /^-\s+\[\s\]\s+/.test(line)) {
+      result.push(line.replace(/^(-\s+)\[\s\](\s+)/, "$1[x]$2"))
+      modified = true
+    } else {
+      result.push(line)
+    }
+  }
+  if (!modified) return
+  await writeFile(tasksMdPath, result.join("\n"))
+  const addResult = await runGitChecked(worktree, ["add", tasksMdPath])
+  if (!addResult.success) {
+    throw new Error(`git add tasks.md 失败：${addResult.stderr}`)
+  }
+  const commitResult = await runGitChecked(worktree, ["commit", "-m", "docs(tasks): mark completed task checkboxes"])
+  if (!commitResult.success) {
+    throw new Error(`git commit tasks.md 失败：${commitResult.stderr}`)
+  }
+}
+
+/** 单条 `git status --porcelain` 条目：XY 状态码 + 涉及路径（重命名条目含 old/new 双路径）。 */
+interface StatusEntry {
+  x: string
+  y: string
+  paths: string[]
+}
+
+/** 去除 porcelain/diff 输出中路径的包裹引号（特殊字符路径会被 git 以双引号包裹）。 */
+function unquotePath(p: string): string {
+  const t = p.trim()
+  return t.startsWith('"') && t.endsWith('"') && t.length >= 2 ? t.slice(1, -1) : t
+}
+
+/**
+ * 解析 `git status --porcelain` 为结构化条目（独立于 parsePorcelainPaths，后者仅取新路径且被
+ * detectChanges / reconcileMainPollution 依赖，语义不可原地变更）。
+ * 重命名条目（`R  old -> new`）双向路径都计入——两侧路径都可能与合并写入清单重合。
+ *
+ * 注意：GitRunner 的 run/runChecked 都对 stdout 整体 trim()，porcelain 首行若以空格开头（X=' ' 的
+ * 未暂存条目）会被吃掉前导空格、列位整体左移一格。porcelain v1 的位置 2 恒为分隔空格，据此识别
+ * 被破坏的首行并补正。
+ */
+function parseStatusEntries(out: string): StatusEntry[] {
+  const entries: StatusEntry[] = []
+  for (const raw of out.split("\n")) {
+    if (raw.length < 4) continue
+    let line = raw
+    if (line[2] !== " ") {
+      // 位置 2 非分隔空格 = 首行被整体 trim 破坏（X=' ' 条目吃掉前导空格，列位左移一格）
+      if (line[1] !== " ") continue
+      line = ` ${line}`
+    }
+    if (line[0] === " " && line[1] === " ") continue
+    const pathPart = line.slice(3)
+    const arrow = pathPart.indexOf(" -> ")
+    const paths = arrow >= 0
+      ? [unquotePath(pathPart.slice(0, arrow)), unquotePath(pathPart.slice(arrow + 4))]
+      : [unquotePath(pathPart)]
+    if (paths.every((p) => p !== "")) entries.push({ x: line[0], y: line[1], paths })
+  }
+  return entries
+}
+
+/** 解析 `git diff --name-only` 输出为路径列表（含引号路径解包）。 */
+function parseDiffNameOnly(out: string): string[] {
+  return out.split("\n").map(unquotePath).filter(Boolean)
+}
+
+/**
+ * 两条路径是否重合（脏文件 ↔ 合并将写入文件）：尾斜杠归一后相等（未跟踪目录 `dir/` 与文件 `dir`
+ * 同名冲突），或互为路径段前缀（未跟踪目录 `dir/` 覆盖目录下任意写入路径，双向判定）。
+ */
+function pathsOverlap(a: string, b: string): boolean {
+  const na = a.replace(/\/+$/, "")
+  const nb = b.replace(/\/+$/, "")
+  if (!na || !nb) return false
+  if (na === nb) return true
+  return na.startsWith(`${nb}/`) || nb.startsWith(`${na}/`)
+}
+
+/**
+ * 收尾合并：将任务组分支合并进基础分支。
+ *
+ * 先解析主仓库根（后续命令一律以主仓库根为 -C 目标，不沿用入参目录），再按目标分支的检出状态分流：
+ * 1. `merge-base --is-ancestor` 幂等检查（重试幂等根基，禁止移除）：源分支已是目标分支祖先
+ *    （如人工解决冲突后重调）直接成功，不产生空合并提交；
+ * 2. 检出检测（`worktree list --porcelain`，按目标分支匹配 `branch refs/heads/<X>` 行）：
+ *    - 目标分支正被其它 linked worktree 检出 → 返回 blockedMessage（未执行任何 git 变更动作，
+ *      由上层转 blocked 文案）——单靠 update-ref 推进分支指针会使检出方暂存区/工作区与分支引用失步
+ *      （status 显示整套反向改动）；
+ *    - 目标分支正被主仓库检出（无论是否干净）：先 `merge-tree --write-tree` 内存拟合并
+ *      （零副作用；退出码 1 = 冲突，按冲突形态返回），无冲突时以拟合并产出树精确计算
+ *      「合并将写入的文件清单」，与主仓库脏文件（已暂存/未暂存/未跟踪；重命名双向路径；
+ *      未跟踪目录按路径段前缀双向匹配）求重合后分流：
+ *      * 有重合 → blocked（列出重合文件；真实合并会覆盖本地改动，交由人工处理）；
+ *      * 无重合且存在已暂存改动 → 完整暂存（暂存内容与工作区一致）时走无损路径：
+ *        `restore --staged` → 真实合并 → finally `git add` 还原暂存态（合并不触碰这些文件）；
+ *        部分暂存（同一文件既有已暂存又有未暂存改动）→ blocked（自动操作会破坏暂存粒度）；
+ *      * 无重合且仅未暂存/未跟踪脏 → 直接真实 `git merge --no-ff`（git 对无关脏文件安全保留；
+ *        失败时 `merge --abort` 兜底恢复）；
+ * 3. 无人检出（worktreeless 底层命令，主仓库工作区状态不受影响；冲突时目标分支引用未动、磁盘无半成品）：
+ *    `merge-tree --write-tree`（需 git ≥ 2.38）内存试算合并树：退出码 1 = 冲突，直接返回；
+ *    `commit-tree` 生成双父合并提交，`update-ref` 以试算前目标分支 oid 作旧值校验推进（CAS，防并发覆盖）。
+ *
+ * @param repoDir 仓库内任意目录（作为主仓库根解析起点）
+ */
+export async function mergeBranchToTarget(
+  repoDir: string,
+  sourceBranch: string,
+  targetBranch: string
+): Promise<{ success: boolean; conflict: boolean; blockedMessage?: string }> {
+  const mainRepo = (await resolveMainRepoRoot(repoDir)) ?? repoDir
+
+  const ancestor = await runGitChecked(mainRepo, ["merge-base", "--is-ancestor", sourceBranch, targetBranch])
+  if (ancestor.success) return { success: true, conflict: false }
+  // is-ancestor 退出码 1 = 尚未并入（继续合并）；其余为分支缺失等真实错误
+  if (ancestor.exitCode !== 1) {
+    throw new Error(`无法判断 "${sourceBranch}" 是否已并入 "${targetBranch}"：${ancestor.stderr}`)
+  }
+
+  const checkedOutPath = await findWorktreeCheckingOut(mainRepo, targetBranch)
+  if (checkedOutPath) {
+    if (!(await sameDir(checkedOutPath, mainRepo))) {
+      return {
+        success: false,
+        conflict: false,
+        blockedMessage: [
+          `- **原因**: 目标分支 \`${targetBranch}\` 正被工作树 \`${checkedOutPath}\` 检出；自动推进分支指针会使该工作树的暂存区/工作区与分支引用失步，本次未执行任何合并动作。`,
+          `- **处理**: 请在该工作树手动执行 \`git merge ${sourceBranch}\`，或移除该工作树（\`git worktree remove ${checkedOutPath}\`）后重试。`,
+        ].join("\n"),
+      }
+    }
+    const mergeTree = await runGitChecked(mainRepo, ["merge-tree", "--write-tree", "--messages", targetBranch, sourceBranch])
+    if (!mergeTree.success) {
+      // merge-tree 退出码 1 = 冲突；其余为分支缺失等真实错误
+      if (mergeTree.exitCode !== 1) {
+        throw new Error(`无法试算 "${sourceBranch}" → "${targetBranch}" 的合并：${mergeTree.stderr}`)
+      }
+      return { success: false, conflict: true }
+    }
+    const mergedTreeOid = mergeTree.stdout.split("\n")[0].trim()
+
+    const statusRes = await runGitChecked(mainRepo, ["status", "--porcelain"])
+    if (!statusRes.success) {
+      throw new Error(`无法读取主仓库工作区状态：${statusRes.stderr}`)
+    }
+    const entries = parseStatusEntries(statusRes.stdout)
+
+    if (entries.length > 0) {
+      const dirtyPaths = [...new Set(entries.flatMap((e) => e.paths))]
+      const written = parseDiffNameOnly(
+        await runGit(mainRepo, ["diff", "--name-only", "--no-renames", targetBranch, mergedTreeOid]),
+      )
+      const overlap = written.filter((w) => dirtyPaths.some((d) => pathsOverlap(d, w)))
+      if (overlap.length > 0) {
+        return {
+          success: false,
+          conflict: false,
+          blockedMessage: [
+            `- **原因**: 目标分支 \`${targetBranch}\` 正被主仓库检出，且以下本地改动文件与变更分支合并将写入的文件重合；为避免覆盖本地改动，本次未执行任何合并动作（分支引用未动、无半成品）：`,
+            ...overlap.map((f) => `  - \`${f}\``),
+            `- **处理**: 请先 commit/stash/移除上述文件的本地改动后重试；或自行执行 \`git merge ${sourceBranch}\`（真实合并自带脏工作区保护）。`,
+          ].join("\n"),
+        }
+      }
+
+      // 已暂存条目：X 列非空且非 ?（?? 为未跟踪）；重命名双向路径都须纳入还原
+      const stagedPaths = [...new Set(entries.filter((e) => e.x !== " " && e.x !== "?").flatMap((e) => e.paths))]
+      if (stagedPaths.length > 0) {
+        // 完整暂存判定：暂存区与工作区无差异。git merge 对 index 相对 HEAD 的任何差异一律拒绝
+        // （与合并是否重合无关），需先取消暂存绕行；部分暂存场景自动还原会丢失暂存粒度，拒绝代劳。
+        const unstagedDelta = await runGit(mainRepo, ["diff", "--name-only", "--", ...stagedPaths])
+        if (parseDiffNameOnly(unstagedDelta).length > 0) {
+          return {
+            success: false,
+            conflict: false,
+            blockedMessage: [
+              `- **原因**: 主仓库存在部分暂存文件（同一文件既有已暂存又有未暂存改动），自动合并会改变暂存粒度；本次未执行任何合并动作（分支引用未动、无半成品）。`,
+              `- **处理**: 请先 commit 或 stash，或补全/取消暂存后重试；或自行执行 \`git merge ${sourceBranch}\`。`,
+            ].join("\n"),
+          }
+        }
+        // 无损路径：取消暂存 → 真实合并（不触碰这些文件）→ 兜底重新暂存还原
+        let unstagedByUs = false
+        try {
+          const restore = await runGitChecked(mainRepo, ["restore", "--staged", "--", ...stagedPaths])
+          if (!restore.success) throw new Error(`git restore --staged 失败（未执行合并）：${restore.stderr}`)
+          unstagedByUs = true
+          const mergeResult = await runGitChecked(mainRepo, ["merge", "--no-ff", sourceBranch])
+          if (!mergeResult.success) {
+            // 理论上仅竞态会走到此分支：兜底中止，避免主仓库停留在合并中间态
+            await runGitChecked(mainRepo, ["merge", "--abort"])
+            return { success: false, conflict: true }
+          }
+          return { success: true, conflict: false }
+        } finally {
+          if (unstagedByUs) {
+            const readd = await runGitChecked(mainRepo, ["add", "--", ...stagedPaths])
+            if (!readd.success) {
+              // 暂存态还原失败不可静默：合并已发生，抛错让上层感知（重试时 is-ancestor 幂等短路）
+              throw new Error(`合并后还原暂存态失败（git add）：${readd.stderr}；请人工核对这些文件的暂存状态`)
+            }
+          }
+        }
+      }
+    }
+
+    const mergeResult = await runGitChecked(mainRepo, ["merge", "--no-ff", sourceBranch])
+    if (!mergeResult.success) {
+      // 兜底中止，避免主仓库停留在合并中间态（无重合脏文件时 git 自身保护仍会拒绝越界写入）
+      await runGitChecked(mainRepo, ["merge", "--abort"])
+      return { success: false, conflict: true }
+    }
+    return { success: true, conflict: false }
+  }
+
+  const mergeTree = await runGitChecked(mainRepo, ["merge-tree", "--write-tree", "--messages", targetBranch, sourceBranch])
+  if (!mergeTree.success) {
+    // merge-tree 退出码 1 = 冲突；其余为分支缺失等真实错误
+    if (mergeTree.exitCode !== 1) {
+      throw new Error(`无法试算 "${sourceBranch}" → "${targetBranch}" 的合并：${mergeTree.stderr}`)
+    }
+    return { success: false, conflict: true }
+  }
+  const treeOid = mergeTree.stdout.split("\n")[0].trim()
+  if (!treeOid) throw new Error("merge-tree 未返回树对象，无法生成合并提交。")
+
+  const targetOid = (await runGit(mainRepo, ["rev-parse", targetBranch])).trim()
+  const sourceOid = (await runGit(mainRepo, ["rev-parse", sourceBranch])).trim()
+  if (!targetOid || !sourceOid) {
+    throw new Error(`无法解析分支 OID：target="${targetOid}" source="${sourceOid}"`)
+  }
+  const commitOid = (await runGit(mainRepo, [
+    "commit-tree", treeOid, "-p", targetOid, "-p", sourceOid, "-m", `Merge branch '${sourceBranch}'`,
+  ])).trim()
+  if (!commitOid) throw new Error("git commit-tree 失败：无法创建合并提交。")
+
+  const updateRef = await runGitChecked(mainRepo, ["update-ref", `refs/heads/${targetBranch}`, commitOid, targetOid])
+  if (!updateRef.success) {
+    throw new Error(`基础分支 "${targetBranch}" 已被并发推进，合并提交未写入（update-ref 旧值校验失败）：${updateRef.stderr}`)
+  }
+  return { success: true, conflict: false }
+}
+
+/** 可恢复磁盘 worktree 的分支前缀集合：change/（change 常驻 worktree）、review/（独立审查会话）、
+ *  task-group/（旧每任务组模型残留，过渡期保留识别以便恢复/人工清理）。 */
+export const RESTORABLE_WORKTREE_BRANCH_PREFIXES = ["change/", "review/", "task-group/"] as const
+
+export async function discoverDiskWorktrees(worktree: string): Promise<{ branch: string; path: string }[]> {
+  const result: { branch: string; path: string }[] = []
+  const wtList = await runGit(worktree, ["worktree", "list"])
+  for (const line of wtList.split("\n")) {
+    const m = line.match(/^(\S+)\s+[0-9a-f]+\s+\[(.+?)\]/)
+    if (m) {
+      const branch = m[2].trim()
+      if (RESTORABLE_WORKTREE_BRANCH_PREFIXES.some((p) => branch.startsWith(p))) {
+        result.push({ branch, path: m[1].trim() })
+      }
+    }
+  }
+  return result
+}
+
+/**
+ * 从 git worktree 的 .git 文件中解析主仓库根路径。
+ *
+ * Git worktree 的 .git 是一个文本文件，内容为 `gitdir: /path/to/main/.git/worktrees/...`。
+ * 切割 `/.git/worktrees/` 得到主仓库路径。
+ *
+ * @param worktreePath - worktree 的绝对路径
+ * @returns 主仓库根路径
+ * @throws 无法解析 .git 文件或 gitdir 行时抛出错误
+ */
+export async function discoverRepoRoot(worktreePath: string): Promise<string> {
+  const gitFile = path.join(worktreePath, ".git")
+  let content: string
+  try {
+    content = await readFile(gitFile, "utf-8")
+  } catch {
+    throw new Error(`无法读取 ${gitFile}，请确认该路径是一个有效的 git worktree。`)
+  }
+  const match = content.match(/^gitdir:\s*(.+)$/m)
+  if (!match) {
+    throw new Error(`无法从 ${gitFile} 解析 gitdir 行。文件内容：${content.slice(0, 200)}`)
+  }
+  const gitdir = match[1].trim()
+  const idx = gitdir.indexOf("/.git/worktrees/")
+  if (idx === -1) {
+    throw new Error(`无法从 gitdir "${gitdir}" 推导主仓库路径，缺少 "/.git/worktrees/" 标记。`)
+  }
+  return gitdir.slice(0, idx)
+}
+
+/**
+ * 解析 `git status --porcelain` / `git diff --name-only` 输出为文件路径列表。
+ * 兼容 rename 条目（`R old -> new`）与引号包裹路径。
+ */
+function parsePorcelainPaths(out: string): string[] {
+  const lines = out.split("\n").map((l) => l.trim()).filter(Boolean)
+  return lines.map((l) => {
+    let f = l.replace(/^\S+\s+/, "")
+    if (f.includes(" -> ")) f = f.split(" -> ").pop()!.trim()
+    return f.replace(/^"+|"+$/g, "")
+  })
+}
+
+/**
+ * 解析主仓库根：`.git` 为目录则该目录即主仓库根；`.git` 为文件（linked worktree）时经 discoverRepoRoot 推导。
+ * 解析失败（非 git 仓库等）返回 null，降级行为由调用方决定。
+ */
+async function resolveMainRepoRoot(worktreePath: string): Promise<string | null> {
+  try {
+    const st = await stat(path.join(worktreePath, ".git"))
+    return st.isDirectory() ? worktreePath : await discoverRepoRoot(worktreePath)
+  } catch {
+    return null
+  }
+}
+
+/** 跨 symlink 比较两路径是否指向同一目录（macOS /tmp → /private/tmp 等形态）；realpath 失败退回字面 resolve 比较。 */
+async function sameDir(a: string, b: string): Promise<boolean> {
+  try {
+    return (await realpath(a)) === (await realpath(b))
+  } catch {
+    return path.resolve(a) === path.resolve(b)
+  }
+}
+
+/**
+ * 在 `worktree list --porcelain` 输出中查找检出指定分支的 worktree 路径。
+ * porcelain 以空行分块，每块 `worktree <path>` 开头；bare 或 detached 块无 `branch` 行，跳过。
+ */
+async function findWorktreeCheckingOut(repoRoot: string, branch: string): Promise<string | null> {
+  const out = await runGit(repoRoot, ["worktree", "list", "--porcelain"])
+  for (const block of out.split("\n\n")) {
+    let wtPath = ""
+    let wtBranch = ""
+    for (const line of block.split("\n")) {
+      if (line.startsWith("worktree ")) wtPath = line.slice("worktree ".length).trim()
+      else if (line.startsWith("branch ")) wtBranch = line.slice("branch ".length).trim()
+    }
+    if (wtPath && wtBranch === `refs/heads/${branch}`) return wtPath
+  }
+  return null
+}
+
+/**
+ * 检测主仓库下 openspec 文档是否存在未提交变更（修改/新增/改名），用于编排者视图的主分支污染诊断。
+ * 兼容两种形态：`.git` 为目录（入参即主仓库，repoRoot 取自身）与 `.git` 为文件（走 discoverRepoRoot）。
+ * 无法解析主仓库路径或主仓库干净时返回 null。
+ */
+export async function detectMainRepoPollution(worktreePath: string): Promise<{ repoRoot: string; files: string[] } | null> {
+  const repoRoot = await resolveMainRepoRoot(worktreePath)
+  if (!repoRoot) return null
+  // 健壮性：git 调用失败（如非 git 仓库/权限/损坏）时返回 null，不使 opx_status 整体抛错；
+  // 污染诊断属编排者视图的辅助信息，缺失不应阻断状态视图渲染。
+  let out: string
+  try {
+    out = await runGit(repoRoot, ["status", "--porcelain", "--", "openspec/"])
+  } catch {
+    return null
+  }
+  const files = parsePorcelainPaths(out)
+  if (files.length === 0) return null
+  return { repoRoot, files }
+}
+
+export interface DetectChangesResult {
+  files: string[]
+  hasNonDocChange: boolean
+  /** 全量审查哨兵：kind=review 且 scopeType=full 时置 true（审查锚点为全量代码库，非「未检出变更」）。 */
+  scopeFull?: boolean
+}
+
+/**
+ * 工具层检查点增量检测（A1）：比较「上次工具检查点 → 当前 HEAD」区间的变更，供 verify_tool step
+ * 判断是否需要运行全量工具检查。
+ *
+ * 两个来源合并判定：
+ * 1. 已提交变更：`git diff --name-only <检查点>..HEAD`；无检查点时用 base_ref（worktree 创建时存的
+ *    merge-base）；base_ref 缺失或 git 调用失败 → 降级 hasNonDocChange=true（安全侧，走全量）。
+ * 2. 未提交变更：`git status --porcelain`，过滤 `openspec/` 目录下的路径后仍有剩余 → 视为有变更。
+ *
+ * hasNonDocChange 仅按「变更文件是否在 openspec/ 文档目录以外」判定：openspec/ 下文件算文档（不算变更），
+ * 其余一律算变更。本函数不做流转方向判定（不推断"应直提/应全量"），也不对工具配置文件做分类——该语义由
+ * reviewer 结合已加载 skill 判断，工具层不硬编码技术栈文件类型。
+ *
+ * @param worktreePath worktree 路径
+ * @param opts.checkpoint 上次工具检查点的 commit sha；undefined/null 视为无检查点
+ * @param opts.baseRef 无检查点时的兜底基准 ref（worktree 创建时的 merge-base）
+ * @param opts.scopeFull 全量审查哨兵（独立审查会话 full 形态）：不界定变更区间，直接返回
+ *        scopeFull=true 供视图渲染「全量代码库」锚点（而非误报「未检出变更」）
+ */
+export async function detectChanges(
+  worktreePath: string,
+  opts: { checkpoint?: string | null; baseRef?: string | null; scopeFull?: boolean },
+): Promise<DetectChangesResult> {
+  if (opts.scopeFull) return { files: [], hasNonDocChange: false, scopeFull: true }
+  const files: string[] = []
+  let gitFailed = false
+  const range = opts.checkpoint || opts.baseRef || undefined
+
+  // 已提交变更：diff --name-only <range>..HEAD。diff 输出无状态码前缀，直接整行取路径。
+  if (range) {
+    try {
+      const res = await runGitChecked(worktreePath, ["diff", "--name-only", `${range}..HEAD`])
+      if (res.success) {
+        for (const line of res.stdout.split("\n")) {
+          const f = line.trim()
+          if (f) files.push(f)
+        }
+      } else {
+        gitFailed = true
+      }
+    } catch {
+      gitFailed = true
+    }
+  } else {
+    // 无检查点也无 base_ref：无法界定变更区间，安全侧降级为全量
+    gitFailed = true
+  }
+
+  // 未提交变更：status --porcelain，过滤 openspec/ 文档目录下的路径
+  const uncommitted: string[] = []
+  try {
+    const res = await runGitChecked(worktreePath, ["status", "--porcelain"])
+    if (res.success) {
+      for (const f of parsePorcelainPaths(res.stdout)) {
+        if (!f.startsWith("openspec/")) uncommitted.push(f)
+      }
+    } else {
+      gitFailed = true
+    }
+  } catch {
+    gitFailed = true
+  }
+
+  const all = [...files, ...uncommitted]
+  const hasNonDocChange = gitFailed || all.some((f) => !f.startsWith("openspec/"))
+  return { files: all, hasNonDocChange }
+}
+
+/**
+ * 将主仓库 `openspec/changes/<changeId>/` 下的未提交污染文档并入 worktree 分支，并清理主仓库工作树。
+ *
+ * 序列：scoped 检测（仅限本 changeId 目录）→ 预检（主仓库 index 除 change 目录外无其它 staged、
+ * worktree 干净、污染路径在 baseRef 与 worktree tip 间无分叉、主仓库 HEAD 未相对 worktree 前进）→
+ * 主仓库 add → write-tree/commit-tree 创建不可达合并提交（main 分支 ref 不动）→
+ * worktree 真 3-way merge --no-ff <pollSha> → 主仓库 restore --staged --worktree 清理。
+ *
+ * 失败路径：预检失败时未进入 add 流程，绝不执行 --worktree 恢复（污染内容原样保留待人工处理）；
+ * 已进入 merge 流程（add 后）失败时在 finally 中补 restore --staged --worktree，防主仓库 index 残留。
+ *
+ * @param mainRepo 主仓库路径（orchestrator/architect 会话工作目录）
+ * @param worktreePath 任务组 worktree 路径
+ * @param opts.changeId 需兜底的 changeId（scope 限定）
+ * @param opts.baseRef 基准分支 ref；为 null 时降级跳过分叉预检
+ * @returns 已并入的污染文件相对路径列表；无污染返回空数组
+ */
+export async function reconcileMainPollution(
+  mainRepo: string,
+  worktreePath: string,
+  opts: { changeId: string; baseRef: string | null }
+): Promise<string[]> {
+  const changeDir = `openspec/changes/${opts.changeId}`
+  const files = parsePorcelainPaths(await runGit(mainRepo, ["status", "--porcelain", "--", changeDir]))
+  if (files.length === 0) return []
+
+  let staged = false
+  try {
+    const cachedOut = await runGit(mainRepo, ["diff", "--cached", "--name-only"])
+    const stagedOutside = cachedOut.split("\n").map((l) => l.trim()).filter(Boolean)
+      .filter((p) => p !== changeDir && !p.startsWith(`${changeDir}/`))
+    if (stagedOutside.length > 0) {
+      throw new Error(
+        `主仓库 index 除 \`${changeDir}\` 外存在其它已暂存内容，拒绝自动合并污染文档：\n` +
+        stagedOutside.map((p) => `- \`${p}\``).join("\n") +
+        `\n请人工核对处理。`
+      )
+    }
+    if (!(await isWorktreeClean(worktreePath))) {
+      throw new Error(`worktree "${worktreePath}" 存在未 commit 内容，拒绝自动合并主仓库污染文档，请先 commit 再重试。`)
+    }
+    const wtTip = await runGit(worktreePath, ["rev-parse", "HEAD"])
+    if (opts.baseRef) {
+      const diverged = (await runGit(worktreePath, ["diff", "--name-only", opts.baseRef, wtTip, "--", ...files])).trim()
+      if (diverged.length > 0) {
+        throw new Error(
+          `以下污染文件在 worktree 分支中已相对基准分支发生变更（分叉），拒绝自动合并：\n` +
+          diverged.split("\n").filter(Boolean).map((p) => `- \`${p}\``).join("\n") +
+          `\n请人工核对处理。`
+        )
+      }
+    }
+    const aheadCount = parseInt((await runGit(mainRepo, ["rev-list", "--count", `${wtTip}..HEAD`])).trim(), 10)
+    if (!Number.isNaN(aheadCount) && aheadCount > 0) {
+      throw new Error(
+        `主仓库分支已相对 worktree 分支前进 ${aheadCount} 个提交，自动合并将夹带其它变更内容，拒绝自动合并。\n` +
+        `请人工核对处理。`
+      )
+    }
+
+    const addResult = await runGitChecked(mainRepo, ["add", "--", changeDir])
+    if (!addResult.success) throw new Error(`git add 主仓库 ${changeDir} 失败：${addResult.stderr}`)
+    staged = true
+    const tree = (await runGit(mainRepo, ["write-tree"])).trim()
+    if (!tree) throw new Error("git write-tree 失败：主仓库暂存区为空，无法生成合并提交。")
+    const pollCommit = (await runGit(mainRepo, [
+      "commit-tree", tree, "-p", "HEAD", "-m", "docs(openspec): reconcile main-repo edits into worktree branch",
+    ])).trim()
+    if (!pollCommit) throw new Error("git commit-tree 失败：无法创建合并提交。")
+
+    const mergeResult = await runGitChecked(worktreePath, ["merge", "--no-ff", pollCommit])
+    if (!mergeResult.success) {
+      await runGitChecked(worktreePath, ["merge", "--abort"])
+      throw new Error(
+        `worktree 合并主仓库污染文档失败（冲突）：${mergeResult.stderr}\n` +
+        `已中止合并，请人工核对处理。`
+      )
+    }
+    return files
+  } finally {
+    if (staged) {
+      await runGitChecked(mainRepo, ["restore", "--staged", "--worktree", "--", changeDir])
+    }
+  }
+}
+
+/** worktree 自动提交（reviewer 家族文档直改兜底）结果。 */
+export interface AutoCommitResult {
+  /** skipped：过滤 openspec/states/ 后既无已跟踪文件变更、也无未跟踪文档类（未触发提交）；
+   *  committed：add -u + 未跟踪文档类的 git add + commit 完成；failed：git 调用失败（降级返回，不抛异常）。 */
+  status: "skipped" | "committed" | "failed"
+  /** 本次实际提交的文件路径（已跟踪变更 + 未跟踪文档类）。rename 条目只保留新路径，
+   *  避免同一重命名被计成两个文件；旧路径不丢信息——重命名前路径的删除已由提交前预检拦截。 */
+  files: string[]
+  /** status=failed 时的失败 stderr。 */
+  stderr?: string
+  /** 未纳入自动提交的未跟踪文件（?? 条目）路径清单：非文档类，提示编排者/开发者另行处理。
+   *  未跟踪的文档类文件已纳入自动提交，不出现在此清单。 */
+  untrackedFiles: string[]
+}
+
+/**
+ * 自动提交 worktree 内的文档类改动（reviewer 家族文档直改兜底）。
+ *
+ * 触发场景：审查者/架构师按文档直改义务修正文档后，由 opx_agent_submit 在 verdict 校验通过后
+ * 调用——未提交修正会被下一轮工具检查点增量检测误判为新变更，也会在 reconcileMainPollution 的
+ * 干净树预检处死锁，提交时自动 commit 兜底。
+ *
+ * 语义：
+ * 1. `status --porcelain` 解析条目（rename 双向解析），过滤 `openspec/states/` 编排状态目录；
+ *    文档类（openspec/ 与 .md）中的已跟踪改动与未跟踪新建文件都纳入提交，其余未跟踪文件
+ *    （非文档类）不纳入、经 untrackedFiles 提示调用方处理。
+ * 2. 过滤后既无已跟踪变更、也无未跟踪文档类 → skipped（不产生空 commit）。
+ * 3. 有可提交内容 → `add -u`（已跟踪修改/删除，排除 openspec/states/）+ `add -- <未跟踪文档>`
+ *    → `commit`（消息风格对齐既有 `docs(tasks):` / `docs(openspec):` 惯例）。
+ * 4. 任一 git 调用失败 → failed（含 stderr），不抛异常——调用方据此在返回体提示，不阻塞 verdict 写入。
+ */
+export async function autoCommitWorktreeChanges(
+  wtPath: string,
+  agent: string,
+  stepId: string,
+): Promise<AutoCommitResult> {
+  // -uall：未跟踪目录展开为具体文件，避免新建目录里的文档类文件被折叠成目录路径而判成非文档类。
+  const statusRes = await runGitChecked(wtPath, ["status", "--porcelain", "-uall"])
+  if (!statusRes.success) {
+    return { status: "failed", files: [], untrackedFiles: [], stderr: statusRes.stderr }
+  }
+  const trackedFiles: string[] = []
+  const untrackedDocFiles: string[] = []
+  const untrackedOtherFiles: string[] = []
+  const seen = new Set<string>()
+  const pushUnique = (list: string[], path: string): void => {
+    if (seen.has(path)) return
+    seen.add(path)
+    list.push(path)
+  }
+  for (const entry of parseStatusEntries(statusRes.stdout)) {
+    const isUntracked = entry.x === "?" && entry.y === "?"
+    if (isUntracked) {
+      for (const path of entry.paths) {
+        if (!path || path.startsWith("openspec/states/")) continue
+        pushUnique(isDocLikePath(path) ? untrackedDocFiles : untrackedOtherFiles, path)
+      }
+      continue
+    }
+    // 已跟踪条目：rename（`R  old -> new`）只记新路径，避免同一重命名在提示里计成两个文件。
+    // 旧路径不丢信息：重命名前路径的删除已由提交前预检拦截（走不到这里的自动提交阶段）。
+    const newPath = entry.paths[entry.paths.length - 1]
+    if (!newPath || newPath.startsWith("openspec/states/")) continue
+    pushUnique(trackedFiles, newPath)
+  }
+  if (trackedFiles.length === 0 && untrackedDocFiles.length === 0) {
+    return { status: "skipped", files: [], untrackedFiles: untrackedOtherFiles }
+  }
+
+  const committedFiles = [...trackedFiles, ...untrackedDocFiles]
+  const addResult = await runGitChecked(wtPath, ["add", "-u", "--", ".", ":(exclude)openspec/states"])
+  if (!addResult.success) {
+    return { status: "failed", files: committedFiles, untrackedFiles: untrackedOtherFiles, stderr: addResult.stderr }
+  }
+  if (untrackedDocFiles.length > 0) {
+    const addDocResult = await runGitChecked(wtPath, ["add", "--", ...untrackedDocFiles])
+    if (!addDocResult.success) {
+      return { status: "failed", files: committedFiles, untrackedFiles: untrackedOtherFiles, stderr: addDocResult.stderr }
+    }
+  }
+  const commitResult = await runGitChecked(wtPath, [
+    "commit",
+    "-m",
+    `docs(opx): direct fixes by ${agent} (${stepId})`,
+  ])
+  if (!commitResult.success) {
+    return { status: "failed", files: committedFiles, untrackedFiles: untrackedOtherFiles, stderr: commitResult.stderr }
+  }
+  return { status: "committed", files: committedFiles, untrackedFiles: untrackedOtherFiles }
+}
+
+/** openspec CLI runner 类型：cwd 固定为调用方传入的 worktreePath。 */
+export type CliRunner = (cwd: string, args: string[]) => Promise<{ success: boolean; stdout: string; stderr: string }>
+
+/** 默认实现：node child_process execFile 调用 openspec CLI（ENOENT 等异常归为非成功，stderr 带异常标记）。 */
+export const defaultOpenSpecCliRunner: CliRunner = (cwd, args) =>
+  new Promise((resolve) => {
+    execFile(
+      "openspec",
+      args,
+      { cwd, encoding: "utf-8", maxBuffer: 10 * 1024 * 1024 } as any,
+      (err: Error | null, stdout: string, stderr: string) => {
+        if (err && (err as any).code === "ENOENT") {
+          resolve({ success: false, stdout: "", stderr: "ENOENT" })
+          return
+        }
+        resolve({ success: !err, stdout: stdout || "", stderr: stderr || (err ? String((err as any).message) : "") })
+      },
+    )
+  })
+
+let openspecCliRunner: CliRunner = defaultOpenSpecCliRunner
+
+export function __setOpenspecCliRunner(r: CliRunner | null): void {
+  openspecCliRunner = r ?? defaultOpenSpecCliRunner
+}
+
+/** openspec archive 归档结果：archived=成功（committed 指明是否产生了归档提交）；skipped=无需归档；
+ *  failed=执行失败（error 为 stderr/stdout 摘要）。 */
+export type OpenspecArchiveResult =
+  | { status: "archived"; committed: boolean }
+  | { status: "skipped"; reason: string }
+  | { status: "failed"; error: string }
+
+/**
+ * 收口合并前对 change 执行 openspec archive（归档规划文档 + delta 同步进主 specs）：
+ * 1. change 目录不存在 → skipped（可能已归档，天然幂等覆盖二次收口场景）；
+ * 2. CLI 未安装（ENOENT）→ skipped（归档属编排基础设施增强，环境缺失不阻断收口）；
+ * 3. CLI 非零退出（校验/同步失败）→ failed——若 CLI 失败前已产生部分文件变更，worktree 会脏，
+ *    同样归 failed，由调用方给出残留处理指引；
+ * 4. CLI 成功后 `git status --porcelain openspec` 有变化 → `add openspec` + `commit`（归档提交）；
+ *    提交失败 → failed（已产生变更但未提交）。无变化 → archived 且未提交。
+ */
+export async function archiveOpenspecChange(
+  worktreePath: string,
+  changeId: string,
+  opts: { runCli?: CliRunner } = {},
+): Promise<OpenspecArchiveResult> {
+  const runCli = opts.runCli ?? openspecCliRunner
+  const changeDir = path.join(worktreePath, "openspec", "changes", changeId)
+  if (!(await pathExists(changeDir))) {
+    return { status: "skipped", reason: "change 目录不存在（可能已归档）" }
+  }
+
+  const cliRes = await runCli(worktreePath, ["archive", changeId, "-y", "--json"])
+  if (cliRes.stderr.includes("ENOENT")) {
+    return { status: "skipped", reason: "openspec CLI 未安装" }
+  }
+  if (!cliRes.success) {
+    const summary = (cliRes.stderr || cliRes.stdout).trim()
+    return { status: "failed", error: summary.length > 0 ? summary.slice(0, 500) : `openspec archive ${changeId} 退出码非零` }
+  }
+
+  const statusRes = await runGitChecked(worktreePath, ["status", "--porcelain", "openspec"])
+  if (!statusRes.success) {
+    return { status: "failed", error: `归档后 git status 查询失败：${statusRes.stderr}` }
+  }
+  if (statusRes.stdout.length === 0) {
+    return { status: "archived", committed: false }
+  }
+  const addRes = await runGitChecked(worktreePath, ["add", "openspec"])
+  if (!addRes.success) {
+    return { status: "failed", error: `归档产物 git add 失败：${addRes.stderr}` }
+  }
+  const commitRes = await runGitChecked(worktreePath, ["commit", "-m", `chore(openspec): archive change ${changeId}`])
+  if (!commitRes.success) {
+    return { status: "failed", error: `归档产物 git commit 失败：${commitRes.stderr}` }
+  }
+  return { status: "archived", committed: true }
+}

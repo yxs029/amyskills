@@ -1,0 +1,496 @@
+<div align="center">
+
+**English** | [简体中文](README.md)
+
+</div>
+
+<div align="center">
+
+![superpowers-dsh](static/home.png)
+
+</div>
+
+# superpowers-dsh
+
+Superpowers for the **DeepSeek Harness**: a plugin bundle that ports the core
+skills of [obra/superpowers](https://github.com/obra/superpowers) (the
+Claude-Code skills library: TDD, debugging, planning, collaboration patterns)
+to DSH's Cordis plugin architecture.
+
+The plugin registers a skill provider into the **host layer** of the
+`ctx.skills` registry, so every agent preset's scope chain merges these
+skills. Skill bodies ship inside the package (`skills/<name>/SKILL.md`) and
+are located from `import.meta.url` — an assembly fact of the package, never
+user configuration.
+
+## Contents
+
+- [Install & use in your DeepSeek Harness](#install--use-in-your-deepseek-harness)
+- [DSH version compatibility](#dsh-version-compatibility)
+- [Skills](#skills)
+- [How it works](#how-it-works)
+- [Upstream sync](#upstream-sync)
+- [Porting notes](#porting-notes)
+- [Adding your own skills](#adding-your-own-skills)
+- [License](#license)
+
+## Install & use in your DeepSeek Harness
+
+A **plugin bundle** for DeepSeek Harness (DSH). Installing it registers the
+15 skills below into the host skill registry, so every agent session in your
+profile sees them in its skill catalog and can load them with the `skill`
+tool. Skill content is synced from upstream **obra/superpowers v7.0.2**.
+
+### Simplest: one command
+
+No global `dsh` install required. Run this from any directory:
+
+```sh
+npx @deepseek-ai/dsh plugin --profile web add github:LayneChai/superpowers-dsh
+```
+
+Then restart `npx @deepseek-ai/dsh web` (or `dsh web`) and refresh the browser.
+
+### Easiest: let the DeepSeek Harness agent install it
+
+Open the DeepSeek Harness web UI, start a new conversation, and send this
+message:
+
+```
+Please install the plugin from this link: https://github.com/LayneChai/superpowers-dsh
+```
+
+The agent will run the install for you (`dsh plugin --profile web add` →
+restart the profile → verify the skills registered), so you never have to
+type a command. Afterwards you can ask it to run
+`dsh --profile web --dump-config` and confirm a `superpowers-dsh` row is
+present.
+
+### Install from npm (recommended — one command)
+
+The package is published on npm as `superpowers-dsh` (synced to the
+npmmirror mirror for mainland China):
+
+```sh
+dsh plugin --profile web add superpowers-dsh
+```
+
+> Use the `dsh plugin` form — a plain `npm install superpowers-dsh` installs
+> the package as a library in the current directory but does **not** register
+> it into any DeepSeek Harness profile, so the skills would never load.
+
+### Install from GitHub
+
+```sh
+# from anywhere
+dsh plugin --profile web add https://github.com/LayneChai/superpowers-dsh.git
+```
+
+### Install from a tarball or a local folder
+
+```sh
+# tarball (e.g. the release asset superpowers-dsh-0.1.0.tgz)
+dsh plugin --profile web add C:\path\to\superpowers-dsh-0.1.0.tgz
+
+# or the unpacked package folder (pnpm links it, so edits take effect on restart)
+dsh plugin --profile web add C:\path\to\superpowers-dsh
+```
+
+### Restart and verify
+
+The bundle layer mounts at profile startup, so **restart the profile** (stop
+and re-run `dsh web` / `npx @deepseek-ai/dsh web`, then refresh the browser).
+To confirm the layer is composed:
+
+```sh
+dsh --profile web --dump-config     # a `superpowers-dsh` row must be present
+```
+
+The skills then appear in the agent skill catalog (`using-superpowers` is the
+entry-point skill) and are loadable with the `skill` tool.
+
+A successful install looks like this:
+
+![Installation success screenshot](static/install-success.png)
+
+### Using another profile (headless / tui / custom)
+
+Point `--profile` at whichever profile you run:
+
+```sh
+dsh plugin --profile headless add superpowers-dsh
+dsh --profile headless --dump-config
+```
+
+### Uninstall
+
+```sh
+dsh plugin --profile web remove superpowers-dsh
+# then restart the profile again
+```
+
+### Notes
+
+- Installers in mainland China can set the npm mirror first — it makes `dsh
+  plugin add superpowers-dsh` fast:
+  `npm config set registry https://registry.npmmirror.com`
+- A plugin installed from a folder or `file:` spec is linked, not copied:
+  changes to that folder take effect after the next profile restart.
+- Consumers need **no npm account and no 2FA** — installing is a plain
+  package download.
+
+## DSH version compatibility
+
+**Bottom line: compatible with every DSH version published on npm, verified
+end-to-end on DSH `0.2.0-rc.2` (the current `latest`). No known
+incompatibilities.**
+
+Checked 2026-10-03. npm dist-tags: `latest` = `next` = `0.2.0-rc.2`,
+`alpha` = `0.2.1-alpha.1`.
+
+### Support matrix
+
+| Check | Result |
+| --- | --- |
+| DSH interfaces this plugin uses | ① `ctx.skills.registerProvider(...)` (skill provider registration) ② `dsh.bundle.patch` (a bundle mounting its own `cordis.patch.yml`) |
+| Published versions carrying them | **31 released versions each** of `@deepseek-ai/dsh-skill` and `@deepseek-ai/dsh-app-boot` |
+| Per-version audit | **31 / 31 identical** — from the first release `0.0.1-rc.1` through the newest `0.2.1-alpha.1`, no signature or semantics changed |
+| End-to-end run | `lib/index.js` mounted into the **real `SkillRegistry`** of local DSH `0.2.0-rc.2`: `list()` returned 15 skills and every `get()` returned a body and a `resourceBase` |
+| This plugin's version | `0.5.0` (skill content synced from obra/superpowers `v7.0.2`) |
+| Runtime dependencies | None. Node built-ins only, so a DSH dependency-tree change cannot break it |
+| Node.js | Verified on `v22.22.2`; DSH declares no `engines`, and neither does this plugin |
+
+### Known compatibility notes
+
+- **No known incompatibilities.** Since `0.1.7-rc.2` DSH has a plugin
+  compatibility gate (`evaluatePluginCompatibility`): it **only inspects the
+  `@deepseek-ai/dsh*` peerDependencies a plugin declares** and skips the whole
+  bundle when a range does not match. This plugin declares no peerDependencies,
+  so the gate **never blocks it** — which also means DSH does not version-check
+  it for you, so re-run the audit below after a DSH upgrade.
+- **Same-name precedence is deliberate**: the plugin registers at
+  `PACKAGED_SKILL_RANK = 550` while DSH's bundled root is
+  `BUNDLED_SKILL_RANK = 600` (lower wins), so **your own skill wins a
+  same-name collision**. No in-box DSH skill shares a name with these.
+- **Windows note**: the bash helpers in the skill bodies need Git for Windows
+  (Git Bash); the Node helpers (`server.cjs`, `render-graphs.js`) run
+  everywhere. The prose invokes bundled scripts through their interpreter
+  (`bash scripts/...`), so it does not depend on Unix executable bits.
+- The install method does not affect compatibility: npm, GitHub, and a linked
+  local folder all load the same bundle declaration.
+
+### How to re-verify compatibility
+
+One command re-runs every check above — including the real-registry mount —
+against **the DSH you actually have installed**:
+
+```sh
+node scripts/check-dsh-compat.mjs
+# or point it at another node_modules, or set $DSH_NODE_MODULES
+node scripts/check-dsh-compat.mjs D:\path\to\profile\node_modules
+```
+
+Output on this machine:
+
+```
+dsh SDK      : @deepseek-ai/dsh-skill 0.2.0-rc.2
+mounted      : 15 skills listed and read through the real SkillRegistry
+rank         : PACKAGED_SKILL_RANK=550 is below BUNDLED_SKILL_RANK=600
+
+check-dsh-compat: OK — this plugin matches the installed DSH SDK
+```
+
+It checks, in order: that the SDK is present and which version it is → that the
+installed SDK's own type declarations still declare the provider interface this
+plugin implements (`registerProvider`, `SkillProvider.list/get`,
+`SkillCandidate`, `SkillResourceBase`, the `'custom'` source bucket) → that
+`lib/index.js` really mounts into `SkillRegistry` and every skill reads back →
+the rank relationship. Any failure exits 1 and names the contract that changed.
+
+On a machine with **no DSH installed** (CI, a fresh container) there is nothing
+to compare against, so it prints `SKIPPED` and exits 0 — that is "unchecked",
+not "failed", so a publish pipeline is never blocked by a missing local DSH.
+Pass an explicit directory or `--require` to make a missing SDK an error, or set
+`DSH_COMPAT_REQUIRE=1 node scripts/check-dsh-compat.mjs`.
+
+> The conclusion holds for the DSH version it was verified against. On a newer
+> DSH, run the command above first: if upstream changes the skill interface it
+> names the exact break instead of letting skills disappear quietly.
+
+## Skills
+
+| Skill | Purpose |
+| --- | --- |
+| `using-superpowers` | How to find and use skills; the entry-point skill |
+| `brainstorming` | Find out what you actually want, and why, before anything gets built |
+| `writing-plans` | Write comprehensive implementation plans from specs |
+| `executing-plans` | Execute a plan inline (Native) in this session, one whole-branch review at the end |
+| `subagent-driven-development` | Dispatch fresh subagents per task with reviews |
+| `dispatching-parallel-agents` | Fan independent work out across parallel agents |
+| `systematic-debugging` | Root-cause-first debugging discipline |
+| `test-driven-development` | RED-GREEN-REFACTOR implementation loop |
+| `verification-before-completion` | Evidence before success claims |
+| `requesting-code-review` | Get rigorous review before merging |
+| `receiving-code-review` | Verify feedback instead of blindly implementing it |
+| `finishing-a-development-branch` | Integrate completed work safely |
+| `using-git-worktrees` | Isolated workspaces for feature work |
+| `writing-skills` | Author and validate new skills TDD-style |
+| `diagnosing-superpowers` | Read a session's transcripts on disk and report what went wrong, with `path:line` evidence |
+
+## How it works
+
+- **Bundle layer** — `cordis.patch.yml` inserts one row
+  (`- id: superpowers-dsh, name: superpowers-dsh`) over the dsh-base layer.
+  Later layers (the profile's `cordis.patch.yml`, `--patch` overlays) can
+  still address that row by id.
+- **Provider** — `lib/index.js` calls `ctx.skills.registerProvider(...)`
+  with a provider that:
+  - `list()` scans the package's `skills/` directory for
+    `<name>/SKILL.md` bundles and returns candidates parsed from YAML
+    frontmatter (`name`, `description`, `whenToUse`).
+  - `get()` reads the winning candidate's body on demand and returns a
+    full skill definition with `resourceBase` pointing at the skill's
+    directory, so relative references (scripts, prompt templates) resolve.
+- **Zero runtime dependencies** — the plugin imports only Node built-ins and
+  consumes the injected `ctx.skills` service interface.
+
+## Upstream sync
+
+Currently synced upstream version: **obra/superpowers v7.0.2** (recorded in
+`package.json` as `dsh.superpowersUpstream`).
+
+`skills/` is **generated output** — do not hand-edit it. The sync lives in two
+places; change those and re-run:
+
+- `scripts/sync-from-upstream.mjs` — copies the upstream skill tree and replays
+  every DSH adaptation. Each adaptation is an asserted string rewrite, so if
+  upstream rewords the anchor the run **fails loudly** instead of silently
+  dropping an adaptation.
+- `port/overrides/` — DSH-only files
+  (`using-superpowers/references/dsh-tools.md`) copied over the synced tree.
+
+```sh
+# 1. Fetch the upstream release (git-over-https is blocked on some networks;
+#    codeload works)
+mkdir -p .upstream/superpowers
+curl -L https://codeload.github.com/obra/superpowers/tar.gz/refs/tags/v7.0.2 \
+  | tar -xz -C .upstream/superpowers --strip-components=1
+
+# 2. Replay the sync
+node scripts/sync-from-upstream.mjs .upstream/superpowers
+
+# 3. Verify (provider lists every skill, frontmatter is valid, no dangling refs)
+node scripts/verify-skills.mjs
+
+# 4. Compatibility (replays the contract and the real-registry mount against
+#    the DSH you have installed)
+node scripts/check-dsh-compat.mjs
+```
+
+What this sync brought in from upstream (**v7.0.2**, 2026-11-03; still 15
+skills, 78 → 74 files):
+
+- **`brainstorming`, third pass — fewer questions** (#2644): it now asks a
+  question **only when the answer would change what gets built and nothing
+  already answers it**; otherwise it states its own call as a proposal you can
+  correct. It also stopped asking about process — writing things up, where files
+  go, whether to look further, how to show you something are its own calls, and
+  it tells you what it decided.
+- **If you haven't said why you want it, that is the first thing it asks**,
+  openly, with no example answers to pick from.
+- **When there is a named choice it lays out the options with a recommendation.**
+  In one test scenario a spec gave Ctrl+K to two features: v7.0.1 found the
+  conflict every time but asked a bare "which one?" in 8 of 8 runs; v7.0.2 laid
+  out the options and recommended one in 8 of 8.
+- **It reads from how you talk whether you want to discuss technical choices**,
+  and when your request leaves nothing open its first message is a short design
+  for you to approve.
+- Upstream's blind-graded numbers: filler questions fell from 41 to 23; the
+  reason behind the request came out before any approach in 33 of 33
+  conversations (28 of 33 before); nothing got built before approval (4
+  violations before).
+- **`start-server.sh --project-dir .` now works** (#2524 / #2608): the script
+  `cd`s into its own directory before starting, so every path derived from a
+  relative `--project-dir` pointed at the wrong place and the server never
+  started. It resolves the directory to an absolute path first.
+
+- **The five SDD / executing-plans helpers changed a lot — the part of this
+  release that matters most on DSH** (#2429 / #2242 / #1799 / #2606 / #2525 /
+  #2607):
+  - **New `scripts/sdd-repo`** (54 lines): it resolves the repository of the
+    current directory, the way `git` does, and takes `-C DIR` to point elsewhere.
+    Outside a repository, `sdd-workspace` used to write its workspace into
+    whatever directory the agent was in — often the plugin cache.
+  - All five helpers now **exit 2 with advice when not in a repository**; a
+    brand-new project needs `git init` and a first commit before they work.
+  - **The skills now say to call the helpers by absolute path, from the working
+    tree you're executing in** (they used to say "from this skill's directory",
+    and agents that `cd`'d there ran the helpers against the plugin's own files).
+    Upstream added a test that fails if a skill names a helper by a relative path.
+  - **`task-brief` understands task IDs like `A1`, `6b`, and `2.1`** (it used to
+    reject letter-first IDs entirely, and asking for Task 6 also picked up Task
+    6b); when a plan's headings aren't in English it says they must use the word
+    "Task" and shows the headings it found.
+  - **`task-brief` refuses a brief that an unclosed code fence ran to the end of
+    the plan**: one missing closing fence hid every later task heading, and a
+    reporter's 177-line task came back as a 1,159-line brief holding five tasks.
+  - **On Windows the helpers print paths PowerShell can open** (`C:/Users/…`
+    rather than `/c/Users/…`, via `cygpath -m`).
+- **`systematic-debugging` no longer installs its own test scenarios** (#2277 /
+  #2654): `CREATION-LOG.md` and four "This is a real scenario. You must choose
+  and act" pressure prompts sat next to `SKILL.md` and could be found by an agent
+  mid-task. They now live under `tests/`, with a test keeping such files out of
+  every skill directory. **This port therefore ships 5 files fewer.**
+- **Not applicable to DSH**: the hooks work (Copilot on Windows, Git Bash child
+  processes, the zsh fallback) and the Pi / Hermes / OpenCode / Muse bootstrap
+  fixes all live outside `skills/`, and DSH has no hook system.
+
+> **DSH adaptation**: v7.0.2 replaced the helpers' calling semantics (repository
+> of the current directory, absolute paths, `-C DIR`), which matters more on DSH
+> than elsewhere — a plugin's skills live inside the plugin installation, not in
+> your project, and `cd`-ing into the plugin directory to run them is exactly the
+> trap upstream closed here. `dsh-tools.md` gained a section on it: resolve the
+> absolute path from the skill's own directory (the `resourceBase` the `skill`
+> tool returns), run with the project as the working directory or pass `-C`, and
+> `git init` first in an empty repository; plus the note that `bash` on Windows
+> means Git for Windows. The four helper invocations in executing-plans also got
+> a `bash` prefix (Windows has no Unix executable bit), and those transforms are
+> now anchored on the backticked command alone rather than the prose around it —
+> upstream rewords that prose every release, and a prose-bearing anchor breaks
+> with it.
+
+The previous release (**v7.0.1**, 2026-10-21), kept for reference:
+
+- **`brainstorming` retuned after feedback** (#2560 / #2571): v7.0.0's opening —
+  offer to skip the questions, then ask a generic "the moment you wished this
+  existed" — felt formulaic fast, so two things changed. ① **It digs for context
+  before it asks anything**: pointed at an existing project, a spec, a plan, or
+  files, it reads them before its first message and does not ask what they
+  already answer. ② **Its questions build on your answers**: once you've said
+  what you want, it plays your request back with what it found in the project
+  and asks about the one thing still open; later questions build on your answers
+  and say what the answer would change. The skip offer now appears **only when
+  it started on its own** — invoking brainstorming by name or `/brainstorming`
+  no longer offers to skip.
+- **The design doc can no longer be skipped**: it presents two or three ways to
+  build the thing, recommends one for you to pick, writes the design doc, and
+  builds nothing until you approve it. Upstream measured 24 of 24 runs skipping
+  the doc without asking before this change, 3 of 24 after.
+- **Three long skills were split so they survive compaction** (#2563 / #2564 /
+  #2565, from #2481): after a compaction Claude Code re-attaches each skill cut
+  off at **20,000 characters**, so anything past that point is gone for the rest
+  of the session — one reported session lost `subagent-driven-development`'s
+  five-round fix limit and ran 18 fix rounds on a single task.
+  - `subagent-driven-development`: the fix loop, final review, report handling,
+    resuming, preflight, batching, and cannot-verify guidance move into
+    **`references/`** (7 new files) and are read from disk at the step that needs
+    them. **SKILL.md 32,510 → 19,470 bytes.**
+  - `writing-skills`: supporting docs, the SKILL.md template and discovery
+    guidance, bulletproofing, and flowchart conventions move into `references/`
+    (new `discovery.md`, `bulletproofing.md`, `flowcharts.md`; the rest are
+    existing files renamed into `references/`). **26,615 → 16,754 bytes.**
+  - `executing-plans`: drops its Example Workflow, which repeated rules stated
+    above it. **20,454 → 18,164 bytes.**
+  - Upstream also added `tests/skill-size/test-skill-size.sh`, which fails when
+    any `SKILL.md` reaches 20,000 bytes. All 15 `SKILL.md` files in this port are
+    now **under 20,000 bytes** (the largest is `subagent-driven-development`, at
+    19,704 after v7.0.2).
+- **Not applicable to DSH**: the issue and PR templates now require who filed,
+  what the human partner asked for, and a human-written summary under 200 words
+  (#2569); `diagnosing-superpowers` adds those two sections and switches to the
+  Bug Report template; 18 historical plan docs under `docs/superpowers/plans/`
+  were deleted. All of it lives outside `skills/` and never reaches this port.
+
+> **DSH adaptation**: v7.0.1 renamed `writing-skills/references/CLAUDE_MD_TESTING.md`
+> into `references/`, which brought it into the shipped tree. The whole file is
+> scenario fixtures for testing how skill docs get discovered, and 14 of its
+> lines send the agent to `~/.claude/skills/` — a directory that does not exist
+> on DSH, so the fixtures would test nothing. The sync script gained a `sweep`
+> transform that rewrites them all to `$DSH_HOME/skills/`.
+
+The previous release (**v7.0.0**, 2026-10-10), kept for reference:
+
+- **`brainstorming` was rebuilt from scratch** (#2463 / #2482 / #2483): the
+  first message offers to skip the questions, then asks one open question about
+  a real moment; it plays each part back in 200–300 words for correction, sizes
+  the work in plain words once it understands (do it / agree it in chat / write
+  a design document) with your override, and finds out which how-it-gets-made
+  choices you want to own (platform, language, libraries, medium).
+- **A builder check replaces the spec-document reviewer**: adds
+  `skills/brainstorming/builder-check-prompt.md` (a fresh subagent reads the
+  design as the person who'll build it and lists what it still needs to ask) and
+  removes `skills/brainstorming/spec-document-reviewer-prompt.md`. One round of
+  questions only.
+- **`subagent-driven-development`'s `scripts/sdd-workspace`**: no longer
+  overwrites a repo's own `.superpowers/sdd/.gitignore` (it writes the default
+  only when none exists), and on Windows/Git Bash plan markers stay
+  repo-relative instead of recording a machine-specific absolute path.
+- **`executing-plans`'s `scripts/task-done`**: a test command that passes
+  silently now records the task in the ledger as `→ (no output)`; previously the
+  empty `grep|tail` exited 1 and a finished task looked unfinished.
+- **`requesting-code-review`**: the base-SHA example uses `cut -d' ' -f1`,
+  because Claude Code substitutes `$1` in a skill body with an argument word.
+- **`systematic-debugging`**: the multi-layer diagnostic example no longer
+  prints the secret value it checks for.
+- **Visual companion `scripts/server.cjs`**: fixes `String.replace` treating
+  `$'` / `$&` as replacement patterns; content is now inserted literally.
+- Everything else in the release is Antigravity / Hermes / Claude Code hook
+  work, which does not apply to DSH (it has no hook system).
+
+## Porting notes
+
+- Namespace prefixes removed: `superpowers:brainstorming` → `brainstorming`
+  (DSH skills are addressed by bare name).
+- `using-superpowers` now documents the DSH `skill` tool and points at
+  `skills/using-superpowers/references/dsh-tools.md`, a full Claude-Code →
+  DSH tool mapping (`pwsh`, `subagent`, `workflow`, `goal`, ...). Upstream's
+  per-harness reference list (Claude Code / Codex / Gemini / Copilot / Pi /
+  Antigravity / Hermes / Muse) collapses to the DSH file; the other
+  `references/*-tools.md` files are not shipped.
+- Subagent references map to DSH's `subagent` / `subagent_fork`. Upstream's
+  named agent (`superpowers:code-reviewer`) does not exist here; dispatch the
+  skill's own prompt template instead.
+- Upstream's `<SUBAGENT-STOP>` gate is not kept: DSH subagents must follow the
+  skills too (an implementer subagent has to run TDD).
+- Cross-harness paths become DSH paths: `~/.claude/skills/` →
+  `$DSH_HOME/skills/`, `~/.superpowers/...` → `$DSH_HOME/...`
+  (default `~/.dsh`).
+- `diagnosing-superpowers` gains DSH session-storage facts
+  (`$DSH_HOME/sessions/<cwd-slug>/session-<uuid>/session.*.jsonl.zstd`,
+  concatenated zstd frames that need frame-by-frame decompression).
+- `brainstorming`'s visual companion adds a Windows note: the Node server
+  (`scripts/server.cjs`) runs everywhere; the `.sh` helpers are bash-only.
+- After the v7.0.0 rewrite, upstream itself names the companion as a bare
+  `visual-companion.md`, so this port's old rewrite of
+  `skills/brainstorming/visual-companion.md` is gone (the sync script carries a
+  NOTE; re-add it if a future release regresses to the path form).
+- `writing-skills/references/CLAUDE_MD_TESTING.md` entered the shipped tree with
+  v7.0.1's rename (it used to sit under `examples/`, which upstream never treated
+  as shipped content). It is kept because it is the scenario suite for "how do
+  you write skill docs so agents actually find them" — but 14 of its lines send
+  the agent to `~/.claude/skills/`, a directory that does not exist on DSH, so
+  the fixtures would test nothing. The sync script therefore rewrites them all to
+  `$DSH_HOME/skills/` with one `sweep` transform. Provenance lines in the same
+  file that describe where a framework was extracted *from* (`~/.claude/CLAUDE.md`)
+  are left alone: those are history, not instructions.
+
+## Adding your own skills
+
+`list()` discovers any `skills/<kebab-name>/SKILL.md` in the package — it must
+start with a YAML frontmatter block (`name` + `description`, optionally
+`whenToUse`). No code change needed.
+
+Note that `skills/` is generated by the upstream sync: **re-running
+`scripts/sync-from-upstream.mjs` rebuilds it wholesale**, so a skill dropped
+there directly is deleted. Two safe places:
+
+- `$DSH_HOME/skills/` (user level) or the project's `.dsh/skills/` — unrelated
+  to this package and the least effort;
+- or `port/overrides/<kebab-name>/SKILL.md` — copied into `skills/` on every
+  sync, so it survives.
+
+## License
+
+MIT. Skill content adapted from
+[obra/superpowers](https://github.com/obra/superpowers) (MIT), © Jesse Vincent
+and contributors.

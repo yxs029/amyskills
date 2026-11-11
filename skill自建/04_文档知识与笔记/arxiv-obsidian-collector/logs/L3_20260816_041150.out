@@ -1,0 +1,486 @@
+
+=================================================================
+🚀 arXiv to Obsidian — AI 论文周报收集器
+📅 日期: 2026-08-16  |  层: 第三层-大模型组件层  |  窗口: 7 天
+🗂️   Vault: F:\移动云盘同步盘\30AI技术知识树\arxivForAI
+⭐ 评分阈值: 5.0  (0 = 不过滤)
+🤖 模型: m3 @ https://api.minimaxi.com/anthropic
+=================================================================
+
+📥 Pass 1: 收集 + 全局去重...
+  📂 命中 arXiv 搜索缓存: 96 篇 ← .arxiv_pass1_第三层-大模型组件层_2026-08-16.json
+
+  📊 去重后待处理: 68 篇 (arXiv 搜索去重后 96 篇,跨分类命中合计 212 次 → 节省 116 次冗余评估)
+
+📝 Pass 2: 评分 + 写笔记(每篇只写一次)...
+
+  [1/68] Experimental Quantum Key Distribution in an Indefinite Cau...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: 模型部署与服务化, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [2/68] AutoDesign: Meta-Harness Optimization for Long-Horizon Age...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 低代码AI流程工具, 提示工程与上下文管理, 长上下文与记忆扩展, LLM推理加速, 模型部署与服务化, 文档解析与结构化提取, 数据连接器与集成, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    ⚠️  评分失败 [2608.13560v1]: 无法从 LLM 输出解析 JSON: {"score": 5.5, "category": "average", "reasons": ["原创性中等:'meta-harness optimization'概念包装较新,但本质是prompt/workflow自动优化+RL-style迭代,核心机制(reward-driven iterative refinement of system prompt/workflow)与已有agent...
+    🟡 5.0/10 [unknown]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: AutoDesign Meta-Harness Optimization for Long-Horizon Agentic Design.md
+
+  [3/68] Equi-dependence implying independence...
+    🗂️  主分类: 第三层-大模型组件层/长上下文与记忆扩展
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.0/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(分类标注明显错误:这是一篇纯概率论/测度论教学性短文,与'大模型组件层/长上下文与记忆扩展'毫无关系,属于跨领域错配; 原创性低:核心结果(条件概率恒定则独立)是初等概率论中经典且广为人知的结论,推广思路(渐近稳定、有限子集条件)也属于常规数学练习题级别的推广,无实质方法论突破)
+
+  [4/68] OmniScientist: An Omni-Modal Omni-Discipline AI Scientist...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 工作流自动化编排, 低代码AI流程工具, 提示工程与上下文管理, 模型部署与服务化, 文档解析与结构化提取, 数据连接器与集成, LLM可观测性与监控, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(系统本体是经典的多智能体编排(感知+假设+实验+写作),架构上无显著新意,与已有 AI Scientist、ChemCrow、Coscientist 等路线高度同构,原创性主要体现在'omni-modal + multi-discipline'的宣称上,缺乏方法论层面的突破; 实证层面仅给出 36 个案例的 6.3 均分,缺乏与已有 AI Scientist 系统(如 Sakana 的 AI Scientist、SciAgent 等)的 head-to-head 对比,无法判断相对 SOTA 的优劣;消融仅做了'blind vs sighted'一对,维度过于单一)
+
+  [5/68] Localised Horizons and Holographic Thermodynamics: Superco...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 模型部署与服务化, 文档解析与结构化提取, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [6/68] V-RAE: Rethinking Video Latent Spaces for Generation...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 提示工程与上下文管理, LLM推理加速, 模型部署与服务化, 文档解析与结构化提取, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [7/68] HumanTracker: Towards Comprehensive and Human-Aligned Moti...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: 长上下文与记忆扩展, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [8/68] Defensive Boosting for Online Probabilistic Forecasting...
+    🗂️  主分类: 第三层-大模型组件层/提示工程与上下文管理
+    🏷️  同时命中: 文档解析与结构化提取, 数据连接器与集成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [9/68] Heat kernel geometry and Gromov's volume growth conjecture...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [10/68] PlayWorld: Benchmarking World Models with Agent Players ov...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 低代码AI流程工具, 提示工程与上下文管理, 长上下文与记忆扩展, 模型部署与服务化, 数据连接器与集成, LLM可观测性与监控, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [11/68] Positive Toeplitz operators on pluriharmonic Fock space: S...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: 提示工程与上下文管理, LLM推理加速, LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [12/68] Exponential Convex Calibration Dimension for the Multi-Lab...
+    🗂️  主分类: 第三层-大模型组件层/提示工程与上下文管理
+    🏷️  同时命中: LLM推理加速, LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [13/68] All-optical switching of nonlinear structured light in cry...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    🏷️  同时命中: 提示工程与上下文管理, 数据连接器与集成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [14/68] QuoteBench: How Matched Scores Can Hide Command-Path Failu...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 工作流自动化编排, 低代码AI流程工具, 提示工程与上下文管理, 长上下文与记忆扩展, LLM推理加速, 模型部署与服务化, 文档解析与结构化提取, 数据连接器与集成, LLM可观测性与监控, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: QuoteBench How Matched Scores Can Hide Command-Path Failures.md
+
+  [15/68] Alaya-EVOKE: From Linear-Scaling Supervision to Endless Wo...
+    🗂️  主分类: 第三层-大模型组件层/提示工程与上下文管理
+    🏷️  同时命中: 长上下文与记忆扩展, LLM推理加速, LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [16/68] LittleLearner: Language Models Under Pedagogically Control...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 工作流自动化编排, 低代码AI流程工具, 提示工程与上下文管理, 长上下文与记忆扩展, 模型部署与服务化, 文档解析与结构化提取, 数据连接器与集成, LLM可观测性与监控, 组件层测试与评估 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [17/68] Skew Hives, Skew Skeps, Skew Schur Log-Concavity...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [18/68] Clifford Circuit Synthesis for Distributed Quantum Archite...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    🏷️  同时命中: 长上下文与记忆扩展, 数据连接器与集成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [19/68] Effective field theory of quasi-hydrodynamics from kinetic...
+    🗂️  主分类: 第三层-大模型组件层/提示工程与上下文管理
+    🏷️  同时命中: LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [20/68] SCULPT: Subtractive Composition for 3D Part Generation...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    🏷️  同时命中: 数据连接器与集成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [21/68] Insight into SRF cavity performance from simulations of Nb...
+    🗂️  主分类: 第三层-大模型组件层/组件层测试与评估
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [22/68] HRT counterexamples with exponential tails...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [23/68] SAEVerbalizer: Generating Explanations for Sparse Autoenco...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 工作流自动化编排, 长上下文与记忆扩展, LLM推理加速, 模型部署与服务化, 文档解析与结构化提取, 数据连接器与集成, LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [24/68] Kinematic Fingerprints of a Nucleon-Triggered $V_{\mathcal...
+    🗂️  主分类: 第三层-大模型组件层/提示工程与上下文管理
+    🏷️  同时命中: 长上下文与记忆扩展 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.0/10 [below_average]
+    🚫 低于阈值 5.0,跳过(提出一个 nucleon-triggered vector boson 的 ad hoc 模型来解释 KLOE vs MAMI 的 BR 差异,但该模型缺乏理论动机,只是为拟合数据而引入的临时假设,原创性有限; 实验'预测'本质上是在选定模型假设下的运动学计数,既无真实数据验证,也无与独立实验(如 BESIII、GlueX)对比,对模型的判别力存疑)
+
+  [25/68] Joint Communication-Control Strategy Optimization with Par...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: 提示工程与上下文管理, 长上下文与记忆扩展, 数据连接器与集成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [26/68] Quantum simulation of non-Markovian dynamical systems...
+    🗂️  主分类: 第三层-大模型组件层/长上下文与记忆扩展
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [27/68] Safety vs. Social Image: Co-Designing Protection Mechanism...
+    🗂️  主分类: 第三层-大模型组件层/提示工程与上下文管理
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [28/68] Vector Perturbations in Ghost-Free Quasidilaton Massive Gr...
+    🗂️  主分类: 第三层-大模型组件层/长上下文与记忆扩展
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(原创性不足：核心结论(K_V=0 on Branch II)在真空中已是已知结果，本文仅是将'minimal matter 不改变该结论'作为增量，工作性质属于既有分析的延伸而非新方法或新视角; 实证强度极弱：纯解析计算，无任何数值验证或与观测数据对接，perturbation analysis 的'实验'仅是代入已知模型做交叉验证)
+
+  [29/68] A pion-driven near-threshold enhancement in the $π\,T_{cc}...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    🏷️  同时命中: 模型部署与服务化 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [30/68] DARTree: Speculative Diffusion Decoding with Autoregressiv...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    🏷️  同时命中: 模型部署与服务化 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [31/68] Vero: Can AI Agents Build Formally Verified Software Repos...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    🏷️  同时命中: 工作流自动化编排, 低代码AI流程工具, 提示工程与上下文管理 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [32/68] Exponential quantum advantage for learning signals with a ...
+    🗂️  主分类: 第三层-大模型组件层/模型部署与服务化
+    🏷️  同时命中: 文档解析与结构化提取 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [33/68] The data geometry of masking diffusion: Certified-optimal ...
+    🗂️  主分类: 第三层-大模型组件层/LLM可观测性与监控
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [34/68] Intervention-Aware Clinical World Model for Post-Op Outcom...
+    🗂️  主分类: 第三层-大模型组件层/模型部署与服务化
+    🏷️  同时命中: 数据连接器与集成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [35/68] DFM Mimir v1: An Open HRM Delivering Frontier Performance ...
+    🗂️  主分类: 第三层-大模型组件层/组件层测试与评估
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_originality]
+    🚫 低于阈值 5.0,跳过(原创性极低:本质是套用 Wang et al. 2026 的 HRM 架构,主要贡献仅在于数据合规筛选与丹麦语适配,无新方法或新视角; arxiv 编号 2608.13517v1 与发表日期 2026 年 8 月明显为虚构/生成内容,可复现性存疑)
+
+  [36/68] Numerical Model Simulation of the Carruthers GCI Images...
+    🗂️  主分类: 第三层-大模型组件层/工作流自动化编排
+    🏷️  同时命中: 低代码AI流程工具 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.0/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(本文本质是一个仪器专用数值模拟器(forward model)的工程说明,不提出新方法或新视角,属于将既有辐射传输、仪器响应建模方法套用到特定载荷上; 摘要仅描述开发了模拟器用于验证校准与反演算法,原创性贡献极弱,与软件/技术说明文档无明显区别)
+
+  [37/68] Bagging Robustly Learns VC Classes with Linear Sample Comp...
+    🗂️  主分类: 第三层-大模型组件层/组件层测试与评估
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [38/68] Performance Reporting of Mathematical Library Installation...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.0/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Performance Reporting of Mathematical Library Installations with LAAB - An Overview.md
+
+  [39/68] On the Structural Limits of Machine Learning Decision Syst...
+    🗂️  主分类: 第三层-大模型组件层/MCP与工具调用协议
+    🏷️  同时命中: LLM接口与集成标准, 工作流自动化编排, 模型部署与服务化, 文档解析与结构化提取, 数据连接器与集成, LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_quality_rehash]
+    🚫 低于阈值 5.0,跳过(本质为综述/立场论文,无新方法、无新定理、无新实验,仅将 Fano 不等式、Cramér-Rao、MRF、随机动力系统等成熟工具串在一起,原创性极低; 全文未给出任何可复现的实验、ablation 或实证结果,违反'仅有 idea 没有实验'的扣分上限,实为综述更应受上限 5 约束)
+
+  [40/68] Intern-S2-Preview: Scientific Agentic Foundation Model...
+    🗂️  主分类: 第三层-大模型组件层/工作流自动化编排
+    🏷️  同时命中: 低代码AI流程工具, LLM推理加速, 文档解析与结构化提取 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.0/10 [weak_empirical]
+    🚫 低于阈值 5.0,跳过(原创性偏低：所谓'unified post-training pipeline'(SFT+多任务RL+黑/白盒agentic RL+on-policy蒸馏)、partial rollout with off-policy correction、adaptive length regularization、speculative decoding、trace-aware experience assembly等组件几乎全是已有方法的工程化组合，未提出明确的新算法或理论洞察; 架构增量有限：'Memory Decoder'本质是side network/LoRA式适配，'time series forecasting branch'也是常见的多模态扩展，论文未清晰说明与Qwen2.5/InternVL等已有路线的本质差异)
+
+  [41/68] In-situ Adjoint Wave Control in Reconfigurable Non-Hermiti...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [42/68] OpScale: Operator-level Provisioning and Autoscaling for L...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    🏷️  同时命中: 工作流自动化编排, 模型部署与服务化, 文档解析与结构化提取, LLM可观测性与监控 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [43/68] A positive answer to the generalized Chang-Yang conjecture...
+    🗂️  主分类: 第三层-大模型组件层/LLM可观测性与监控
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [44/68] TraVEL: Trajectory-Guided Video Embedding Learning for Dri...
+    🗂️  主分类: 第三层-大模型组件层/低代码AI流程工具
+    🏷️  同时命中: 文档解析与结构化提取 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [45/68] Paleoclimate Boundary Conditions as an Out-of-Sample Test ...
+    🗂️  主分类: 第三层-大模型组件层/工作流自动化编排
+    🏷️  同时命中: 低代码AI流程工具 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [46/68] AlayaWorld: Interactive Long-Horizon World Modeling - Full...
+    🗂️  主分类: 第三层-大模型组件层/低代码AI流程工具
+    🏷️  同时命中: LLM推理加速 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [47/68] DD-RNO: A Domain-Decomposed Routed Neural Operator for Air...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [48/68] Synthetic Persona Pretraining: Alignment from Token Zero...
+    🗂️  主分类: 第三层-大模型组件层/低代码AI流程工具
+    🏷️  同时命中: 文档解析与结构化提取 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [49/68] Imaginary-time correlations in time-sliced stochastic seri...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [50/68] MARC v1: An Open-Source Multi-Agent Framework for Clinical...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.0/10 [below_average]
+    🚫 低于阈值 5.0,跳过(原创性有限:多智能体编排+YAML配置+Decomposer模块本质上是现有agent框架(AutoGen、CrewAI、LangGraph等)在临床场景的工程化套用,无新方法论贡献; 实证强度不足:仅提供前4页PDF未见任何实验数据、benchmark对比或ablation,摘要和引言均未给出量化结果,无法评估与SOTA差距)
+
+  [51/68] Decoding Task Progress from VLA Representations...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [52/68] Learning about Treatment Effects in Panels under Unknown I...
+    🗂️  主分类: 第三层-大模型组件层/LLM接口与集成标准
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [53/68] Before You Say It: Anticipating Verbal Behavior from Longi...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(样本量极小(14人)且为自报告式问卷/访谈,缺乏量化指标如准确率/F1/BLEU等,仅给出 gestalt 式的 'evidence' 表述,实证强度严重不足; 方法论上主要为 prompt engineering + 简单拼接,没有提出新的模型架构或训练范式,原创性集中在'应用场景'而非'方法'本身,属于将 LLM 跨领域套用到 HCI 用户研究)
+
+  [54/68] StreamTTT: Reconciling Real-Time Perception and Long-Term ...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [55/68] Context-Matched Distillation: Teacher Causality for Autore...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [56/68] Structure then Query: Enabling Precise Analytical Queries ...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    🏷️  同时命中: 数据连接器与集成 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [57/68] Reconstructing Historical Manuscripts through MSI: The Pot...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [low_reproducibility_or_thin_empirics]
+    🚫 低于阈值 5.0,跳过(原创性不足：核心方法是对已有的 Potential Contrast、CNR 等经典对比度度量在历史手稿场景下的现成应用，并未提出新的 IQA 算法或新视角，本质上是 cross-domain application 而非方法论突破; 实证偏薄弱：仅两个公开数据集、两个实验，缺少对不同退化类型（墨迹褪色、bleed-through、纸张老化）的细分分析，也未与领域内 SOTA（如 learned IQA、基于 OCR 可读性的代理指标）做对比)
+
+  [58/68] Recursive Multiple Change Point Detection of Nonstationary...
+    🗂️  主分类: 第三层-大模型组件层/文档解析与结构化提取
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [59/68] vToken: Token-Level Virtualization for Reclaimable KV Cach...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [60/68] Trie Automata for Constrained Decoding over Large Finite S...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [61/68] DexterSQL: Deep Schema Exploration and Rule-based Correcti...
+    🗂️  主分类: 第三层-大模型组件层/数据连接器与集成
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 6.0/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: DexterSQL Deep Schema Exploration and Rule-based Correction for Text-to-SQL Generation.md
+
+  [62/68] Plaintext Recovery Against Post-Filtering Access Control...
+    🗂️  主分类: 第三层-大模型组件层/数据连接器与集成
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [63/68] Spec Sheets Are Not Kernels: An ISA- and Source-Level Audi...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [64/68] Scheduling Mixed RL Rollouts Beyond Prefix Locality...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟢 7.0/10 [high_quality]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Scheduling Mixed RL Rollouts Beyond Prefix Locality.md
+
+  [65/68] MDB-Link: Hierarchical Schema Linking for Multi-Database T...
+    🗂️  主分类: 第三层-大模型组件层/数据连接器与集成
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    ⚠️  评分失败 [2608.09588v1]: 无法从 LLM 输出解析 JSON: {"score": 6.5, "category": "average", "reasons": ["问题设定(multi-database schema linking)有意义,但分层 retrieve-then-rerank 框架本身是已有范式的直接套用,原创性有限", "实验覆盖三个 benchmark 且有 EM 显著提升,ablation 待确认但摘要给出的对比基线(LinkAlign/...
+    🟡 5.0/10 [unknown]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: MDB-Link Hierarchical Schema Linking for Multi-Database Text-to-SQL.md
+
+  [66/68] Depth-adaptive Inference of Looped Language Models via Con...
+    🗂️  主分类: 第三层-大模型组件层/LLM推理加速
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    ⚠️  评分失败 [2608.09444v1]: 无法从 LLM 输出解析 JSON: {"score": 7.0, "category": "high_quality", "reasons": ["原创性中等偏高:CDB 的调度思路(双优先级队列 + lookahead 退出 + 与计算 overlap)本身并不算全新范式,但将 looped LM 的 boundary/prelude-coda 与 loop step 分别调度、并把 token 在 forward pass 内动...
+    🟡 5.0/10 [unknown]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Depth-adaptive Inference of Looped Language Models via Continuous Depth Batching.md
+
+  [67/68] SafeQL: Search-based Refinement for Safe and Efficient LLM...
+    🗂️  主分类: 第三层-大模型组件层/数据连接器与集成
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: SafeQL Search-based Refinement for Safe and Efficient LLM-based Text-to-SQL.md
+
+  [68/68] OpRAG: A Resource-Deterministic Runtime for GPU-Backed Mul...
+    🗂️  主分类: 第三层-大模型组件层/工作流自动化编排
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    ⚠️  评分失败 [2608.08340v1]: 无法从 LLM 输出解析 JSON: {"score": 4.5, "category": "weak_empirical", "reasons": ["原创性不足:RAG 各阶段流水化(Arrow zero-copy、persistent workers、batched embedding、overlap retrieval/generation)在 Ray、LangChain 生态中已有大量类似工作,缺乏明确的新颖抽象或算法贡献"...
+    🟡 5.0/10 [unknown]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: OpRAG A Resource-Deterministic Runtime for GPU-Backed Multi-Stage RAG Workflows.md
+
+  📋 被拒论文写入: .rejected-2026-08-16.json (2 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-16.json (2 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-16.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-16.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-16.json (2 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-16.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-08-16.json (2 篇)
+
+=================================================================
+🎉 流水线完成
+   📥 下载 PDF: 4 篇
+   ⭐ 保留入库: 9 篇  (score ≥ 5.0)
+   🚫 过滤: 11 篇
+   🧹 跨分类去重清理: 0 个旧文件
+   🗂️   Vault: F:\移动云盘同步盘\30AI技术知识树\arxivForAI
+=================================================================

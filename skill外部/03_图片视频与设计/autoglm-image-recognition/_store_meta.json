@@ -1,0 +1,9 @@
+{
+  "skillId": "44bfba8e-f1eb-4ccc-9c9d-c1acdaa16e15",
+  "skillKey": "autoglm-image-recognition",
+  "version": "1.0.0",
+  "installedAt": 1780881028814,
+  "dirName": "autoglm-image-recognition",
+  "source": "store",
+  "installedAtSource": "runtime"
+}

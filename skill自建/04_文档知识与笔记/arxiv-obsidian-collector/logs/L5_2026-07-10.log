@@ -1,0 +1,324 @@
+
+=================================================================
+🚀 arXiv to Obsidian — AI 论文周报收集器
+📅 日期: 2026-07-10  |  层: 第五层-行业应用层  |  窗口: 7 天
+🗂️   Vault: F:\移动云盘同步盘\30AI技术知识树\arxivForAI
+⭐ 评分阈值: 5.0  (0 = 不过滤)
+🤖 模型: m3 @ https://api.minimaxi.com/anthropic
+=================================================================
+
+📥 Pass 1: 收集 + 全局去重...
+  🔍 [第五层-行业应用层/生物医疗与基因]
+  🔍 [第五层-行业应用层/AI医疗健康]
+  🔍 [第五层-行业应用层/AI金融]
+  🔍 [第五层-行业应用层/AI教育]
+  🔍 [第五层-行业应用层/AI安防与监控]
+  🔍 [第五层-行业应用层/AI法律与合规]
+  🔍 [第五层-行业应用层/AI制造与工业]
+  🔍 [第五层-行业应用层/AI零售与电商]
+  🔍 [第五层-行业应用层/AI能源与环境]
+  🔍 [第五层-行业应用层/AI政务与公共服务]
+    ⚠️ 搜索失败 [smart city AI]: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+  🔍 [第五层-行业应用层/AI农业]
+
+  📊 去重后待处理: 42 篇 (arXiv 搜索去重后 42 篇,跨分类命中合计 156 次 → 节省 114 次冗余评估)
+
+📝 Pass 2: 评分 + 写笔记(每篇只写一次)...
+
+  [1/42] Wat3R: Underwater 3D Geometry Learning without Annotations...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    🏷️  同时命中: AI金融, AI教育, AI安防与监控, AI法律与合规, AI制造与工业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [2/42] ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth A...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    🏷️  同时命中: AI金融, AI安防与监控, AI法律与合规 → 进 frontmatter tags
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.5/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: ZipDepth Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device.md
+
+  [3/42] LongE2V: Long-Horizon Event-based Video Reconstruction, Pr...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI医疗健康, AI金融, AI安防与监控, AI法律与合规, AI制造与工业, AI能源与环境, AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [4/42] Geometry and Gradient-based Partitioning for Panoramic Out...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    🏷️  同时命中: AI金融, AI安防与监控, AI法律与合规, AI制造与工业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [5/42] UniClawBench: A Universal Benchmark for Proactive Agents o...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    🏷️  同时命中: AI金融, AI安防与监控, AI法律与合规 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [6/42] Plaquette: A hardware-aware design platform for fault-tole...
+    🗂️  主分类: 第五层-行业应用层/AI教育
+    🏷️  同时命中: AI零售与电商 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [7/42] OPSD-V: On-Policy Self-Distillation for Post-Training Few-...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI医疗健康, AI金融, AI教育, AI安防与监控, AI法律与合规, AI制造与工业, AI零售与电商, AI能源与环境, AI政务与公共服务, AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [8/42] Enhancing In-context Panoramic Generation via Geometric-aw...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    🏷️  同时命中: AI金融, AI教育, AI安防与监控, AI制造与工业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [9/42] OpenCoF: Learning to Reason Through Video Generation...
+    🗂️  主分类: 第五层-行业应用层/AI教育
+    🏷️  同时命中: AI安防与监控, AI法律与合规, AI零售与电商, AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [10/42] Typicality of Steering for Two-qubit States...
+    🗂️  主分类: 第五层-行业应用层/AI教育
+    🏷️  同时命中: AI安防与监控, AI零售与电商 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [11/42] Irreducible Geometry of Higher-Order Correlator Families...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI法律与合规 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [12/42] Hockey stick $f$-divergences...
+    🗂️  主分类: 第五层-行业应用层/AI安防与监控
+    🏷️  同时命中: AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [13/42] Measuring Consumption with Credit Card Data: Benchmarking ...
+    🗂️  主分类: 第五层-行业应用层/AI教育
+    🏷️  同时命中: AI法律与合规, AI零售与电商, AI政务与公共服务 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [moderate_below_average]
+    🚫 低于阈值 5.0,跳过(本文并非 AI/ML 论文,核心贡献是经济学实证研究(用信用卡数据构建县级消费面板),不属于 AI 论文评审适用范围; 作为经济学工作有一定价值(Y-14M 数据、县级面板、异质性货币政策反应),但在 AI 视角下方法论创新极低,主要是 benchmark 和回归,缺乏任何新算法或模型)
+
+  [14/42] Ideas Have Genomes: Benchmarking Scientific Lineage Reason...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI医疗健康, AI金融, AI教育, AI安防与监控, AI法律与合规, AI制造与工业, AI零售与电商, AI能源与环境, AI政务与公共服务, AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 6.8/10 [general]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Ideas Have Genomes Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation.md
+
+  [15/42] Score Accuracy Along the Forward Diffusion Does Not Certif...
+    🗂️  主分类: 第五层-行业应用层/AI能源与环境
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [16/42] MulTTiPop: A Multitrack Transcription Dataset for Pop Musi...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [17/42] DegenDetector: Symbolic Recovery of Parameter Degeneracies...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI医疗健康, AI金融, AI教育, AI安防与监控, AI法律与合规, AI制造与工业, AI零售与电商, AI能源与环境, AI政务与公共服务, AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [18/42] SLORR: Simple and Efficient In-Training Low-Rank Regulariz...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI医疗健康, AI金融, AI教育, AI法律与合规, AI零售与电商, AI政务与公共服务 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [19/42] Finding Simple Proofs for First-Order Optimization...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI教育, AI零售与电商 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [20/42] Phase-dependent kink collisions and dual critical-velocity...
+    🗂️  主分类: 第五层-行业应用层/AI教育
+    🏷️  同时命中: AI零售与电商, AI能源与环境 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(纯数值实验,缺乏新解析结果或理论框架,原创性有限——CSG 模型的数值碰撞研究在过去已有大量相关工作,本文仅在此基础上扫描初始速度×相位二维参数空间并给出分类图谱; 分类标为 '[第五层-行业应用层 / AI 教育]',与 arXiv 列表 [hep-th] 完全不符,说明对工作的物理定位和目标社区认知不清,跨领域定位混乱应扣分)
+
+  [21/42] DexVerse: A Modular Benchmark for Multi-Task, Multi-Embodi...
+    🗂️  主分类: 第五层-行业应用层/AI政务与公共服务
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [22/42] Debris Disc Substructures Induced by Secular Planetary Per...
+    🗂️  主分类: 第五层-行业应用层/AI安防与监控
+    🏷️  同时命中: AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [23/42] Deep Spectroscopic Follow-Up of Maisie's Galaxy -- A Typic...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI农业 → 进 frontmatter tags
+    📥 下载 PDF...
+    ❌ 下载 PDF 失败: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+  [24/42] Using AI-based Learning Assistants in Higher Education: A ...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI医疗健康, AI金融, AI教育, AI安防与监控, AI法律与合规, AI制造与工业, AI零售与电商, AI能源与环境, AI政务与公共服务, AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.0/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(原创性极低:纯描述性统计,无新方法、新模型或新理论,仅按人口学变量切分日志数据呈现 usage patterns,属于典型的 exploratory data analysis; 实证强度薄弱:虽然样本量大(n=77,543),但缺乏因果推断、对照组、与 SOTA 系统对比,也没有 ablation;所谓'large-scale'仅是 log 行数多,分析深度不足)
+
+  [25/42] Decoupling Limit of Quiver Theories and the Angular Spectr...
+    🗂️  主分类: 第五层-行业应用层/AI政务与公共服务
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [26/42] Dimensionality Reduction Meets Network Science: Sensemakin...
+    🗂️  主分类: 第五层-行业应用层/AI农业
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🟡 5.0/10 [average]
+    🤖 生成中文摘要...
+    ✅ 笔记已生成: Dimensionality Reduction Meets Network Science Sensemaking on UMAP's kNN Graph.md
+
+  [27/42] AUTOPILOT VQA: Benchmarking Vision-Language Models for Inc...
+    🗂️  主分类: 第五层-行业应用层/AI金融
+    🏷️  同时命中: AI法律与合规, AI能源与环境 → 进 frontmatter tags
+    📥 下载 PDF...
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.0/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(本质上是一个 VQA 基准数据集发布工作,方法论贡献薄弱,缺少算法/模型创新,属于套用既有 VQA 范式到 dashcam 领域; 从提供的节选未见到任何实验结果、模型对比、ablation 或 SOTA 分析,实证强度无法评估,作为 benchmark 论文却缺少对现有 VLM 的全面评测)
+
+  [28/42] Algorithmic Expert Aggregation...
+    🗂️  主分类: 第五层-行业应用层/AI能源与环境
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [29/42] Workflow as Knowledge: Semantic Persistence for LLM-Mediat...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI医疗健康, AI金融, AI教育, AI零售与电商, AI政务与公共服务 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 2.5/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(纯概念性论文,无任何形式化定义、算法描述或可运行系统,自述为 'preliminary conceptual account' 且 formal transition semantics 留作 future work; 零实验、零 benchmark、零 ablation,所谓 'Lisp-inspired lens' 仅是类比性解释,缺乏对 derive/infer 区分的形式化刻画或可验证声明)
+
+  [30/42] The statistics of curvature-profile dispersion in primordi...
+    🗂️  主分类: 第五层-行业应用层/AI能源与环境
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [31/42] The Illusion of Equivalency: Statistical Characterization ...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    🏷️  同时命中: AI金融, AI教育, AI零售与电商, AI政务与公共服务 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [32/42] Super Weights in LLMs and the Failure of Selective Trainin...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    🏷️  同时命中: AI金融, AI政务与公共服务 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [33/42] WaspMOT: A Benchmark for Long-Term Multi-Object Tracking o...
+    🗂️  主分类: 第五层-行业应用层/AI农业
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(原创性有限:核心贡献是一个新的领域特定数据集(MOT 基准),而非新方法或新理论,5 个 baseline 均为现成 tracker,仅加入一个简单的 spatial tracklet stitching 作为改进,缺乏方法论创新; 实证强度薄弱:仅 10 条序列、单一场景(封闭生态实验箱),数据集规模和多样性不足以支撑关于通用 long-term MOT 困难性的强结论;未提供与现有 long-term MOT 数据集(如 MOT20/Long-term MOT benchmark)的系统对比,也缺少在标准短序列基准上的回测验证迁移性)
+
+  [34/42] On improving the estimates of the sampling variances via G...
+    🗂️  主分类: 第五层-行业应用层/AI教育
+    🏷️  同时命中: AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 4.5/10 [below_average]
+    🚫 低于阈值 5.0,跳过(原创性不足:核心思路是套用 Global-Local shrinkage priors(在高维回归/变量选择中是成熟工具)到 Fay-Herriot 模型的方差估计上,属于已有方法的小范围迁移,而非方法论上的实质创新; 选题陈旧:Fay-Herriot + GVF 的改进路线自 Maples(2009)、You & Hidiroglou(2023)以来已被多次探索,本文未给出清晰区分于前作的贡献边界)
+
+  [35/42] Multimodal Digital Biomarker for Asthma: Complementary Rol...
+    🗂️  主分类: 第五层-行业应用层/AI医疗健康
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [36/42] Directional AI Advice: Experimental Evidence from Healthca...
+    🗂️  主分类: 第五层-行业应用层/生物医疗与基因
+    🏷️  同时命中: AI金融, AI安防与监控, AI法律与合规, AI制造与工业, AI零售与电商, AI能源与环境, AI政务与公共服务 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [37/42] Predicting Viticulture Potential through an Ensemble of U-...
+    🗂️  主分类: 第五层-行业应用层/AI农业
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [38/42] Secure QR Codes: Authenticity Verification via EdDSA Signa...
+    🗂️  主分类: 第五层-行业应用层/AI制造与工业
+    🏷️  同时命中: AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_quality]
+    🚫 低于阈值 5.0,跳过(原创性不足:EdDSA/Ed25519签名、CBOR编码、ZLIB压缩、JWKS均为成熟标准库的直接组合,缺乏任何新算法或新协议设计; 实质内容为工程组装而非研究贡献:'dual-mode'架构将'离线签名+在线JWKS'两种已知方案并列,无新的安全模型或形式化分析)
+
+  [39/42] Self-Adaptive Anomaly Detection with Reinforcement Learnin...
+    🗂️  主分类: 第五层-行业应用层/AI制造与工业
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [40/42] Design, Modeling, and Validation of Curvature-Based Shape-...
+    🗂️  主分类: 第五层-行业应用层/AI制造与工业
+    🏷️  同时命中: AI农业 → 进 frontmatter tags
+    📥 下载 PDF...
+    ❌ 下载 PDF 失败: ('Connection broken: IncompleteRead(667811 bytes read, 13162327 more expected)', IncompleteRead(667811 bytes read, 13162327 more expected))
+
+  [41/42] Dilated Hankel determinants...
+    🗂️  主分类: 第五层-行业应用层/AI制造与工业
+    📄 PDF 已存在,跳过下载
+    📝 笔记已存在,跳过
+
+  [42/42] Simulating the Resident: Generating Executable Smart Home ...
+    🗂️  主分类: 第五层-行业应用层/AI制造与工业
+    🏷️  同时命中: AI农业 → 进 frontmatter tags
+    📄 PDF 已存在,跳过下载
+    📖 提取文本...
+    ⭐ 评分...
+    🔴 3.5/10 [low_originality_thin_evaluation]
+    🚫 低于阈值 5.0,跳过(原创性偏低:用 LLM 生成 persona 驱动仿真并非新想法,文中也未与已有 LLM-based persona 仿真工作做系统对比,缺少对方法新颖性的清晰论证; 实证强度严重不足:仅给出 a proof of concept,无任何定量指标、无 SOTA 对比、无 ablation、无用户研究或行为保真度评估,所谓 'behaviorally grounded' 缺乏验证)
+
+  📋 被拒论文写入: .rejected-2026-07-10.json (3 篇)
+
+  📋 被拒论文写入: .rejected-2026-07-10.json (2 篇)
+
+  📋 被拒论文写入: .rejected-2026-07-10.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-07-10.json (1 篇)
+
+  📋 被拒论文写入: .rejected-2026-07-10.json (2 篇)
+
+=================================================================
+🎉 流水线完成
+   📥 下载 PDF: 3 篇
+   ⭐ 保留入库: 3 篇  (score ≥ 5.0)
+   🚫 过滤: 9 篇
+   🧹 跨分类去重清理: 0 个旧文件
+   🗂️   Vault: F:\移动云盘同步盘\30AI技术知识树\arxivForAI
+=================================================================

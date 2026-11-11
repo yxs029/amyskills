@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{MODULE_NAME}}测试报告 - {{SYSTEM_NAME}}</title>
+<style>
+/* ==================== 基础重置 ==================== */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;background:#f0f2f5;color:#333;padding:20px}
+.report{max-width:1200px;margin:0 auto}
+
+/* ==================== 标题区 ==================== */
+h1{text-align:center;font-size:28px;margin-bottom:10px;color:#1a1a1a}
+.subtitle{text-align:center;color:#666;margin-bottom:30px;font-size:14px}
+
+/* ==================== 统计卡片区（4列） ==================== */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.stat-card{background:#fff;border-radius:8px;padding:20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.stat-card .number{font-size:36px;font-weight:700}
+.stat-card .label{font-size:14px;color:#666;margin-top:4px}
+.stat-card.total .number{color:#1890ff}
+.stat-card.pass .number{color:#52c41a}
+.stat-card.fail .number{color:#ff4d4f}
+.stat-card.skip .number{color:#faad14}
+
+/* ==================== 优先级统计区（3列） ==================== */
+.priority-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
+.pstat{background:#fff;border-radius:8px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.pstat .p-label{font-size:16px;font-weight:600}
+.pstat .p-rate{font-size:24px;font-weight:700;margin:8px 0}
+.pstat .p-detail{font-size:13px;color:#666}
+
+/* ==================== 通过率进度条 ==================== */
+.pass-rate-bar{background:#fff;border-radius:8px;padding:16px 24px;margin-bottom:30px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.pass-rate-bar .rate-label{font-size:16px;font-weight:600;margin-bottom:8px}
+.progress-track{height:24px;background:#f0f0f0;border-radius:12px;overflow:hidden}
+.progress-fill{height:100%;border-radius:12px;text-align:center;line-height:24px;color:#fff;font-weight:600;font-size:13px;transition:width .6s ease}
+
+/* ==================== 区块标题 ==================== */
+.section-title{font-size:20px;font-weight:600;margin:30px 0 16px;padding-bottom:8px;border-bottom:2px solid #1890ff}
+
+/* ==================== 用例详情卡片 ==================== */
+.test-case{background:#fff;border-radius:8px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
+.test-case.case-fail{border-left:4px solid #ff4d4f}
+.test-case.case-skip{border-left:4px solid #faad14}
+
+.case-header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fafafa;border-bottom:1px solid #f0f0f0;flex-wrap:wrap}
+.case-id{font-weight:700;font-size:15px;color:#1890ff;white-space:nowrap}
+.case-name{flex:1;font-size:15px;min-width:120px}
+.priority{padding:2px 8px;border-radius:4px;color:#fff;font-size:12px;font-weight:600}
+.status{padding:2px 10px;border-radius:4px;color:#fff;font-size:12px;font-weight:600;white-space:nowrap}
+
+.case-body{padding:12px 16px}
+.case-actual{margin-bottom:8px;font-size:14px;line-height:1.6}
+.case-precondition{margin-bottom:8px;font-size:13px;color:#888;background:#f6f8fa;padding:6px 10px;border-radius:4px}
+
+/* ==================== 缺陷框 ==================== */
+.defect-box{background:#fff2f0;border:1px solid #ffccc7;border-radius:4px;padding:10px 12px;margin-bottom:10px;font-size:13px;color:#cf1322;line-height:1.6}
+.defect-box .defect-title{font-weight:700;margin-bottom:4px}
+.defect-box .defect-detail{margin-top:4px;color:#666;font-size:12px}
+
+/* ==================== 步骤列表 ==================== */
+.case-steps{margin-bottom:10px;font-size:14px}
+.case-steps .steps-label{font-weight:600;display:block;margin-bottom:6px}
+.step{padding:6px 0 6px 12px;border-left:2px solid #d9d9d9;margin-left:8px;margin-bottom:2px;line-height:1.6}
+.step-pass{border-left-color:#52c41a}
+.step-fail{border-left-color:#ff4d4f;background:#fff2f0}
+.step-warn{border-left-color:#faad14;background:#fffbe6}
+.step-num{font-weight:600;margin-right:8px}
+.step-action{color:#1890ff}
+.step-result{color:#666}
+.step-expected{color:#888;font-size:12px;margin-top:2px}
+
+/* ==================== 截图区 ==================== */
+.case-screenshots{font-size:14px;margin-top:8px}
+.case-screenshots .shots-label{font-weight:600;display:block;margin-bottom:6px}
+.screenshot-item{display:inline-block;margin:4px 8px 4px 0}
+.screenshot-item a{color:#1890ff;text-decoration:none;font-size:13px}
+.screenshot-item a:hover{text-decoration:underline}
+
+/* ==================== 截图画廊（内嵌base64 + 灯箱） ==================== */
+.sc-gallery{margin-top:12px;padding:12px;background:#f8f9fa;border-radius:8px;border:1px solid #e8e8e8}
+.sc-gallery-title{font-size:13px;font-weight:600;color:#1890ff;margin-bottom:8px}
+.sc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.sc-item{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:transform .2s,box-shadow .2s;cursor:pointer}
+.sc-item:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.sc-item img{width:100%;height:140px;object-fit:cover;object-position:top center;display:block}
+.sc-item .sc-label{padding:6px 8px;font-size:11px;color:#666;background:#fafafa;border-top:1px solid #f0f0f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-item .sc-step{font-weight:600;color:#1890ff;margin-right:4px}
+.sc-no-shots{font-size:12px;color:#999;padding:8px 12px;background:#fff;border-radius:4px;display:inline-block}
+
+/* ==================== 缺陷汇总表 ==================== */
+.defect-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.defect-table th,.defect-table td{border:1px solid #d9d9d9;padding:8px 12px;text-align:left;font-size:14px;vertical-align:top}
+.defect-table th{background:#fafafa;font-weight:600;white-space:nowrap}
+.defect-table td.severity{text-align:center;font-weight:600;white-space:nowrap}
+.defect-table tr:hover{background:#fafafa}
+
+/* ==================== 灯箱 ==================== */
+.sc-lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;justify-content:center;align-items:center;cursor:zoom-out}
+.sc-lightbox.active{display:flex}
+.sc-lightbox img{max-width:95%;max-height:90vh;border-radius:4px;box-shadow:0 4px 30px rgba(0,0,0,.5)}
+.sc-lightbox .sc-close{position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer}
+.sc-lightbox .sc-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fff;font-size:14px;background:rgba(0,0,0,.6);padding:6px 16px;border-radius:4px}
+
+/* ==================== 总结区 ==================== */
+.summary-section{background:#fff;border-radius:8px;padding:20px 24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.summary-section p{margin:4px 0;font-size:14px;line-height:1.8}
+.summary-section .summary-label{font-weight:600;color:#333}
+.empty-msg{text-align:center;color:#52c41a;padding:20px;font-size:16px}
+
+/* ==================== 页脚 ==================== */
+.footer{text-align:center;color:#999;font-size:13px;margin-top:30px;padding:16px 0;border-top:1px solid #e8e8e8}
+</style>
+</head>
+<body>
+<div class="report">
+
+<!-- ========== 标题区 ========== -->
+<h1>{{MODULE_ICON}} {{SYSTEM_NAME}} - {{MODULE_NAME}}测试报告</h1>
+<div class="subtitle">
+  执行时间: {{EXEC_TIME}} | 测试地址: {{TEST_URL}} | 账号: {{ACCOUNT}} | 测试人: {{TESTER}}
+</div>
+
+<!-- ========== 统计卡片 ========== -->
+<div class="stats">
+  <div class="stat-card total"><div class="number">{{TOTAL}}</div><div class="label">总用例数</div></div>
+  <div class="stat-card pass"><div class="number">{{PASS}}</div><div class="label">通过</div></div>
+  <div class="stat-card fail"><div class="number">{{FAIL}}</div><div class="label">失败</div></div>
+  <div class="stat-card skip"><div class="number">{{SKIP}}</div><div class="label">跳过</div></div>
+</div>
+
+<!-- ========== 优先级统计 ========== -->
+<div class="priority-stats">
+  <div class="pstat">
+    <div class="p-label" style="color:#ff4d4f">P0 核心用例</div>
+    <div class="p-rate" style="color:#ff4d4f">{{P0_RATE}}</div>
+    <div class="p-detail">{{P0_PASS}}/{{P0_TOTAL}} 通过</div>
+  </div>
+  <div class="pstat">
+    <div class="p-label" style="color:#faad14">P1 重要用例</div>
+    <div class="p-rate" style="color:#faad14">{{P1_RATE}}</div>
+    <div class="p-detail">{{P1_PASS}}/{{P1_TOTAL}} 通过</div>
+  </div>
+  <div class="pstat">
+    <div class="p-label" style="color:#1890ff">P2 一般用例</div>
+    <div class="p-rate" style="color:#1890ff">{{P2_RATE}}</div>
+    <div class="p-detail">{{P2_PASS}}/{{P2_TOTAL}} 通过</div>
+  </div>
+</div>
+
+<!-- ========== 通过率进度条 ========== -->
+<div class="pass-rate-bar">
+  <div class="rate-label">总通过率: {{PASS_RATE}}%</div>
+  <div class="progress-track">
+    <div class="progress-fill" style="width:{{PASS_RATE}}%;background:{{PASS_RATE_COLOR}}">{{PASS_RATE}}%</div>
+  </div>
+</div>
+
+<!-- ========== 用例详情 ========== -->
+<h2 class="section-title">📋 用例详情</h2>
+
+<!-- ↓↓↓ 以下为单个用例卡片模板，每个用例复制一份 ↓↓↓ -->
+<!--
+<div class="test-case">
+  <div class="case-header">
+    <span class="case-id">TC-MODULE-001</span>
+    <span class="case-name">用例标题描述</span>
+    <span class="priority" style="background:#ff4d4f">P0</span>
+    <span class="status" style="background:#52c41a">通过</span>
+  </div>
+  <div class="case-body">
+    <div class="case-precondition"><b>前置条件:</b> 已登录系统，进入文档库页面</div>
+    <div class="case-actual"><b>实际结果:</b> 功能正常/异常描述</div>
+
+    // 仅失败用例显示缺陷框
+    <div class="defect-box">
+      <div class="defect-title">⚠️ 缺陷 [P1]: 缺陷标题</div>
+      <div>预期: XXX | 实际: YYY</div>
+      <div class="defect-detail">复现路径: 步骤3 → 步骤6 → 结果异常</div>
+    </div>
+
+    <div class="case-steps">
+      <span class="steps-label">执行步骤:</span>
+      <div class="step step-pass">
+        <span class="step-num">步骤1</span>
+        <span class="step-action">进入页面</span>
+        → <span class="step-result">URL已加载，页面正常显示</span>
+      </div>
+      <div class="step step-pass">
+        <span class="step-num">步骤2</span>
+        <span class="step-action">输入搜索关键字"ISO"</span>
+        → <span class="step-result">输入成功，值=ISO</span>
+      </div>
+      <div class="step step-fail">
+        <span class="step-num">步骤3</span>
+        <span class="step-action">点击搜索按钮</span>
+        → <span class="step-result">搜索结果行数=0（预期应为3行）</span>
+        <div class="step-expected">预期: 行数=3 | 实际: 行数=0</div>
+      </div>
+    </div>
+
+    <div class="case-screenshots">
+      <span class="shots-label">截图:</span>
+      <div class="screenshot-item"><a href="TC-MODULE-001_step1_页面加载.png" target="_blank">📷 TC-MODULE-001_step1_页面加载.png</a></div>
+      <div class="screenshot-item"><a href="TC-MODULE-001_step2_输入关键字.png" target="_blank">📷 TC-MODULE-001_step2_输入关键字.png</a></div>
+    </div>
+
+    // 内嵌截图画廊（base64），可选
+    <div class="sc-gallery">
+      <div class="sc-gallery-title">📸 步骤截图（2张，点击放大查看）</div>
+      <div class="sc-grid">
+        <div class="sc-item" title="点击放大">
+          <img src="data:image/png;base64,iVBORw0KGgo...">
+          <div class="sc-label"><span class="sc-step">步骤1</span>页面加载</div>
+        </div>
+        <div class="sc-item" title="点击放大">
+          <img src="data:image/png;base64,iVBORw0KGgo...">
+          <div class="sc-label"><span class="sc-step">步骤2</span>输入关键字</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<!-- ↑↑↑ 单个用例卡片模板结束 ↑↑↑ -->
+
+{{TEST_CASES_HTML}}
+
+<!-- ========== 缺陷汇总表 ========== -->
+<h2 class="section-title">🐛 缺陷列表</h2>
+{{DEFECT_TABLE_HTML}}
+<!--
+<table class="defect-table">
+  <tr>
+    <th>#</th>
+    <th>用例ID</th>
+    <th>严重度</th>
+    <th>缺陷描述</th>
+    <th>实际结果</th>
+    <th>复现步骤</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>TC-MODULE-005</td>
+    <td class="severity" style="color:#ff4d4f">P1</td>
+    <td>重置按钮未完全恢复状态</td>
+    <td>搜索框值=[质量] 分段器全部选中=False</td>
+    <td>步骤1→步骤2→步骤5→步骤6</td>
+  </tr>
+</table>
+-->
+
+<!-- ========== 测试总结 ========== -->
+<h2 class="section-title">📊 测试总结</h2>
+<div class="summary-section">
+  <p><span class="summary-label">总通过率:</span> {{PASS_RATE}}% ({{PASS}}/{{TOTAL}})</p>
+  <p><span class="summary-label">P0 通过率:</span> {{P0_PASS}}/{{P0_TOTAL}} = {{P0_RATE}}</p>
+  <p><span class="summary-label">P1 通过率:</span> {{P1_PASS}}/{{P1_TOTAL}} = {{P1_RATE}}</p>
+  <p><span class="summary-label">P2 通过率:</span> {{P2_PASS}}/{{P2_TOTAL}} = {{P2_RATE}}</p>
+  <p><span class="summary-label">缺陷数:</span> {{DEFECT_COUNT}} 个</p>
+  <p><span class="summary-label">跳过数:</span> {{SKIP}} 个 (通常因测试数据状态限制)</p>
+  <p><span class="summary-label">测试结论:</span> {{CONCLUSION}}</p>
+</div>
+
+<div class="footer">
+  报告生成: {{AGENT_NAME}} 自动化测试系统 | {{EXEC_TIME}}
+</div>
+
+</div>
+
+<!-- ========== 灯箱 JS ========== -->
+<script>
+(function(){
+  var lb=document.createElement('div');
+  lb.className='sc-lightbox';
+  lb.innerHTML='<span class="sc-close">&times;</span><img><div class="sc-caption"></div>';
+  document.body.appendChild(lb);
+  var lbImg=lb.querySelector('img');
+  var lbCap=lb.querySelector('.sc-caption');
+  function openLb(s,c){lbImg.src=s;lbCap.textContent=c;lb.classList.add('active')}
+  function closeLb(){lb.classList.remove('active')}
+  lb.addEventListener('click',closeLb);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+  document.addEventListener('click',function(e){
+    var it=e.target.closest('.sc-item');
+    if(it){
+      var im=it.querySelector('img');
+      if(im){
+        openLb(im.src,it.querySelector('.sc-label').textContent);
+        e.preventDefault()
+      }
+    }
+  })
+})();
+</script>
+</body>
+</html>

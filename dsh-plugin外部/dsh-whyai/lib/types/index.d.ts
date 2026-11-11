@@ -1,0 +1,10 @@
+import type { PluginContext } from './dsh-types.ts';
+import { type WhyAiConfig } from './config.ts';
+export { Config } from './config.ts';
+export type { WhyAiConfig } from './config.ts';
+export { WhyAiCliError, WhyAiCliRunner } from './runner.ts';
+export { createToolDefinitions, TOOL_NAMES } from './tools.ts';
+export type { ConversationResult, MessageResult, PartnerSummary, PartnersResult, StatusResult } from './tools.ts';
+export declare const name = "whyai";
+export declare const inject: string[];
+export declare function apply(ctx: PluginContext, config: WhyAiConfig): void;
