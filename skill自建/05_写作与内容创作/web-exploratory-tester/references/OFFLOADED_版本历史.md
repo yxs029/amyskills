@@ -1,0 +1,89 @@
+## 版本历史
+
+- v1.0.0 (2026-06-03) — 初版。基于 down.mptext.top 真实测试案例抽象
+- v1.1.0 (2026-06-03) — 新增 3 种报告输出模式：
+  - 分卷模式（每 5M 自动 split + INDEX.md 汇总，截图用相对路径不重复嵌入）
+  - Obsidian 双链模式（每条 issue 独立文件 + `![[png]]`/`[[link]]` + 截图复制到 vault 内部，触发词：vault/双链/Obsidian）
+  - 单文件模式保持兼容
+  - 文件名清理（`sanitize_filename`）支持中英文混合标题
+- v1.2.0 (2026-06-03) — 新增登录页 CAPTCHA 滑块解锁方案：
+  - "关键经验 #6" 添加 verify-move-block 类滑块的完整 JS 解锁模板（含 4 大关键参数：双层派发、30 步而非 1 步、mousedown 派到本体、mouseup 双派发）
+  - Phase 2 新增"登录按钮 disabled 排查"步骤
+  - 故障排查表新增"登录按钮一直 disabled"条目
+  - 适用边界明确：不适用图灵/极验/网易/reCAPTCHA/hCaptcha，仅适用自研 verify 类横向滑动
+  - 实战样本：SRM-PRO test.esicint.com (admin/Esic@2024)
+- v1.3.0 (2026-06-03) — SRM-PRO 申请库子模块实战增订：
+  - **关键经验 #6 反作弊警告**：v1.2 的 JS 派发方案在 SRM-PRO 已**不工作**（前端反作弊拦截），必须用 playwright 物理鼠标或 API 直登录；新增"派发 30 步按钮还 disabled = 换策略"判断信号
+  - **关键经验 #7 Element UI cascader 三级菜单导航**：真实 DOM 结构（L1 popover + L2/L3 横向 panel）+ 4 个导航技巧（节点可见性判断、hover 展开、末级 click 跳转、截图红框 = 末级菜单）
+  - **关键经验 #8 Vue Router lazy-load 异常诊断**：3 步快速诊断（main.innerHTML 长度 + console errCount + URL 切换）+ 4 类根因 + 报告模板
+  - **关键经验 #9 Worker 状态监控 vs 真实执行的两层皮**：区分"coordinator 心跳"（存活 vs 实际做）+ 正确诊断 `ps`/`ls` 输出
+  - 实战样本：SRM-PRO test.esicint.com 申请库子模块（admin/Esic@2024），发现 1 个 P1 严重 bug（apply 路由直访空白）
+- v1.4.0 (2026-06-03 17:20) — SRM-PRO 申请库弹框 + 表单校验实战增订：
+  - **关键经验 #7 增补**：`mouseenter + mouseover + mousemove` 三件套才能展开 L3 panel（只 mouseenter 不够），clientX/Y 必须真实坐标，等 500ms 让 Vue 异步展开；新增"直接 `browser_navigate` 路由 = 假 bug"陷阱，**报 bug 前必须先验证用户路径是否也空白**
+  - **关键经验 #10 Element UI 弹框全量检测**：数 `.el-dialog__wrapper` 数量 = 页面弹框总数（即使从未打开），通过 hidden 标记区分已探索/待探索；实战发现 SRMPRO 申请库有 5 个 dialog 模板
+  - **关键经验 #11 Element UI 表单校验触发模式**：空白提交 + 格式错误 + 联动校验 3 类触发 + 标准模板；错误消息格式异常检测（i18n key 配错 → 错误只显示 label）；Issue 模板（P3 国际化配置 bug）
+  - 实战样本：SRM-PRO 申请库 (admin/Esic@2024) — 邀请新供应商弹框 3 字段校验完整跑通，发现 1 个 P3 bug（必填错误消息只显示 label 无描述）
+  - **关键修正**: 关键经验 #8 旧版"apply 路由直访空白 = P1 严重 bug"**降级**——经 cascader 流程验证，路由正常工作（main.innerHTML 41K+），直访空白是 chunk loading order 优化项，不影响用户实际使用
+- v1.5.0 (2026-06-03 17:35) — SRM-PRO 资源库子模块实战增订：
+  - **关键经验 #12 Element UI 复杂列表页探索模式** (含 10 个行操作 + 批量操作 + 翻页 + 改每页条数 + el-dropdown 隐藏菜单全量发现)
+  - **关键经验 #13 el-message-box vs el-dialog 区分**
+  - **关键经验 #14 翻页/翻页条数 DOM 探针标准模板**
+  - 实战样本：SRM-PRO 资源库 (admin/Esic@2024) — 178K 字节 HTML, 3211 条, 17+ 列, 10 个行操作, 7 个隐藏弹框, 2 个新 bug (btn-next 双触发翻 2 页 / 高级搜索无反应)
+- v1.6.0 (2026-06-03 18:30) — SRM-PRO 24 子模块批量探索实战增订：
+  - **关键经验 #15 3 文件夹报告架构** (方法论 + 测试报告 + 测试过程数据 分离, 命名一一对应)
+  - **关键经验 #16 v1/v2 迭代模式** (浅层 v1 归档到 `v1_浅层探索/` 子目录, 避免 v2 覆盖)
+  - **关键经验 #17 cascader 子模块截图识别** (panel 数量 = 菜单层级, 红框 = 末级节点, 用于批量发现子模块)
+  - 实战样本: 24 个 SRMPRO 子模块批量识别 (申请库/资源库/信息变更申请单/.../能力矩阵评估结果), 一次性建 24×3=72 个子目录, 6 个 todo 任务加队列
+- v1.7.0 (2026-06-03 20:30) — SRM-PRO 申请库 4 层深度实战增订：
+  - **关键经验 #6 补充 - 滑块解锁替代方案**：当 JS 派发被反作弊拦截时, 用 `__vue__.$refs.instance.status/isEnd/moveBlockLeft` 直接改内部状态 + `btn.removeAttribute('disabled')` + `btn.click()` 强制登录; 实测在 SRM-PRO 有效
+  - **关键经验 #18 el-table DOM 列错位检测**：通过对比表头 th 顺序 vs 行 td 内容, 100% 检出 el-table column key 错配 bug; 5 步诊断模板
+  - **关键经验 #19 隐藏 dialog 强制 display 探查技巧**：数 `.el-dialog__wrapper` 全量后, 临时 `style.display = ''` 让隐藏 dialog 可见, 收集 bodyText/inputs/btns; 适合"有副作用不敢点"的 dialog
+  - **关键经验 #20 session 断线恢复**：浏览器被 reset 到 about:blank 后, 直接 `browser_navigate` 业务路由 + 滑块 + 登录, 不需要重新走 cascader (路由层无依赖)
+- v1.8.0 (2026-06-03 21:00) — SRM-PRO 24 子模块批量推进实战增订：
+  - **关键经验 #21 跨 session 长任务持续推进模式**（见下方）
+  - **关键经验 #22 todo_manager.py done 命令的 -m 标志陷阱**
+  - **关键经验 #23 工具调用 120 次上限的批次规划**（见下方）
+  - **关键经验 #24 active 保持 1 个 + next 串行执行**（见下方）
+  - **关键经验 #25 每小时汇报一次的 3 段式模板**（见下方）
+  - **关键经验 #26 标准 4 步收尾流程**（见下方）
+  - **关键经验 #27 中断恢复 5 步速查**（见下方）
+  - 实战样本：SRM-PRO 24 子模块队列 N004-N030 + A002-A007，从 N011 申请库 v2 → A001 done → N012 资源库 v2 → A002 推进中；3 文件夹 72 目录 + v1/v2 迭代模式 + 跨 3 个 session 连续推进
+- v1.10.0 (2026-06-03 22:20) — 老大"项目资产归宿"反馈 + 文件架构扩展：
+  - **关键经验 #32 被测系统专属脚本的归宿**：脚本不放 `~/aitodolist/`，放被测系统项目目录的 `测试过程数据/00_通用工具/`；老大原话"保存在 SRMPRO 里面啊，不是待办事项里面"；3 文件夹架构扩展为 3+1（方法论/报告/过程数据/通用工具）；故障排查表新增对应条目
+  - 实战样本：`srmpro_login.py`（含滑块 5 步法 + cascader 三级导航）已落库到 `~/文档/移动云盘同步盘/10ESIC软件测试/SRMPRO/测试过程数据/00_通用工具/`
+- v1.9.0 (2026-06-03 21:30) — 滑块 v1.7 策略完整化 + todo 文件命名 + compaction 恢复 5 步：
+  - **关键经验 #29 滑块 v1.7 完整模板**：4 步（找 instance → 改内部 data → removeAttribute disabled → click），含 `__vue__.$parent` 链式查找、3 策略对比表、灵魂 trick 解释；适用于所有"前端反作弊拦截 verify 类滑块"
+  - **关键经验 #33 滑块 v1.8 终极方案 — Login 父组件 loginForm.code/uuid 注入 (2026-06-03 23:15 SRM-PRO 实测)**：v1.7 改滑块视觉/状态后, **后端仍拒**，因为 Login 组件的 `loginForm.code` 和 `loginForm.uuid` 字段没被填；终极方案是**绕过滑块**，直接**找 Login 父组件设 loginForm.code + uuid + forceUpdate**；步骤 5 + v1.7-v1.8 对比表 + 故障排查信号（"v1.7 改了滑块但 loginForm.code 仍空"）
+  - **关键经验 #30 ai-todo 4 文件命名约定**：`todo_active.md` / `todo_next.md` / `todo_fin.md` / `todo_cancel.md`（带 `todo_` 前缀），曾误以为无前缀导致 2 轮翻车
+  - **关键经验 #31 上下文压缩后恢复 5 步**：status → active → fin tail → next head → 浏览器 session 验证；不假设状态，显式验证
+  - 故障排查表新增 4 条：todo 文件找不到、compaction 后状态不明、滑块视觉变 Vue 不响应、`inst.start()` 报 stopPropagation 错
+- v1.15.0 (2026-07-18) - 监控子智能体 + DOM 双保险范式实战增订（老大"验证每步真的执行了"反馈触发）:
+  - **关键经验 #43 三证据测试框架 (Screenshot + DOM + MonitorSubagent)**: 老大原话"另外，你要开一个子智能体，监控到底有没有真的执行了每一步的操作，并且及时反馈给没有执行的步骤，另外除了截图，应该把收到的 dom 反馈信息连同截图一起记录下来，判断双保险"。**核心**: 每步三证据 = 截图证据 + DOM断言返回值 + 监控子智能体旁路验证。**判定矩阵**: DOM过+监控过=PASS（双保险）, DOM失+监控失=FAIL（双确认失败）, 矛盾=WARN（必须看截图人工复核）。**WARN是金信号**。**已创建独立 skill**: `qa/monitored-test-framework`（含 MonitoredTestCase 类 + pre_action 嵌入模式 + 语义化DOM返回值 `'clicked'`/`'not-checked'`）
+  - **关键经验 #44 pre_action 嵌入模式**: 把"点击/勾选"等操作嵌进 `add_step(step, action, page, dom_check_js, dom_pass_desc, dom_fail_desc, expected_dom_state, pre_action)` 内部，确保 "操作→等待→截图→断言→监控" 一体化。**避免时序错位**（传统做法：page.evaluate 操作 → wait → add_step 断言，操作和断言可能被其他步骤插入）。
+  - **关键经验 #45 语义化DOM返回值**: 不要再用 `true/false`/`0/1` 做DOM断言返回值，改用 `'clicked'`/`'not-checked'`/`'no-dialog'`/`'hidden'`/`'empty'` 语义化字符串。**为什么**: 监控子智能体能从返回值字符串直接分析（关键词匹配 + 上下文判断），比 `true/false` 强 10 倍。**反例**: `() => !!document.querySelector('.x')` → 监控只知道 `true/false`；**正例**: `() => { const d=document.querySelector('.x'); if (!d) return 'no-element'; return getComputedStyle(d).display==='none' ? 'hidden' : 'visible'; }`
+  - **实战样本**: SRMPRO M04 关联物料 TC-002 Step 3 勾选物料 — DOM 返回 `null`（选择器错了），但传统 wait_for_selector 会"假通过"，三证据框架精准捕捉矛盾信号 WARN。详见 `references/monitored-test-framework-v3.md`（含完整代码 + 监控日志样本 + 13 节规范）
+  - **触发场景**: 关键业务流测试 / 多步骤复合操作 / 自动化测试稳定性优化 / 防止"AI猜的选择器"导致的误判
+- v1.14.0 (2026-07-18) - SRMPRO 图纸库 M04-M10 真实 DOM 选择器 + DOM 断言范式实战增订：
+  - **关键经验 #39 vxe-table 识别与真实选择器**：企业级 SRM/ERP/SRM 系统可能用 vxe-table 不是 el-table；特征类（`.vxe-table--body .vxe-body--row` / `.vxe-table--fixed-left-wrapper`）；探索脚本模板
+  - **关键经验 #40 DOM 断言 vs 截图断言范式**：page.evaluate() 读返回值比 page.screenshot + wait_for_selector 可靠 10 倍（截图 30s 超时根本解决）；含 4 步 dom_assert() 标准模板
+  - **关键经验 #41 切账号 = context.clear_cookies() + 重访 /index**：robust_login 在已登录页面切账号会"未找到用户名输入框"，必须先清 cookies 再走登录
+  - **关键经验 #42 JS 正则的双重转义陷阱**：Python `r"""..."""` 中写 `\d` 报 `invalid escape sequence`，JS `\\d` 在 Python raw 字符串里仍传 `\d` 给 JS 但 JS 报 `missing /`；正确写法分两类
+  - 实战样本：SRMPRO 图纸库 7 模块（M04-M10）v2 测试，45/45 全部 PASS（之前 v1 选错选择器全部 FAIL）
+  - 详细实战代码与命令 → `references/srmpro-vxe-table-dom-assert.md`（含 vxe-table 真实选择器速查表 / 6 种 dom_assert 模式 / clear_cookies 切账号 / JS 正则转义陷阱 / 完整 tc 模板 / v1 vs v2 对比数据）
+  - 监控子智能体 + DOM 双保险 v3 完整规范 → `references/monitored-test-framework-v3.md`（含 13 节规范 + 5 个踩坑陷阱 + 语义化DOM返回值表 + 三态判定矩阵 + 与传统方法对比 + 实战案例分析）
+
+- v1.13.0 (2026-07-08) - Playwright viewport 超时 + 白屏检测 + 选择器探测实战增订：
+  - **关键经验 #36 Playwright "element is outside of the viewport" 超时 - JS click 是银弹**: Playwright 原生 click 对"可见但视口外"元素 30s 超时，`force=True` 无效，唯一解法 `page.evaluate(() => btn.click())` JS 路径；含与 #35 的 5 维对比表
+  - **关键经验 #37 截图文件大小是白屏的免费检测器**: <10KB PNG = 白屏，含 4 档阈值表（<5K 完全空白 / 5-10K 近似空白 / 10-50K 简单页 / 50K+ 正常），白屏标记不删除策略 + 三层页面加载等待策略（selector + sleep + 截图大小验证）
+  - **关键经验 #38 选择器不能假设，必须先 DOM 探测**: R 层写死 `input[placeholder*="文档"]` 导致搜索测试全部变空搜索的踩坑；改进的 `fill_search_robust()` 带 fallback + `probe_inputs()` 探测模板
+  - 实战样本：SRMPRO 登录+搜索 10 用例（5 登录全通过 + 5 搜索 2 通过 3 警告），OPRASE 六层架构全跑通，34 张截图
+- v1.12.0 (2026-06-04) - 4 步收尾执行纪律 (老大"汇报"反馈触发的反模式沉淀):
+  - **关键经验 #34 4 步收尾执行纪律 — 探索完成 ≠ 任务完成**: 实战 SRMPRO A002 资源库 4 层深度 100% 探索完成, 但报告漏写 + active 没 done, 汇报时隐瞒 4 故障; 4 步铁律 + 检查命令清单 + 状态修复 SOP
+  - 配套 ai-todo-push v2.4 "汇报完整性铁律" — 老大说"汇报"= 期望真实完整, 不是 fin 列表
+- v1.11.0 (2026-06-03 23:30) — 滑块 v1.8 终极方案 + Login 父组件 loginForm 注入：
+  - **关键经验 #33 滑块 v1.8 终极方案**：v1.7 改 verify instance 视觉成功但后端仍拒，根本原因 Login 父组件的 loginForm.code/uuid 没注入；5 步模板（找 Login 父组件 → 设 loginForm.code + uuid + forceUpdate → removeAttribute → click）；v1.7 vs v1.8 对比表 + 备选方案 A（emit success 回调）/ B（curl 后端 API 绕滑块）；故障排查信号对照表；适用所有"verify 滑块反作弊 + Login 组件用 loginForm 收集 code"场景
+  - 故障排查表新增 2 条：v1.7 漏 Login 父组件、v1.8 设值被 Vue 重置走备选方案
+  - 实战样本：SRM-PRO 2026-06-03 23:15 v1.7 失败后改 v1.8 实际能拿到 loginForm 字段（`.el-form` 父组件 `Login` 的 `loginForm.code/uuid`），但**后端要真验证码值**，v1.8 直接设假码仍被拒 → 终极建议走 API 方案 B
+
+> 📎 该章节已外置：[`references/OFFLOADED_关键经验 (续 — 4 步收尾执行纪律).md`](./references/OFFLOADED_关键经验 (续 — 4 步收尾执行纪律).md)（better-skill P1-4 引用库离线化）
+

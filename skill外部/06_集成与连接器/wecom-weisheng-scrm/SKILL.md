@@ -6,6 +6,12 @@ description_en: "Built for WeCom customer operations, helping teams review custo
 version: 1.0.3
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+
 # 微盛企微管家SCRM
 
 微盛企微管家 SCRM 面向企业微信客户运营场景，帮助团队围绕客户、社群、素材、活码、群发、会话与商机等业务，更高效地完成查询、协同与执行。

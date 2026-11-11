@@ -4,6 +4,21 @@ version: "1.0.4"
 description: "微云网盘 MCP 接口完整技能。包含目录列表查询（weiyun.list）、按分类拉取文件列表（weiyun.list_by_category）、批量下载（weiyun.download）、批量删除（weiyun.delete）、文件上传（weiyun.upload）、生成分享外链（weiyun.gen_share_link）、重命名文件（weiyun.rename_file）、重命名目录（weiyun.rename_dir）、创建文件夹（weiyun.create_dir）、移动文件夹（weiyun.move_dir）、移动文件（weiyun.move_file）、技能版本检查更新（check_skill_update）十二个 MCP Tool 的使用指南。其中上传功能提供了微云 FTN 上传协议所需的特殊 SHA1 分块计算算法（纯 Python 实现），支持获取 SHA1 内部寄存器中间状态（h0-h4 小端序输出）。"
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+### 核心执行原则（P0 · 底线护栏）
+1. 严禁猜测未侦察过的环境状态（路径 / ID / 页面）；没读过的文件视为不存在。
+2. 绝不擅自修改脚本或核心配置；非文本操作只通过既有脚本运行。
+3. 不得在产出中夹带真实凭据、个人手机号、内网 IP 等敏感信息。
+4. 严禁全量重印长文档；修改只做最小 diff 补丁。
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+
 # 微云网盘 MCP 技能
 
 首次安装使用时，需要先完成本地安装和注册，详见 `references/auth.md`。

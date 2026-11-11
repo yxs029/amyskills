@@ -5,6 +5,12 @@ disable-model-invocation: true
 argument-hint: "What would you like to learn about?"
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 触发时机（必修 P0-1）
+当用户提出本技能覆盖的任务、或明确点名本技能时使用；同一意图的不同说法（改述）也应能触发。
+
+
 The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.
 
 ## Teaching Workspace

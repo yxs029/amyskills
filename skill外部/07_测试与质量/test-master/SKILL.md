@@ -31,6 +31,12 @@ scope: testing
 output-format: report
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+
 # Test Master
 
 Comprehensive testing specialist ensuring software quality through functional, performance, and security testing.

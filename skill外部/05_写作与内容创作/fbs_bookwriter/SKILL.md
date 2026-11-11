@@ -9,6 +9,12 @@ metadata:
       bins: ["node", "npm"]
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 触发时机（必修 P0-1）
+当用户提出本技能覆盖的任务、或明确点名本技能时使用；同一意图的不同说法（改述）也应能触发。
+
+
 # FBS-BookWriter（OpenClaw 封装版）
 
 > **上游版本**：2.1.2（与仓库 `FBS-BookWriter` 同源）  

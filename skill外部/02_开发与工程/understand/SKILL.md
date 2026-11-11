@@ -4,6 +4,12 @@ description: Analyze a codebase to produce an interactive knowledge graph for un
 argument-hint: ["[path] [--full|--auto-update|--no-auto-update|--review|--language <lang>|--exclude <patterns>]"]
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 触发时机（必修 P0-1）
+当用户提出本技能覆盖的任务、或明确点名本技能时使用；同一意图的不同说法（改述）也应能触发。
+
+
 # /understand
 
 Analyze the current codebase and produce a `knowledge-graph.json` file in the project's data directory (`.ua/`, or the legacy `.understand-anything/` when it already exists). This file powers the interactive dashboard for exploring the project's architecture.

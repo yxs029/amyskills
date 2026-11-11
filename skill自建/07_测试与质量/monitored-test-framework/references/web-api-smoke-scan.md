@@ -165,7 +165,7 @@ Required request header 'locale' for method parameter of type String
 | ⚫ 405 不匹配 | 108 |
 | 慢接口 >1s | 2 |
 
-**最严重发现**：`/ov/ai-agent/prepare-converse` 错误信息含内网 IP `192.168.1.178:8080`
+**最严重发现**：`/ov/ai-agent/prepare-converse` 错误信息含内网 IP `192.0.2.178:8080`
 **NPE 高发模块**：rfq（询价报价）43 个错误，scar（供应商改善）22 个
 
 ## 与 UI 层的协作

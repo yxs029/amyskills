@@ -15,6 +15,12 @@ description: >
   触发词:写报告 / 写文档 / 起草 / 长文 / report / draft / write-up / longread / brief。
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+
 # Write Skill
 
 把事实素材组织成长 markdown 文档。**主流程 skill,接管专家模式工作流**——`<plan>` 和执行都按下面的工序走,通用 SOP 5 段不适用。进度协议、[来源] 标注、通用约束仍生效。skill 跑完后产物是 markdown 文件,后续形态由 SOP 路由按 description 命中自选,不在本 skill 内固化。

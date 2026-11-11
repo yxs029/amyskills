@@ -12,6 +12,18 @@ tags:
   - cli
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 核心执行原则（P0 · 底线护栏）
+1. 严禁猜测未侦察过的环境状态（路径 / ID / 页面）；没读过的文件视为不存在。
+2. 绝不擅自修改脚本或核心配置；非文本操作只通过既有脚本运行。
+3. 不得在产出中夹带真实凭据、个人手机号、内网 IP 等敏感信息。
+4. 严禁全量重印长文档；修改只做最小 diff 补丁。
+
+### 触发时机（必修 P0-1）
+当用户提出本技能覆盖的任务、或明确点名本技能时使用；同一意图的不同说法（改述）也应能触发。
+
+
 # bilibili-cli Skill
 
 A CLI tool for interacting with Bilibili (哔哩哔哩). Use it to fetch video info, search content, browse user profiles, and perform interactions like liking or triple-clicking.

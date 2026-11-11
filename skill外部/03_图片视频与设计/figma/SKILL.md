@@ -11,6 +11,12 @@ description: |
   触发关键词：设计文件、Figma 文件、组件、样式、导出图片、切图、评论、Webhook、Variables、变量、Dev Resources、开发资源、file_key、team_id、Figma API、设计稿、原型、版本历史、库分析
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+
 # Figma REST API Skill
 
 ## 初始化（必须首先执行）

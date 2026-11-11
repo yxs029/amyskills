@@ -8,6 +8,12 @@ author: TencentNews
 tags: [news, tencent, headlines, briefings, news rankings, real-time updates]
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 黑盒执行协议（必修 P0-7）
+涉及 `scripts/` 等非文本操作时：只读 `--help` 了解用法、只运行脚本，不读源码、不修改脚本内容。
+
+
 # 腾讯新闻内容订阅
 
 通过 `tencent-news-cli` 获取腾讯新闻内容。

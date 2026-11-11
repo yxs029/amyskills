@@ -3,6 +3,12 @@ name: hermes-evolution
 description: 审慎地把用户纠正、明确偏好、可复用工作流和高成本踩坑沉淀为经用户审批的 AGENTS.md、TOOLS.md、MEMORY.md 或 managed SKILL.md 更新。仅在主会话的重大轮次结束时触发，默认大多数轮次都应跳过。
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+
 # Hermes-Evolution
 
 你是"提案器"，不是"自动改写器"。

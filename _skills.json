@@ -8,12 +8,14 @@
    "dest": "skill外部/03_图片视频与设计/_mtunion-product-ai-guide_",
    "src": "unpacked/QClaw的skill库/skills/mtunion-product-ai-guide",
    "desc": "\"美团优惠下单助手。当你想吃饭、找餐厅、买团购券、喝咖啡、喝奶茶、找饮品、吃快餐、吃火锅、吃烧烤、吃日料、吃川菜、吃自助餐、找下午茶、附近有什么好吃的好喝的，只需告诉我想吃什么喝什么或在哪附近找，我会自动帮你领券、搜索商品、展示图文列表，选",
-   "lines": 655,
+   "lines": 661,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/mtunion-product-ai-guide"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "a-stock-analysis",
@@ -23,12 +25,14 @@
    "dest": "skill外部/15_数据与分析/a-stock-analysis",
    "src": "repo/autoClaw的SKILL库/a-stock-analysis",
    "desc": "A股实时行情与分时量能分析。获取沪深股票实时价格、涨跌、成交量，分析分时量能分布（早盘/尾盘放量）、主力动向（抢筹/出货信号）、涨停封单。支持持仓管理和盈亏分析。Use when: (1) 查询A股实时行情, (2) 分析主力资金动向, (",
-   "lines": 130,
+   "lines": 145,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/a-stock-analysis"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "aaron-style-transformer",
@@ -43,7 +47,9 @@
    "cross": false,
    "all_paths": [
     "repo/Marvis生成修改的skills/aaron-style-transformer"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "Agent-Browser",
@@ -53,12 +59,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/Agent-Browser",
    "src": "repo/所有claw必装skills/agent-browser",
    "desc": "A fast Rust-based headless browser automation CLI with Node.js fallback that enables AI agents to navigate, click, type,",
-   "lines": 328,
+   "lines": 343,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/所有claw必装skills/agent-browser"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "agent-email",
@@ -73,7 +81,9 @@
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/agent-email"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "ai-muse-business-weekly",
@@ -88,7 +98,9 @@
    "cross": false,
    "all_paths": [
     "zip/Manus生成微信文章技能/ai-muse-business-weekly"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "ai-testing-skills-index",
@@ -104,7 +116,9 @@
    "all_paths": [
     "repo/市面上的测试领域skills/kuangshi-ai-testing-27-skills-index",
     "zip/市面上的测试领域skills/kuangshi-ai-testing-27-skills-index/kuangshi-ai-testing-27-skills-index"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "ai-trend-report-layout",
@@ -120,7 +134,9 @@
    "all_paths": [
     "repo/Manus生成微信文章技能/ai-trend-report-layout",
     "zip/Manus生成微信文章技能/ai-trend-report-layout/ai-trend-report-layout"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "aippt",
@@ -130,12 +146,14 @@
    "dest": "skill外部/03_图片视频与设计/aippt",
    "src": "unpacked/QClaw的skill库/skills/aippt",
    "desc": "\"当用户明确要求使用 AI 智能设计生成 PPT 演示文稿时使用本技能（智绘高迪/AIPPT）。本技能调用智绘高迪 Design Agent v2（选项版）API，通过对话与用户协作完成「需求确认 → 配色选择 → 大纲确认 → 后台渲染」",
-   "lines": 612,
+   "lines": 621,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/aippt"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "another_them",
@@ -145,12 +163,14 @@
    "dest": "skill外部/04_文档知识与笔记/another_them",
    "src": "unpacked/QClaw的skill库/skills/another_them",
    "desc": "另一个TA：输入人名/主题/模糊需求/网络链接/已有Skill，自动深度调研→框架提炼→生成完整 Agent 人设文件包，直接覆盖当前 Agent workspace 的人设文件。 五种入口：(1)明确人名→蒸馏为Agent (2)模糊需求",
-   "lines": 557,
+   "lines": 566,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/another_them"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "api-and-interface-design",
@@ -160,12 +180,14 @@
    "dest": "skill外部/03_图片视频与设计/api-and-interface-design",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/api-and-interface-design",
    "desc": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when cr",
-   "lines": 369,
+   "lines": 375,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/api-and-interface-design"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "apify-ultimate-scraper",
@@ -175,12 +197,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/apify-ultimate-scraper",
    "src": "repo/autoClaw的SKILL库/apify-ultimate-scraper",
    "desc": "Universal AI-powered web scraper for any platform. Scrape data from Instagram, Facebook, TikTok, YouTube, Google Maps, G",
-   "lines": 232,
+   "lines": 247,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/apify-ultimate-scraper"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "article-image-integration",
@@ -196,7 +220,9 @@
    "all_paths": [
     "repo/Marvis生成修改的skills/article-image-integration",
     "zip/Marvis生成修改的skills/article-image-integration_MAVIS"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "article-layout-formatter",
@@ -215,7 +241,9 @@
     "zip/Marvis生成修改的skills/article-layout-formatter_MAVIS",
     "zip/Manus生成微信文章技能/article-layout-formatter",
     "zip/Manus生成微信文章技能/article-layout-formatterV1"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "arxiv-obsidian-collector",
@@ -231,7 +259,9 @@
    "all_paths": [
     "repo/Marvis生成修改的skills/arxiv-obsidian-collector",
     "zip/Marvis生成修改的skills/arxiv-obsidian-collector/arxiv-obsidian-collector"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ask-matt",
@@ -241,12 +271,14 @@
    "dest": "skill外部/02_开发与工程/ask-matt",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/ask-matt",
    "desc": "Ask which skill or flow fits your situation. A router over the skills in this repo.",
-   "lines": 97,
+   "lines": 106,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/ask-matt"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "autoglm-browser-agent",
@@ -261,7 +293,9 @@
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-browser-agent"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-deepresearch",
@@ -276,7 +310,9 @@
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-deepresearch"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-file-upload",
@@ -286,12 +322,14 @@
    "dest": "skill外部/03_图片视频与设计/autoglm-file-upload",
    "src": "repo/autoClaw的SKILL库/autoglm-file-upload",
    "desc": "使用 AutoGLM Upload Mix 接口上传本地文件（图片、文档等）到服务器，获取文件 URL 或资源 ID，供后续接口使用。 Token 通过本地服务 http://127.0.0.1:18432/get_token 自动获取，无",
-   "lines": 100,
+   "lines": 112,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-file-upload"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-generate-image-seedream",
@@ -301,12 +339,14 @@
    "dest": "skill外部/03_图片视频与设计/autoglm-generate-image-seedream",
    "src": "repo/autoClaw的SKILL库/autoglm-generate-image-seedream",
    "desc": "使用 AutoGLM Seedream 文生图接口，根据用户输入的文字描述生成图片。 当用户需要生成图片、文字转图片、AI绘图等场景时使用此 skill。 Token 通过本地服务 http://127.0.0.1:18432/get_to",
-   "lines": 75,
+   "lines": 87,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-generate-image-seedream"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-image-edit",
@@ -316,12 +356,14 @@
    "dest": "skill外部/03_图片视频与设计/autoglm-image-edit",
    "src": "repo/autoClaw的SKILL库/autoglm-image-edit",
    "desc": "使用 AutoGLM Image Edit 接口对图片进行编辑，例如添加文字、替换背景、修改元素、调整风格等。 当用户需要编辑图片、修改图片内容、在图上加字、P 图、局部改图等场景时使用此 skill。 Token 通过本地服务 http:",
-   "lines": 169,
+   "lines": 181,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-image-edit"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-image-recognition",
@@ -331,12 +373,14 @@
    "dest": "skill外部/03_图片视频与设计/autoglm-image-recognition",
    "src": "repo/autoClaw的SKILL库/autoglm-image-recognition",
    "desc": "使用 AutoGLM Image Recognition 接口识别和描述图片内容。当用户需要分析图片、识别图片中的对象、场景、文字或获取图片描述时使用此 skill。 Token 通过本地服务 http://127.0.0.1:18432/",
-   "lines": 171,
+   "lines": 183,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-image-recognition"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-open-link",
@@ -346,12 +390,14 @@
    "dest": "skill外部/05_写作与内容创作/autoglm-open-link",
    "src": "repo/autoClaw的SKILL库/autoglm-open-link",
    "desc": "使用 AutoGLM Open Link 接口打开指定网页并提取页面正文内容。当用户需要读取某个网页详情、提取文章全文、抓取页面正文做摘要或分析时使用此 skill。 Token 通过本地服务 http://127.0.0.1:18432/",
-   "lines": 65,
+   "lines": 71,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-open-link"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-search-image",
@@ -361,12 +407,14 @@
    "dest": "skill外部/03_图片视频与设计/autoglm-search-image",
    "src": "repo/autoClaw的SKILL库/autoglm-search-image",
    "desc": "使用 AutoGLM 搜图接口，根据用户输入的关键词搜索相关图片。当用户需要搜索图片、查找图片素材等场景时使用此 skill。 Token 通过本地服务 http://127.0.0.1:18432/get_token 自动获取，无需手动配",
-   "lines": 83,
+   "lines": 95,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-search-image"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-stock-analysis",
@@ -381,7 +429,9 @@
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-stock-analysis"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "autoglm-websearch",
@@ -391,12 +441,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/autoglm-websearch",
    "src": "repo/autoClaw的SKILL库/autoglm-websearch",
    "desc": "使用 AutoGLM Web Search 接口进行网络信息搜索。当用户需要联网搜索、查询最新资讯、检索网页内容或获取实时信息时使用此 skill。 Token 通过本地服务 http://127.0.0.1:18432/get_token",
-   "lines": 95,
+   "lines": 107,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/autoglm-websearch"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "baidu-ai-map",
@@ -406,12 +458,14 @@
    "dest": "skill外部/11_生活与消费/baidu-ai-map",
    "src": "unpacked/QClaw的skill库/skills/baidu-ai-map",
    "desc": "百度地图 Agent Plan ，无需成为百度地图开发者，立即接入百度地图为 Agent 场景原生设计的地图能力，例如 AI 地点检索、AI 路线规划、地理编码与逆地理编码、天气查询、地图展示等开箱即用的工具。",
-   "lines": 363,
+   "lines": 369,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/baidu-ai-map"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "baidu-hot-cn",
@@ -421,13 +475,15 @@
    "dest": "skill外部/10_调研与研究/baidu-hot-cn",
    "src": "repo/Noah的skill最佳实践/baidu-hot-cn-1",
    "desc": "\"百度热榜监控 | Baidu Hot Topics Monitor. 获取百度热搜榜、搜索趋势、关键词热度 | Get Baidu trending searches, trends, keyword popularity. 触发词：百度",
-   "lines": 162,
+   "lines": 177,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/baidu-hot-cn-1",
     "zip/Noah的skill最佳实践/baidu-hot-cn-1/baidu-hot-cn-1"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "bdpan-storage",
@@ -437,12 +493,14 @@
    "dest": "skill外部/08_AI与模型/bdpan-storage",
    "src": "unpacked/QClaw的skill库/skills/bdpan-storage",
    "desc": "百度网盘(Baidu Drive)文件管理 — 上传、下载、转存、分享、搜索、移动、复制、重命名、创建文件夹。 同时支持 Agent 记忆备份/恢复（kimiclaw/maxclaw/qclaw/openclaw）。 TRIGGER: 用户",
-   "lines": 316,
+   "lines": 322,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/bdpan-storage"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "better-skill",
@@ -457,7 +515,9 @@
    "cross": false,
    "all_paths": [
     "repo/agent共用skills/better-skill"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "bilibili-cli",
@@ -467,12 +527,14 @@
    "dest": "skill外部/03_图片视频与设计/bilibili-cli",
    "src": "repo/autoClaw的SKILL库/bilibili-cli",
    "desc": "CLI skill for Bilibili (哔哩哔哩, B站) with token-efficient YAML output for AI agents to browse videos, users, search, trendi",
-   "lines": 252,
+   "lines": 264,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/bilibili-cli"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "browser-testing-with-devtools",
@@ -482,12 +544,14 @@
    "dest": "skill外部/07_测试与质量/browser-testing-with-devtools",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/browser-testing-with-devtools",
    "desc": "Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when",
-   "lines": 319,
+   "lines": 325,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/browser-testing-with-devtools"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "byted-ark-seedream-skill",
@@ -503,7 +567,9 @@
    "all_paths": [
     "repo/Marvis生成修改的skills/byted-ark-seedream",
     "zip/byted-ark-seedream-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "cancer-research",
@@ -518,7 +584,9 @@
    "cross": false,
    "all_paths": [
     "repo/Marvis生成修改的skills/cancer-research"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "chief-of-staff",
@@ -528,12 +596,14 @@
    "dest": "skill外部/14_人格角色与共创/chief-of-staff",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/chief-of-staff",
    "desc": "Pursue a long-running goal in a single session by co-ordinating subagents.",
-   "lines": 75,
+   "lines": 84,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/chief-of-staff"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "ci-cd-and-automation",
@@ -543,12 +613,14 @@
    "dest": "skill外部/02_开发与工程/ci-cd-and-automation",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/ci-cd-and-automation",
    "desc": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to au",
-   "lines": 393,
+   "lines": 399,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/ci-cd-and-automation"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "claude-handoff",
@@ -558,12 +630,14 @@
    "dest": "skill外部/08_AI与模型/claude-handoff",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/claude-handoff",
    "desc": "Hand the current conversation off to a fresh background agent that picks up the work immediately.",
-   "lines": 18,
+   "lines": 33,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/claude-handoff"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "cloud-upload-backup",
@@ -573,12 +647,14 @@
    "dest": "skill外部/08_AI与模型/cloud-upload-backup",
    "src": "unpacked/QClaw的skill库/skills/cloud-upload-backup",
    "desc": "\"Cloud file upload and backup tool. Upload local files to Tencent SMH cloud storage, viewable in QClaw Mini Program.\"",
-   "lines": 234,
+   "lines": 243,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/cloud-upload-backup"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "code-review",
@@ -593,7 +669,9 @@
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/code-review"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "code-review-and-quality",
@@ -603,12 +681,14 @@
    "dest": "skill外部/02_开发与工程/code-review-and-quality",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/code-review-and-quality",
    "desc": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another age",
-   "lines": 400,
+   "lines": 406,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/code-review-and-quality"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "code-simplification",
@@ -618,12 +698,14 @@
    "dest": "skill外部/02_开发与工程/code-simplification",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/code-simplification",
    "desc": "Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is",
-   "lines": 331,
+   "lines": 343,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/code-simplification"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "codebase-design",
@@ -633,12 +715,14 @@
    "dest": "skill外部/03_图片视频与设计/codebase-design",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/codebase-design",
    "desc": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find de",
-   "lines": 114,
+   "lines": 126,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/codebase-design"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "constraint-driven-development",
@@ -648,12 +732,14 @@
    "dest": "skill外部/03_图片视频与设计/constraint-driven-development",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/constraint-driven-development",
    "desc": "Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on w",
-   "lines": 319,
+   "lines": 328,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/constraint-driven-development"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "context-engineering",
@@ -663,12 +749,14 @@
    "dest": "skill外部/02_开发与工程/context-engineering",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/context-engineering",
    "desc": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching betwe",
-   "lines": 353,
+   "lines": 359,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/context-engineering"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "coze_workflow",
@@ -678,12 +766,14 @@
    "dest": "skill外部/13_自动化与工作流/coze_workflow",
    "src": "repo/Noah的skill最佳实践/coze-workflow-1.1.3",
    "desc": "Coze Workflow Executor | Coze 工作流执行技能 Execute Coze workflows with workflow_id and parameters. 接收参数调用工作流，返回执行结果。 Pure inv",
-   "lines": 108,
+   "lines": 123,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/coze-workflow-1.1.3"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "cron-scheduled-test-runner",
@@ -693,12 +783,14 @@
    "dest": "skill自建/07_测试与质量/cron-scheduled-test-runner",
    "src": "unpacked/我做的测试领域skills/cron-scheduled-test-runner__1.0.0__20260818/skills/qa/cron-scheduled-test-runner",
    "desc": "将结构化测试执行文档转化为 cron 定时自动化测试任务。读取测试说明文档（含用例表/步骤/预期结果），配置 hermes cron job 按序执行，每步截图，生成 HTML 报告。适用场景：用户给出多份测试执行文档 + 要求定时跑/批量",
-   "lines": 890,
+   "lines": 247,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/cron-scheduled-test-runner__1.0.0__20260818/skills/qa/cron-scheduled-test-runner"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "daily-paper-collector",
@@ -714,7 +806,9 @@
    "all_paths": [
     "repo/知识萃取和复盘相关skill/daily-paper-collector",
     "zip/知识萃取和复盘相关skill/daily-paper-collector/daily-paper-collector"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "debugging-and-error-recovery",
@@ -724,12 +818,14 @@
    "dest": "skill外部/02_开发与工程/debugging-and-error-recovery",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/debugging-and-error-recovery",
    "desc": "Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavi",
-   "lines": 300,
+   "lines": 312,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/debugging-and-error-recovery"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "deep-research",
@@ -739,12 +835,14 @@
    "dest": "skill外部/10_调研与研究/deep-research",
    "src": "repo/autoClaw的SKILL库/deep-research",
    "desc": "多 agent 深度调研,4 路由(看是否提供文件 + 集合是否已知): ① 无文件 + 集合未定 → 撒网模式(找 sibling + 多 worker 探广) ② 无文件 + 集合已知 → 锁定模式(实体已知,直接 ≥6 维度切分) ③",
-   "lines": 396,
+   "lines": 402,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/deep-research"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "defuddle",
@@ -754,12 +852,14 @@
    "dest": "skill外部/04_文档知识与笔记/defuddle",
    "src": "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/defuddle",
    "desc": "Extract clean Markdown from HTML pages with Defuddle CLI.",
-   "lines": 41,
+   "lines": 56,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/defuddle"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "delivery-artifact",
@@ -769,12 +869,14 @@
    "dest": "skill外部/04_文档知识与笔记/delivery-artifact",
    "src": "repo/autoClaw的SKILL库/delivery-artifact",
    "desc": "把成果做成单文件 HTML 交付物——四种形态：Native 文档 / 杂志长文 / PPT 风 / Stage（原型 / 动画 / infographic / kiosk）。**专家模式渲染段默认必经入口**：成果超过一两段话、或需要视觉",
-   "lines": 98,
+   "lines": 107,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/delivery-artifact"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "deprecation-and-migration",
@@ -784,12 +886,14 @@
    "dest": "skill外部/15_数据与分析/deprecation-and-migration",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/deprecation-and-migration",
    "desc": "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one i",
-   "lines": 252,
+   "lines": 258,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/deprecation-and-migration"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "design-taste-frontend",
@@ -799,12 +903,14 @@
    "dest": "skill外部/02_开发与工程/design-taste-frontend",
    "src": "repo/GitHub精选-8大AgentSkill仓库/05-taste-skill/skills/taste-skill",
    "desc": "tasteskill v2, the anti-slop frontend skill. Art direction for websites, distilled from a study of 247 curated gallery s",
-   "lines": 542,
+   "lines": 554,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/05-taste-skill/skills/taste-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "diagnosing-bugs",
@@ -814,12 +920,14 @@
    "dest": "skill外部/16_运维与DevOps/diagnosing-bugs",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/diagnosing-bugs",
    "desc": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports som",
-   "lines": 138,
+   "lines": 144,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/diagnosing-bugs"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "documentation-and-adrs",
@@ -829,12 +937,14 @@
    "dest": "skill外部/02_开发与工程/documentation-and-adrs",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/documentation-and-adrs",
    "desc": "Records decisions and documentation. Use when you need to document an architecture decision (ADR) or the reasoning behin",
-   "lines": 298,
+   "lines": 304,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/documentation-and-adrs"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "docx",
@@ -844,12 +954,14 @@
    "dest": "skill外部/04_文档知识与笔记/docx",
    "src": "unpacked/QClaw的skill库/skills/docx",
    "desc": "\"Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers incl",
-   "lines": 491,
+   "lines": 500,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/docx"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "domain-modeling",
@@ -859,12 +971,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/domain-modeling",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/domain-modeling",
    "desc": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, ",
-   "lines": 74,
+   "lines": 86,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/domain-modeling"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "double-triangle-review",
@@ -882,7 +996,9 @@
     "zip/知识萃取和复盘相关skill/double-triangle-review-V2-L6等级/double-triangle-review",
     "zip/我做的测试领域skills/double-triangle-review/double-triangle-review",
     "zip/Marvis生成修改的skills/double-triangle-review-V1-L3等级/double-triangle-review"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "doubt-driven-development",
@@ -897,7 +1013,9 @@
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/doubt-driven-development"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "douyin-hot-trend",
@@ -907,13 +1025,15 @@
    "dest": "skill外部/05_写作与内容创作/douyin-hot-trend",
    "src": "repo/Noah的skill最佳实践/douyin-hot-trend-1",
    "desc": "抖音热榜获取技能 | Douyin Hot List Fetcher 获取抖音热榜/热搜榜数据 | Get Douyin hot list/trending data 包含热门视频、挑战赛、音乐等多领域热门内容 | Includes pop",
-   "lines": 107,
+   "lines": 122,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/douyin-hot-trend-1",
     "zip/Noah的skill最佳实践/douyin-hot-trend-1/douyin-hot-trend-1"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "dws",
@@ -928,7 +1048,9 @@
    "cross": false,
    "all_paths": [
     "repo/autoclaw常用技能/dws"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "ec_creator",
@@ -938,13 +1060,15 @@
    "dest": "skill外部/17_效率与办公/ec_creator",
    "src": "repo/Noah的skill最佳实践/ec_creator",
    "desc": "Execution Card Linter & Validator with Auto-Fix | 执行卡片检查与自动修复工具 A validation and correction tool for creating standardiz",
-   "lines": 268,
+   "lines": 283,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/ec_creator",
     "zip/Noah的skill最佳实践/ec_creator/ec_creator"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "email-skill",
@@ -954,12 +1078,14 @@
    "dest": "skill外部/06_集成与连接器/email-skill",
    "src": "unpacked/QClaw的skill库/skills/email-skill",
    "desc": "\"邮件统一入口（纯路由层），自身不执行任何脚本与接口，识别用户意图后用 read 工具读取下游 skill 的 SKILL.md 路由到下游。【路由决策必读】两步决策：L0 用户是否显式指定邮箱通道？L1 若未指定，是发给自己/结果留存还是",
-   "lines": 214,
+   "lines": 220,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/email-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "fact-verifier",
@@ -974,7 +1100,9 @@
    "cross": false,
    "all_paths": [
     "zip/Marvis生成修改的skills/fact-verifier/fact-verifier"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "fbs_bookwriter",
@@ -984,12 +1112,14 @@
    "dest": "skill外部/05_写作与内容创作/fbs_bookwriter",
    "src": "unpacked/QClaw的skill库/skills/fbs_bookwriter",
    "desc": "\"FBS 福帮手长文档写作：书/手册/白皮书/长篇报道全流程；Node 脚本驱动 intake、会话恢复、S/P/C/B 质检与 MD/HTML 交付。用户提及写书、出书、章节、大纲、素材、质检、导出、扩写、退出保存时启用。\"",
-   "lines": 124,
+   "lines": 130,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/fbs_bookwriter"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "feishu-chat-history",
@@ -999,12 +1129,14 @@
    "dest": "skill外部/06_集成与连接器/feishu-chat-history",
    "src": "repo/autoclaw常用技能/feishu-chat-history",
    "desc": "Fetch and summarize Feishu group chat history. Use when the user asks to read, review, or summarize messages from a Feis",
-   "lines": 49,
+   "lines": 61,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoclaw常用技能/feishu-chat-history"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "feishu-cron-reminder",
@@ -1014,12 +1146,14 @@
    "dest": "skill外部/06_集成与连接器/feishu-cron-reminder",
    "src": "repo/autoclaw常用技能/feishu-cron-reminder",
    "desc": "Create scheduled reminders for Feishu chats. This skill now delegates to the unified AutoClaw IM cron flow; use it when ",
-   "lines": 33,
+   "lines": 45,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoclaw常用技能/feishu-cron-reminder"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "feishu-doc",
@@ -1029,12 +1163,14 @@
    "dest": "skill外部/06_集成与连接器/feishu-doc",
    "src": "repo/autoclaw常用技能/feishu-doc",
    "desc": "Fetch content from Feishu (Lark) Wiki, Docs, Sheets, and Bitable. Automatically resolves Wiki URLs to real entities and ",
-   "lines": 61,
+   "lines": 76,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoclaw常用技能/feishu-doc"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "figma",
@@ -1044,12 +1180,14 @@
    "dest": "skill外部/03_图片视频与设计/figma",
    "src": "unpacked/QClaw的skill库/skills/figma",
    "desc": "当用户提及以下场景时激活此 Skill： - 文件管理 — 获取 Figma 文件 JSON、导出图片/切图、查看元数据和版本历史、浏览项目文件 - 组件与样式 — 搜索团队/文件组件和组件集、获取样式详情、查看库分析数据 - 评论协作 —",
-   "lines": 1089,
+   "lines": 1095,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/figma"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "financial-suite",
@@ -1059,12 +1197,14 @@
    "dest": "skill外部/03_图片视频与设计/financial-suite",
    "src": "repo/autoClaw的SKILL库/financial-suite",
    "desc": "金融与资本市场任务的统一入口。覆盖：个股与证券研究、财报分析与点评、估值与财务建模（DCF / LBO / 三表 / 可比公司）、投行推介与交易材料、行业与竞品研究、PE 估值复核与投资组合监控、投资委员会与尽职调查、KYC 开户审查、总账",
-   "lines": 104,
+   "lines": 113,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/financial-suite"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "find-skills",
@@ -1074,13 +1214,15 @@
    "dest": "skill外部/01_元技能与技能工程/find-skills",
    "src": "repo/所有claw必装skills/find-skills",
    "desc": "Highest-priority skill discovery flow. MUST trigger when users ask to find/install skills (e.g. 技能, 找技能, find-skill, fin",
-   "lines": 74,
+   "lines": 86,
    "dup_count": 1,
    "cross": false,
    "all_paths": [
     "repo/所有claw必装skills/find-skills",
     "zip/QClaw的skill库/skills/find-skills"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "flyai",
@@ -1090,12 +1232,14 @@
    "dest": "skill外部/06_集成与连接器/flyai",
    "src": "unpacked/QClaw的skill库/skills/flyai",
    "desc": "Search flights, hotels, attractions, concerts, and travel deals with natural language. FlyAI connects to Fliggy MCP for ",
-   "lines": 154,
+   "lines": 166,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/flyai"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "frontend-slides",
@@ -1105,13 +1249,15 @@
    "dest": "skill外部/02_开发与工程/frontend-slides",
    "src": "repo/autoClaw的SKILL库/frontend-slides",
    "desc": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wan",
-   "lines": 380,
+   "lines": 386,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/frontend-slides",
     "repo/autoClaw的SKILL库/frontend-slides/plugins/frontend-slides/skills/frontend-slides"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "frontend-ui-engineering",
@@ -1121,12 +1267,14 @@
    "dest": "skill外部/03_图片视频与设计/frontend-ui-engineering",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/frontend-ui-engineering",
    "desc": "Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, ",
-   "lines": 340,
+   "lines": 346,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/frontend-ui-engineering"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "getnote",
@@ -1136,12 +1284,14 @@
    "dest": "skill外部/20_未分类待整理/getnote",
    "src": "repo/autoclaw常用技能/getnote",
    "desc": "",
-   "lines": 128,
+   "lines": 156,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoclaw常用技能/getnote"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "Get笔记",
@@ -1151,7 +1301,7 @@
    "dest": "skill自建/04_文档知识与笔记/Get笔记",
    "src": "repo/所有claw必装skills/getnote-openclaw-main",
    "desc": "Get笔记 - 个人笔记和知识库管理工具。  当用户提到以下意图时使用此技能： 「记一下」「存到笔记」「保存到Get笔记」「记录到Get笔记」 「保存这个链接」「保存这张图」「查我的笔记」「找一下笔记」 「加标签」「删标签」「删笔记」 「查",
-   "lines": 778,
+   "lines": 440,
    "dup_count": 0,
    "cross": true,
    "all_paths": [
@@ -1160,7 +1310,9 @@
     "zip/所有claw必装skills/getnote-openclaw-main/getnote-openclaw-main",
     "zip/所有claw必装skills/getnote/Get笔记-Manus适用",
     "zip/Manus生成微信文章技能/Get笔记-Manus适用/Get笔记-Manus适用"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "git-guardrails-claude-code",
@@ -1170,12 +1322,14 @@
    "dest": "skill外部/08_AI与模型/git-guardrails-claude-code",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/git-guardrails-claude-code",
    "desc": "Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execut",
-   "lines": 95,
+   "lines": 107,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/git-guardrails-claude-code"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "git-workflow-and-versioning",
@@ -1185,12 +1339,14 @@
    "dest": "skill外部/02_开发与工程/git-workflow-and-versioning",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/git-workflow-and-versioning",
    "desc": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts,",
-   "lines": 355,
+   "lines": 361,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/git-workflow-and-versioning"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "grill-me",
@@ -1200,12 +1356,14 @@
    "dest": "skill外部/03_图片视频与设计/grill-me",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/grill-me",
    "desc": "A relentless interview to sharpen a plan or design.",
-   "lines": 7,
+   "lines": 22,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/grill-me"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "grill-with-docs",
@@ -1215,12 +1373,14 @@
    "dest": "skill外部/03_图片视频与设计/grill-with-docs",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/grill-with-docs",
    "desc": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
-   "lines": 7,
+   "lines": 22,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/grill-with-docs"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "grilling",
@@ -1235,7 +1395,9 @@
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/grilling"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "handoff",
@@ -1245,12 +1407,14 @@
    "dest": "skill外部/14_人格角色与共创/handoff",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/handoff",
    "desc": "Compact the current conversation into a handoff document for another agent to pick up.",
-   "lines": 16,
+   "lines": 31,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/handoff"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "hermes-evolution",
@@ -1260,12 +1424,14 @@
    "dest": "skill外部/13_自动化与工作流/hermes-evolution",
    "src": "repo/autoClaw的SKILL库/hermes-evolution",
    "desc": "审慎地把用户纠正、明确偏好、可复用工作流和高成本踩坑沉淀为经用户审批的 AGENTS.md、TOOLS.md、MEMORY.md 或 managed SKILL.md 更新。仅在主会话的重大轮次结束时触发，默认大多数轮次都应跳过。",
-   "lines": 399,
+   "lines": 405,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/hermes-evolution"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "hermes-model-backup-failover",
@@ -1280,7 +1446,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/hermes-model-backup-failover__1.1.0__20260920/hermes-model-backup-failover"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "hermes-model-switchover-drill",
@@ -1296,7 +1464,9 @@
    "all_paths": [
     "repo/agent共用skills/hermes-model-switchover-drill",
     "zip/agent共用skills/hermes-model-switchover-drill__v1.4.0__20261110/hermes-model-switchover-drill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "human-voice-modeler",
@@ -1312,7 +1482,9 @@
    "all_paths": [
     "repo/Marvis生成修改的skills/human-voice-modeler",
     "zip/Marvis生成修改的skills/human-voice-modeler/human-voice-modeler"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "humanizer-zh",
@@ -1322,12 +1494,14 @@
    "dest": "skill外部/05_写作与内容创作/humanizer-zh",
    "src": "repo/未分类收集skills/skill3-humanizer",
    "desc": "去除文本中的 AI 生成痕迹。适用于编辑或审阅文本，使其听起来更自然、更像人类书写。 基于维基百科的\"AI 写作特征\"综合指南。检测并修复以下模式：夸大的象征意义、 宣传性语言、以 -ing 结尾的肤浅分析、模糊的归因、破折号过度使用、三段",
-   "lines": 484,
+   "lines": 490,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/未分类收集skills/skill3-humanizer"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "idea-refine",
@@ -1337,12 +1511,14 @@
    "dest": "skill外部/07_测试与质量/idea-refine",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/idea-refine",
    "desc": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea",
-   "lines": 195,
+   "lines": 207,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/idea-refine"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ima",
@@ -1352,12 +1528,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/ima",
    "src": "unpacked/QClaw的skill库/skills/ima",
    "desc": "统一的 IMA OpenAPI 技能，支持笔记管理和知识库操作。 当用户提到知识库、资料库、笔记、备忘录、记事，或者想要上传文件、添加网页到知识库、 搜索知识库内容、搜索/浏览/创建/编辑笔记时，使用此 skill。 即使用户没有明确说\"知",
-   "lines": 272,
+   "lines": 278,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/ima"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "image-creator",
@@ -1372,7 +1550,9 @@
    "cross": false,
    "all_paths": [
     "repo/Marvis生成修改的skills/image-creator"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "image_gen_coze",
@@ -1382,12 +1562,14 @@
    "dest": "skill外部/03_图片视频与设计/image_gen_coze",
    "src": "repo/Noah的skill最佳实践/image-gen-coze-1.1.3",
    "desc": "Image Generation via Coze | 基于 Coze 的图像生成技能 Generate images using Coze workflows. 使用 Seedream 4.5 model. Handles paramet",
-   "lines": 172,
+   "lines": 187,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/image-gen-coze-1.1.3"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "imap-smtp-email",
@@ -1397,12 +1579,14 @@
    "dest": "skill外部/06_集成与连接器/imap-smtp-email",
    "src": "unpacked/QClaw的skill库/skills/imap-smtp-email",
    "desc": "\"【内部执行层 Skill — 禁止直接调用】个人邮箱 IMAP/SMTP 执行通道。必须先读取 email-skill/SKILL.md 进行路由决策，由路由层（email-skill → personal-mail-skill）决定后才",
-   "lines": 288,
+   "lines": 297,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/imap-smtp-email"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "impeccable",
@@ -1412,12 +1596,14 @@
    "dest": "skill外部/02_开发与工程/impeccable",
    "src": "repo/GitHub精选-8大AgentSkill仓库/06-impeccable/plugin/skills/impeccable",
    "desc": "\"Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, animate, or otherwise im",
-   "lines": 88,
+   "lines": 97,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/06-impeccable/plugin/skills/impeccable"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "implement",
@@ -1427,12 +1613,14 @@
    "dest": "skill外部/02_开发与工程/implement",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/implement",
    "desc": "\"Implement a piece of work based on a spec or set of tickets.\"",
-   "lines": 17,
+   "lines": 32,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/implement"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "implement-spec",
@@ -1442,12 +1630,14 @@
    "dest": "skill外部/02_开发与工程/implement-spec",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/implement-spec",
    "desc": "\"Implement the result of /to-spec and /to-tickets in code.\"",
-   "lines": 42,
+   "lines": 57,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/implement-spec"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "improve-codebase-architecture",
@@ -1457,12 +1647,14 @@
    "dest": "skill外部/02_开发与工程/improve-codebase-architecture",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/improve-codebase-architecture",
    "desc": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you ",
-   "lines": 71,
+   "lines": 83,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/improve-codebase-architecture"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "incremental-implementation",
@@ -1472,12 +1664,14 @@
    "dest": "skill外部/02_开发与工程/incremental-implementation",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/incremental-implementation",
    "desc": "Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more",
-   "lines": 249,
+   "lines": 261,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/incremental-implementation"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "interview-me",
@@ -1487,12 +1681,14 @@
    "dest": "skill外部/02_开发与工程/interview-me",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/interview-me",
    "desc": "Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at",
-   "lines": 235,
+   "lines": 247,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/interview-me"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "json-canvas",
@@ -1502,12 +1698,14 @@
    "dest": "skill外部/03_图片视频与设计/json-canvas",
    "src": "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/json-canvas",
    "desc": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas fi",
-   "lines": 244,
+   "lines": 256,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/json-canvas"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "karpathy-guidelines",
@@ -1517,12 +1715,14 @@
    "dest": "skill外部/03_图片视频与设计/karpathy-guidelines",
    "src": "repo/GitHub精选-8大AgentSkill仓库/01-andrej-karpathy-skills/skills/karpathy-guidelines",
    "desc": "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid ov",
-   "lines": 67,
+   "lines": 79,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/01-andrej-karpathy-skills/skills/karpathy-guidelines"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "kb-bootstrap",
@@ -1537,7 +1737,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/kb-bootstrap/kb-bootstrap"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "kdocs",
@@ -1547,12 +1749,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/kdocs",
    "src": "unpacked/QClaw的skill库/skills/kdocs",
    "desc": "\"操作金山文档（WPS 云文档 / Kdocs / 365.kdocs.cn / www.kdocs.cn）云文档的官方 Skill。核心能力覆盖云端新建、读取、编辑、搜索、分享、整理在线文档（智能文档、Word、Excel、PDF、PPT",
-   "lines": 187,
+   "lines": 193,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/kdocs"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "knap",
@@ -1562,12 +1766,14 @@
    "dest": "skill外部/04_文档知识与笔记/knap",
    "src": "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/knap",
    "desc": "Render Markdown from templates and structured data using Knap CLI. Use when the user asks to apply a Knap template, turn",
-   "lines": 102,
+   "lines": 114,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/knap"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "knowledge-base",
@@ -1577,12 +1783,14 @@
    "dest": "skill外部/04_文档知识与笔记/knowledge-base",
    "src": "unpacked/QClaw的skill库/skills/ima/knowledge-base",
    "desc": "",
-   "lines": 521,
+   "lines": 549,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/ima/knowledge-base"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "knowledge-sharing-article-layout",
@@ -1598,7 +1806,9 @@
    "all_paths": [
     "repo/Manus生成微信文章技能/knowledge-sharing-article-layout",
     "zip/Manus生成微信文章技能/knowledge-sharing-article-layout/knowledge-sharing-article-layout"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "lark-setup",
@@ -1613,7 +1823,9 @@
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/lark-setup"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "learning-one-pager",
@@ -1623,12 +1835,14 @@
    "dest": "skill自建/04_文档知识与笔记/learning-one-pager",
    "src": "repo/知识萃取和复盘相关skill/learning-one-pager",
    "desc": "通用理论/教程/课程学习Skill。当你让阿元学习任何理论知识、教程、课程、文章时触发。 包括但不限于：一堂课程、得到课、技术文档、白皮书、书籍章节、公众号文章、内部文档等。 学习后可提炼为结构化一页纸教程 + 案例库。 触发词示例：\"学习",
-   "lines": 535,
+   "lines": 441,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/知识萃取和复盘相关skill/learning-one-pager"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "lexiang-knowledge-base",
@@ -1638,12 +1852,14 @@
    "dest": "skill外部/04_文档知识与笔记/lexiang-knowledge-base",
    "src": "unpacked/QClaw的skill库/skills/lexiang-knowledge-base",
    "desc": "\"乐享知识库 MCP 全功能 Skill。当用户提到「乐享」「知识库」「个人知识库」「我的知识库」「lexiang」，或提供 lexiangla.com 链接，或涉及知识库的搜索/写入/编辑/文件/配置等操作时使用。\"",
-   "lines": 151,
+   "lines": 160,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/lexiang-knowledge-base"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "longtask_system",
@@ -1653,12 +1869,14 @@
    "dest": "skill外部/16_运维与DevOps/longtask_system",
    "src": "repo/Noah的skill最佳实践/longtask_system",
    "desc": "长程任务执行管理系统 | Long-running Task Execution Management System 通过状态文件驱动，将长任务拆分为子任务，由守护进程按顺序触发执行，确保每步完成后再执行下一步。 State-file dr",
-   "lines": 276,
+   "lines": 282,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/longtask_system"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "loop-me",
@@ -1668,12 +1886,14 @@
    "dest": "skill外部/02_开发与工程/loop-me",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/loop-me",
    "desc": "Grill me about specs for the workflows I want to build, within this workspace.",
-   "lines": 32,
+   "lines": 41,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/loop-me"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "marketing-model-article-writer",
@@ -1690,7 +1910,9 @@
     "zip/Manus生成微信文章技能/marketing-model-article-writerV1/marketing-model-article-writer",
     "zip/Manus生成微信文章技能/marketing-model-article-writerV2/marketing-model-article-writer",
     "zip/Manus生成微信文章技能/marketing-model-article-writer/marketing-model-article-writer"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "mcporter",
@@ -1700,12 +1922,14 @@
    "dest": "skill外部/06_集成与连接器/mcporter",
    "src": "unpacked/QClaw的skill库/skills/mcporter",
    "desc": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc ser",
-   "lines": 61,
+   "lines": 76,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/mcporter"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "meituan-travel",
@@ -1715,12 +1939,14 @@
    "dest": "skill外部/11_生活与消费/meituan-travel",
    "src": "unpacked/QClaw的skill库/skills/meituan-travel",
    "desc": "\"基于美团酒旅供给，处理旅游出行需求，包括提供酒店、机火、门票、度假等商品的查询交易能力，以及定制化旅行攻略能力，打通从“灵感启发”到“一键下单”的全链路。\"",
-   "lines": 246,
+   "lines": 252,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/meituan-travel"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "Memory",
@@ -1730,12 +1956,14 @@
    "dest": "skill外部/08_AI与模型/Memory",
    "src": "repo/autoClaw的SKILL库/memory",
    "desc": "Infinite organized memory that complements your agent's built-in memory with unlimited categorized storage.",
-   "lines": 276,
+   "lines": 285,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/memory"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "migrate-to-shoehorn",
@@ -1745,12 +1973,14 @@
    "dest": "skill外部/02_开发与工程/migrate-to-shoehorn",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/migrate-to-shoehorn",
    "desc": "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to re",
-   "lines": 118,
+   "lines": 124,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/migrate-to-shoehorn"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "monitored-test-framework",
@@ -1765,7 +1995,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/monitored-test-framework__n-a__20260818/skills/qa/monitored-test-framework"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "news-aggregator-skill",
@@ -1775,12 +2007,14 @@
    "dest": "skill外部/05_写作与内容创作/news-aggregator-skill",
    "src": "repo/未分类收集skills/skill1-news-aggregator/news-aggregator-skill",
    "desc": "\"Comprehensive news aggregator that fetches, filters, and deeply analyzes real-time content from 28 sources including Ha",
-   "lines": 155,
+   "lines": 164,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/未分类收集skills/skill1-news-aggregator/news-aggregator-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "notes",
@@ -1790,12 +2024,14 @@
    "dest": "skill外部/20_未分类待整理/notes",
    "src": "unpacked/QClaw的skill库/skills/ima/notes",
    "desc": "",
-   "lines": 177,
+   "lines": 205,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/ima/notes"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "notion",
@@ -1805,12 +2041,14 @@
    "dest": "skill外部/04_文档知识与笔记/notion",
    "src": "unpacked/QClaw的skill库/skills/notion",
    "desc": "\"在用户提及 Notion 笔记、知识库、工作区相关内容与操作时使用此技能。触发关键词包括：创建页面、新建页面、查询页面、搜索笔记、读取页面、获取页面、更新页面、编辑页面、删除内容、归档页面、移动页面、数据库、数据源、查询数据库、创建数据库",
-   "lines": 1373,
+   "lines": 1379,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/notion"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "observability-and-instrumentation",
@@ -1820,12 +2058,14 @@
    "dest": "skill外部/02_开发与工程/observability-and-instrumentation",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/observability-and-instrumentation",
    "desc": "Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerti",
-   "lines": 238,
+   "lines": 244,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/observability-and-instrumentation"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "obsidian-bases",
@@ -1835,12 +2075,14 @@
    "dest": "skill外部/04_文档知识与笔记/obsidian-bases",
    "src": "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/obsidian-bases",
    "desc": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base f",
-   "lines": 499,
+   "lines": 511,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/obsidian-bases"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "obsidian-cli",
@@ -1850,12 +2092,14 @@
    "dest": "skill外部/04_文档知识与笔记/obsidian-cli",
    "src": "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/obsidian-cli",
    "desc": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and m",
-   "lines": 106,
+   "lines": 118,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/obsidian-cli"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "obsidian-markdown",
@@ -1865,12 +2109,14 @@
    "dest": "skill外部/05_写作与内容创作/obsidian-markdown",
    "src": "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/obsidian-markdown",
    "desc": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syn",
-   "lines": 196,
+   "lines": 208,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/08-obsidian-skills/skills/obsidian-markdown"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "one-page-tutorial",
@@ -1887,7 +2133,9 @@
     "repo/所有claw必装skills/one-page-tutorial",
     "zip/Manus生成微信文章技能/one-page-tutorial/one-page-tutorial",
     "zip/Manus生成微信文章技能/one-page-tutorial-V1/one-page-tutorial"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "openclaw-self-evolution-pack",
@@ -1897,12 +2145,14 @@
    "dest": "skill外部/13_自动化与工作流/openclaw-self-evolution-pack",
    "src": "repo/所有claw必装skills/openclaw-self-evolution-pack",
    "desc": "当用户想要增强 OpenClaw 的自我进化能力、需要自定义进化策略、设置进化目标、监控进化进度、或者想要深入理解 OpenClaw 的自我优化机制时使用此技能。适用于 AI 助手爱好者、自动化流程工程师、以及希望让 AI 系统持续成长的极",
-   "lines": 83,
+   "lines": 95,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/所有claw必装skills/openclaw-self-evolution-pack"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "pdf",
@@ -1912,12 +2162,14 @@
    "dest": "skill外部/04_文档知识与笔记/pdf",
    "src": "unpacked/QClaw的skill库/skills/pdf",
    "desc": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables fr",
-   "lines": 662,
+   "lines": 671,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/pdf"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "pdf-creator",
@@ -1927,12 +2179,14 @@
    "dest": "skill外部/04_文档知识与笔记/pdf-creator",
    "src": "repo/autoClaw的SKILL库/pdf-creator",
    "desc": "把 markdown 文档渲染成 PDF:中文字体、主题(default / cjk-auto / warm-terra / mobile)、 WeasyPrint 与 Chrome 双 backend、A4 与手机版式。输入 markdo",
-   "lines": 175,
+   "lines": 184,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/pdf-creator"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "performance-optimization",
@@ -1942,12 +2196,14 @@
    "dest": "skill外部/02_开发与工程/performance-optimization",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/performance-optimization",
    "desc": "Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements ex",
-   "lines": 267,
+   "lines": 273,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/performance-optimization"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "persona-switch",
@@ -1957,12 +2213,14 @@
    "dest": "skill外部/14_人格角色与共创/persona-switch",
    "src": "unpacked/QClaw的skill库/skills/persona-switch",
    "desc": "切换 agent 的人设（soul.md）。支持三套预设人设与原有人设之间自由切换。 触发词：切换人设、persona-switch、赛博朋友、温柔伴侣、创始人龙虾。",
-   "lines": 115,
+   "lines": 121,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/persona-switch"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "personal-mail-skill",
@@ -1972,12 +2230,14 @@
    "dest": "skill外部/14_人格角色与共创/personal-mail-skill",
    "src": "unpacked/QClaw的skill库/skills/personal-mail-skill",
    "desc": "\"个人邮箱二级路由层。仅在 email-skill 把任务转发到本 skill 后被调用——典型场景是『发给别人 / 需要附件 / 抄送 / 收件箱搜索 / 下载附件』等完整收发需求。本 skill 通过执行路由脚本确定性地决定路由到 ag",
-   "lines": 119,
+   "lines": 128,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/personal-mail-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "planning-and-task-breakdown",
@@ -1987,12 +2247,14 @@
    "dest": "skill外部/03_图片视频与设计/planning-and-task-breakdown",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/planning-and-task-breakdown",
    "desc": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable",
-   "lines": 257,
+   "lines": 263,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/planning-and-task-breakdown"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ponytail",
@@ -2002,13 +2264,15 @@
    "dest": "skill外部/02_开发与工程/ponytail",
    "src": "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail",
    "desc": "Lazy senior dev mode: the smallest change that fully solves the task, and a reply a busy human understands in one read. ",
-   "lines": 52,
+   "lines": 61,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail",
     "zip/GitHub精选-8大AgentSkill仓库/03-ponytail/03-ponytail/skills/ponytail"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ponytail-audit",
@@ -2018,13 +2282,15 @@
    "dest": "skill外部/02_开发与工程/ponytail-audit",
    "src": "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-audit",
    "desc": "Quality audit of a whole repo: bugs, security holes, what breaks under real load, risky code without tests, slow paths, ",
-   "lines": 103,
+   "lines": 112,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-audit",
     "zip/GitHub精选-8大AgentSkill仓库/03-ponytail/03-ponytail/skills/ponytail-audit"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ponytail-debt",
@@ -2034,13 +2300,15 @@
    "dest": "skill外部/02_开发与工程/ponytail-debt",
    "src": "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-debt",
    "desc": "List every `shortcut:` comment (and older `ponytail:` ones) as a debt ledger. One-shot report, changes nothing. Use for ",
-   "lines": 44,
+   "lines": 59,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-debt",
     "zip/GitHub精选-8大AgentSkill仓库/03-ponytail/03-ponytail/skills/ponytail-debt"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ponytail-gain",
@@ -2050,13 +2318,15 @@
    "dest": "skill外部/02_开发与工程/ponytail-gain",
    "src": "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-gain",
    "desc": "Show ponytail's measured savings (code, cost, speed) from the benchmark. One-shot display. Use for /ponytail-gain, \"what",
-   "lines": 52,
+   "lines": 61,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-gain",
     "zip/GitHub精选-8大AgentSkill仓库/03-ponytail/03-ponytail/skills/ponytail-gain"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ponytail-help",
@@ -2066,13 +2336,15 @@
    "dest": "skill外部/03_图片视频与设计/ponytail-help",
    "src": "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-help",
    "desc": "Quick reference for ponytail levels, skills and commands. One-shot display. Use for /ponytail-help, \"ponytail help\", \"ho",
-   "lines": 76,
+   "lines": 91,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-help",
     "zip/GitHub精选-8大AgentSkill仓库/03-ponytail/03-ponytail/skills/ponytail-help"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ponytail-review",
@@ -2082,13 +2354,15 @@
    "dest": "skill外部/02_开发与工程/ponytail-review",
    "src": "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-review",
    "desc": "Quality review of a change: is the logic right, is it safe, does it hold under real load, is risky code tested, is it fa",
-   "lines": 101,
+   "lines": 110,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/03-ponytail/skills/ponytail-review",
     "zip/GitHub精选-8大AgentSkill仓库/03-ponytail/03-ponytail/skills/ponytail-review"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "post-task-methodology-loop",
@@ -2103,7 +2377,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/post-task-methodology-loop__n-a__20260818/skills/qa/post-task-methodology-loop"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "pptx-swarm",
@@ -2113,12 +2389,14 @@
    "dest": "skill外部/03_图片视频与设计/pptx-swarm",
    "src": "repo/autoClaw的SKILL库/pptx-swarm",
    "desc": "Create new editable PowerPoint/PPT/PPTX slide decks using the PPTD swarm workflow. Use when the user asks to make a PPT,",
-   "lines": 115,
+   "lines": 124,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/pptx-swarm"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "pr",
@@ -2128,12 +2406,14 @@
    "dest": "skill外部/02_开发与工程/pr",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/pr",
    "desc": "\"Use when writing a PR body.\"",
-   "lines": 170,
+   "lines": 182,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/pr"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "prd2ytlist",
@@ -2143,12 +2423,14 @@
    "dest": "skill自建/05_写作与内容创作/prd2ytlist",
    "src": "unpacked/我做的测试领域skills/prd2ytlist/prd2ytlist",
    "desc": "把权威源 PRD / 需求文档忠实转换为「一堂清单体」格式的 PRD，支持两个输出档位 —— Profile A（标准清单体，正文点 ≤150 字）与 Profile B（32 字扫读版，每行 ≤32 字）。融合 Partner 系统提示词",
-   "lines": 572,
+   "lines": 419,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/prd2ytlist/prd2ytlist"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "prompt-xray",
@@ -2158,12 +2440,14 @@
    "dest": "skill自建/08_AI与模型/prompt-xray",
    "src": "unpacked/我做的测试领域skills/prompt-xray__1.0.0__20260818/skills/qa/prompt-xray",
    "desc": "Agent 系统提示词语料库拆解分析。输入 ZIP/RAR/文件夹/文本，输出结构化解析报告（PDF+MD）。5步流程：解包→画像→分类→精读→输出，5层框架：人格/原则/资产/执行/表现。",
-   "lines": 563,
+   "lines": 319,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/prompt-xray__1.0.0__20260818/skills/qa/prompt-xray"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "prototype",
@@ -2173,12 +2457,14 @@
    "dest": "skill外部/02_开发与工程/prototype",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/prototype",
    "desc": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model o",
-   "lines": 26,
+   "lines": 38,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/prototype"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "qcc-company",
@@ -2193,7 +2479,9 @@
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/qcc-company"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "qclaw-cron-skill",
@@ -2203,12 +2491,14 @@
    "dest": "skill外部/13_自动化与工作流/qclaw-cron-skill",
    "src": "unpacked/QClaw的skill库/skills/qclaw-cron-skill",
    "desc": "[MANDATORY - MUST LOAD] 凡是涉及定时/提醒/闹钟/周期执行/打卡/签到/cron/schedule/remind 等需求，以及修改/编辑/更新/暂停/恢复/删除/取消推送/改推送目标/改推送渠道等已有定时任务的操作，",
-   "lines": 202,
+   "lines": 208,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/qclaw-cron-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "qclaw-env",
@@ -2218,12 +2508,14 @@
    "dest": "skill外部/02_开发与工程/qclaw-env",
    "src": "unpacked/QClaw的skill库/skills/qclaw-env",
    "desc": "\"OpenClaw skill 全链路环境诊断与安装工具。安装任何 CLI、命令行工具、包管理器、运行时环境时必须使用此 skill。使用场景包括但不限于：(1) 安装或配置任何命令行工具或 CLI（如 gh、ffmpeg、whisper ",
-   "lines": 313,
+   "lines": 319,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/qclaw-env"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "qclaw-rules",
@@ -2238,7 +2530,9 @@
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/qclaw-rules"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "qclaw-skill-creator",
@@ -2248,12 +2542,14 @@
    "dest": "skill外部/01_元技能与技能工程/qclaw-skill-creator",
    "src": "unpacked/QClaw的skill库/skills/qclaw-skill-creator",
    "desc": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an exist",
-   "lines": 384,
+   "lines": 393,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/qclaw-skill-creator"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "research",
@@ -2263,12 +2559,14 @@
    "dest": "skill外部/10_调研与研究/research",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/research",
    "desc": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use w",
-   "lines": 12,
+   "lines": 24,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/research"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "retro",
@@ -2278,12 +2576,14 @@
    "dest": "skill外部/14_人格角色与共创/retro",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/retro",
    "desc": "\"Conduct a retrospective on a coding session.\"",
-   "lines": 44,
+   "lines": 56,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/retro"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "rss_fetcher",
@@ -2293,13 +2593,15 @@
    "dest": "skill外部/11_生活与消费/rss_fetcher",
    "src": "repo/Noah的skill最佳实践/rss_fetcher",
    "desc": "统一的RSS采集与管理系统 | Unified RSS Feed Fetcher and Manager 支持增量抓取、自动去重、自动标签、源健康监控、HTML报告生成 Incremental fetching, auto-dedup, a",
-   "lines": 309,
+   "lines": 327,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/rss_fetcher",
     "zip/Noah的skill最佳实践/rss_fetcher/rss_fetcher"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "scaffold-exercises",
@@ -2309,12 +2611,14 @@
    "dest": "skill外部/02_开发与工程/scaffold-exercises",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/scaffold-exercises",
    "desc": "Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user",
-   "lines": 106,
+   "lines": 118,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/scaffold-exercises"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "security-and-hardening",
@@ -2324,12 +2628,14 @@
    "dest": "skill外部/12_安全与合规/security-and-hardening",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/security-and-hardening",
    "desc": "Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, ",
-   "lines": 216,
+   "lines": 222,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/security-and-hardening"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "self-improvement",
@@ -2339,12 +2645,14 @@
    "dest": "skill外部/08_AI与模型/self-improvement",
    "src": "repo/所有claw必装skills/skill2-self-improving",
    "desc": "\"Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fail",
-   "lines": 647,
+   "lines": 662,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/所有claw必装skills/skill2-self-improving"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "setup-matt-pocock-skills",
@@ -2354,12 +2662,14 @@
    "dest": "skill外部/02_开发与工程/setup-matt-pocock-skills",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/setup-matt-pocock-skills",
    "desc": "\"Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layou",
-   "lines": 120,
+   "lines": 126,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/setup-matt-pocock-skills"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "setup-pre-commit",
@@ -2369,12 +2679,14 @@
    "dest": "skill外部/02_开发与工程/setup-pre-commit",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/setup-pre-commit",
    "desc": "Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user w",
-   "lines": 91,
+   "lines": 103,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/misc/setup-pre-commit"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "setup-ts-deep-modules",
@@ -2384,12 +2696,14 @@
    "dest": "skill外部/02_开发与工程/setup-ts-deep-modules",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/setup-ts-deep-modules",
    "desc": "Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder",
-   "lines": 102,
+   "lines": 111,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/setup-ts-deep-modules"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "shipping-and-launch",
@@ -2399,12 +2713,14 @@
    "dest": "skill外部/02_开发与工程/shipping-and-launch",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/shipping-and-launch",
    "desc": "Prepares production launches. Use when preparing to deploy to production, or when asking what needs to be in place befor",
-   "lines": 336,
+   "lines": 348,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/shipping-and-launch"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "short-video-transcriber",
@@ -2419,7 +2735,9 @@
    "cross": false,
    "all_paths": [
     "zip/Manus生成微信文章技能/知识库技能-从输入提炼到输出全套/short-video-transcriber"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "skill-creator",
@@ -2429,12 +2747,14 @@
    "dest": "skill外部/01_元技能与技能工程/skill-creator",
    "src": "repo/autoClaw的SKILL库/skill-creator",
    "desc": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an exist",
-   "lines": 356,
+   "lines": 371,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/skill-creator"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "skill-evolve-nightly",
@@ -2444,12 +2764,14 @@
    "dest": "skill外部/01_元技能与技能工程/skill-evolve-nightly",
    "src": "repo/所有claw必装skills/skill-evolve-nightly",
    "desc": "Nightly batch skill maintenance. Reads pending signals and proposals, plans which skills to create/refine via team engin",
-   "lines": 368,
+   "lines": 377,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/所有claw必装skills/skill-evolve-nightly"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "skill-vetter",
@@ -2459,13 +2781,15 @@
    "dest": "skill外部/01_元技能与技能工程/skill-vetter",
    "src": "repo/autoclaw常用技能/skill-vetter",
    "desc": "Security-first skill vetting for AI agents. Use before installing any skill from ClawdHub, GitHub, or other sources. Che",
-   "lines": 138,
+   "lines": 147,
    "dup_count": 1,
    "cross": false,
    "all_paths": [
     "repo/autoclaw常用技能/skill-vetter",
     "zip/所有claw必装skills/skill-vetter/skill-vetter"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "software-factory",
@@ -2475,12 +2799,14 @@
    "dest": "skill外部/03_图片视频与设计/software-factory",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/software-factory",
    "desc": "Shared language for designing a software factory: the tasks it runs and the services it plugs into.",
-   "lines": 98,
+   "lines": 107,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/software-factory"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "source-driven-development",
@@ -2495,7 +2821,9 @@
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/source-driven-development"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "spec-driven-development",
@@ -2505,12 +2833,14 @@
    "dest": "skill外部/03_图片视频与设计/spec-driven-development",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/spec-driven-development",
    "desc": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists",
-   "lines": 259,
+   "lines": 265,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/spec-driven-development"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "srmpro-login",
@@ -2520,12 +2850,14 @@
    "dest": "skill自建/07_测试与质量/srmpro-login",
    "src": "unpacked/我做的测试领域skills/srmpro-login__n-a__20260818/skills/qa/srmpro-login",
    "desc": "SRMPRO (test.esicint.com) 一键登录封装。集成 Playwright 真实 mouse 滑块绕过、storage_state 永久复用、verify-slider-bypass 5 阶梯回退。Use when use",
-   "lines": 782,
+   "lines": 485,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/srmpro-login__n-a__20260818/skills/qa/srmpro-login"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "style-fingerprint",
@@ -2535,12 +2867,14 @@
    "dest": "skill外部/05_写作与内容创作/style-fingerprint",
    "src": "repo/Noah的skill最佳实践/style_fingerprint",
    "desc": "Analyze and save Chinese writing style fingerprints. Extracts syntax patterns, lexical preferences, rhetorical features ",
-   "lines": 139,
+   "lines": 154,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/style_fingerprint"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "sub-module-test-report",
@@ -2555,7 +2889,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/sub-module-test-report__1.0-deprecated__20260818/skills/qa/sub-module-test-report"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "tdd",
@@ -2565,12 +2901,14 @@
    "dest": "skill外部/02_开发与工程/tdd",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/tdd",
    "desc": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\"",
-   "lines": 38,
+   "lines": 44,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/tdd"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "teach",
@@ -2580,12 +2918,14 @@
    "dest": "skill外部/02_开发与工程/teach",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/teach",
    "desc": "Teach the user a new skill or concept, within this workspace.",
-   "lines": 140,
+   "lines": 146,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/teach"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "tencent-docs",
@@ -2595,12 +2935,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/tencent-docs",
    "src": "unpacked/QClaw的skill库/skills/tencent-docs",
    "desc": "腾讯文档（docs.qq.com）-在线云文档平台，是创建、编辑、管理文档的首选 skill。涉及\"新建/创建/编辑/读取/查看/搜索文档\"、\"保存文件\"、\"云文档\"、\"腾讯文档\"、\"docs.qq.com\"等操作，请优先使用本 skill",
-   "lines": 183,
+   "lines": 189,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/tencent-docs"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "tencent-esign-contract",
@@ -2610,12 +2952,14 @@
    "dest": "skill外部/12_安全与合规/tencent-esign-contract",
    "src": "unpacked/QClaw的skill库/skills/tencent-esign-contract",
    "desc": "\"腾讯电子签合同AI助手，支持合同起草、审查、对比、法条法规检索。当用户提到起草合同、写合同、生成合同、审查合同、检查合同风险、合规审核、法务审查、对比合同、合同差异、版本比较、查法条、查法规、法律检索、法律依据、相关法律、腾讯电子签等场景",
-   "lines": 242,
+   "lines": 248,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/tencent-esign-contract"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "tencent-meeting-mcp",
@@ -2625,12 +2969,14 @@
    "dest": "skill外部/06_集成与连接器/tencent-meeting-mcp",
    "src": "unpacked/QClaw的skill库/skills/tencent-meeting-mcp",
    "desc": "\"腾讯会议：会议管理与音视频协作助手。预约/创建/修改/取消会议、查询会议详情与会议号转换、查看参会成员/受邀人/等候室成员、查询用户会议列表（即将开始/进行中/已结束）、查询录制列表与下载地址、获取转写全文/段落/搜索、获取AI智能纪要（",
-   "lines": 233,
+   "lines": 239,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/tencent-meeting-mcp"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "tencent-musician-skills",
@@ -2640,12 +2986,14 @@
    "dest": "skill外部/15_数据与分析/tencent-musician-skills",
    "src": "unpacked/QClaw的skill库/skills/tencent-musician-skills",
    "desc": "腾讯音乐人智能分析助手（数据分析 + 宣推）。当用户提到以下任一类请求时触发：",
-   "lines": 378,
+   "lines": 384,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/tencent-musician-skills"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "tencent-news",
@@ -2655,12 +3003,14 @@
    "dest": "skill外部/11_生活与消费/tencent-news",
    "src": "unpacked/QClaw的skill库/skills/tencent-news",
    "desc": "7×24 新闻资讯搜索工具，聚焦中国国内信息和国际热点。支持新闻搜索，包括热点新闻、早报晚报、实时资讯、领域新闻和天气信息查询。当用户需要搜索新闻、新闻热榜、新闻早晚报、订阅新闻推送、获取相关新闻资讯和查询天气信息时使用。",
-   "lines": 227,
+   "lines": 233,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/tencent-news"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "tencent-survey",
@@ -2670,12 +3020,14 @@
    "dest": "skill外部/06_集成与连接器/tencent-survey",
    "src": "unpacked/QClaw的skill库/skills/tencent-survey",
    "desc": "\"腾讯问卷（wj.qq.com）- 在线问卷调查平台。涉及「问卷」「调查」「表单」「投票」「考试」「测评」「wj.qq.com」等操作时优先使用。支持能力：(1) 获取问卷详情（标题、设置、页面、题目、选项完整结构 + 纯文本 DSL）(2",
-   "lines": 251,
+   "lines": 263,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/tencent-survey"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "test-driven-development",
@@ -2691,7 +3043,9 @@
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/test-driven-development",
     "zip/我做的测试领域skills/test-driven-development__1.1.0__20260818/skills/software-development/test-driven-development"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "test-master",
@@ -2701,12 +3055,14 @@
    "dest": "skill外部/07_测试与质量/test-master",
    "src": "unpacked/市面上的测试领域skills/test-master-0.1.0",
    "desc": "Use when writing tests, creating test strategies, or building automation frameworks. Invoke for unit tests, integration ",
-   "lines": 104,
+   "lines": 110,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/市面上的测试领域skills/test-master-0.1.0"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "test-patterns",
@@ -2716,12 +3072,14 @@
    "dest": "skill外部/07_测试与质量/test-patterns",
    "src": "unpacked/市面上的测试领域skills/test-patterns-1.0.0",
    "desc": "Write and run tests across languages and frameworks. Use when setting up test suites, writing unit/integration/E2E tests",
-   "lines": 607,
+   "lines": 619,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/市面上的测试领域skills/test-patterns-1.0.0"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "test-report",
@@ -2731,12 +3089,14 @@
    "dest": "skill自建/07_测试与质量/test-report",
    "src": "unpacked/我做的测试领域skills/test-report__2.7__20260818/skills/qa/test-report",
    "desc": "测试报告生成 — 子模块 + 全量两层流水线。当需要输出HTML测试报告、汇总模块结果给老板看、做发布门禁报告时使用。生成的报告包含用例详情、截图、缺陷、修复建议。老大的样式偏好是V2深色渐变+白色卡片+6列KPI+发布门禁Banner。全",
-   "lines": 686,
+   "lines": 351,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/test-report__2.7__20260818/skills/qa/test-report"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "to-questionnaire",
@@ -2746,12 +3106,14 @@
    "dest": "skill外部/02_开发与工程/to-questionnaire",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/to-questionnaire",
    "desc": "Turn a decision you can't fully answer into a questionnaire for someone else to fill in.",
-   "lines": 54,
+   "lines": 63,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/to-questionnaire"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "to-spec",
@@ -2761,12 +3123,14 @@
    "dest": "skill外部/02_开发与工程/to-spec",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/to-spec",
    "desc": "\"Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of ",
-   "lines": 75,
+   "lines": 90,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/to-spec"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "to-tickets",
@@ -2776,12 +3140,14 @@
    "dest": "skill外部/02_开发与工程/to-tickets",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/to-tickets",
    "desc": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, ",
-   "lines": 105,
+   "lines": 111,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/to-tickets"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "toamyskillhub",
@@ -2797,7 +3163,9 @@
    "all_paths": [
     "repo/toamyskillhub",
     "zip/toamyskillhub/toamyskillhub"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "token-usage-meter",
@@ -2812,7 +3180,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/token-usage-meter__1.0.0__20260911/token-usage-meter"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "tongdaxin-mcp",
@@ -2822,12 +3192,14 @@
    "dest": "skill外部/06_集成与连接器/tongdaxin-mcp",
    "src": "unpacked/QClaw的skill库/skills/tongdaxin-mcp",
    "desc": "通达信连接器，查询全球股票行情数据、研究报告、公告资讯和宏观信息。支持通达信指标、条件选股、个股基本面分析、同行业对比和智能选股筛查。",
-   "lines": 364,
+   "lines": 370,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/tongdaxin-mcp"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "toutiao-news-trends",
@@ -2837,13 +3209,15 @@
    "dest": "skill外部/11_生活与消费/toutiao-news-trends",
    "src": "repo/Noah的skill最佳实践/toutiao-news-trends-0",
    "desc": "获取今日头条(www.toutiao.com)新闻热榜/热搜榜数据 | Get Toutiao (www.toutiao.com) news hot list/trending data 包含时政要闻、财经、社会事件、国际新闻、科技发展及娱",
-   "lines": 127,
+   "lines": 142,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/toutiao-news-trends-0",
     "zip/Noah的skill最佳实践/toutiao-news-trends-0/toutiao-news-trends-0"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "triage",
@@ -2853,12 +3227,14 @@
    "dest": "skill外部/02_开发与工程/triage",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/triage",
    "desc": "Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write age",
-   "lines": 112,
+   "lines": 121,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/triage"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "ui-ux-pro-max",
@@ -2868,12 +3244,14 @@
    "dest": "skill外部/03_图片视频与设计/ui-ux-pro-max",
    "src": "repo/autoClaw的SKILL库/ui-ux-pro-max",
    "desc": "UI/UX design intelligence and implementation guidance for building polished interfaces. Use when the user asks for UI de",
-   "lines": 43,
+   "lines": 55,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/ui-ux-pro-max"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "understand",
@@ -2883,12 +3261,14 @@
    "dest": "skill外部/02_开发与工程/understand",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand",
    "desc": "Analyze a codebase to produce an interactive knowledge graph for understanding architecture, components, and relationshi",
-   "lines": 931,
+   "lines": 937,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "understand-chat",
@@ -2898,12 +3278,14 @@
    "dest": "skill外部/18_沟通与协作/understand-chat",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-chat",
    "desc": "Use when you need to ask questions about a codebase or understand code using a knowledge graph",
-   "lines": 70,
+   "lines": 76,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-chat"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": false
   },
   {
    "name": "understand-dashboard",
@@ -2913,12 +3295,14 @@
    "dest": "skill外部/15_数据与分析/understand-dashboard",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-dashboard",
    "desc": "Launch the interactive web dashboard to visualize a codebase's knowledge graph",
-   "lines": 155,
+   "lines": 170,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-dashboard"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "understand-diff",
@@ -2928,12 +3312,14 @@
    "dest": "skill外部/02_开发与工程/understand-diff",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-diff",
    "desc": "Use when you need to analyze git diffs or pull requests to understand what changed, affected components, and risks",
-   "lines": 85,
+   "lines": 91,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-diff"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "understand-domain",
@@ -2943,12 +3329,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/understand-domain",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-domain",
    "desc": "Extract business domain knowledge from a codebase and generate an interactive domain flow graph. Works standalone (light",
-   "lines": 160,
+   "lines": 169,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-domain"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "understand-explain",
@@ -2958,12 +3346,14 @@
    "dest": "skill外部/02_开发与工程/understand-explain",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-explain",
    "desc": "Use when you need a deep-dive explanation of a specific file, function, or module in the codebase",
-   "lines": 73,
+   "lines": 79,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-explain"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "understand-figma",
@@ -2973,12 +3363,14 @@
    "dest": "skill外部/03_图片视频与设计/understand-figma",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-figma",
    "desc": "Analyze a Figma file via the Figma REST API and generate an interactive design knowledge graph (pages, screens, componen",
-   "lines": 69,
+   "lines": 78,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-figma"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "understand-knowledge",
@@ -2988,12 +3380,14 @@
    "dest": "skill外部/04_文档知识与笔记/understand-knowledge",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-knowledge",
    "desc": "Analyze a Karpathy-pattern LLM wiki knowledge base and generate an interactive knowledge graph with entity extraction, i",
-   "lines": 137,
+   "lines": 146,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-knowledge"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "understand-onboard",
@@ -3003,12 +3397,14 @@
    "dest": "skill外部/03_图片视频与设计/understand-onboard",
    "src": "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-onboard",
    "desc": "Use when you need to generate an onboarding guide for new team members joining a project",
-   "lines": 70,
+   "lines": 76,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/07-Understand-Anything/understand-anything-plugin/skills/understand-onboard"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "using-agent-skills",
@@ -3018,12 +3414,14 @@
    "dest": "skill外部/13_自动化与工作流/using-agent-skills",
    "src": "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/using-agent-skills",
    "desc": "Discovers and invokes agent skills. Use when starting a session, or when you need to decide which skill or workflow appl",
-   "lines": 192,
+   "lines": 198,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills/skills/using-agent-skills"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "verify-slider-bypass",
@@ -3038,7 +3436,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/verify-slider-bypass__n-a__20260818/skills/qa/verify-slider-bypass"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "viral-title-generator",
@@ -3056,7 +3456,9 @@
     "zip/Manus生成微信文章技能/viral-title-generator/viral-title-generator",
     "repo/Marvis生成修改的skills/viral-title-generator",
     "zip/Marvis生成修改的skills/viral-title-generator_MAVIS"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "wait-what",
@@ -3066,12 +3468,14 @@
    "dest": "skill外部/02_开发与工程/wait-what",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/wait-what",
    "desc": "\"Stop. That last message did not land: re-pitch it.\"",
-   "lines": 7,
+   "lines": 22,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/wait-what"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "wayfinder",
@@ -3086,7 +3490,9 @@
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/wayfinder"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "web-exploratory-tester",
@@ -3096,12 +3502,14 @@
    "dest": "skill自建/05_写作与内容创作/web-exploratory-tester",
    "src": "unpacked/我做的测试领域skills/web-exploratory-tester__1.11.0__20260818/skills/qa/web-exploratory-tester",
    "desc": "AI-driven Web 探索性测试工具 - 给一个 URL，自动输出 dogfood 报告。报告支持 3 种格式：单文件 Markdown / 5M 分卷 / Obsidian vault 双链版（每条 issue 一个文件 + `[[",
-   "lines": 2316,
+   "lines": 424,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/web-exploratory-tester__1.11.0__20260818/skills/qa/web-exploratory-tester"
-   ]
+   ],
+   "has_examples": true,
+   "has_references": true
   },
   {
    "name": "web-security-scanning",
@@ -3116,7 +3524,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/web-security-scanning__2.2.0__20260911/web-security-scanning"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "wechat-article-compliance-checker",
@@ -3135,7 +3545,9 @@
     "repo/Marvis生成修改的skills/wechat-article-compliance-checker",
     "zip/Marvis生成修改的skills/wechat-article-compliance-checker-v2",
     "zip/Marvis生成修改的skills/wechat-article-compliance-checker_MAVIS"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "wechat-article-image-integration",
@@ -3152,7 +3564,9 @@
     "repo/Manus生成微信文章技能/wechat-article-image-integration",
     "zip/Manus生成微信文章技能/wechat-article-image-integration/wechat-article-image-integration",
     "zip/Manus生成微信文章技能/wechat-article-image-integration-1"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "wecom-weisheng-scrm",
@@ -3162,12 +3576,14 @@
    "dest": "skill外部/06_集成与连接器/wecom-weisheng-scrm",
    "src": "unpacked/QClaw的skill库/skills/wecom-weisheng-scrm",
    "desc": "\"当用户需要查询或管理微盛企微管家（企业微信） SCRM 中的客户信息、客户标签、客户群、营销素材、活码、群发、跟进记录、聊天记录、联系人、商机、汇报、抽奖、客户日程等相关业务能力时触发。即使用户未明确提到 SCRM、企微管家、开放接口或 ",
-   "lines": 58,
+   "lines": 64,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/wecom-weisheng-scrm"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "wecomcli-setup",
@@ -3182,7 +3598,9 @@
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/wecomcli-setup"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "weibo-hot-search",
@@ -3192,13 +3610,15 @@
    "dest": "skill外部/05_写作与内容创作/weibo-hot-search",
    "src": "repo/Noah的skill最佳实践/weibo-fresh-posts-0",
    "desc": "微博多频道热搜数据采集与可视化 | Weibo Multi-Channel Hot Search Data Collection & Visualization 支持热搜总榜、社会榜、文娱榜、生活榜同时抓取 | Supports hot s",
-   "lines": 265,
+   "lines": 280,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/weibo-fresh-posts-0",
     "zip/Noah的skill最佳实践/weibo-fresh-posts-0/weibo-fresh-posts-0"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "weibo-publisher",
@@ -3208,13 +3628,15 @@
    "dest": "skill外部/09_浏览器爬取与搜索/weibo-publisher",
    "src": "repo/Noah的skill最佳实践/weibo-publisher",
    "desc": "Publish text and image posts to Weibo (m.weibo.cn) using browser automation. Use when the user needs to post content to ",
-   "lines": 118,
+   "lines": 130,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/weibo-publisher",
     "zip/Noah的skill最佳实践/weibo-publisher/weibo-publisher"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "weiyun",
@@ -3224,12 +3646,14 @@
    "dest": "skill外部/06_集成与连接器/weiyun",
    "src": "unpacked/QClaw的skill库/skills/weiyun",
    "desc": "\"微云网盘 MCP 接口完整技能。包含目录列表查询（weiyun.list）、按分类拉取文件列表（weiyun.list_by_category）、批量下载（weiyun.download）、批量删除（weiyun.delete）、文件上传",
-   "lines": 694,
+   "lines": 709,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/weiyun"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "wendao-partner-qclaw-skill",
@@ -3239,12 +3663,14 @@
    "dest": "skill外部/11_生活与消费/wendao-partner-qclaw-skill",
    "src": "unpacked/QClaw的skill库/skills/wendao-partner-qclaw-skill",
    "desc": "\"当用户发起任意旅行相关问询时，包含但不限于：预订酒店、机票查询、火车票查询、景点推荐、寻找当地特色玩乐、目的地查询、行程规划、美食住宿攻略、签证、查询旅游攻略、获取旅行建议等场景，自动触发此技能。当用户需要操作携程、Ctrip、携程问道时",
-   "lines": 115,
+   "lines": 124,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/wendao-partner-qclaw-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "weread-skills",
@@ -3254,12 +3680,14 @@
    "dest": "skill外部/04_文档知识与笔记/weread-skills",
    "src": "unpacked/QClaw的skill库/skills/weread-skills",
    "desc": "\"微信读书智能助手，支持搜索书籍、管理书架、查看笔记划线、浏览书评、阅读统计、发现推荐好书。\"",
-   "lines": 286,
+   "lines": 292,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/weread-skills"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "wizard",
@@ -3274,7 +3702,9 @@
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/engineering/wizard"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "wps",
@@ -3284,12 +3714,14 @@
    "dest": "skill外部/04_文档知识与笔记/wps",
    "src": "repo/autoClaw的SKILL库/wps",
    "desc": "\"WPS Office workflow for Chinese users: create, edit, review, convert, and troubleshoot Writer/Spreadsheets/Presentation",
-   "lines": 91,
+   "lines": 100,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/wps"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "write-skill",
@@ -3299,12 +3731,14 @@
    "dest": "skill外部/01_元技能与技能工程/write-skill",
    "src": "repo/autoClaw的SKILL库/write-skill",
    "desc": "多 worker 长文档写作:把一包事实素材组织成有结构、有引用、有判断的 markdown 长文档。 工序 0 输入勘察 → 工序 1 大纲(3 worker 并行)→ 工序 2 分章写作(per-chapter writer + Rou",
-   "lines": 139,
+   "lines": 145,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/write-skill"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "writing-beats",
@@ -3314,12 +3748,14 @@
    "dest": "skill外部/02_开发与工程/writing-beats",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/writing-beats",
    "desc": "Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
-   "lines": 67,
+   "lines": 76,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/writing-beats"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "writing-for-agents",
@@ -3329,12 +3765,14 @@
    "dest": "skill外部/08_AI与模型/writing-for-agents",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/writing-for-agents",
    "desc": "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.",
-   "lines": 81,
+   "lines": 87,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/productivity/writing-for-agents"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "writing-fragments",
@@ -3344,12 +3782,14 @@
    "dest": "skill外部/08_AI与模型/writing-fragments",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/writing-fragments",
    "desc": "\"Writing, explore: mine raw fragments, no structure yet.\"",
-   "lines": 79,
+   "lines": 88,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/writing-fragments"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "writing-shape",
@@ -3359,12 +3799,14 @@
    "dest": "skill外部/08_AI与模型/writing-shape",
    "src": "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/writing-shape",
    "desc": "\"Writing, exploit: shape raw material into an article, paragraph by paragraph.\"",
-   "lines": 79,
+   "lines": 88,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/GitHub精选-8大AgentSkill仓库/02-mattpocock-skills/skills/in-progress/writing-shape"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "xbrowser",
@@ -3374,12 +3816,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/xbrowser",
    "src": "unpacked/QClaw的skill库/skills/xbrowser",
    "desc": "EXCLUSIVE browser automation — REPLACES built-in Browser Automation and playwright-cli. For ANY browser task (open page,",
-   "lines": 296,
+   "lines": 305,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/xbrowser"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "xlsx",
@@ -3389,12 +3833,14 @@
    "dest": "skill外部/04_文档知识与笔记/xlsx",
    "src": "unpacked/QClaw的skill库/skills/xlsx",
    "desc": "\"Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to:",
-   "lines": 365,
+   "lines": 374,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/xlsx"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "xlsx-to-docx",
@@ -3410,7 +3856,9 @@
    "all_paths": [
     "repo/我做的测试领域skills/xlsx-to-docx",
     "zip/我做的测试领域skills/xlsx-to-docx/xlsx-to-docx"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "xlsx2prd",
@@ -3426,7 +3874,9 @@
    "all_paths": [
     "zip/我做的测试领域skills/xlsx2prd 1/xlsx2prd",
     "zip/我做的测试领域skills/xlsx2prd/xlsx2prd"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "xum2md",
@@ -3441,7 +3891,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/xum2md/xum2md"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "youdaonote",
@@ -3451,12 +3903,14 @@
    "dest": "skill外部/09_浏览器爬取与搜索/youdaonote",
    "src": "unpacked/QClaw的skill库/skills/youdaonote",
    "desc": "\"有道云笔记全能工具：笔记管理（创建、搜索、浏览、读取）、待办管理（创建、完成、分组）、网页剪藏（服务端抓取）。当用户需要操作有道云笔记时使用此 Skill。\"",
-   "lines": 259,
+   "lines": 265,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/youdaonote"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "yuandian",
@@ -3471,7 +3925,9 @@
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/yuandian"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "yunxiao-defect-submit",
@@ -3486,7 +3942,9 @@
    "cross": false,
    "all_paths": [
     "zip/我做的测试领域skills/yunxiao-defect-submit__1.1__20260818/skills/qa/yunxiao-defect-submit"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "zhihu-fetcher",
@@ -3496,13 +3954,15 @@
    "dest": "skill外部/09_浏览器爬取与搜索/zhihu-fetcher",
    "src": "repo/Noah的skill最佳实践/zhihu-fetcher",
    "desc": "知乎数据获取 - 极简设计，支持三级认证降级（Browser Profile → File Cookie → Fallback），确保数据可靠获取 Zhihu Data Fetcher - Minimalist design with th",
-   "lines": 366,
+   "lines": 375,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/Noah的skill最佳实践/zhihu-fetcher",
     "zip/Noah的skill最佳实践/zhihu-fetcher/zhihu-fetcher"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   },
   {
    "name": "得到大脑（Get笔记）",
@@ -3512,12 +3972,14 @@
    "dest": "skill外部/04_文档知识与笔记/得到大脑（Get笔记）",
    "src": "unpacked/QClaw的skill库/skills/getnote",
    "desc": "得到大脑（Get笔记）- 保存、搜索、管理个人笔记和知识库。  **当以下情况时使用此 Skill**： (1) 用户要保存内容到笔记：发链接、发图片、说「记一下」「存到笔记」「保存」「收藏」 (2) 用户要搜索或查看笔记：「搜一下」「找找",
-   "lines": 200,
+   "lines": 209,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "zip/QClaw的skill库/skills/getnote"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": true
   },
   {
    "name": "挖券券儿",
@@ -3527,91 +3989,14 @@
    "dest": "skill外部/11_生活与消费/挖券券儿",
    "src": "repo/autoClaw的SKILL库/挖券券儿",
    "desc": "\"外卖红包优惠券领券神器，一个链接领美团/饿了么/京东外卖全部隐藏优惠，无需注册无需API Key\"",
-   "lines": 84,
+   "lines": 99,
    "dup_count": 0,
    "cross": false,
    "all_paths": [
     "repo/autoClaw的SKILL库/挖券券儿"
-   ]
+   ],
+   "has_examples": false,
+   "has_references": false
   }
- ],
- "zips": [
-  "byted-ark-seedream-skill.zip",
-  "toamyskillhub.zip",
-  "Noah的skill最佳实践/weibo-fresh-posts-0.zip",
-  "Noah的skill最佳实践/toutiao-news-trends-0.zip",
-  "Noah的skill最佳实践/zhihu-fetcher.zip",
-  "Noah的skill最佳实践/douyin-hot-trend-1.zip",
-  "Noah的skill最佳实践/weibo-publisher.zip",
-  "Noah的skill最佳实践/rss_fetcher.zip",
-  "Noah的skill最佳实践/baidu-hot-cn-1.zip",
-  "Noah的skill最佳实践/ec_creator.zip",
-  "codex的skill/feishu2slide-portable-release-20260625-0649.zip",
-  "QClaw的skill库/skills.zip",
-  "GitHub精选-8大AgentSkill仓库/06-impeccable.zip",
-  "GitHub精选-8大AgentSkill仓库/08-obsidian-skills.zip",
-  "GitHub精选-8大AgentSkill仓库/05-taste-skill.zip",
-  "GitHub精选-8大AgentSkill仓库/03-ponytail.zip",
-  "GitHub精选-8大AgentSkill仓库/01-andrej-karpathy-skills.zip",
-  "GitHub精选-8大AgentSkill仓库/02-mattpocock-skills.zip",
-  "GitHub精选-8大AgentSkill仓库/04-addyosmani-agent-skills.zip",
-  "GitHub精选-8大AgentSkill仓库/07-Understand-Anything.zip",
-  "知识萃取和复盘相关skill/daily-paper-collector.zip",
-  "知识萃取和复盘相关skill/double-triangle-review-V2-L6等级.zip",
-  "所有claw必装skills/getnote-openclaw-main.zip",
-  "所有claw必装skills/getnote.zip",
-  "所有claw必装skills/skill-vetter.zip",
-  "所有claw必装skills/metaphor-scholar.zip",
-  "Manus生成微信文章技能/ai-muse-business-weekly.zip",
-  "Manus生成微信文章技能/article-layout-formatter.zip",
-  "Manus生成微信文章技能/marketing-model-article-writer.zip",
-  "Manus生成微信文章技能/wechat-article-image-integration.zip",
-  "Manus生成微信文章技能/article-layout-formatter_MAVIS.zip",
-  "Manus生成微信文章技能/one-page-tutorial.zip",
-  "Manus生成微信文章技能/ai-trend-report-layout.zip",
-  "Manus生成微信文章技能/marketing-model-article-writerV2.zip",
-  "Manus生成微信文章技能/article-layout-formatterV1.zip",
-  "Manus生成微信文章技能/Get笔记-Manus适用.zip",
-  "Manus生成微信文章技能/wechat-article-compliance-checkerV1.0.zip",
-  "Manus生成微信文章技能/knowledge-sharing-article-layout.zip",
-  "Manus生成微信文章技能/one-page-tutorial-V1.zip",
-  "Manus生成微信文章技能/wechat-article-image-integration-1.zip",
-  "Manus生成微信文章技能/viral-title-generator.zip",
-  "Manus生成微信文章技能/marketing-model-article-writerV1.zip",
-  "Manus生成微信文章技能/知识库技能-从输入提炼到输出全套/short-video-transcriber.zip",
-  "agent共用skills/hermes-model-switchover-drill__v1.4.0__20261110.zip",
-  "我做的测试领域skills/web-security-scanning__2.2.0__20260911.zip",
-  "我做的测试领域skills/cron-scheduled-test-runner__1.0.0__20260818.zip",
-  "我做的测试领域skills/xlsx2prd 1.zip",
-  "我做的测试领域skills/monitored-test-framework__n-a__20260818.zip",
-  "我做的测试领域skills/token-usage-meter__1.0.0__20260911.zip",
-  "我做的测试领域skills/test-driven-development__1.1.0__20260818.zip",
-  "我做的测试领域skills/xlsx-to-docx.zip",
-  "我做的测试领域skills/test-report__2.7__20260818.zip",
-  "我做的测试领域skills/prompt-xray__1.0.0__20260818.zip",
-  "我做的测试领域skills/sub-module-test-report__1.0-deprecated__20260818.zip",
-  "我做的测试领域skills/web-exploratory-tester__1.11.0__20260818.zip",
-  "我做的测试领域skills/yunxiao-defect-submit__1.1__20260818.zip",
-  "我做的测试领域skills/verify-slider-bypass__n-a__20260818.zip",
-  "我做的测试领域skills/prd2ytlist.zip",
-  "我做的测试领域skills/hermes-model-backup-failover__1.1.0__20260920.zip",
-  "我做的测试领域skills/srmpro-login__n-a__20260818.zip",
-  "我做的测试领域skills/post-task-methodology-loop__n-a__20260818.zip",
-  "我做的测试领域skills/xum2md.zip",
-  "我做的测试领域skills/kb-bootstrap.zip",
-  "我做的测试领域skills/xlsx2prd.zip",
-  "我做的测试领域skills/double-triangle-review.zip",
-  "Marvis生成修改的skills/wechat-article-compliance-checker_MAVIS.zip",
-  "Marvis生成修改的skills/double-triangle-review-V1-L3等级.zip",
-  "Marvis生成修改的skills/fact-verifier.zip",
-  "Marvis生成修改的skills/wechat-article-compliance-checker-v2.zip",
-  "Marvis生成修改的skills/viral-title-generator_MAVIS.zip",
-  "Marvis生成修改的skills/arxiv-obsidian-collector.zip",
-  "Marvis生成修改的skills/human-voice-modeler.zip",
-  "Marvis生成修改的skills/article-image-integration_MAVIS.zip",
-  "Marvis生成修改的skills/article-layout-formatter_MAVIS.zip",
-  "市面上的测试领域skills/test-master-0.1.0.zip",
-  "市面上的测试领域skills/test-patterns-1.0.0.zip",
-  "市面上的测试领域skills/kuangshi-ai-testing-27-skills-index.zip"
  ]
 }

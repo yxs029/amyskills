@@ -29,73 +29,7 @@ description: SRMPRO (test.esicint.com) 一键登录封装。集成 Playwright �
 
 ---
 
-## Step 1 — 首次登录 (完整流程, 60-90 秒)
-
-### 1.1 准备
-```bash
-# 关键路径 (固定, 不要改)
-PW_BIN="/home/aaronmy/.openclaw/workspace/bi-automation/venv/bin/python"
-PW_DIR="/home/aaronmy/.openclaw/workspace/bi-automation"
-STATE_PATH="/home/aaronmy/文档/移动云盘同步盘/10ESIC软件测试/SRMPRO/测试过程数据/00_通用工具/srmpro_storage_state.json"
-SCREENSHOT_PATH="/tmp/srmpro_logged_in.png"
-```
-
-### 1.2 环境变量加载
-```bash
-export TEST_USERNAME="admin"
-export TEST_PASSWORD="Esic@2024"  # 老大 2026-06-03 明确给出
-```
-
-### 1.3 登录脚本
-```python
-import sys, os
-sys.path.insert(0, '/home/aaronmy/.openclaw/workspace/bi-automation')
-os.environ['TEST_USERNAME'] = 'admin'
-os.environ['TEST_PASSWORD'] = 'Esic@2024'
-
-from playwright.sync_api import sync_playwright
-from robust_login import robust_login  # ← 关键! bi-automation 项目里已有
-
-with sync_playwright() as p:
-    browser = p.chromium.launch(
-        headless=True,  # 无显示器环境必须 headless
-        args=['--no-sandbox', '--disable-dev-shm-usage',
-              '--disable-blink-features=AutomationControlled'],
-    )
-    context = browser.new_context(viewport={'width': 1280, 'height': 800})
-    page = context.new_page()
-
-    config = {
-        'base_url': 'https://test.esicint.com/index',
-        'username': 'admin',
-        'password': 'Esic@2024',
-        'max_retries': 3,
-        'wait_after_login': 5,
-    }
-
-    robust_login(page, config)  # ← 真实 mouse 拖动, ease-out 曲线
-
-    # ✅ 验证: URL 应该是 /index, 不是 /login
-    assert '/index' in page.url, f"登录失败! URL: {page.url}"
-    print(f"✅ 登录成功! URL: {page.url}")
-
-    # 💾 保存 storage_state (永久跳过滑块)
-    context.storage_state(path=STATE_PATH)
-    print(f"💾 storage_state: {STATE_PATH}")
-
-    # 📸 截图
-    page.screenshot(path=SCREENSHOT_PATH, full_page=False)
-    print(f"📸 截图: {SCREENSHOT_PATH}")
-
-    browser.close()
-```
-
-### 1.4 成功标志
-- `URL: https://test.esicint.com/index` (不是 `/login?redirect=...`)
-- `srmpro_storage_state.json` 写入 (49KB 左右)
-- 截图里有 SRMPRO dashboard, 没有"请登录"
-
----
+> 📎 该章节已外置：[`references/OFFLOADED_Step 1 — 首次登录 (完整流程, 60-90 秒).md`](./references/OFFLOADED_Step 1 — 首次登录 (完整流程, 60-90 秒).md)（better-skill P1-4 引用库离线化）
 
 ## Step 2 — storage_state 复用 (3 秒登录)
 
@@ -377,47 +311,7 @@ ls /home/aaronmy/.openclaw/workspace/bi-automation/robust_login.py
 - 多账号测试时，每个账号需要独立的 browser context，登出逻辑: 直接 `browser.close()` 再开新 browser
 - 不要在同一 context 中切换账号，cookie 会冲突
 
-## 📋 文档库页面结构 (2026-06-16 实战确认)
-
-文档库 `/SupplierManagement/newDocument` 的实际结构：
-
-- **不是** 传统 el-tree 树形控件
-- **是** 表格+可展开行结构（类似 el-table 的 expand row）
-- 统计卡片（4个：文档类型总数/已上传/即将过期/已过期）在顶部
-- 表格 5 个分类行（财务/资质/协议/审核/文档），每行有"展开"按钮
-- "展开全部"按钮选择器: `text=展开全部`
-- 展开后显示子类型行（如营业执照/ISO证书等），共 35 个子类型
-- 导出按钮: "资质文档统计下载" / "协议签署统计下载"
-
-**⚠️ 权限控制关键发现:**
-- 汇总统计卡片和分类行数据是**全量数据**，未按采购员归属关系过滤
-- 权限控制在**操作层拦截**（点击展开弹出"没有该操作权限"），而非数据层过滤
-- 无权限用户(aarontest)直接访问文档库 URL 返回 **404 错误页**，而非空数据页
-- 这意味着: 视觉对比（admin vs testadmin 截图）是验证权限的**必需步骤**，自动化脚本判断不够
-
-**自动化测试选择器:**
-```python
-# 展开全部
-page.click('text=展开全部')  # ✅ 有效
-page.query_selector('.el-tree-node__expand-icon')  # ❌ 找不到（不是 el-tree）
-
-# 导出按钮
-page.query_selector('button:has-text("资质文档统计下载")')  # ✅
-page.query_selector('button:has-text("协议签署统计下载")')  # ✅
-
-# 搜索框
-page.query_selector('input[placeholder*="搜索"], .el-input__inner')  # ✅
-```
-
-**📚 详细参考文档 (linked files):**
-- `references/document-library-permission-testing.md` — 三账号权限对比测试模板 (admin/testadmin/aarontest)。**2026-06-17 v6 更新**: 新增 Excel 下载落地验证模板 (`expect_download` + openpyxl 行数/关键字/表头三件套)、测试环境基准数表 (admin=3236 行, S3 越权关键字"重庆智博")、长测脚本后台调度模板 (`tee` + 分段 poll)、8 个 P0 已知缺陷清单。**v5 教训**: 不做下载落盘验证会让 P0 通过率虚高 (v5 80% 实际 20%)
-- `references/document-library-filter-testing.md` — 筛选区 (搜索行+分段器) 测试，含 13 个 TC-SEARCH/SEG 用例的精确选择器、视口外点击陷阱 (`force=True`)、Playwright EPIPE 崩溃规避、HTML 报告 `%` 格式化陷阱、已发现的 2 个 P1 缺陷 (重置按钮不生效/空状态文案通用化)
-- `references/document-library-tree-testing.md` — 树形列表区 (16 个 TC-TREE 用例) 测试，含 16 个用例实测结果、3 个真实缺陷 (含 1 个 P0: 协议文档三级结构缺失)、精确选择器、JS evaluate 引号转义陷阱、行展开操作模板
-- `references/document-library-modal-testing.md` — 文档详情弹窗 (26 个 TC-MODAL 用例) 测试，含 5 个核心模式 (弹窗检测/打开/关闭/JS批量样式采样/接口路由拦截)、5 个真实缺陷 (4 个 P1 样式规则未落地)、与树形列表区背景色规则不一致的强信号、弹窗持久化共享设计
-- `references/srmpro-layout-shift-pitfalls.md` - **2026-07-08 新增**：展开全部后搜索框/分页器不可见导致 Playwright fill/click 30s 超时的 3 种解法（JS evaluate 设值 / 先收起再操作 / force=True 强制点击）
-- `references/playwright-evaluate-pitfalls.md` - **必读**：`pg.evaluate()` 内 `document.querySelector*` 不支持 Playwright 自定义伪类 (`:visible` / `:has-text()` / `:nth-match()`)，会抛 SyntaxError 让整个用例 fail。给出 SRMPRO 弹窗场景下 3 种修法（推荐：`offsetParent !== null` + `wrapper.style.display !== 'none'` 原生判可见）+ 写脚本前 grep 自检命令。2026-06-17 数据权限 v5 测试 3 处踩坑教训。
-- `references/batch-execution-log-merge.md` - **2026-07-17 新增**：38 个用例分 4 批执行 + 日志合并恢复完整方案（EPIPE 崩溃规避、JSON 覆盖问题、正则提取用例结果）
-- `references/element-ui-select-dropdown-pitfall.md` - **2026-07-18 新增**：Element UI el-select 大量选项时 Playwright click 30s 超时陷阱（109 个选项只有 10 个 visible）。解法：用 JS evaluate 遍历 `offsetParent !== null` 找可见选项。含 SRMPRO 图纸库上传弹窗真实 DOM 选择器对照表
+> 📎 该章节已外置：[`references/OFFLOADED_📋 文档库页面结构 (2026-06-16 实战确认).md`](./references/OFFLOADED_📋 文档库页面结构 (2026-06-16 实战确认).md)（better-skill P1-4 引用库离线化）
 
 ## 🔗 配套 skills
 
@@ -438,55 +332,7 @@ page.query_selector('input[placeholder*="搜索"], .el-input__inner')  # ✅
 
 ---
 
-## ⚠️ SCC 系统变种 (2026-07-28 实战)
-
-**关键发现**: SCC 系统 (`http://scc.esicint.com`) 用的是**和 SRMPRO 完全相同的 verify 组件**，但有以下差异：
-
-| 项目 | SRMPRO (test.esicint.com) | SCC (scc.esicint.com) |
-|------|--------------------------|------------------------|
-| 账号密码 | admin/Esic@2024 | **admin/Esic@2024 (相同！)** |
-| 滑块 selector | `.verify-btn` | **`.verify-btn` (相同！)** |
-| 后端 API 前缀 | `/admin-api/` | `/admin-api/` |
-| 浏览器路径 | 系统 chromium 即可 | **系统 chromium 即可** |
-| 菜单结构 | 侧边栏 el-menu-item | **悬停弹出 popover（不是侧边栏！）** |
-| 登录后主页 | `/index` | `/index` (相同) |
-| 登录按钮 | `el-button--primary` | **`el-button--primary` (相同)** |
-| 注意坑 | 多账号需独立 context | 菜单 hover 后**会消失**，必须每次重新 hover |
-
-**SCC 菜单遍历关键陷阱（2026-07-28 踩坑）**:
-
-SCC 用的是 **`.menu-btn.el-popover__reference` 悬停弹出菜单**，不是 el-submenu 侧边栏。每次点击子菜单后弹层消失，**必须重新 hover 一级菜单**才能继续点下一个。
-
-```python
-# 错：连续 hover 完再点 → 菜单已消失
-for sub_text in sub_items:
-    sub_elem.click()  # ❌ 第二次点击找不到子菜单
-
-# 对：每次点前重新 hover
-for sub_text in sub_items:
-    menu.hover()  # ✅ 重新弹层
-    page.wait_for_timeout(300)
-    sub_elem = page.locator(f'.el-cascader-node:has-text("{sub_text}")').first
-    sub_elem.click()
-```
-
-子菜单 selector：`.el-cascader-node`（在弹出的 popover 里），**不是** `.el-submenu` 或 `.el-menu-item`。
-
-**SCC 后端路径发现**（从 `index.js` 静态提取）：
-
-- baseURL: `http://scc.esicint.com:48080/admin-api/`
-- **但 48080 端口外网直连 timeout**——必须通过 nginx 反代（前端域名）
-- 浏览器内 `fetch('/admin-api/...')` 才能通
-- API 572 个，11 个 500 错误，最严重是 `/ov/ai-agent/prepare-converse` 泄露内网 IP
-
-**SCC 与 SRMPRO 的核心共同点**（决定了可以复用本 skill 的 `login_helper.py`）：
-
-1. 同 verify 组件 → 同滑块绕过策略
-2. 同 admin 账号 → 同密码复用
-3. 同 `/admin-api/` 前缀 → 同 Bearer Token 鉴权
-4. 同 `/index` 登录后跳转 → 验证逻辑一致
-
-→ **结论**：SCC 系统登录直接走本 skill 的 Step 1（首次）或 Step 2（复用 storage_state），不需要新写轮子。
+> 📎 该章节已外置：[`references/OFFLOADED_⚠️ SCC 系统变种 (2026-07-28 实战).md`](./references/OFFLOADED_⚠️ SCC 系统变种 (2026-07-28 实战).md)（better-skill P1-4 引用库离线化）
 
 ## ⚠️ 浏览器模式：老大 2026-07-17 明确要求全部有头（headless=False）
 
@@ -525,59 +371,7 @@ ls /tmp/.X11-unix/        # 应有 X0 屏幕 socket
 
 完整模板见 `references/srmpro-login-button-disabled-pitfall.md`。
 
-## ⚠️ 共享登录模块 login_helper.py（2026-07-17 实战验证）
-
-**问题**: 9 个测试脚本各自复制粘贴了 broken 的 `smart_login` 函数（简单 fill+click），全部卡在登录按钮 disabled。逐个修复耗时巨大且容易遗漏。
-
-**解决方案**: 写一个共享 `login_helper.py`，所有脚本 `from login_helper import login_admin` 一行搞定：
-
-```python
-# login_helper.py 放在 scripts/ 目录下
-import sys
-BI_AUTO_DIR = "/home/aaronmy/.openclaw/workspace/bi-automation"
-if BI_AUTO_DIR not in sys.path:
-    sys.path.insert(0, BI_AUTO_DIR)
-from robust_login import robust_login
-
-EXEC_PATH = "/home/aaronmy/.cache/ms-playwright/chromium-1134/chrome-linux/chrome"
-
-ACCOUNTS = {
-    "admin": {"username": "admin", "password": "Esic@2024"},
-    "testadmin": {"username": "testadmin", "password": "Esic@2024"},
-    "aarontest": {"username": "aarontest", "password": "Esic@2024"},
-}
-
-def create_browser(headless=False):
-    pw = sync_playwright().start()
-    browser = pw.chromium.launch(
-        headless=headless, executable_path=EXEC_PATH,
-        args=['--no-sandbox', '--disable-dev-shm-usage',
-              '--disable-blink-features=AutomationControlled'],
-    )
-    return pw, browser
-
-def login_admin(page, account_type="admin"):
-    acct = ACCOUNTS.get(account_type, ACCOUNTS["admin"])
-    robust_login(page, {
-        'base_url': 'https://test.esicint.com/index',
-        'username': acct['username'], 'password': acct['password'],
-        'max_retries': 3, 'wait_after_login': 5,
-    })
-    return '/login' not in page.url.lower()
-```
-
-**使用方式**（在每个测试脚本中）：
-```python
-def smart_login(page, account_type="admin"):
-    from login_helper import login_admin as _login
-    _login(page, account_type)
-    page.wait_for_timeout(2000)
-    return True
-```
-
-**批量替换旧 smart_login**：用正则 `def smart_login\(page.*?\):\n.*?(?=\ndef |\nclass |\n# ===)` 匹配旧函数体，替换为 4 行 import 版本。
-
-**验证结果**: 2026-07-17 实战，9 个脚本全部一次性登录成功（滑块一次过），M01 38 个用例全 PASS。
+> 📎 该章节已外置：[`references/OFFLOADED_⚠️ 共享登录模块 login_helper.py（2026-07-17 实战验证）.md`](./references/OFFLOADED_⚠️ 共享登录模块 login_helper.py（2026-07-17 实战验证）.md)（better-skill P1-4 引用库离线化）
 
 ## ⚠️ 长测试批次执行 + 日志合并（2026-07-17 实战）
 
@@ -609,30 +403,7 @@ for logfile in ['/tmp/m01_test_v2.log', '/tmp/m01_batch2.log', ...]:
 
 **关键教训**: 测试脚本的 `save_results()` 默认覆盖文件。如果分批跑，要么改成追加模式，要么用独立的 `_final.json` 文件保存合并结果。
 
-## ⚠️ 测试环境写操作执行原则（2026-07-17 用户明确纠正）
-
-**用户原话**: "如果已经登录了，就直接测试啊，图纸库就是这样的，测试环境都可以操作" / "删除新增你随意，图纸库就是这样的，测试环境都可以操作"
-
-**铁律**: 在 SRMPRO **测试环境**（`test.esicint.com`，非生产）中执行自动化测试时，
-**写操作（上传/关联/归档/删除/配置变更）必须真正执行，不要标记为 cron-unsafe 跳过。**
-
-**错误做法**（本次踩坑）:
-- 把 31 个涉及写操作的用例一刀切标记为 `status="skip"` + defect="需手动执行"
-- 理由"怕污染测试环境数据" —— 但测试环境就是用来造数据的
-
-**正确做法**:
-- 登录后直接执行写操作，每个用例独立 try/except，异常不影响后续用例
-- 上传→可删；关联→可取消关联；归档→可恢复；这些都是可逆操作，正常测
-- 无数据的列表（0行）反而应该通过上传造数据，让后续读取类用例有数据可验证
-- **唯一需谨慎的**: 真正不可逆且影响全局的操作（如删除生产数据、改全局配置生效时间窗口）
-  ——但也仅在"生产环境"才谨慎，测试环境随便
-
-**cron-unsafe 仅适用于**: 无人值守的 cron 定时任务（怕自动跑污染），且即使如此，
-测试环境的 cron 也可以放开写操作，只是生产环境 cron 必须 skip。
-
-**判别标准**:
-- 人工触发的测试（terminal/后台执行）→ 写操作全部真执行
-- cron 定时任务 → 写操作可 skip，但测试环境 cron 也可放开
+> 📎 该章节已外置：[`references/OFFLOADED_⚠️ 测试环境写操作执行原则（2026-07-17 用户明确纠正）.md`](./references/OFFLOADED_⚠️ 测试环境写操作执行原则（2026-07-17 用户明确纠正）.md)（better-skill P1-4 引用库离线化）
 
 ## ⚠️ OPRASE 目录结构规范（2026-07-17 用户明确纠正）
 
@@ -708,75 +479,7 @@ with sync_playwright() as p:
 
 ---
 
-## ⚠️ 禁止重写登录轮子（2026-07-28 侧边栏遍历任务踩坑）
+> 📎 该章节已外置：[`references/OFFLOADED_⚠️ 禁止重写登录轮子（2026-07-28 侧边栏遍历任务踩坑）.md`](./references/OFFLOADED_⚠️ 禁止重写登录轮子（2026-07-28 侧边栏遍历任务踩坑）.md)（better-skill P1-4 引用库离线化）
 
-**踩坑背景**：老大要求 "把侧边栏遍历到最底层目录"，本 agent 从零写了个 `sidebar_traversal_test.py`，完全没意识到已有本 skill 提供的 `login_helper.py` + bi-automation venv + robust_login.py 黄金组合。结果：
+> 📎 该章节已外置：[`references/OFFLOADED_⚠️ 视觉反馈 ≠ 服务端验证（2026-07-28 实战发现）.md`](./references/OFFLOADED_⚠️ 视觉反馈 ≠ 服务端验证（2026-07-28 实战发现）.md)（better-skill P1-4 引用库离线化）
 
-- ❌ 5+ 次登录失败（dispatchEvent / 真实 mouse / Xvfb / launch_persistent_context 全部尝试）
-- ❌ 自己造了 Playwright headless + system Chrome 路径，又造了坐标定位 + DOM 截图分析，浪费 1 小时
-- ❌ 最终决定"任务未完成"归档，让老大失望
-
-**铁律**：
-
-1. **任何 SRMPRO 登录需求** → 加载本 skill，**直接用** `templates/login_helper.py` 或 `bi-automation/robust_login.py`
-2. **不要从零写登录脚本** —— 滑块验证、Vue ref、ESIC 解锁、设备指纹、浏览器路径全部踩过坑
-3. **不要相信 "用 images 估算坐标 + mouse.click" 能成功** —— 视觉反馈 ≠ 服务端验证通过，UI 显示绿色但按钮仍 disabled 的情况反复出现
-4. **bi-automation venv 路径**：`/home/aaronmy/.openclaw/workspace/bi-automation/venv/bin/python` —— 这是唯一验过能过 SRMPRO 滑块的 venv
-5. **老大 2026-07-17 明确要求 headless=False** —— 即使是后台脚本，也必须有 X server 跑（`$DISPLAY=:0`）
-
-**如何正确处理新任务**（如侧边栏遍历）：
-
-```bash
-# Step 1: 加载 srmpro-login skill（已完成）
-# Step 2: 用 login_helper 一行登录
-from login_helper import login_admin
-login_admin(page, "admin")  # 拿到已登录 page
-
-# Step 3: 写真正的测试逻辑（不重新造登录代码）
-for menu_item in get_all_menu_items(page):
-    test_menu(page, menu_item)
-```
-
-**判别标准**（"是不是在重写轮子"）：
-- ❌ 自己写 `page.fill('input[placeholder*=用户]')` —— 用 `login_helper.login_admin()`
-- ❌ 自己写 mouse.down / move / up 拖滑块 —— 用 `robust_login()`
-- ❌ 自己定义 `BASE_URL` 找凭据 —— 用 `ACCOUNTS['admin']`
-- ❌ 自己选浏览器 executable_path —— 用 `login_helper.create_browser()`
-
-**结论**：本 skill 是 SRMPRO 登录的唯一入口。加载即用，不重写。
-
----
-
-## ⚠️ 视觉反馈 ≠ 服务端验证（2026-07-28 实战发现）
-
-**问题**：滑块拖动后 UI 显示绿色（视觉反馈），但登录按钮仍 `disabled`（实际服务端验证失败）。
-
-**判别方法**（不要被假象骗了）：
-
-```javascript
-// 必须等 2 秒看按钮状态
-await new Promise(r => setTimeout(r, 2000));
-const btn = document.querySelector('button[ref*="login"], button:has-text("login")');
-const realStatus = {
-  url: location.href,
-  loginBtnDisabled: btn?.disabled,  // ← 真实状态
-  sliderVisualGreen: !!document.querySelector('[class*="verify"][class*="success"]'),
-};
-console.log(realStatus);
-// 失败样本: loginBtnDisabled=true 但 sliderVisualGreen=true
-// 成功样本: loginBtnDisabled=false 且 page.goto('/index') 后不在 /login
-```
-
-**根本原因**：SRMPRO 滑块是**服务端验证**（v3.0 server-side captcha code）—— UI 显示绿色可能是 local state 更新，但服务端 session 没有真正通过验证。
-
-**不要**：
-- 用图像模型估计滑块坐标 → 点击 → 看到绿色就以为成功
-- 用 JavaScript dispatchEvent 触发 mouse events（v1.0 路径）→ 服务端识别为机器人
-- 用 Xvfb + 真实鼠标拖动 → 服务端识别为 headless chromium
-
-**要**：
-- 用 `bi-automation/venv/bin/python` + `robust_login()` —— 已验证 100% 成功（2026-06-04 实战）
-- 如果还是失败，回退到 `verify-slider-bypass` skill 的 v1.7/v1.8 阶梯
-- **终极方案**：让老大在浏览器手动登录，导出 `context.storage_state(path=...)`，下次直接 `storage_state=` 复用
-
-**判别陷阱**：跑完登录后**必须**用 `assert '/index' in page.url` 验证最终状态，不要被 slider 绿色迷惑。

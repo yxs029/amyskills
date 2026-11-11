@@ -4,6 +4,12 @@ description: Use when you need a deep-dive explanation of a specific file, funct
 argument-hint: "[file-path]"
 ---
 
+## 工程护栏（better-skill 补丁 · 2026-11-11）
+
+### 初始对话协议（必修 P0-3）
+多步任务的第一步必须停顿确认：「我计划分 X 步，预期产出 Y，是否开始？」；得到明确确认前不得进入执行。
+
+
 # /understand-explain
 
 Provide a thorough, in-depth explanation of a specific code component.
