@@ -2,6 +2,7 @@
  * dsh-market host entry: mounts the market's HTTP routes once the profile
  * composes the webServer and shell services.
  */
+import z from '@deepseek-ai/schemastery';
 import { dirname, isAbsolute } from 'node:path';
 import { createDesktopPluginRuntime, setHostPackageManager } from './dsh-cli.js';
 import { createOfficialDesktopRuntime } from './official-desktop.js';
@@ -22,6 +23,18 @@ export const name = 'dsh-market';
  * (#928). Nothing happens when the journal is empty, which is the normal case.
  */
 const PENDING_UPDATE_REPAIR_DELAY_MS = 8_000;
+/** A field the form may edit; newer hosts hand one back as a live reference (#1144). */
+const editable = (schema) => schema.extra('volatile', true);
+const valueOf = (field) => typeof field?.get === 'function' ? field.get() : field;
+/** dsh 0.1.7+ builds its form from `plugin.Config` and writes `simplify(config)` back, so every field the market reads is named here or the first form save deletes it. Each is loose: an older composition still boots, a mistyped value is dropped, and neither editable field takes a default, so "unconfigured" stays distinguishable (#1144, #229). */
+export const Config = z.object({
+    profile: z.string().loose(),
+    channel: z.string().loose(),
+    region: z.string().loose(),
+    allowRestart: editable(z.boolean().loose()),
+    maxSnapshots: editable(z.number().loose()),
+    buildEnv: z.dict(z.any()).loose().extra('default', undefined),
+}).loose();
 /**
  * Register the market against the host context.
  * @param ctx - Host context that may acquire webServer and shell services.
@@ -289,7 +302,7 @@ export function apply(ctx, config) {
                     },
                     desktopHost: true,
                     allowRestart: false,
-                    maxSnapshots: config?.maxSnapshots,
+                    maxSnapshots: valueOf(config?.maxSnapshots),
                     // The third construction site, and the one #527's review caught
                     // missing: a `buildEnv` configured in cordis.yml was silently
                     // dropped on the official desktop host — the very host the feature
@@ -342,8 +355,8 @@ export function apply(ctx, config) {
                 // would turn "the operator said nothing" into "the operator said
                 // yes", and restartAllowed() could no longer tell them apart — which
                 // is exactly the distinction supervisor detection needs (#229).
-                allowRestart: config?.allowRestart,
-                maxSnapshots: config?.maxSnapshots,
+                allowRestart: valueOf(config?.allowRestart),
+                maxSnapshots: valueOf(config?.maxSnapshots),
                 // Build-time environment (#336); undefined means "inherit", and the
                 // settings wiring below is what makes it editable at runtime.
                 buildEnv: config?.buildEnv,
@@ -388,7 +401,7 @@ export function apply(ctx, config) {
                 // Relaunching a raw Electron process would bypass Desktop's launcher
                 // lifecycle. The shell remains responsible for restart in this mode.
                 allowRestart: false,
-                maxSnapshots: config?.maxSnapshots,
+                maxSnapshots: valueOf(config?.maxSnapshots),
                 // The operator's pinned build environment applies in Desktop mode
                 // too: Desktop's packaged pnpm still runs plugin build scripts.
                 buildEnv: config?.buildEnv,

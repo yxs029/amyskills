@@ -385,7 +385,9 @@ export declare function hotMount(ctx: HotContext, profileDir: string, packageNam
  * in every boot — this is what makes them behave like normal plugins.
  * @returns names that were mounted.
  */
-export declare function mountClientOnlyDeps(ctx: HotContext, profileDir: string): Promise<string[]>;
+export declare function mountClientOnlyDeps(ctx: HotContext, profileDir: string, 
+/** The host's install directory; `undefined` finds it, `null` means "do not look". */
+hostDirectory?: string | null): Promise<string[]>;
 /**
  * Package names the profile's OWN bundle layer already mounts.
  *
@@ -401,7 +403,7 @@ export declare function mountClientOnlyDeps(ctx: HotContext, profileDir: string)
  * today's behaviour (shim, possibly duplicated) rather than silently dropping
  * a client bundle that the bundle layer never mounts.
  */
-export declare function bundleLayerTargets(profileDir: string, bundles: Iterable<string>): Set<string>;
+export declare function bundleLayerTargets(profileDir: string, bundles: Iterable<string>, hostDirectory?: string | null): Set<string>;
 /**
  * Row ids and package names the user's own patch layer (cordis.patch.yml)
  * already contains. Line-wise scan on purpose: the file may hold structures

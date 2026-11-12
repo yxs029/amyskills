@@ -3,10 +3,27 @@
  * composes the webServer and shell services.
  */
 import type { Context } from '@deepseek-ai/cordis';
+import z from '@deepseek-ai/schemastery';
 import { type MarketConfig } from './routes.ts';
 export declare const name = "dsh-market";
 /** Optional cordis.yml configuration; profile defaults to `web`. */
 export type Config = Partial<Pick<MarketConfig, 'profile' | 'allowRestart' | 'maxSnapshots' | 'buildEnv'>>;
+/** dsh 0.1.7+ builds its form from `plugin.Config` and writes `simplify(config)` back, so every field the market reads is named here or the first form save deletes it. Each is loose: an older composition still boots, a mistyped value is dropped, and neither editable field takes a default, so "unconfigured" stays distinguishable (#1144, #229). */
+export declare const Config: z<Schemastery.ObjectS<{
+    profile: z<string, string>;
+    channel: z<string, string>;
+    region: z<string, string>;
+    allowRestart: z<boolean, boolean>;
+    maxSnapshots: z<number, number>;
+    buildEnv: z<import("@deepseek-ai/cosmokit").Dict<any, string>, import("@deepseek-ai/cosmokit").Dict<any, string>>;
+}>, Schemastery.ObjectT<{
+    profile: z<string, string>;
+    channel: z<string, string>;
+    region: z<string, string>;
+    allowRestart: z<boolean, boolean>;
+    maxSnapshots: z<number, number>;
+    buildEnv: z<import("@deepseek-ai/cosmokit").Dict<any, string>, import("@deepseek-ai/cosmokit").Dict<any, string>>;
+}>>;
 /**
  * The launcher's `profileContext` in one line, for the exported log (#744).
  *

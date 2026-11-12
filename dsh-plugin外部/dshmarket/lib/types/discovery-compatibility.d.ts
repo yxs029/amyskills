@@ -11,8 +11,8 @@
 export type HostCompatibilityStatus = 'compatible' | 'incompatible' | 'unknown';
 export type HostCompatibilityBasis = 'manifest' | 'undeclared' | 'unavailable';
 export interface HostRequirementDeclaration {
-    kind: 'engine' | 'peer';
-    /** Present only for a peer-derived declaration. */
+    kind: 'engine' | 'peer' | 'dependency';
+    /** Present only for a peer- or dependency-derived declaration. */
     package?: string;
     range: string;
 }
@@ -27,6 +27,12 @@ export interface NpmManifestFacts {
     version: string | null;
     enginesDsh: string | null;
     peerDependencies: Record<string, string>;
+    /**
+     * Ordinary dependencies that name a host package. Optional only because a
+     * durable cache entry or a catalog release manifest written before this
+     * field existed carries no value; a missing field declares nothing.
+     */
+    dependencies?: Record<string, string>;
 }
 type FetchLike = (url: string, init?: {
     signal?: AbortSignal;

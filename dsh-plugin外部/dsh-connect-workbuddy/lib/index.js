@@ -1,4 +1,4 @@
-import { $t as imageDefaultFor, A as withoutRouters, At as offRefused, B as defaultDesktopAuthPath, Bt as IMAGE_TAG_TEXT_TO_IMAGE, C as setDeviceMode, Ct as attachBusyLevels, D as applyContextBudgets, Dt as defaultOffModelIds, E as WorkBuddyCatalog, En as writeFileAtomic, Et as REFUSES_OFF_MODEL_IDS, F as WorkBuddyCredentialStore, Ft as WorkBuddyVideoError, G as parseWorkBuddyAuth, Gt as isBareBase64Image, H as isEncryptedCredentialError, Ht as WorkBuddyImageError, I as WorkBuddyEncryptedCredentialError, It as parseSupportedSecondsRange, J as workbuddyOwnAuthPath, Jt as sniffImageMime, K as preferredAccountName, Kt as parseImageDataUrl, L as authFileName, Lt as pickVideoModel, M as WORKBUDDY_AUTH_FILENAME, Mt as withEffectiveOff, N as WORKBUDDY_AUTH_FILE_ENV, Nt as VIDEO_TAG_IMAGE_TO_VIDEO, O as deriveCatalog, Ot as lastRefusalFor, Pt as VIDEO_TAG_TEXT_TO_VIDEO, Q as CREDENTIAL_REJECTED_CODE, Qt as NATIVE_MODALITY_BY_MODEL_ID, R as defaultDesktopAuthCandidates, Rt as resolveVideoParams, S as saveDeviceSdkSettings, Sn as workbuddyAppExecutableCandidates, St as rewriteSessionTitleModel, T as FALLBACK_WORKBUDDY_MODELS_GLOBAL, Tn as withFileLock, Tt as selectPromoBadge, U as isVaultAccountId, Ut as imageDataUrl, V as hasEncryptedCredentialFields, Vt as MAX_INPUT_IMAGE_BYTES, W as legacyWorkbuddyOwnAuthPath, Wt as imageMimeForPath, X as APP_VERSION, Xt as queueNoticeText, Yt as parseQueueAnswer, Z as CONTEXT_OVERFLOW_MARKER, Zt as pruneTempDir, _ as createDeviceProfileLookup, _n as isWorkbuddyBundle, _t as parseUpstreamModel, a as readHostHeartbeat, at as declaredTools, b as readDeviceSettings, bn as openEncryptedField, bt as regionOf, c as WORKBUDDY_CONNECT_VERSION, ct as isContextTooLongBody, dn as deriveAtRestKey, dt as isFirstMessageGateBody, en as nativeModalityOf, et as WORKBUDDY_FALLBACK_SYSTEM_PROMPT, fn as deriveAtRestKeyId, ft as knownRegionOf, g as createTuringSdk, gn as isEncryptedFieldWrapper, gt as parseReasoning, h as createDeviceSdkPort, ht as parseCreditMultiplier, i as processStartTimeMs, it as classifyUpstreamError, j as ENCRYPTED_CREDENTIAL_CODE, jt as recordRefusal, k as fallbackModelsFor, kt as offDefaultFor, l as createFileRosterSeenStore, ln as WORKBUDDY_APP_EXECUTABLE_ENV, lt as isConversationIdGateBody, m as piAiRuntimeInfo, mn as findWorkbuddyAppExecutable, mt as openingEvidenceOfBody, n as clearHostHeartbeat, nt as WorkBuddyUpstreamClient, o as workbuddyHostHeartbeatPath, on as isDeviceId, p as resolveCnGateway, pn as fetchAtRestKeyPayload, pt as modelIdOfBody, q as workbuddyAccountId, qt as pickMediaModel, r as isHeartbeatProcessAlive, rt as channelGateMemberOf, s as writeHostHeartbeat, st as forceNeutralHead, t as WORKBUDDY_HOST_HEARTBEAT_FILENAME, tt as WorkBuddyCredentialRejectedError, un as clearAtRestKeyCache, ut as isCredentialRejectedError, v as describeDerivedDevices, vn as macosBundleExecutable, vt as perturbChannelFingerprints, w as FALLBACK_WORKBUDDY_MODELS, wn as resolveDshHome, wt as promoBadgeTone, x as saveDeviceProfile, xn as readAtRestKey, xt as requestEvidenceOf, y as isDeviceMode, yn as macosNestedAppBundles, yt as prepareChatBody, z as defaultDesktopAuthDirs, zt as IMAGE_TAG_IMAGE_TO_IMAGE } from "./host-heartbeat-WSrMdV6b.js";
+import { $t as imageDefaultFor, A as withoutRouters, At as offRefused, B as defaultDesktopAuthPath, Bt as IMAGE_TAG_TEXT_TO_IMAGE, C as setDeviceMode, Ct as attachBusyLevels, D as applyContextBudgets, Dt as defaultOffModelIds, E as WorkBuddyCatalog, En as writeFileAtomic, Et as REFUSES_OFF_MODEL_IDS, F as WorkBuddyCredentialStore, Ft as WorkBuddyVideoError, G as parseWorkBuddyAuth, Gt as isBareBase64Image, H as isEncryptedCredentialError, Ht as WorkBuddyImageError, I as WorkBuddyEncryptedCredentialError, It as parseSupportedSecondsRange, J as workbuddyOwnAuthPath, Jt as sniffImageMime, K as preferredAccountName, Kt as parseImageDataUrl, L as authFileName, Lt as pickVideoModel, M as WORKBUDDY_AUTH_FILENAME, Mt as withEffectiveOff, N as WORKBUDDY_AUTH_FILE_ENV, Nt as VIDEO_TAG_IMAGE_TO_VIDEO, O as deriveCatalog, Ot as lastRefusalFor, Pt as VIDEO_TAG_TEXT_TO_VIDEO, Q as CREDENTIAL_REJECTED_CODE, Qt as NATIVE_MODALITY_BY_MODEL_ID, R as defaultDesktopAuthCandidates, Rt as resolveVideoParams, S as saveDeviceSdkSettings, Sn as workbuddyAppExecutableCandidates, St as rewriteSessionTitleModel, T as FALLBACK_WORKBUDDY_MODELS_GLOBAL, Tn as withFileLock, Tt as selectPromoBadge, U as isVaultAccountId, Ut as imageDataUrl, V as hasEncryptedCredentialFields, Vt as MAX_INPUT_IMAGE_BYTES, W as legacyWorkbuddyOwnAuthPath, Wt as imageMimeForPath, X as APP_VERSION, Xt as queueNoticeText, Yt as parseQueueAnswer, Z as CONTEXT_OVERFLOW_MARKER, Zt as pruneTempDir, _ as createDeviceProfileLookup, _n as isWorkbuddyBundle, _t as parseUpstreamModel, a as readHostHeartbeat, at as declaredTools, b as readDeviceSettings, bn as openEncryptedField, bt as regionOf, c as WORKBUDDY_CONNECT_VERSION, ct as isContextTooLongBody, dn as deriveAtRestKey, dt as isFirstMessageGateBody, en as nativeModalityOf, et as WORKBUDDY_FALLBACK_SYSTEM_PROMPT, fn as deriveAtRestKeyId, ft as knownRegionOf, g as createTuringSdk, gn as isEncryptedFieldWrapper, gt as parseReasoning, h as createDeviceSdkPort, ht as parseCreditMultiplier, i as processStartTimeMs, it as classifyUpstreamError, j as ENCRYPTED_CREDENTIAL_CODE, jt as recordRefusal, k as fallbackModelsFor, kt as offDefaultFor, l as createFileRosterSeenStore, ln as WORKBUDDY_APP_EXECUTABLE_ENV, lt as isConversationIdGateBody, m as piAiRuntimeInfo, mn as findWorkbuddyAppExecutable, mt as openingEvidenceOfBody, n as clearHostHeartbeat, nt as WorkBuddyUpstreamClient, o as workbuddyHostHeartbeatPath, on as isDeviceId, p as resolveCnGateway, pn as fetchAtRestKeyPayload, pt as modelIdOfBody, q as workbuddyAccountId, qt as pickMediaModel, r as isHeartbeatProcessAlive, rt as channelGateMemberOf, s as writeHostHeartbeat, st as forceNeutralHead, t as WORKBUDDY_HOST_HEARTBEAT_FILENAME, tt as WorkBuddyCredentialRejectedError, un as clearAtRestKeyCache, ut as isCredentialRejectedError, v as describeDerivedDevices, vn as macosBundleExecutable, vt as perturbChannelFingerprints, w as FALLBACK_WORKBUDDY_MODELS, wn as resolveDshHome, wt as promoBadgeTone, x as saveDeviceProfile, xn as readAtRestKey, xt as requestEvidenceOf, y as isDeviceMode, yn as macosNestedAppBundles, yt as prepareChatBody, z as defaultDesktopAuthDirs, zt as IMAGE_TAG_IMAGE_TO_IMAGE } from "./host-heartbeat-Dq3ITRhF.js";
 import z from "@deepseek-ai/schemastery";
 import { appendFile, mkdir, open, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
 import { randomBytes, randomUUID, timingSafeEqual } from "node:crypto";
@@ -389,15 +389,17 @@ const WORKBUDDY_DEVICE_PROFILE_PATH = "/plugins/dsh-connect-workbuddy/device-pro
 /**
 * 真实设备参数（本机安装的桌面端 Turing Shield SDK）的状态与取值。
 *
-* - `GET` → `{ tier, sdk, token }`，`token` 只有掩码与长度。
+* - `GET` → `{ tier, sdk, token }`，`token` 只有掩码与长度；另带 `sdkEnabled`
+*   （总开关的当前值），供卡片画出那个勾选框。
 * - `POST ?action=refresh` → 强制重取一次，再返回同一形状。
 * - `POST ?action=reveal` → `{ token }`，完整值，**只在用户显式点击时**。
+* - `POST ?action=enable|disable` → 写总开关。
 *
 * 为什么把"完整值"单独做成一个动作：这是一枚能代表这台机器的凭据，卡片是
 * 一个会被截图、被贴进 issue 的界面。默认只给掩码，复制/查看各要一次显式动作。
 */
 const WORKBUDDY_DEVICE_SDK_PATH = "/plugins/dsh-connect-workbuddy/device-sdk";
-/** Query parameter selecting it. */
+/** Query parameter selecting the POST action. */
 const WORKBUDDY_DEVICE_SDK_ACTION_PARAM = "action";
 /**
 * The refresh intervals the card offers, in milliseconds.
@@ -3384,8 +3386,8 @@ function attachUsage(directory, report, onError) {
 * live here rather than being re-derived per route. A previous version kept the
 * Host check inside `shim.ts` and only the Origin check inside `web-status.ts`,
 * which meant the shim's chat route had both guards while the settings card's
-* thirteen routes (ten POST + three GET) had one — the asymmetry was invisible
-* because each file looked internally consistent.
+* routes had one — the asymmetry was invisible because each file looked
+* internally consistent.
 *
 * - **Host** answers "is this request addressed to the interface it landed on?".
 *   A DNS-rebinding page sends requests whose `Host` is the *attacker's* domain
@@ -11577,7 +11579,7 @@ function readJsonBody(req, limitBytes = PROBE_BODY_LIMIT) {
 * Origin alone is not enough. It answers "did a foreign page cause this?", but a
 * DNS-rebinding attack arrives with the attacker's domain in `Host` and no
 * useful Origin, so the Host check is what drops it — and until this function
-* existed, all thirteen routes below (ten POST, three GET) had only the Origin
+* existed, all of the routes below had only the Origin
 * half while the shim's chat route had both. The asymmetry was invisible per-file.
 *
 * Both halves are cheap and NEITHER IS AUTHENTICATION. A local process — or any
@@ -12080,211 +12082,174 @@ function requestRegion(req, res) {
 */
 function registerWorkBuddyStatusRoute(ctx, deps) {
 	ctx.effect(() => {
-		const disposeUsage = ctx.webServer.register({
-			kind: "exact",
+		/**
+		* 注册时自动收好 disposer。曾经每个路由 `const disposeX = register(...)`，再
+		* 在末尾手写 16 行 `disposeX()`——`benefit/claim` 漏了一行（issue #86），热重载
+		* 时宿主因重复注册同路径而抛错，后面的路由全部注册不上，卡片半数按钮答 405。
+		* 收成一个数组后，「新加路由忘了加卸载」这一类错误不可能再发生。
+		*/
+		const disposers = [];
+		const route = (entry) => {
+			disposers.push(ctx.webServer.register(entry));
+		};
+		/**
+		* 路由骨架：方法闸 → loopback → 可选前置条件 → 区域 → try/catch → 500。
+		*
+		* 这几道闸原先在每个 handler 里各抄一遍（16 处 `requireLoopback`、16 处
+		* `405`、22 处 `500`）。抄漏一道不会有任何编译错误，却是一个真实的
+		* DNS-rebinding 或跨区泄漏面——见 `requireLoopback` 自己的注释。收进这里
+		* 之后，handler 只写业务，也不可能漏闸。
+		*
+		* `ready` 在区域解析**之前**跑：`models` / `media` 这类路由要先答「宿主没有
+		* 这项能力」的 503，再谈区域；反过来会让一个缺区域参数的请求先拿到 400。
+		*/
+		function raw(spec, run) {
+			route({
+				kind: "exact",
+				path: spec.path,
+				handler: async (req, res) => {
+					if (req.method !== spec.method) return json(res, 405, { error: "method not allowed" });
+					if (!requireLoopback(req, res)) return;
+					if (spec.ready !== void 0 && !spec.ready(res)) return;
+					try {
+						await run(req, res);
+					} catch (error) {
+						json(res, 500, { error: safeMessage(error) });
+					}
+				}
+			});
+		}
+		/**
+		* 带区域参数的路由：区域解析在 try 之外，与原来的顺序一致。
+		* 不带区域参数的路由直接调 `raw`——区域参数会让 `requestRegion` 把一个
+		* 合法读答成 400（`cli-live` 就是这种）。
+		*/
+		function endpointRegion(spec, handle) {
+			raw(spec, (req, res) => {
+				const region = requestRegion(req, res);
+				if (region === void 0) return;
+				return handle(req, res, region);
+			});
+		}
+		endpointRegion({
 			path: WORKBUDDY_USAGE_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "GET") {
-					json(res, 405, { error: "method not allowed" });
-					return;
-				}
-				if (!requireLoopback(req, res)) return;
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				const detail = fastDetailOf(req.url ?? "") ? "fast" : "full";
-				try {
-					json(res, 200, await workBuddyWebStatus(deps, region, { detail }));
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "GET"
+		}, async (req, res, region) => {
+			json(res, 200, await workBuddyWebStatus(deps, region, { detail: fastDetailOf(req.url ?? "") ? "fast" : "full" }));
 		});
-		const disposeAccountCredits = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_ACCOUNT_CREDITS_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "GET") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				try {
-					json(res, 200, { accounts: await workBuddyAccountCredits(deps, region) });
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "GET"
+		}, async (_req, res, region) => {
+			json(res, 200, { accounts: await workBuddyAccountCredits(deps, region) });
 		});
-		const disposeAccounts = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_ACCOUNTS_REFRESH_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				try {
-					const store = deps.store(region);
-					const dismissalsCleared = await store.clearDismissals();
-					const accounts = await store.accounts();
-					deps.regionUsable?.(region, accounts.length > 0);
-					json(res, 200, {
-						accounts: accounts.map(toWebAccount),
-						dismissalsCleared
-					});
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "POST"
+		}, async (_req, res, region) => {
+			const store = deps.store(region);
+			const dismissalsCleared = await store.clearDismissals();
+			const accounts = await store.accounts();
+			deps.regionUsable?.(region, accounts.length > 0);
+			json(res, 200, {
+				accounts: accounts.map(toWebAccount),
+				dismissalsCleared
+			});
 		});
-		const disposeCheckin = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_CHECKIN_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				try {
-					const credential = await deps.store(region).resolve();
-					const current = await deps.client.fetchCheckinStatus(credential);
-					if (!current.active) return json(res, 409, { error: "check-in activity is not active" });
-					if (current.todayCheckedIn) return json(res, 200, {
-						alreadyCheckedIn: true,
-						checkin: current
-					});
-					json(res, 200, {
-						alreadyCheckedIn: false,
-						claim: await deps.client.claimDailyCheckin(credential),
-						checkin: await deps.client.fetchCheckinStatus(credential)
-					});
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "POST"
+		}, async (_req, res, region) => {
+			const credential = await deps.store(region).resolve();
+			const current = await deps.client.fetchCheckinStatus(credential);
+			if (!current.active) return json(res, 409, { error: "check-in activity is not active" });
+			if (current.todayCheckedIn) return json(res, 200, {
+				alreadyCheckedIn: true,
+				checkin: current
+			});
+			json(res, 200, {
+				alreadyCheckedIn: false,
+				claim: await deps.client.claimDailyCheckin(credential),
+				checkin: await deps.client.fetchCheckinStatus(credential)
+			});
 		});
-		const disposeBenefitClaim = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_BENEFIT_CLAIM_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				const url = new URL(req.url ?? "/", "http://127.0.0.1");
-				const accountId = url.searchParams.get(WORKBUDDY_POOL_ACCOUNT_PARAM);
-				const kind = url.searchParams.get("kind");
-				if (accountId === null || accountId === "") return json(res, 400, { error: "accountId is required" });
-				if (kind !== "compensation" && kind !== "gift") return json(res, 400, { error: "kind must be compensation or gift" });
-				try {
-					const credential = await deps.store(region).credentialFor(accountId);
-					if (credential === void 0) return json(res, 404, { error: "no credential for this account" });
-					if (credential.enterpriseId !== void 0 && credential.enterpriseId !== "") return json(res, 409, { error: "enterprise-account-unsupported" });
-					const target = (await deps.client.fetchBenefits(credential)).find((benefit) => benefit.kind === kind);
-					if (target === void 0) return json(res, 404, { error: "benefit not available on this account" });
-					if (target.claimed) return json(res, 409, {
-						error: "benefit already claimed",
-						benefit: target
-					});
-					if (!target.active) return json(res, 409, {
-						error: "benefit activity is not active",
-						benefit: target
-					});
-					await deps.client.claimBenefit(credential, kind);
-					deps.pool?.invalidateBenefit?.(region, accountId);
-					json(res, 200, {
-						claimed: true,
-						benefit: (await deps.client.fetchBenefits(credential)).find((benefit) => benefit.kind === kind) ?? target
-					});
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "POST"
+		}, async (req, res, region) => {
+			const url = new URL(req.url ?? "/", "http://127.0.0.1");
+			const accountId = url.searchParams.get(WORKBUDDY_POOL_ACCOUNT_PARAM);
+			const kind = url.searchParams.get("kind");
+			if (accountId === null || accountId === "") return json(res, 400, { error: "accountId is required" });
+			if (kind !== "compensation" && kind !== "gift") return json(res, 400, { error: "kind must be compensation or gift" });
+			const credential = await deps.store(region).credentialFor(accountId);
+			if (credential === void 0) return json(res, 404, { error: "no credential for this account" });
+			if (credential.enterpriseId !== void 0 && credential.enterpriseId !== "") return json(res, 409, { error: "enterprise-account-unsupported" });
+			const target = (await deps.client.fetchBenefits(credential)).find((benefit) => benefit.kind === kind);
+			if (target === void 0) return json(res, 404, { error: "benefit not available on this account" });
+			if (target.claimed) return json(res, 409, {
+				error: "benefit already claimed",
+				benefit: target
+			});
+			if (!target.active) return json(res, 409, {
+				error: "benefit activity is not active",
+				benefit: target
+			});
+			await deps.client.claimBenefit(credential, kind);
+			deps.pool?.invalidateBenefit?.(region, accountId);
+			json(res, 200, {
+				claimed: true,
+				benefit: (await deps.client.fetchBenefits(credential)).find((benefit) => benefit.kind === kind) ?? target
+			});
 		});
-		const disposeRefresh = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_MODELS_REFRESH_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				if (deps.discoverModels === void 0) return json(res, 503, { error: "model refresh unavailable" });
-				if (deps.persistModels === void 0) return json(res, 503, { error: "model refresh cannot be persisted" });
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				try {
-					const models = await deps.discoverModels(region);
-					await deps.persistModels(region, models);
-					json(res, 200, { models: models.map((model) => toWebModel(model, deps.contextBudgets(region))) });
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "POST",
+			ready: (res) => deps.discoverModels === void 0 ? (json(res, 503, { error: "model refresh unavailable" }), false) : deps.persistModels === void 0 ? (json(res, 503, { error: "model refresh cannot be persisted" }), false) : true
+		}, async (_req, res, region) => {
+			const models = await deps.discoverModels(region);
+			await deps.persistModels(region, models);
+			json(res, 200, { models: models.map((model) => toWebModel(model, deps.contextBudgets(region))) });
 		});
-		const disposeMediaModels = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_MEDIA_MODELS_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				if (deps.mediaModels === void 0) return json(res, 503, { error: "media model list unavailable" });
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				try {
-					const refresh = new URL(req.url ?? "/", "http://localhost").searchParams.get("refresh") === "1";
-					json(res, 200, { models: (await deps.mediaModels(region, { refresh })).map((model) => ({
-						id: model.id,
-						name: model.name,
-						tags: [...model.tags]
-					})) });
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "POST",
+			ready: (res) => deps.mediaModels !== void 0 ? true : (json(res, 503, { error: "media model list unavailable" }), false)
+		}, async (req, res, region) => {
+			const refresh = new URL(req.url ?? "/", "http://localhost").searchParams.get("refresh") === "1";
+			json(res, 200, { models: (await deps.mediaModels(region, { refresh })).map((model) => ({
+				id: model.id,
+				name: model.name,
+				tags: [...model.tags]
+			})) });
 		});
-		const disposeProbe = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_PROBE_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				if (deps.probeModels === void 0) return json(res, 503, { error: "model probe unavailable" });
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				try {
-					const body = await readJsonBody(req);
-					const modelIds = Array.isArray(body.modelIds) ? body.modelIds.filter((id) => typeof id === "string" && id !== "") : [];
-					if (modelIds.length === 0) return json(res, 400, { error: "modelIds must be a non-empty array of strings" });
-					if (modelIds.length > 1) return json(res, 400, { error: "a probe accepts exactly one model" });
-					const results = [];
-					for (const modelId of modelIds) results.push(...await deps.probeModels(region, [modelId]));
-					json(res, 200, { results });
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "POST",
+			ready: (res) => deps.probeModels !== void 0 ? true : (json(res, 503, { error: "model probe unavailable" }), false)
+		}, async (req, res, region) => {
+			const body = await readJsonBody(req);
+			const modelIds = Array.isArray(body.modelIds) ? body.modelIds.filter((id) => typeof id === "string" && id !== "") : [];
+			if (modelIds.length === 0) return json(res, 400, { error: "modelIds must be a non-empty array of strings" });
+			if (modelIds.length > 1) return json(res, 400, { error: "a probe accepts exactly one model" });
+			const results = [];
+			for (const modelId of modelIds) results.push(...await deps.probeModels(region, [modelId]));
+			json(res, 200, { results });
 		});
-		const disposeTps = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_TPS_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				if (deps.measureTps === void 0) return json(res, 503, { error: "tps measurement unavailable" });
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				try {
-					const body = await readJsonBody(req);
-					const modelIds = Array.isArray(body.modelIds) ? body.modelIds.filter((id) => typeof id === "string" && id !== "") : [];
-					if (modelIds.length === 0) return json(res, 400, { error: "modelIds must be a non-empty array of strings" });
-					if (modelIds.length > 1) return json(res, 400, { error: "a tps measurement accepts exactly one model" });
-					const results = [];
-					for (const modelId of modelIds) results.push(...await deps.measureTps(region, [modelId]));
-					json(res, 200, { results });
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "POST",
+			ready: (res) => deps.measureTps !== void 0 ? true : (json(res, 503, { error: "tps measurement unavailable" }), false)
+		}, async (req, res, region) => {
+			const body = await readJsonBody(req);
+			const modelIds = Array.isArray(body.modelIds) ? body.modelIds.filter((id) => typeof id === "string" && id !== "") : [];
+			if (modelIds.length === 0) return json(res, 400, { error: "modelIds must be a non-empty array of strings" });
+			if (modelIds.length > 1) return json(res, 400, { error: "a tps measurement accepts exactly one model" });
+			const results = [];
+			for (const modelId of modelIds) results.push(...await deps.measureTps(region, [modelId]));
+			json(res, 200, { results });
 		});
-		const disposePool = ctx.webServer.register({
+		route({
 			kind: "exact",
 			path: WORKBUDDY_POOL_PATH,
 			handler: async (req, res) => {
@@ -12427,7 +12392,7 @@ function registerWorkBuddyStatusRoute(ctx, deps) {
 				}
 			}
 		});
-		const disposeDiagWrite = ctx.webServer.register({
+		route({
 			kind: "exact",
 			path: "/plugins/dsh-connect-workbuddy/__save",
 			handler: async (req, res) => {
@@ -12514,35 +12479,26 @@ function registerWorkBuddyStatusRoute(ctx, deps) {
 				}
 			}
 		});
-		const disposeOAuth = ctx.webServer.register({
-			kind: "exact",
+		endpointRegion({
 			path: WORKBUDDY_OAUTH_PATH,
-			handler: async (req, res) => {
-				if (req.method !== "POST") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				const region = requestRegion(req, res);
-				if (region === void 0) return;
-				const action = oauthActionOf(req.url ?? "/");
-				if (action === void 0) return json(res, 400, { error: "action must be start or poll" });
-				const oauth = deps.oauth;
-				if (oauth === void 0) return json(res, 503, {
-					reason: "oauth-unavailable",
-					error: "OAuth sign-in is not available in this build"
-				});
-				try {
-					if (action === "start") {
-						json(res, 200, await oauth.start(region));
-						return;
-					}
-					const body = await readJsonBody(req);
-					if (typeof body.loginId !== "string" || body.loginId === "") return json(res, 400, { error: "loginId must be a non-empty string" });
-					json(res, 200, await oauth.poll(region, body.loginId));
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
+			method: "POST"
+		}, async (req, res, region) => {
+			const action = oauthActionOf(req.url ?? "/");
+			if (action === void 0) return json(res, 400, { error: "action must be start or poll" });
+			const oauth = deps.oauth;
+			if (oauth === void 0) return json(res, 503, {
+				reason: "oauth-unavailable",
+				error: "OAuth sign-in is not available in this build"
+			});
+			if (action === "start") {
+				json(res, 200, await oauth.start(region));
+				return;
 			}
+			const body = await readJsonBody(req);
+			if (typeof body.loginId !== "string" || body.loginId === "") return json(res, 400, { error: "loginId must be a non-empty string" });
+			json(res, 200, await oauth.poll(region, body.loginId));
 		});
-		const disposeTransfer = ctx.webServer.register({
+		route({
 			kind: "exact",
 			path: WORKBUDDY_TRANSFER_PATH,
 			handler: async (req, res) => {
@@ -12597,21 +12553,14 @@ function registerWorkBuddyStatusRoute(ctx, deps) {
 		* leave a ghost pill describing a turn that already ended. Answering an
 		* empty document keeps "off" inside the same code path as "no turns".
 		*/
-		const disposeCliLive = ctx.webServer.register({
-			kind: "exact",
+		raw({
 			path: WORKBUDDY_CLI_LIVE_PATH,
-			handler: (req, res) => {
-				if (req.method !== "GET") return json(res, 405, { error: "method not allowed" });
-				if (!requireLoopback(req, res)) return;
-				try {
-					json(res, 200, deps.cliLive?.() ?? {
-						turns: [],
-						serverTime: Date.now()
-					});
-				} catch (error) {
-					json(res, 500, { error: safeMessage(error) });
-				}
-			}
+			method: "GET"
+		}, (_req, res) => {
+			json(res, 200, deps.cliLive?.() ?? {
+				turns: [],
+				serverTime: Date.now()
+			});
 		});
 		/**
 		* 设备头设置：档位切换 + 每账号的虚拟参数。
@@ -12620,7 +12569,7 @@ function registerWorkBuddyStatusRoute(ctx, deps) {
 		* 都是**即时生效**——这里没有草稿，因为齿轮改的是"这台机器对外声称自己是谁"，
 		* 一个需要点保存才生效的设备身份，会让"我改完到底发出去的是什么"变成猜测。
 		*/
-		const disposeDeviceProfile = ctx.webServer.register({
+		route({
 			kind: "exact",
 			path: WORKBUDDY_DEVICE_PROFILE_PATH,
 			handler: async (req, res) => {
@@ -12719,7 +12668,7 @@ function registerWorkBuddyStatusRoute(ctx, deps) {
 		* 放在 POST 后面不是形式主义——它会进浏览器历史、会被 proxy 记日志、会被截图，
 		* 而 `GET` 是三者里最容易被动触发的（预取、刷新、插件间的探测）。
 		*/
-		const disposeDeviceSdk = ctx.webServer.register({
+		route({
 			kind: "exact",
 			path: WORKBUDDY_DEVICE_SDK_PATH,
 			handler: async (req, res) => {
@@ -12780,22 +12729,7 @@ function registerWorkBuddyStatusRoute(ctx, deps) {
 			}
 		});
 		return () => {
-			disposeBenefitClaim();
-			disposeRefresh();
-			disposeMediaModels();
-			disposeCheckin();
-			disposeAccounts();
-			disposeUsage();
-			disposeAccountCredits();
-			disposeProbe();
-			disposeTps();
-			disposePool();
-			disposeOAuth();
-			disposeTransfer();
-			disposeDiagWrite();
-			disposeCliLive();
-			disposeDeviceProfile();
-			disposeDeviceSdk();
+			for (const dispose of disposers) dispose();
 		};
 	}, "dsh-connect-workbuddy: Web status route");
 }
@@ -13350,28 +13284,28 @@ function apply(ctx, config) {
 	* 卸载，而设置随时会变，所以目录每次 `probe` 现问一次。`deviceProfiles` 读盘有
 	* 5 秒缓存，保存会立即失效它。
 	*
-	* ⚠️ **总开关优先于预热**（`deviceSdkEnabled`）：关掉就不建定时器、不预取。
-	* 留着 `createTuringSdk()` 本身是因为端口（`createDeviceSdkPort`）仍要能回答
-	* "这个功能被关掉了"——它读到的是 `disabled` 状态，而不是一块空白面板。
-	*/
-	/**
-	* 总开关：**默认关**（`default(false)`）。
+	* 总开关只留**一份活真值**。曾经这里写 `const flag = unwrapVolatile(...) === true`
+	* 把布尔在 apply 期求值一次传给句柄，而 `readEnabled()` 却每次现读活引用——
+	* volatile 字段就地修改、插件不重挂，于是「勾选框是开的、probe 永远答 disabled」。
+	* 现在两处共用 `deviceSdkEnabled()`。句柄即使关掉也保留，因为端口仍要能回答
+	* "这个功能被关掉了"（`disabled`），而不是给一块空白面板。
 	*
-	* 与档位默认值一致：档位默认「虚拟值」本来就不发这个 token，那么默认去发现
-	* SDK、起子进程、每 10 分钟取一次，取到的东西一次也用不上。更一般地说，一个
-	* 会碰用户机器上第三方原生模块的能力，默认该由用户主动打开。
-	*
-	* `=== true` 而不是 `!== false`：`undefined`（老配置文件里没有这个字段）必须
-	* 落到"关"，与 `default(false)` 同一个答案。写成 `!== false` 会让"未设置"和
-	* "显式开启"分叉，升级后老用户静默拿到与 schema 默认相反的行为。
+	* `=== true`：`undefined`（老配置没有这一项）落到"关"，与 `default(false)` 一致。
 	*/
-	const deviceSdkEnabled = unwrapVolatile(config.deviceSdkEnabled) === true;
+	const deviceSdkEnabled = () => unwrapVolatile(config.deviceSdkEnabled) === true;
 	const turing = createTuringSdk({
 		productVersion: APP_VERSION,
 		dirSource: () => deviceProfiles.sdkDir(),
-		enabled: deviceSdkEnabled
+		get enabled() {
+			return deviceSdkEnabled();
+		}
 	});
-	if (deviceSdkEnabled) turing.startAutoRefresh();
+	/** 让预热链跟随开关：开则补建（内部幂等），关则立即拆除。 */
+	const syncDeviceSdk = () => {
+		if (deviceSdkEnabled()) turing.startAutoRefresh();
+		else turing.stopAutoRefresh();
+	};
+	syncDeviceSdk();
 	ctx.effect(() => () => {
 		turing.stopAutoRefresh();
 	});
@@ -13963,87 +13897,70 @@ function apply(ctx, config) {
 			declared: false
 		})));
 	};
-	let imageTools;
-	let disposeImageTool;
-	const syncImageTool = (value) => {
-		const wanted = imageToolRegionOf(value) !== void 0;
-		if (wanted && disposeImageTool === void 0 && imageTools !== void 0) {
-			disposeImageTool = registerWorkBuddyImageTool(imageTools, {
-				resolveCredential: async () => {
-					const live = current();
-					for (const region of REGION_KEYS) {
-						if (!regionEnabled(live, region)) continue;
-						if (regionStateOf(live, region).imageToolEnabled !== true) continue;
-						try {
-							return await stacks[region].store.resolve();
-						} catch {
-							continue;
-						}
-					}
-				},
-				listMediaModels: (credential, signal) => client.fetchMediaModels(credential, signal),
-				generateImage: (credential, request, signal) => client.generateImage(credential, request, signal),
-				editImage: (credential, request, signal) => client.editImage(credential, request, signal),
-				logger: ctx.logger
+	function mountOptionalTool(options) {
+		let tools;
+		let dispose;
+		const sync = (value) => {
+			const wanted = options.wanted(value);
+			if (wanted && dispose === void 0 && tools !== void 0) {
+				dispose = options.register(tools);
+				return;
+			}
+			if (!wanted && dispose !== void 0) {
+				dispose();
+				dispose = void 0;
+			}
+		};
+		ctx.inject(["tools"], (toolsCtx) => {
+			tools = toolsCtx.tools;
+			if (tools === void 0) return;
+			sync(current());
+			toolsCtx.effect(() => () => {
+				dispose?.();
+				dispose = void 0;
+				tools = void 0;
 			});
-			return;
-		}
-		if (!wanted && disposeImageTool !== void 0) {
-			disposeImageTool();
-			disposeImageTool = void 0;
+		});
+		return sync;
+	}
+	/**
+	* 每次调用现挑区、现解析凭据：用户在两次调用之间换账号或关掉某区都要生效。
+	* `optIn` 必须是该工具自己的逐区开关 —— 生图不能借用视频已授权的区，否则绕过
+	* 用户按区做出的授权。
+	*/
+	const toolCredential = (optIn) => async () => {
+		const live = current();
+		for (const region of REGION_KEYS) {
+			if (!regionEnabled(live, region)) continue;
+			if (regionStateOf(live, region)[optIn] !== true) continue;
+			try {
+				return await stacks[region].store.resolve();
+			} catch {
+				continue;
+			}
 		}
 	};
-	ctx.inject(["tools"], (toolsCtx) => {
-		imageTools = toolsCtx.tools;
-		if (imageTools === void 0) return;
-		syncImageTool(current());
-		toolsCtx.effect(() => () => {
-			disposeImageTool?.();
-			disposeImageTool = void 0;
-			imageTools = void 0;
-		});
+	const syncImageTool = mountOptionalTool({
+		wanted: (value) => imageToolRegionOf(value) !== void 0,
+		register: (tools) => registerWorkBuddyImageTool(tools, {
+			resolveCredential: toolCredential("imageToolEnabled"),
+			listMediaModels: (credential, signal) => client.fetchMediaModels(credential, signal),
+			generateImage: (credential, request, signal) => client.generateImage(credential, request, signal),
+			editImage: (credential, request, signal) => client.editImage(credential, request, signal),
+			logger: ctx.logger
+		})
 	});
-	let videoTools;
-	let disposeVideoTool;
-	const syncVideoTool = (value) => {
-		const wanted = videoToolRegionOf(value) !== void 0;
-		if (wanted && disposeVideoTool === void 0 && videoTools !== void 0) {
-			disposeVideoTool = registerWorkBuddyVideoTool(videoTools, {
-				resolveCredential: async () => {
-					const live = current();
-					for (const region of REGION_KEYS) {
-						if (!regionEnabled(live, region)) continue;
-						if (regionStateOf(live, region).videoToolEnabled !== true) continue;
-						try {
-							return await stacks[region].store.resolve();
-						} catch {
-							continue;
-						}
-					}
-				},
-				listMediaModels: (credential, signal) => client.fetchMediaModels(credential, signal),
-				submitVideo: (credential, request, signal) => client.submitVideo(credential, request, signal),
-				pollVideoTask: (credential, taskId, signal) => client.pollVideoTask(credential, taskId, signal),
-				preferredVideoModel: (credential, tag) => regionStateOf(current(), regionOf(credential.domain)).preferredVideoModels?.[tag],
-				downloadVideo: (credential, url, signal) => client.downloadVideo(credential, url, signal),
-				logger: ctx.logger
-			});
-			return;
-		}
-		if (!wanted && disposeVideoTool !== void 0) {
-			disposeVideoTool();
-			disposeVideoTool = void 0;
-		}
-	};
-	ctx.inject(["tools"], (toolsCtx) => {
-		videoTools = toolsCtx.tools;
-		if (videoTools === void 0) return;
-		syncVideoTool(current());
-		toolsCtx.effect(() => () => {
-			disposeVideoTool?.();
-			disposeVideoTool = void 0;
-			videoTools = void 0;
-		});
+	const syncVideoTool = mountOptionalTool({
+		wanted: (value) => videoToolRegionOf(value) !== void 0,
+		register: (tools) => registerWorkBuddyVideoTool(tools, {
+			resolveCredential: toolCredential("videoToolEnabled"),
+			listMediaModels: (credential, signal) => client.fetchMediaModels(credential, signal),
+			submitVideo: (credential, request, signal) => client.submitVideo(credential, request, signal),
+			pollVideoTask: (credential, taskId, signal) => client.pollVideoTask(credential, taskId, signal),
+			preferredVideoModel: (credential, tag) => regionStateOf(current(), regionOf(credential.domain)).preferredVideoModels?.[tag],
+			downloadVideo: (credential, url, signal) => client.downloadVideo(credential, url, signal),
+			logger: ctx.logger
+		})
 	});
 	let cliTools;
 	let cliCommands;
@@ -14233,14 +14150,11 @@ function apply(ctx, config) {
 				sdk: turing,
 				mode: async () => (await readDeviceSettings()).mode,
 				/**
-				* 总开关走插件配置（`Config.deviceSdkEnabled`），不走设备设置文件。
-				*
-				* `read` 取的是 `current()`——也就是宿主交给 `apply()` 的那份活的引用，
-				* 所以 `ctx.settings.update` 写完它就能读到新值（`asVolatile` 会就地改）。
-				* 回 `undefined` 让卡片把开关标成不可用，而不是把它画成"关"。
+				* 总开关走插件配置（`Config.deviceSdkEnabled`），与 SDK 句柄的 `enabled`
+				* getter 共用同一个 `deviceSdkEnabled()`，因此勾选框与 probe 不会分叉。
 				*/
 				enabled: {
-					read: async () => unwrapVolatile(config.deviceSdkEnabled) !== false,
+					read: async () => deviceSdkEnabled(),
 					write: writeDeviceSdkEnabled
 				}
 			}),
@@ -15412,6 +15326,7 @@ function apply(ctx, config) {
 	ctx.on("loader/volatile-update", () => {
 		applySelection(current());
 		syncAutoCheckin();
+		syncDeviceSdk();
 	});
 	applySelection(config);
 	(async () => {

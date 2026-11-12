@@ -23,12 +23,13 @@ var __rewriteRelativeImportExtension = (this && this.__rewriteRelativeImportExte
     }
     return path;
 };
-import { mkdirSync, readFileSync, readdirSync, realpathSync, renameSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, realpathSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { asChannel } from './channels.js';
 import { asRegion, normalizeGithubProxy } from './regions.js';
+import { findDshInstallDir } from './dsh-install.js';
 import { logEvent } from './log.js';
 import { bundlePatchTargets, declaredBundlePatchFiles, entryArtifactExists } from './profile.js';
 /**
@@ -799,7 +800,9 @@ export async function hotMount(ctx, profileDir, packageName) {
  * in every boot — this is what makes them behave like normal plugins.
  * @returns names that were mounted.
  */
-export async function mountClientOnlyDeps(ctx, profileDir) {
+export async function mountClientOnlyDeps(ctx, profileDir, 
+/** The host's install directory; `undefined` finds it, `null` means "do not look". */
+hostDirectory) {
     let deps;
     let bundles;
     try {
@@ -813,7 +816,7 @@ export async function mountClientOnlyDeps(ctx, profileDir) {
     }
     const disabled = readDisabled(profileDir);
     const userManaged = readUserPatchControls(profileDir);
-    const hostProvided = bundleLayerTargets(profileDir, bundles);
+    const hostProvided = bundleLayerTargets(profileDir, bundles, hostDirectory);
     const mounted = [];
     for (const name of deps) {
         if (hotHandles.has(name) || disabled.has(name))
@@ -856,14 +859,44 @@ export async function mountClientOnlyDeps(ctx, profileDir) {
  * today's behaviour (shim, possibly duplicated) rather than silently dropping
  * a client bundle that the bundle layer never mounts.
  */
-export function bundleLayerTargets(profileDir, bundles) {
+export function bundleLayerTargets(profileDir, bundles, hostDirectory) {
     const targets = new Set();
+    // Looked up lazily: a profile with no bundle the host provides never pays.
+    let host = hostDirectory;
     for (const bundle of bundles) {
-        const dir = join(profileDir, 'node_modules', ...bundle.split('/'));
-        for (const name of bundlePatchTargets(dir))
+        if (host === undefined)
+            host = findDshInstallDir();
+        for (const name of bundlePatchTargets(bundleDirectory(profileDir, host, bundle)))
             targets.add(name);
     }
     return targets;
+}
+/**
+ * Where the boot reads one bundle from (#1137).
+ *
+ * The official bundles — `@deepseek-ai/dsh-web-app` and its siblings — ship
+ * inside the dsh installation, not in the profile: a plain `dsh web` profile's
+ * `node_modules/@deepseek-ai/` holds only the few packages linked into it. The
+ * boot (dsh-app-boot's resolveBundleDir) probes Node's search paths from the
+ * installation first and the profile second, and so does this; looking only
+ * in the profile made every in-box bundle read as empty, which is the one kind
+ * of bundle whose rows mount other in-box packages.
+ *
+ * A host that cannot be read from here (null, or an archive plain Node cannot
+ * open) leaves the profile path, which is what this always did.
+ */
+function bundleDirectory(profileDir, host, bundle) {
+    if (host !== null) {
+        try {
+            for (const searchPath of createRequire(join(host, 'package.json')).resolve.paths(bundle) ?? []) {
+                const candidate = join(searchPath, bundle);
+                if (existsSync(join(candidate, 'package.json')))
+                    return candidate;
+            }
+        }
+        catch { /* an unreadable anchor says nothing: fall back to the profile */ }
+    }
+    return join(profileDir, 'node_modules', ...bundle.split('/'));
 }
 /**
  * Row ids and package names the user's own patch layer (cordis.patch.yml)

@@ -16,7 +16,7 @@
 | # | 维度 | 库内位置 | 数量 | 人读文档 | 机器台账 |
 |---|---|---|---|---|---|
 | 1 | **技能 Skill** | `skill自建/` + `skill外部/`（各按 20 功能类） | **232 个**（已去重；41 自建 / 191 外部） | [`SKILLS.md`](./SKILLS.md) | [`_skills.json`](./_skills.json) |
-| 2 | **插件 Plugin（DSH Bundle）** | `dsh-plugin自建/` + `dsh-plugin外部/` | **6 个**（0 自建 / 6 外部） | [`PLUGINS.md`](./PLUGINS.md) | [`_plugins.json`](./_plugins.json) |
+| 2 | **插件 Plugin（DSH Bundle）** | `dsh-plugin自建/` + `dsh-plugin外部/` | **9 个**（1 自建 / 8 外部） | [`PLUGINS.md`](./PLUGINS.md) | [`_plugins.json`](./_plugins.json) |
 | 3 | **CLI 安装方式与优秀 CLI 清单** | 根目录 | 前 50 清单 + 8 指定 + 10 补充 | [`auto-cli-conf.md`](./auto-cli-conf.md) | — |
 | 4 | **自动化测试框架 + Computer Use** | 根目录 | 4 必装 + 20 补充 | [`autotest-openapi.md`](./autotest-openapi.md) | — |
 | 5 | **开放平台信息** | 根目录（并入 `autotest-openapi.md`） | 3 个指定 + 12 个补充 | [`autotest-openapi.md`](./autotest-openapi.md) | — |
@@ -42,8 +42,8 @@ amyskills/
 ├── .gitignore           排除 历史归档/、*.zip、机器运行产物
 ├── skill自建/           自建技能（按 20 功能类分目录）
 ├── skill外部/           外部收集技能（按 20 功能类分目录）
-├── dsh-plugin自建/      自建插件（当前为空）
-├── dsh-plugin外部/      6 个已装社区插件
+├── dsh-plugin自建/      自建插件（1 个，file: 依赖归档）
+├── dsh-plugin外部/      8 个已装社区插件
 └── 历史归档/            （本地保留，已 gitignore，不入库）
 ```
 

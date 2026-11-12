@@ -1,0 +1,51 @@
+{
+  "name": "dsh-our-free-model-balance-zxp",
+  "version": "1.1.1",
+  "type": "module",
+  "main": "./index.js",
+  "description": "需要先安装 dsh-our-free-model 并在其中登录至少一个渠道。之后在输入框旁显示当前渠道的剩余额度，点开可看全部渠道。",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "src",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zengxiangpeng123/dsh-our-free-model-balance-zxp.git"
+  },
+  "homepage": "https://github.com/zengxiangpeng123/dsh-our-free-model-balance-zxp#readme",
+  "bugs": {
+    "url": "https://github.com/zengxiangpeng123/dsh-our-free-model-balance-zxp/issues"
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.1"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "our-free-model",
+    "ofm",
+    "balance",
+    "credit"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "license": "MIT"
+}

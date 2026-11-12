@@ -126,9 +126,11 @@ window.__ModuleLoader__.load({
 		/**
 		* 真实设备参数（本机安装的桌面端 Turing Shield SDK）的状态与取值。
 		*
-		* - `GET` → `{ tier, sdk, token }`，`token` 只有掩码与长度。
+		* - `GET` → `{ tier, sdk, token }`，`token` 只有掩码与长度；另带 `sdkEnabled`
+		*   （总开关的当前值），供卡片画出那个勾选框。
 		* - `POST ?action=refresh` → 强制重取一次，再返回同一形状。
 		* - `POST ?action=reveal` → `{ token }`，完整值，**只在用户显式点击时**。
+		* - `POST ?action=enable|disable` → 写总开关。
 		*
 		* 为什么把"完整值"单独做成一个动作：这是一枚能代表这台机器的凭据，卡片是
 		* 一个会被截图、被贴进 issue 的界面。默认只给掩码，复制/查看各要一次显式动作。
@@ -4760,6 +4762,7 @@ window.__ModuleLoader__.load({
 		}
 		//#endregion
 		//#region src/client/device-sdk.ts
+		/** 校验并折成 Host 的类型；形状不认识时返回 `undefined`，面板据此显示"不可用"。 */
 		function normalize(body) {
 			if (typeof body !== "object" || body === null) return void 0;
 			const record = body;
@@ -4770,25 +4773,27 @@ window.__ModuleLoader__.load({
 			const tokenRecord = token;
 			const sdkState = sdkRecord["state"];
 			const tokenState = tokenRecord["state"];
+			const info = {
+				state: sdkState === "ready" || sdkState === "unsupported" || sdkState === "missing" || sdkState === "error" || sdkState === "disabled" ? sdkState : "error",
+				bundle: typeof sdkRecord["bundle"] === "string" ? sdkRecord["bundle"] : "",
+				path: typeof sdkRecord["path"] === "string" ? sdkRecord["path"] : "",
+				platform: typeof sdkRecord["platform"] === "string" ? sdkRecord["platform"] : "",
+				arch: typeof sdkRecord["arch"] === "string" ? sdkRecord["arch"] : "",
+				runtime: typeof sdkRecord["runtime"] === "string" ? sdkRecord["runtime"] : "",
+				...typeof sdkRecord["reason"] === "string" ? { reason: sdkRecord["reason"] } : {}
+			};
+			const readout = {
+				state: tokenState === "ok" || tokenState === "stale" || tokenState === "unavailable" || tokenState === "idle" ? tokenState : "unavailable",
+				masked: typeof tokenRecord["masked"] === "string" ? tokenRecord["masked"] : "",
+				length: typeof tokenRecord["length"] === "number" ? tokenRecord["length"] : 0,
+				...typeof tokenRecord["fetchedAtMs"] === "number" ? { fetchedAtMs: tokenRecord["fetchedAtMs"] } : {},
+				...typeof tokenRecord["lastAttemptMs"] === "number" ? { lastAttemptMs: tokenRecord["lastAttemptMs"] } : {},
+				...typeof tokenRecord["reason"] === "string" ? { reason: tokenRecord["reason"] } : {}
+			};
 			return {
 				tier: record["tier"] === "real" ? "real" : "virtual",
-				sdk: {
-					state: sdkState === "ready" || sdkState === "unsupported" || sdkState === "missing" || sdkState === "error" || sdkState === "disabled" ? sdkState : "error",
-					bundle: typeof sdkRecord["bundle"] === "string" ? sdkRecord["bundle"] : "",
-					path: typeof sdkRecord["path"] === "string" ? sdkRecord["path"] : "",
-					platform: typeof sdkRecord["platform"] === "string" ? sdkRecord["platform"] : "",
-					arch: typeof sdkRecord["arch"] === "string" ? sdkRecord["arch"] : "",
-					runtime: typeof sdkRecord["runtime"] === "string" ? sdkRecord["runtime"] : "",
-					...typeof sdkRecord["reason"] === "string" ? { reason: sdkRecord["reason"] } : {}
-				},
-				token: {
-					state: tokenState === "ok" || tokenState === "stale" || tokenState === "unavailable" || tokenState === "idle" ? tokenState : "unavailable",
-					masked: typeof tokenRecord["masked"] === "string" ? tokenRecord["masked"] : "",
-					length: typeof tokenRecord["length"] === "number" ? tokenRecord["length"] : 0,
-					...typeof tokenRecord["fetchedAtMs"] === "number" ? { fetchedAtMs: tokenRecord["fetchedAtMs"] } : {},
-					...typeof tokenRecord["lastAttemptMs"] === "number" ? { lastAttemptMs: tokenRecord["lastAttemptMs"] } : {},
-					...typeof tokenRecord["reason"] === "string" ? { reason: tokenRecord["reason"] } : {}
-				},
+				sdk: info,
+				token: readout,
 				...typeof record["sdkEnabled"] === "boolean" ? { sdkEnabled: record["sdkEnabled"] } : {}
 			};
 		}
@@ -4913,6 +4918,8 @@ window.__ModuleLoader__.load({
 			*/
 			const [sdkMasterEnabled, setSdkMasterEnabled] = (0, react.useState)(void 0);
 			const [savingMaster, setSavingMaster] = (0, react.useState)(false);
+			/** 七处 `catch` 原本各写一遍同样的展平；收成一个。 */
+			const fail = (cause) => setError(cause instanceof Error ? cause.message : String(cause));
 			const load = (0, react.useCallback)(async (refresh) => {
 				if (path === "") return;
 				setBusy(true);
@@ -4926,7 +4933,7 @@ window.__ModuleLoader__.load({
 						setCopied(false);
 					}
 				} catch (cause) {
-					setError(cause instanceof Error ? cause.message : String(cause));
+					fail(cause);
 				} finally {
 					setBusy(false);
 					setLoading(false);
@@ -4994,7 +5001,7 @@ window.__ModuleLoader__.load({
 					if (full === void 0) setError(t("sdk.noValue"));
 					else setValue(full);
 				} catch (cause) {
-					setError(cause instanceof Error ? cause.message : String(cause));
+					fail(cause);
 				}
 			};
 			const copy = async () => {
@@ -5011,62 +5018,57 @@ window.__ModuleLoader__.load({
 						setCopied(false);
 					}, 2e3);
 				} catch (cause) {
-					setError(cause instanceof Error ? cause.message : String(cause));
+					fail(cause);
 				}
 			};
 			/**
-			* 保存目录：写盘之后**立刻重探一次**。
-			*
-			* 只写不重探会让用户看见"已保存"而状态行还是旧的——那正是这条意见要消掉的
-			* 迷雾（`dirSource` 让新目录下一次 `probe` 就生效，所以这里必须主动触发那一次）。
+			* 保存目录：写盘之后**立刻重探一次**。清空按钮复用同一条路径（原来内联重写了
+			* 整个 try/catch/finally，是这份面板里最明显的一处复制粘贴）。
 			*/
-			const saveDir = async () => {
+			const saveDir = async (dir = draftDir.trim()) => {
 				if (settingsPath === "") return;
 				setSavingDir(true);
 				setError(void 0);
 				setSavedNote(false);
 				try {
-					const next = await putDeviceSdk(settingsPath, { sdkDir: draftDir.trim() });
+					const next = await putDeviceSdk(settingsPath, { sdkDir: dir });
 					setSdkDir(next.sdkDir);
 					setDraftDir(next.sdkDir);
 					setSavedNote(true);
 					await load(true);
 				} catch (cause) {
-					setError(cause instanceof Error ? cause.message : String(cause));
+					fail(cause);
 				} finally {
 					setSavingDir(false);
 				}
 			};
-			const saveFallback = async (value) => {
+			const saveFallback = async (nextValue) => {
 				if (settingsPath === "") return;
 				setSavingFallback(true);
 				setError(void 0);
 				try {
-					const next = await putDeviceSdk(settingsPath, { sdkFallbackToVirtual: value });
+					const next = await putDeviceSdk(settingsPath, { sdkFallbackToVirtual: nextValue });
 					setFallback(next.sdkFallbackToVirtual);
 				} catch (cause) {
-					setError(cause instanceof Error ? cause.message : String(cause));
+					fail(cause);
 				} finally {
 					setSavingFallback(false);
 				}
 			};
 			/**
-			* 切换 SDK 总开关。
-			*
-			* 写完之后**重读一次快照**：关掉之后状态行必须立刻变成 `disabled`，而那一条是
-			* 从 `GET /device-sdk` 算出来的——只改本地 state 会让"已关"与下面那行"正常"
-			* 并存，正是这一页最不该出现的自相矛盾。
+			* 切换 SDK 总开关。写完重读一次快照：状态行是从 `GET /device-sdk` 算的，
+			* 只改本地 state 会让"已关"与下面那行"正常"并存。
 			*/
-			const saveMaster = async (value) => {
+			const saveMaster = async (nextValue) => {
 				if (path === "") return;
 				setSavingMaster(true);
 				setError(void 0);
 				try {
-					await setDeviceSdkEnabled(path, value);
-					setSdkMasterEnabled(value);
+					await setDeviceSdkEnabled(path, nextValue);
+					setSdkMasterEnabled(nextValue);
 					await load(false);
 				} catch (cause) {
-					setError(cause instanceof Error ? cause.message : String(cause));
+					fail(cause);
 				} finally {
 					setSavingMaster(false);
 				}
@@ -5214,22 +5216,7 @@ window.__ModuleLoader__.load({
 									className: "dsm-btn dsm-btn-outline",
 									disabled: savingDir,
 									onClick: () => {
-										setDraftDir("");
-										(async () => {
-											setSavingDir(true);
-											setError(void 0);
-											try {
-												const next = await putDeviceSdk(settingsPath, { sdkDir: "" });
-												setSdkDir(next.sdkDir);
-												setDraftDir("");
-												setSavedNote(true);
-												await load(true);
-											} catch (cause) {
-												setError(cause instanceof Error ? cause.message : String(cause));
-											} finally {
-												setSavingDir(false);
-											}
-										})();
+										saveDir("");
 									},
 									children: t("sdk.dirClear")
 								})
@@ -15175,7 +15162,7 @@ ${u} ${p}-pool .sw input:checked+.sw-track::after{transform:translateX(16px)}
 			"sdk.statusError": "The SDK could not be loaded",
 			"sdk.statusDisabled": "Turned off in settings",
 			"sdk.masterLabel": "Use the real-device SDK",
-			"sdk.masterHint": "On: discover the installed desktop SDK, fetch its device token in a background child process and keep it fresh every 10 minutes. Off: none of that happens — no discovery, no child process, no prewarming — so the Real tier has no token to send. The Virtual tier is unaffected (its ids come from the local salt), so turning this off is safe if you only want virtual devices.",
+			"sdk.masterHint": "On: discover the installed desktop SDK, fetch its device token in a background child process and keep it fresh every 10 minutes. Off: none of that happens — no discovery, no child process, no prewarming — so the Real tier has no token to send. The Virtual tier is unaffected (its ids come from the local salt), so turning this off is safe if you only want virtual devices. The switch takes effect immediately: turning it on starts fetching at once and turning it off stops the timer, with no plugin reload.",
 			"sdk.bundle": "SDK",
 			"sdk.runtime": "Runtime",
 			"sdk.fetched": "Last fetched",
@@ -15729,7 +15716,7 @@ ${u} ${p}-pool .sw input:checked+.sw-track::after{transform:translateX(16px)}
 			"sdk.statusError": "SDK 加载失败",
 			"sdk.statusDisabled": "已在设置里关闭",
 			"sdk.masterLabel": "启用真实设备 SDK",
-			"sdk.masterHint": "开启时：查找本机安装的桌面端 SDK、在后台子进程里取设备 token，并每 10 分钟换新一次。关闭时这些事一件都不做——不查找、不起子进程、不预热——「真实值」档因此没有 token 可发。「虚拟值」档不受影响（它的 id 由本机盐派生），只想用虚拟设备的话关掉是安全的。",
+			"sdk.masterHint": "开启时：查找本机安装的桌面端 SDK、在后台子进程里取设备 token，并每 10 分钟换新一次。关闭时这些事一件都不做——不查找、不起子进程、不预热——「真实值」档因此没有 token 可发。「虚拟值」档不受影响（它的 id 由本机盐派生），只想用虚拟设备的话关掉是安全的。开关即时生效：打开后立刻开始取，关掉即停掉定时器，都不用重载插件。",
 			"sdk.bundle": "SDK",
 			"sdk.runtime": "运行时",
 			"sdk.fetched": "最近取到",
