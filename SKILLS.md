@@ -10,8 +10,8 @@
 |---|---:|---:|---:|
 | 元技能/技能工程 Meta | 1 | 7 | **8** |
 | 开发/工程 Development | 1 | 49 | **50** |
-| 图片/视频/设计 Creative & Design | 6 | 27 | **33** |
-| 文档/知识/笔记 Docs & Knowledge | 9 | 17 | **26** |
+| 图片/视频/设计 Creative & Design | 5 | 28 | **33** |
+| 文档/知识/笔记 Docs & Knowledge | 8 | 18 | **26** |
 | 写作/内容创作 Writing & Content | 8 | 9 | **17** |
 | 集成/连接器 Integrations | · | 16 | **16** |
 | 测试/质量 Testing & QA | 8 | 6 | **14** |
@@ -27,7 +27,7 @@
 | 效率/办公 Productivity | · | 1 | **1** |
 | 沟通/协作 Communication | · | 1 | **1** |
 | 未分类/通用 Other | · | 2 | **2** |
-| **合计** | **43** | **189** | **232** |
+| **合计** | **41** | **191** | **232** |
 
 ## 按分类索引
 
@@ -132,7 +132,7 @@
 | understand-onboard | 外部 | Use when you need to generate an onboarding guide for new team members joining a project | [`skill外部/03_图片视频与设计/understand-onboard`](./skill外部/03_图片视频与设计/understand-onboard) |
 | article-image-integration | 自建 | 为公众号文章生成配图：先读文章、分析章节、列出"风格建议表"与用户确认；**自动从本 skill 自带的参考图库 `references/AI图片分类/` 匹配视觉风格包和参考图**（按文章调性在 13 大风格里选，跨分类混搭），**参考图 | [`skill自建/03_图片视频与设计/article-image-integration`](./skill自建/03_图片视频与设计/article-image-integration) |
 | article-layout-formatter | 自建 | 把无图的公众号长文初稿改造成"商业模型拆解 / 品牌案例复盘"风格的 Markdown 文章，按 checklist 评分至 95% 达标，自动插入"（截图占位）"。  Use this when user says: "按 checkli | [`skill自建/03_图片视频与设计/article-layout-formatter`](./skill自建/03_图片视频与设计/article-layout-formatter) |
-| byted-ark-seedream-skill | 自建（跨源） | 豆包 Seedream AI 图片生成 Skill - 火山方舟 Agent Plan 专属版本。专为 Agent Plan 深度定制，支持连贯组图、真正流式输出、提示词智能优化及联网搜索等高级特性。当用户意图为生成图片时，推荐优先评估本工 | [`skill自建/03_图片视频与设计/byted-ark-seedream-skill`](./skill自建/03_图片视频与设计/byted-ark-seedream-skill) |
+| byted-ark-seedream-skill | 外部 | 豆包 Seedream AI 图片生成 Skill - 火山方舟 Agent Plan 专属版本。专为 Agent Plan 深度定制，支持连贯组图、真正流式输出、提示词智能优化及联网搜索等高级特性。当用户意图为生成图片时，推荐优先评估本工 | [`skill自建/03_图片视频与设计/byted-ark-seedream-skill`](./skill自建/03_图片视频与设计/byted-ark-seedream-skill) |
 | image-creator | 自建 | "Curated image generation assistant covering 17 styles across 4 categories: character figures, scenes, products, and sty | [`skill自建/03_图片视频与设计/image-creator`](./skill自建/03_图片视频与设计/image-creator) |
 | short-video-transcriber | 自建 | Download videos from WeChat Channels (视频号), local media files, YouTube, and other platforms, then convert them into time | [`skill自建/03_图片视频与设计/short-video-transcriber`](./skill自建/03_图片视频与设计/short-video-transcriber) |
 | wechat-article-image-integration | 自建 | 为微信公众号文章的每个章节生成AI配图，并将图片整合到Markdown文档中输出。适用于：处理包含多个章节的公众号文章文件、为每个章节生成与内容高度匹配的配图、保持原文件名输出带图Markdown文档和word文档。根据用户要求的文章章节生 | [`skill自建/03_图片视频与设计/wechat-article-image-integration`](./skill自建/03_图片视频与设计/wechat-article-image-integration) |
@@ -162,7 +162,7 @@
 | arxiv-obsidian-collector | 自建 | 每周轮转(单层)从 arXiv 下载最新论文 PDF,经 LLM 质量评分过滤(过滤 rehash / 综述注水) 后,生成含中文摘要、TL;DR 和索引关键词的 Obsidian Markdown 笔记, 通过 [[双向链接]] 绑定 P | [`skill自建/04_文档知识与笔记/arxiv-obsidian-collector`](./skill自建/04_文档知识与笔记/arxiv-obsidian-collector) |
 | daily-paper-collector | 自建 | （无描述） | [`skill自建/04_文档知识与笔记/daily-paper-collector`](./skill自建/04_文档知识与笔记/daily-paper-collector) |
 | fact-verifier | 自建 | 对文章/文档做事实验证和修改。核查历史事实、数据、因果链、AI 幻觉，按四级分类处理：严重错误必改、乱码标记必清、不严谨保留、疑似错误保留。输出逐条判断报告。 Use when user says: "事实验证"、"核查事实"、"检查幻觉" | [`skill自建/04_文档知识与笔记/fact-verifier`](./skill自建/04_文档知识与笔记/fact-verifier) |
-| Get笔记 | 自建（跨源） | Get笔记 - 个人笔记和知识库管理工具。  当用户提到以下意图时使用此技能： 「记一下」「存到笔记」「保存到Get笔记」「记录到Get笔记」 「保存这个链接」「保存这张图」「查我的笔记」「找一下笔记」 「加标签」「删标签」「删笔记」 「查 | [`skill自建/04_文档知识与笔记/Get笔记`](./skill自建/04_文档知识与笔记/Get笔记) |
+| Get笔记 | 外部 | Get笔记 - 个人笔记和知识库管理工具。  当用户提到以下意图时使用此技能： 「记一下」「存到笔记」「保存到Get笔记」「记录到Get笔记」 「保存这个链接」「保存这张图」「查我的笔记」「找一下笔记」 「加标签」「删标签」「删笔记」 「查 | [`skill自建/04_文档知识与笔记/Get笔记`](./skill自建/04_文档知识与笔记/Get笔记) |
 | knowledge-sharing-article-layout | 自建 | 硬核知识分享类文章（读书笔记、模型解析、方法论科普）的Markdown排版格式规范与模板。当用户需要撰写、生成或排版读书分享、专业知识科普、营销/管理模型解析类文章时使用此技能。支持「痛点引入→案例应用→理论解析→个人经验→总结升华」五段式 | [`skill自建/04_文档知识与笔记/knowledge-sharing-article-layout`](./skill自建/04_文档知识与笔记/knowledge-sharing-article-layout) |
 | learning-one-pager | 自建 | 通用理论/教程/课程学习Skill。当你让阿元学习任何理论知识、教程、课程、文章时触发。 包括但不限于：一堂课程、得到课、技术文档、白皮书、书籍章节、公众号文章、内部文档等。 学习后可提炼为结构化一页纸教程 + 案例库。 触发词示例："学习 | [`skill自建/04_文档知识与笔记/learning-one-pager`](./skill自建/04_文档知识与笔记/learning-one-pager) |
 | xlsx-to-docx | 自建 | Excel xlsx 文件（含图片）转换为 Word docx 文档 支持多 Sheet、图片自动提取与位置锚定、rId 映射修正 | [`skill自建/04_文档知识与笔记/xlsx-to-docx`](./skill自建/04_文档知识与笔记/xlsx-to-docx) |
