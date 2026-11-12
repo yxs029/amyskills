@@ -117,7 +117,7 @@
 
 ## 七、优秀插件清单（前 50 · 2026-11-12 调研）
 
-> 来源：GitHub 高星搜索（DSH/Harness/Claude Code 插件生态）+ awesome-dsh-plugin 目录 + 本库已装 6 插件。★ 为实测快照。**带「已装」标注的 6 个是本机 web profile 实际安装的（见 `PLUGINS.md`）。**
+> 来源：GitHub 高星搜索（DSH/Harness/Claude Code 插件生态）+ awesome-dsh-plugin 目录 + 本库已装 6 插件。**下表共 50 条（编号 1–50 连续）**。★ 为实测快照。**带「已装」标注的 6 个是本机 web profile 实际安装的（见 `PLUGINS.md`）。**
 
 | # | 插件 / 仓库 | ★ | 一句话定位 | 状态 |
 |---|---|---:|---|---|

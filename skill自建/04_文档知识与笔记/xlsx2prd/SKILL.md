@@ -1,6 +1,6 @@
 ---
 name: xlsx2prd
-description: Convert an Excel requirements document (.xlsx) into a structured PRD Markdown document, or convert xlsx/xls documents into Markdown format while preserving original content and formatting (bold, strikethrough, colors, image positions). This skill should be used when the user asks to convert xlsx/xls requirement specs (FRD/SRS/需求文档) into PRD Markdown format, convert xlsx documents to Markdown (md), extract and embed images, convert embedded diagrams (mindmaps/flowcharts/logic diagrams) into Mermaid or PlantUML source code, and assemble everything into a standards-compliant PRD with appendices. Triggers: xlsx转PRD, xlsx转md, xlsx2prd, 需求文档转md, 需求文档转PRD, 把xlsx转换为PRD, Excel转Markdown需求文档, 将xlsx转换为md, convert xlsx to PRD, convert xlsx to markdown.
+description: "Convert an Excel requirements document (.xlsx) into a structured PRD Markdown document, or convert xlsx/xls documents into Markdown format while preserving original content and formatting (bold, strikethrough, colors, image positions). This skill should be used when the user asks to convert xlsx/xls requirement specs (FRD/SRS/需求文档) into PRD Markdown format, convert xlsx documents to Markdown (md), extract and embed images, convert embedded diagrams (mindmaps/flowcharts/logic diagrams) into Mermaid or PlantUML source code, and assemble everything into a standards-compliant PRD with appendices. Triggers: xlsx转PRD, xlsx转md, xlsx2prd, 需求文档转md, 需求文档转PRD, 把xlsx转换为PRD, Excel转Markdown需求文档, 将xlsx转换为md, convert xlsx to PRD, convert xlsx to markdown."
 agent_created: true
 ---
 

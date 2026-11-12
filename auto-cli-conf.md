@@ -145,7 +145,7 @@ whyai login --gateway https://ai.yitang.top
 
 ## 五、优秀 CLI 清单（前 50 · GitHub 高星调研 2026-11-12）
 
-> 调研方式：GitHub 搜索 API（`ai+cli+terminal`、`cli+agent+ai`、`agent+cli+tool` 等，按 stars 降序），过滤出确属 CLI/终端工具的条目，与本库已收录的 17 个 CLI（§一、§二）去重。★ 为实测快照。
+> 调研方式：GitHub 搜索 API（`ai+cli+terminal`、`cli+agent+ai`、`agent+cli+tool` 等，按 stars 降序），过滤出确属 CLI/终端工具的条目，与本库已收录的 17 个 CLI（§一、§二）去重。**下表共 50 条（编号 1–50 连续）**。★ 为实测快照。
 
 | # | CLI / 仓库 | ★ | 一句话定位 |
 |---|---|---:|---|

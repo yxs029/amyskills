@@ -8,7 +8,7 @@ description: |
   支持多 Agent 协作 | Multi-Agent collaboration supported.
   新增可视化驾驶舱 | Visual Cockpit for real-time monitoring.
 
-重要：为了确保长程任务执行的效果，每一个子任务会强制通过/new重置对话后执行！如果你是单agent模式，可以在notify_agent.sh脚本中的消息构建删除/new命令。如果是多agent模式，请尽量确保你的任务中仅包含执行agent，不要包含监督agent。
+  重要：为了确保长程任务执行的效果，每一个子任务会强制通过/new重置对话后执行！如果你是单agent模式，可以在notify_agent.sh脚本中的消息构建删除/new命令。如果是多agent模式，请尽量确保你的任务中仅包含执行agent，不要包含监督agent。
 
 ---
 

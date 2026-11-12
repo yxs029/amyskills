@@ -1,4 +1,6 @@
 ---
+name: daily-paper-collector
+description: 每日论文收集与白话解读：自动收集最新论文并生成中文白话解读。当用户需要论文速递、文献追踪或每日科研简报时使用。
 title: "Skill-每日论文收集与白话解读-AutoClaw"
 author: "Aaron雪松"
 date: "2026-06-18"
