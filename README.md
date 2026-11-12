@@ -17,15 +17,15 @@
 |---|---|---|---|---|---|
 | 1 | **技能 Skill** | `skill自建/` + `skill外部/`（各按 20 功能类） | **232 个**（已去重；43 自建 / 189 外部） | [`SKILLS.md`](./SKILLS.md) | [`_skills.json`](./_skills.json) |
 | 2 | **插件 Plugin（DSH Bundle）** | `dsh-plugin自建/` + `dsh-plugin外部/` | **6 个**（0 自建 / 6 外部） | [`PLUGINS.md`](./PLUGINS.md) | [`_plugins.json`](./_plugins.json) |
-| 3 | **CLI 安装方式** | 根目录 | 8 个指定 + 10 款补充（已去重、链接已验证） | [`CLI-config.md`](./CLI-config.md) | — |
-| 4 | **自动化测试框架 + Computer Use** | 根目录 | 4 必装 + 20 补充 | [`autotest-openai.md`](./autotest-openai.md) | — |
-| 5 | **开放平台信息** | 根目录（并入 `autotest-openai.md`） | 3 个指定 + 12 个补充 | [`autotest-openai.md`](./autotest-openai.md) | — |
+| 3 | **CLI 安装方式与优秀 CLI 清单** | 根目录 | 前 50 清单 + 8 指定 + 10 补充 | [`auto-cli-conf.md`](./auto-cli-conf.md) | — |
+| 4 | **自动化测试框架 + Computer Use** | 根目录 | 4 必装 + 20 补充 | [`autotest-openapi.md`](./autotest-openapi.md) | — |
+| 5 | **开放平台信息** | 根目录（并入 `autotest-openapi.md`） | 3 个指定 + 12 个补充 | [`autotest-openapi.md`](./autotest-openapi.md) | — |
 | 附 | **外部技能库来源索引** | 各台账的「出处」列 + 本文件「外部来源与参考」 | 9 个外部顶层文件夹 + SkillHub/ClawHub/YTruman 等 | 本文件 | — |
 | 附 | 历史归档 | `历史归档/`（本地保留，**不入库**，见 `.gitignore`） | 77 个原 zip 安装包 | — | — |
 
 - 技能全部以**解压目录**形式存放（含 `SKILL.md`），开箱即用；原 zip 统一归入本地 `历史归档/`（保留原相对路径），**该目录已 `.gitignore`、不推送到 Git**，仓库内不含任何 zip。
 - 插件以**完整目录**归档（含 `package.json`、`cordis.patch.yml`、lib/、文档），可直接 `dsh plugin add` 重装；打包时已排除 `node_modules/` 与运行时状态。
-- `CLI-config.md` 与 `autotest-openai.md` **只记录、不执行**：其中的安装命令均为待执行清单，Agent 读到不得自动运行；涉及登录/授权的一律人工在浏览器完成。
+- `auto-cli-conf.md` 与 `autotest-openapi.md` **只记录、不执行**：其中的安装命令均为待执行清单，Agent 读到不得自动运行；涉及登录/授权的一律人工在浏览器完成。
 - 功能分类体系参考 [SkillHub](https://www.skillhub.club/skills) 与 [ClawHub](https://clawhub.ai/skills)。
 
 ## 目录结构（平铺）
@@ -37,8 +37,8 @@ amyskills/
 ├── _skills.json         技能维度机器台账
 ├── PLUGINS.md           插件维度台账（版本/出处/归属/功能分类）
 ├── _plugins.json        插件维度机器台账
-├── CLI-config.md        CLI 安装方式汇总（8 指定 + 10 补充，链接已验证）
-├── autotest-openai.md   自动化测试框架 / Computer Use / 开放平台清单
+├── auto-cli-conf.md        CLI 安装方式与优秀 CLI 清单（前 50）
+├── autotest-openapi.md   自动化测试框架 / Computer Use / 开放平台清单
 ├── .gitignore           排除 历史归档/、*.zip、机器运行产物
 ├── skill自建/           自建技能（按 20 功能类分目录）
 ├── skill外部/           外部收集技能（按 20 功能类分目录）
@@ -66,7 +66,7 @@ dsh plugin --profile web add ./dsh-plugin外部/<插件目录>  # 从本库离�
 完整清单见 [`PLUGINS.md`](./PLUGINS.md)，也可在 DSH Web 的插件市场（`dshmarket`）里搜索一键安装。
 
 ### 3. CLI / 自动化框架 / 开放平台
-查 [`CLI-config.md`](./CLI-config.md) 与 [`autotest-openai.md`](./autotest-openai.md)；**文档只记录，安装需人工复制命令执行**。
+查 [`auto-cli-conf.md`](./auto-cli-conf.md) 与 [`autotest-openapi.md`](./autotest-openapi.md)；**文档只记录，安装需人工复制命令执行**。
 
 ## 技能与插件的区别（为什么两个维度分开记录）
 
@@ -90,7 +90,7 @@ dsh plugin --profile web add ./dsh-plugin外部/<插件目录>  # 从本库离�
 | [ClawHub](https://clawhub.ai/skills) | OpenClaw 生态技能/插件市场：16 类目 + 按应用浏览 + Audits 审核标记。本库技能分类与插件出处标注参考它 |
 | [awesome-dsh-plugin](https://awesome-dsh-plugin.com) | DSH 社区插件精选清单（4200+ 插件） |
 | [dsh-market](https://github.com/dsh-market/dsh-market) | DSH 可视化插件市场；本库 `dsh-plugin外部/dshmarket` 与技能 `toamyskillhub` 与之配套 |
-| 飞书开放平台 / 移动云盘开放平台 / 微信开放平台 等 | 见 [`autotest-openai.md`](./autotest-openai.md) §3–§4（15 个平台入口，链接已验证） |
+| 飞书开放平台 / 移动云盘开放平台 / 微信开放平台 等 | 见 [`autotest-openapi.md`](./autotest-openapi.md) §3–§4（15 个平台入口，链接已验证） |
 
 ## 质量与安全
 
@@ -109,7 +109,7 @@ dsh plugin --profile web add ./dsh-plugin外部/<插件目录>  # 从本库离�
 
 ## 维护（持续新增）
 
-- **一个库、五个维度、四本台账 + 两份专题文档**：技能 → `skill自建/` `skill外部/` + `SKILLS.md` + `_skills.json`；插件 → `dsh-plugin自建/` `dsh-plugin外部/` + `PLUGINS.md` + `_plugins.json`；CLI → `CLI-config.md`；自动化框架/开放平台 → `autotest-openai.md`。
+- **一个库、五个维度、四本台账 + 两份专题文档**：技能 → `skill自建/` `skill外部/` + `SKILLS.md` + `_skills.json`；插件 → `dsh-plugin自建/` `dsh-plugin外部/` + `PLUGINS.md` + `_plugins.json`；CLI → `auto-cli-conf.md`；自动化框架/开放平台 → `autotest-openapi.md`。
 - **持续新增**：新收的能力按维度归档，并同步更新对应台账/文档；不因为"暂时用不上"而不收。
 - **发布/同步统一走 `toamyskillhub`**（仅限本人及具读写授权者安装使用），PLAN → 确认 → EXECUTE 三段式，含密钥扫描；不手工绕开。
 - 本地 `历史归档/` 只增不改，且已 `.gitignore` 不入库；仓库内不含任何 zip。

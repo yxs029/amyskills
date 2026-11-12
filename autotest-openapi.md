@@ -1,4 +1,4 @@
-# 自动化测试与开放平台资源清单（autotest-openai）
+# 自动化测试与开放平台资源清单（autotest-openapi）
 
 > **用途**：记录自动化测试必装框架、AI/Computer Use 生态、以及各类开放平台入口，供 AI Agent 与测试工程快速查阅。
 > **性质**：纯文档索引（**不执行安装、不调用 API**）。整理日期：2026-11-11。
@@ -115,10 +115,10 @@
 | 平台 | 入口 | 说明 |
 |---|---|---|
 | 腾讯云 API | https://cloud.tencent.com/document/api | 云产品 API 总目录 |
-| 阿里云 OpenAPI | https://next.api.aliyun.com/ | 阿里云 API 门户（与 `aliyun-cli` 配套，见 `CLI-config.md`） |
+| 阿里云 OpenAPI | https://next.api.aliyun.com/ | 阿里云 API 门户（与 `aliyun-cli` 配套，见 `auto-cli-conf.md`） |
 | 高德开放平台 | https://lbs.amap.com/api | 地图/定位/路径规划 |
 | 百度智能云 / AI 开放平台 | https://cloud.baidu.com/ · https://ai.baidu.com/ | AI 能力（OCR/语音/NLP）开放 |
-| 火山引擎 | https://www.volcengine.com/docs | 与 `CLI-config.md` 的火山 CLI 配套 |
+| 火山引擎 | https://www.volcengine.com/docs | 与 `auto-cli-conf.md` 的火山 CLI 配套 |
 
 ### 4.5 检索说明
 
@@ -138,7 +138,7 @@
 | 给 Agent 装浏览器工具 | Playwright MCP |
 | 测手机 App | Appium 或 Maestro / Airtest |
 | 测接口 / 写单测 | pytest（+ HttpRunner / k6 压测） |
-| 给飞书/企微/钉钉发消息、读文档 | 对应开放平台 §3/§4 + Lark CLI（`CLI-config.md`） |
+| 给飞书/企微/钉钉发消息、读文档 | 对应开放平台 §3/§4 + Lark CLI（`auto-cli-conf.md`） |
 | 接支付宝/微信支付 | §4.2 |
 | 接小程序/抖音 | §4.3 |
 

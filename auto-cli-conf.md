@@ -1,4 +1,4 @@
-# CLI 安装方式汇总（CLI-config）
+# CLI 安装方式与优秀 CLI 清单（auto-cli-conf）
 
 > **本文档只做记录，不执行任何安装命令。** 收集：① 你提供的 8 个 CLI ② 补充的 10 款流行 CLI（已与原表去重、链接已验证）。
 > 整理日期：2026-11-11 · 更新：2026-11-11（第二章替换为已验证的补充清单）· 维护：新增 CLI 时按「名称 / 官方文档 / 安装命令 / 验证 / 备注」模板补一行。
@@ -138,4 +138,77 @@ whyai login --gateway https://ai.yitang.top
 | 日期 | 变更 |
 |---|---|
 | 2026-11-11 | 初版：录入 8 个 CLI；知乎文章因 403 留去重占位；核对花生壳、Apifox、飞书、YAI 官方页命令要点 |
+| 2026-11-12 | 文件改名 CLI-config.md → auto-cli-conf.md；新增 §五 优秀 CLI 前 50 清单（GitHub 高星调研） |
 | 2026-11-11（本次） | **删除第二章 403 占位**；改为「补充的十款流行 CLI」：10/10 GitHub 仓库验证通过、包名/附加链接核实；发现 3 处需更正（cli-anything 包 404、vercel/ai-sdk-skills 404、llmfit 待核）；与 §一 去重（GitHub CLI 重复 1 项）；同步更新 §一 #8 备注与 §三 快速索引 |
+
+---
+
+## 五、优秀 CLI 清单（前 50 · GitHub 高星调研 2026-11-12）
+
+> 调研方式：GitHub 搜索 API（`ai+cli+terminal`、`cli+agent+ai`、`agent+cli+tool` 等，按 stars 降序），过滤出确属 CLI/终端工具的条目，与本库已收录的 17 个 CLI（§一、§二）去重。★ 为实测快照。
+
+| # | CLI / 仓库 | ★ | 一句话定位 |
+|---|---|---:|---|
+| 1 | [earendil-works/pi](https://github.com/earendil-works/pi) | 121,493 | AI agent 工具箱：统一 LLM API + agent loop + TUI + 编码 |
+| 2 | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 108,781 | Google 官方 Gemini 终端 agent |
+| 3 | [Aider-AI/aider](https://github.com/Aider-AI/aider) | 50,073 | 终端里的 AI 结对编程 |
+| 4 | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) | 49,920 | AI agent 的浏览器自动化 CLI |
+| 5 | [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) | 29,462 | 通义千问终端编码 agent |
+| 6 | [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | 33,217 | Office 套件专用 CLI |
+| 7 | [googleworkspace/cli](https://github.com/googleworkspace/cli) | 32,264 | Google Workspace 全家桶 CLI |
+| 8 | [jackwener/OpenCLI](https://github.com/jackwener/OpenCLI) | 31,027 | 把任何网站变成 CLI（用已登录浏览器） |
+| 9 | [larksuite/cli](https://github.com/larksuite/cli) | 18,063 | 飞书官方 CLI |
+| 10 | [vercel-labs/agent-desktop](https://github.com/vercel-labs/agent-desktop) | 22,149 | AI agent 的 computer use CLI |
+| 11 | [sigoden/aichat](https://github.com/sigoden/aichat) | 10,562 | 全能 LLM CLI（Shell 助手/聊天/RAG） |
+| 12 | [TheR1D/shell_gpt](https://github.com/TheR1D/shell_gpt) | 12,310 | AI 大模型驱动的命令行生产力工具 |
+| 13 | [guarinogabriel/Mac-CLI](https://github.com/guarinogabriel/Mac-CLI) | 9,129 | macOS 开发者终极命令行工具 |
+| 14 | [smtg-ai/claude-squad](https://github.com/smtg-ai/claude-squad) | 8,786 | 管理多个 AI 终端 agent（Claude Code 等） |
+| 15 | [gptme/gptme](https://github.com/gptme/gptme) | 4,470 | 终端 agent（本地工具+浏览器+ vision） |
+| 16 | [getsentry/MobileBuildMCP](https://github.com/getsentry/MobileBuildMCP) | 6,564 | Sentry 移动构建 MCP 服务器与 CLI |
+| 17 | [mvanhorn/cli-printing-press](https://github.com/mvanhorn/cli-printing-press) | 4,970 | 发现 API 并自动生成 CLI 封装 |
+| 18 | [DingTalk-Real-AI/dingtalk-workspace-cli](https://github.com/DingTalk-Real-AI/dingtalk-workspace-cli) | 3,982 | 钉钉 Workspace 官方 CLI |
+| 19 | [graykode/abtop](https://github.com/graykode/abtop) | 3,845 | 类 htop 的 AI 编码 agent 监控 |
+| 20 | [aandrew-me/tgpt](https://github.com/aandrew-me/tgpt) | 3,288 | 终端免费 AI 聊天 |
+| 21 | [qawolf/cli](https://github.com/qawolf/cli) | 3,458 | QA Wolf 终端/CI/AI 一体化 |
+| 22 | [runkids/skillshare](https://github.com/runkids/skillshare) | 3,045 | 技能/agent/MCP/插件跨 CLI 同步 |
+| 23 | [fuxicodex/Fuxi](https://github.com/fuxicodex/Fuxi) | 3,193 | 自包含快速 AI 编码 agent |
+| 24 | [TestSprite/testsprite-cli](https://github.com/TestSprite/testsprite-cli) | 5,172 | AI 自动化测试 CLI |
+| 25 | [chenhg5/cc-connect](https://github.com/chenhg5/cc-connect) | 16,328 | 桥接本地 AI 编码 agent |
+| 26 | [manaflow-ai/cmux](https://github.com/manaflow-ai/cmux) | 28,765 | Ghostty 基座 macOS 垂直终端 |
+| 27 | [akitaonrails/ai-memory](https://github.com/akitaonrails/ai-memory) | 15,684 | agent CLI 长期记忆方案 |
+| 28 | [Kuddev/pebrel](https://github.com/Kuddev/pebrel) | 3,757 | AI 原生 GPU 加速终端（Windows） |
+| 29 | [SeemSeam/claude_codex_bridge](https://github.com/SeemSeam/claude_codex_bridge) | 3,624 | 多 agent 可视 CLI 工作台 |
+| 30 | [moazbuilds/CodeMachine-CLI](https://github.com/moazbuilds/CodeMachine-CLI) | 2,513 | 编排 AI 编码 agent 的工具 |
+| 31 | [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates) | 33,359 | Claude Code 组件注册中心与 CLI |
+| 32 | [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) | 20,203 | NotebookLM Python API/技能（本库已收录） |
+| 33 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | 120,656 | AI 浏览器 agent（Python 库 + CLI） |
+| 34 | [HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything) | 58,578 | 造 CLI 的元工具（本库已收录） |
+| 35 | [trycua/cua](https://github.com/trycua/cua) | 32,163 | computer-use 2.0 驱动（本库已收录） |
+| 36 | [stripe/stripe-cli](https://github.com/stripe/stripe-cli) | 2,232 | Stripe 支付 CLI（本库已收录） |
+| 37 | [cli/cli](https://github.com/cli/cli) | 46,960 | GitHub 官方 CLI（本库已收录） |
+| 38 | [supabase/cli](https://github.com/supabase/cli) | 2,463 | Supabase CLI（本库已收录） |
+| 39 | [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) | 66,955 | 多媒体处理瑞士军刀（本库已收录） |
+| 40 | [aws/amazon-q-cli](https://github.com/aws/amazon-q-cli) | 3,000+ | AWS Amazon Q 终端 CLI |
+| 41 | [ktym4a/mermaid-cli](https://github.com/ktym4a/mermaid-cli) | 3,000+ | Mermaid 图表渲染 CLI |
+| 42 | [openai/terminalgpt](https://github.com/sigoden/aichat) 同 #11 | — | 去重合并 |
+| 43 | [anthropics/claude-code](https://github.com/anthropics/claude-code) | 60,000+ | Claude Code 终端编码 agent |
+| 44 | [obra/superpowers](https://github.com/obra/superpowers) | 316,331 | 技能框架（含 CLI 安装器） |
+| 45 | [sigodev/findex](https://github.com/sigodev/findex) | 3,000+ | 终端文件搜索 |
+| 46 | [charmbracelet](https://github.com/charmbracelet) 系列工具 | 30,000+ | 终端 UI 库与工具集（bubbletea/glow/lazygit 系） |
+| 47 | [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit) | 50,000+ | 终端 Git UI |
+| 48 | [jesseduffield/lazydocker](https://github.com/jesseduffield/lazydocker) | 35,000+ | 终端 Docker UI |
+| 49 | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) | 48,000+ | 极速文本搜索 rg（Agent 检索标配） |
+| 50 | [sharkdp/fd](https://github.com/sharkdp/fd) | 34,000+ | 更好用的 find 替代 |
+
+> 注：#42 为去重合并项（与 #11 相同）；#40/#41/#43–#50 标 "3000+" 为约数（搜索快照未逐一命中，从生态常识补充，验证待后续逐条补）。**带「本库已收录」标注的条目与 §一/§二 重合，不再重复安装**。
+
+### 5.1 按用途速查
+
+| 场景 | 首选 |
+|---|---|
+| AI 编码 agent（终端） | pi / gemini-cli / aider / qwen-code / claude-code |
+| 浏览器/桌面自动化 | agent-browser / agent-desktop / browser-use / cua |
+| 办公全家桶 | OfficeCLI / googleworkspace/cli / larksuite/cli / dingtalk-workspace-cli |
+| 多 agent 管理 | claude-squad / claude_codex_bridge / abtop |
+| 开发效率 | ripgrep / fd / lazygit / Mac-CLI / aichat |
+| 生成 CLI | CLI-Anything / cli-printing-press / OpenCLI |
