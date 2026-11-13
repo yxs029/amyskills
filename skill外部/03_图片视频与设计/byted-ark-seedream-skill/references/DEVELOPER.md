@@ -1,6 +1,8 @@
 # Seedream Agent 开发指南
 
-本文档面向 Agent 开发者，包含图片预处理、脚本调用方式、流式输出说明。
+本文档面向 Agent 开发者，包含图片预处理、脚本调用方式与结果展示。
+
+运行时模型清单来自 `generate.js --list-models`。下文 Flash / Pro 的限制是内置基线，新增模型按已发布配置校验。动态配置与维护流程见 [MODEL_REGISTRY.md](MODEL_REGISTRY.md)。
 
 ---
 
@@ -18,11 +20,7 @@ Skill 接受以下格式的参考图片文件，Agent 层需要负责转换：
 "https://example.com/image.jpg"
 ```
 
-**图片限制：**
-- 单张大小：≤ 10MB
-- 格式：JPEG / PNG / WebP
-- 数量：最多 14 张
-- 建议分辨率：≥ 1024x1024
+**图片限制：** 按所选模型和场景执行 [MODELS.md](MODELS.md) 的限制；Flash / Pro 最多10张，拆图层/透明编辑恰好1张。
 
 ---
 
@@ -57,7 +55,7 @@ node scripts/generate.js \
   ],
   "metadata": {
     "generation_time": 12.5,
-    "size": "2K"
+    "size": "2K",
     "mode": "text-to-image",
     "image_count": 1
   }
@@ -66,35 +64,14 @@ node scripts/generate.js \
 
 ---
 
-### 方式二：连贯组图生成（流式输出）
+### 方式二：图层拆分
+
 ```bash
-node scripts/generate.js \
-  --prompt "春夏秋冬四季变迁，同一地点" \
-  --sequential true \
-  --count 4 \
-  --stream true
+node scripts/generate.js --model flash --layer_decomposition true \
+  --reference_images '["https://example.com/poster.png"]'
 ```
 
-**流式输出特点：**
-- 生成一张返回一张，无需等待全部完成
-- 首图可见时间降低 75%
-- 自动保持风格、色调、构图一致
-
----
-
-## 🌊 流式进度反馈
-
-当 `sequential=true` 时，Skill 会通过 stderr 输出实时进度：
-
-```
-🎨 正在生成第 1/4 张图...
-✅ 第 1 张已生成并保存
-🎨 正在生成第 2/4 张图...
-✅ 第 2 张已生成并保存
-...
-```
-
-Agent 层可以捕获 stderr 输出，向用户展示实时进度。
+Flash / Pro 都支持拆图层。所有资源一次性返回，底图和透明图层须按实际格式保存；保留 `z_index` 和 `bounding_box` 等 metadata。当前模型不支持连贯组图和流式输出，不能把多张图层当作连贯组图。
 
 ---
 
@@ -144,21 +121,21 @@ if (result.success && result.images) {
 
 ## 🔌 支持的原生 API 接口
 
-### 文生图 / 图生图 / 连贯组图（统一接口）
+### 文生图 / 图生图 / 图层拆分（统一接口）
 ```http
 POST https://ark.cn-beijing.volces.com/api/plan/v3/images/generations
 Content-Type: application/json
 Authorization: Bearer ark-xxx
 
 {
+  "model": "doubao-seedream-5-0-flash",
   "prompt": "一只可爱的小猫",
-  "size": "2K"
+  "size": "2K",
+  "response_format": "url"
 }
 ```
 
-**说明：**
-- 所有生图能力（文生图、图生图、连贯组图）统一使用上述接口
-- **注意：连贯图数量不通过 `num_images` / `count` / `max_images` 等字段透传。** 连贯图数量由 prompt 语义触发，例如 `"生成4张一组的连贯插画..."`。脚本中的 `--count` 仅用于 Agent 构造 prompt、本地校验、进度展示和 metadata 记录
+请求体由 `buildRequestBody` 构造。内置 Flash / Pro 不发送 `stream`、`tools`、`sequential_image_generation`；后续兼容模型只有声明相应能力才启用这些字段。当前执行器不发送 `reference_strength` 或后付费组图数量字段。已发布的扩展标量参数经过类型/枚举/范围校验后透传。
 
 ---
 
@@ -168,8 +145,7 @@ Agent 层应该处理以下常见错误：
 
 | 错误类型 | 建议处理 |
 |----------|---------|
-| API Key 未配置 | 提示用户直接发送 ark-xxx 开头的 Key，默认仅本次临时使用；如需保存到全局配置，请明确要求用户确认 |
-| 网络错误 | 自动重试 2~3 次，失败再提示用户 |
+| API Key 未配置 | 指导用户在本地配置 ARK_API_KEY，不要求在聊天中提供密钥；临时 Key 默认不保存 |
+| 网络错误 | 返回错误；生成请求不自动重试，避免重复生成 |
 | 图片下载失败 | 返回生成的在线 URL，提示用户手动保存 |
-| 参数不合法 | 自动修正到合法范围，并提示用户 |
-
+| 参数不合法 | 请求前校验；不静默改变用户要求 |

@@ -1,0 +1,39 @@
+{
+  "provider": "lark-cli",
+  "base_url": "https://bytedance.larkoffice.com/base/Edvobf80waEmCesOhmtcWyt0nvg",
+  "base_token": "Edvobf80waEmCesOhmtcWyt0nvg",
+  "tables": {
+    "models": "tblDPxQgpaDp7q4x",
+    "releases": "tblfcrJePrzKnKao"
+  },
+  "fields": {
+    "models": {
+      "priority": "fldzJv1Cfc",
+      "modality": "fld1rRTW2y",
+      "notes": "fldCVbLnjp",
+      "extra_parameters_json": "fldtvQNz8H",
+      "source_url": "fldklFMqa5",
+      "defaults_json": "fldmhoVfXB",
+      "aliases_json": "fldsJTmtWO",
+      "display_name": "fldqSHaCDR",
+      "adapter": "fldEfpqHq6",
+      "extensions_json": "fldOt3liL8",
+      "quality_priority": "fldHO1rxtS",
+      "model_id": "fldwCgs8ke",
+      "min_runtime": "fldfBCM4Ro",
+      "status": "fldG0QyGlv",
+      "limits_json": "fldW3XRGKL",
+      "capabilities_json": "fldBHPt1jv"
+    },
+    "releases": {
+      "schema_version": "fldlGpN3GZ",
+      "snapshot_json": "fldMcvQ3Jn",
+      "sha256": "fldhDtYsUO",
+      "published_at": "fld2i4nD3o",
+      "notes": "fld2eb7heS",
+      "channel": "fldxrYqYEC",
+      "revision": "fldkxUhovC"
+    }
+  },
+  "channel": "seedream"
+}

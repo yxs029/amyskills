@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "channel": "seedance",
+  "published_at": "2026-10-15T00:00:00.000Z",
+  "models": [
+    {
+      "model_id": "doubao-seedance-2-0-260128",
+      "display_name": "Seedance 2.0 标准版",
+      "modality": "video",
+      "status": "active",
+      "aliases": [
+        "doubao-seedance-2.0"
+      ],
+      "adapter": "seedance-task-v2",
+      "min_runtime": 1,
+      "priority": 10,
+      "quality_priority": 10,
+      "capabilities": [
+        "text_to_video",
+        "image_to_video",
+        "reference_image",
+        "reference_video",
+        "reference_audio",
+        "start_end_frame",
+        "generate_audio",
+        "web_search",
+        "return_last_frame"
+      ],
+      "limits": {
+        "duration_min": 4,
+        "duration_max": 15,
+        "allow_auto_duration": true,
+        "resolutions": [
+          "480p",
+          "720p",
+          "1080p",
+          "4k"
+        ],
+        "ratios": [
+          "adaptive",
+          "16:9",
+          "9:16",
+          "1:1",
+          "4:3",
+          "3:4",
+          "21:9"
+        ],
+        "output_formats": [
+          "mp4"
+        ],
+        "max_reference_images": 9,
+        "max_reference_videos": 3,
+        "max_reference_audios": 3,
+        "max_reference_assets": null,
+        "max_request_bytes": 67108864
+      },
+      "defaults": {
+        "duration": 5,
+        "resolution": "720p",
+        "ratio": "adaptive",
+        "output_format": "mp4"
+      },
+      "extra_parameters": {},
+      "extensions": {
+        "verification": "2026-10-15：2.0标准版和2.5完成5秒720p真实生成；其他能力沿用既有配置，须按账号实测。"
+      },
+      "source_url": "https://docs.volcengine.com/docs/ark/create-video-generation-task-api?lang=zh",
+      "notes": "保留既有 AgentPlan 精确请求 ID。参数声明不等同账号开通；draft/flex 未启用。"
+    },
+    {
+      "model_id": "doubao-seedance-2-0-fast-260128",
+      "display_name": "Seedance 2.0 Fast",
+      "modality": "video",
+      "status": "active",
+      "aliases": [
+        "doubao-seedance-2.0-fast"
+      ],
+      "adapter": "seedance-task-v2",
+      "min_runtime": 1,
+      "priority": 20,
+      "quality_priority": 30,
+      "capabilities": [
+        "text_to_video",
+        "image_to_video",
+        "reference_image",
+        "reference_video",
+        "reference_audio",
+        "start_end_frame",
+        "generate_audio",
+        "web_search",
+        "return_last_frame",
+        "fast_generation"
+      ],
+      "limits": {
+        "duration_min": 4,
+        "duration_max": 15,
+        "allow_auto_duration": true,
+        "resolutions": [
+          "480p",
+          "720p"
+        ],
+        "ratios": [
+          "adaptive",
+          "16:9",
+          "9:16",
+          "1:1",
+          "4:3",
+          "3:4",
+          "21:9"
+        ],
+        "output_formats": [
+          "mp4"
+        ],
+        "max_reference_images": 9,
+        "max_reference_videos": 3,
+        "max_reference_audios": 3,
+        "max_reference_assets": null,
+        "max_request_bytes": 67108864
+      },
+      "defaults": {
+        "duration": 5,
+        "resolution": "720p",
+        "ratio": "adaptive",
+        "output_format": "mp4"
+      },
+      "extra_parameters": {},
+      "extensions": {
+        "verification": "2026-10-15：2.0标准版和2.5完成5秒720p真实生成；其他能力沿用既有配置，须按账号实测。"
+      },
+      "source_url": "https://docs.volcengine.com/docs/ark/create-video-generation-task-api?lang=zh",
+      "notes": "保留既有 AgentPlan 精确请求 ID。参数声明不等同账号开通；draft/flex 未启用。"
+    },
+    {
+      "model_id": "doubao-seedance-2-0-mini-260615",
+      "display_name": "Seedance 2.0 Mini",
+      "modality": "video",
+      "status": "active",
+      "aliases": [
+        "doubao-seedance-2.0-mini"
+      ],
+      "adapter": "seedance-task-v2",
+      "min_runtime": 1,
+      "priority": 30,
+      "quality_priority": 40,
+      "capabilities": [
+        "text_to_video",
+        "image_to_video",
+        "reference_image",
+        "reference_video",
+        "reference_audio",
+        "start_end_frame",
+        "generate_audio",
+        "web_search",
+        "return_last_frame"
+      ],
+      "limits": {
+        "duration_min": 4,
+        "duration_max": 15,
+        "allow_auto_duration": true,
+        "resolutions": [
+          "480p",
+          "720p"
+        ],
+        "ratios": [
+          "adaptive",
+          "16:9",
+          "9:16",
+          "1:1",
+          "4:3",
+          "3:4",
+          "21:9"
+        ],
+        "output_formats": [
+          "mp4"
+        ],
+        "max_reference_images": 9,
+        "max_reference_videos": 3,
+        "max_reference_audios": 3,
+        "max_reference_assets": null,
+        "max_request_bytes": 67108864
+      },
+      "defaults": {
+        "duration": 5,
+        "resolution": "720p",
+        "ratio": "adaptive",
+        "output_format": "mp4"
+      },
+      "extra_parameters": {},
+      "extensions": {
+        "verification": "2026-10-15：2.0标准版和2.5完成5秒720p真实生成；其他能力沿用既有配置，须按账号实测。"
+      },
+      "source_url": "https://docs.volcengine.com/docs/ark/create-video-generation-task-api?lang=zh",
+      "notes": "保留既有 AgentPlan 精确请求 ID。参数声明不等同账号开通；draft/flex 未启用。"
+    },
+    {
+      "model_id": "doubao-seedance-2.5",
+      "display_name": "Seedance 2.5",
+      "modality": "video",
+      "status": "active",
+      "aliases": [],
+      "adapter": "seedance-task-v2.5",
+      "min_runtime": 1,
+      "priority": 40,
+      "quality_priority": 20,
+      "capabilities": [
+        "text_to_video",
+        "image_to_video",
+        "reference_image",
+        "reference_video",
+        "reference_audio",
+        "start_end_frame",
+        "generate_audio",
+        "web_search",
+        "return_last_frame",
+        "audio_only",
+        "omni_task_type"
+      ],
+      "limits": {
+        "duration_min": 4,
+        "duration_max": 30,
+        "allow_auto_duration": true,
+        "resolutions": [
+          "480p",
+          "720p",
+          "1080p"
+        ],
+        "ratios": [
+          "adaptive",
+          "16:9",
+          "9:16",
+          "1:1",
+          "4:3",
+          "3:4",
+          "21:9"
+        ],
+        "output_formats": [
+          "mp4",
+          "mov"
+        ],
+        "max_reference_images": 30,
+        "max_reference_videos": 10,
+        "max_reference_audios": 10,
+        "max_reference_assets": 50,
+        "max_request_bytes": 67108864
+      },
+      "defaults": {
+        "duration": -1,
+        "resolution": "720p",
+        "ratio": "adaptive",
+        "output_format": "mp4"
+      },
+      "extra_parameters": {},
+      "extensions": {
+        "verification": "2026-10-15：2.0标准版和2.5完成5秒720p真实生成；其他能力沿用既有配置，须按账号实测。"
+      },
+      "source_url": "https://docs.volcengine.com/docs/ark/seedance-2-5?lang=zh",
+      "notes": "保留既有 AgentPlan 精确请求 ID。参数声明不等同账号开通；draft/flex 未启用。"
+    },
+    {
+      "model_id": "doubao-seedance-1.5-pro",
+      "display_name": "Seedance 1.5 Pro（已下线）",
+      "modality": "video",
+      "status": "retired",
+      "aliases": [
+        "doubao-seedance-1-5-pro-251215",
+        "doubao-seedance-1-0-pro-250528"
+      ],
+      "extra_parameters": {},
+      "extensions": {},
+      "notes": "保留已下线模型及历史别名；禁止新建，历史任务仍可查询下载。"
+    }
+  ]
+}

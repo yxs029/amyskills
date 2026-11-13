@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "channel": "seedream",
+  "published_at": "2026-10-14T13:15:00Z",
+  "models": [
+    {
+      "modality": "image",
+      "status": "active",
+      "adapter": "seedream-image-v1",
+      "min_runtime": 1,
+      "capabilities": [
+        "text_to_image",
+        "image_to_image",
+        "interactive_edit",
+        "layer_decomposition",
+        "transparent_background"
+      ],
+      "limits": {
+        "size_presets": [
+          "1K",
+          "1.5K",
+          "2K"
+        ],
+        "layer_size_presets": [
+          "auto",
+          "1K",
+          "1.5K",
+          "2K"
+        ],
+        "max_reference_images": 10,
+        "max_output_images": 1,
+        "max_input_output_images": null,
+        "max_layers": 16,
+        "custom_size": {
+          "min_pixels": 921600,
+          "max_pixels": 4624220,
+          "min_aspect_ratio": 0.0625,
+          "max_aspect_ratio": 16
+        }
+      },
+      "defaults": {
+        "size": "2K",
+        "layer_size": "auto",
+        "output_format": "jpeg",
+        "watermark": true
+      },
+      "extra_parameters": {},
+      "extensions": {},
+      "source_url": "https://docs.volcengine.com/docs/ark/image-generation-api?lang=zh&redirect=1",
+      "notes": "用户指定 AgentPlan 模型 ID；能力依据官方文档，未进行 Flash 真实生成测试。",
+      "model_id": "doubao-seedream-5-0-flash",
+      "display_name": "Seedream 5.0 Flash",
+      "aliases": [
+        "flash"
+      ],
+      "priority": 10,
+      "quality_priority": 20
+    },
+    {
+      "modality": "image",
+      "status": "active",
+      "adapter": "seedream-image-v1",
+      "min_runtime": 1,
+      "capabilities": [
+        "text_to_image",
+        "image_to_image",
+        "interactive_edit",
+        "layer_decomposition",
+        "transparent_background",
+        "prompt_optimization_fast"
+      ],
+      "limits": {
+        "size_presets": [
+          "1K",
+          "1.5K",
+          "2K"
+        ],
+        "layer_size_presets": [
+          "auto",
+          "1K",
+          "1.5K",
+          "2K"
+        ],
+        "max_reference_images": 10,
+        "max_output_images": 1,
+        "max_input_output_images": null,
+        "max_layers": 16,
+        "custom_size": {
+          "min_pixels": 921600,
+          "max_pixels": 4624220,
+          "min_aspect_ratio": 0.0625,
+          "max_aspect_ratio": 16
+        }
+      },
+      "defaults": {
+        "size": "2K",
+        "layer_size": "auto",
+        "output_format": "jpeg",
+        "watermark": true
+      },
+      "extra_parameters": {},
+      "extensions": {},
+      "source_url": "https://docs.volcengine.com/docs/ark/image-generation-api?lang=zh&redirect=1",
+      "notes": "保留既有 AgentPlan Pro 点号模型 ID。",
+      "model_id": "doubao-seedream-5.0-pro",
+      "display_name": "Seedream 5.0 Pro",
+      "aliases": [
+        "pro"
+      ],
+      "priority": 20,
+      "quality_priority": 10
+    },
+    {
+      "model_id": "doubao-seedream-5-0-lite",
+      "display_name": "Seedream 5.0 Lite（已下线）",
+      "modality": "image",
+      "status": "retired",
+      "aliases": [
+        "lite",
+        "doubao-seedream-5.0-lite",
+        "doubao-seedream-5-0-lite-260128",
+        "doubao-seedream-5-0-260128"
+      ],
+      "notes": "依据用户下线通知；保留下线记录，不删除行。"
+    }
+  ]
+}

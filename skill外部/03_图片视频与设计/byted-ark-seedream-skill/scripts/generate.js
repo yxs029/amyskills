@@ -9,6 +9,12 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const http = require('http');
+const { validateApiBase, fetchMedia, sanitizeData } = require('./media-security');
+const { prepareParams, buildRequestBody, outputDetails } = require('./model-routing');
+const { runtime, loadRegistry, listModels } = require('./model-registry');
+
+const { modes } = require('./registry-sync');
+const { applyAvailability, submitOnce } = require('./model-availability');
 
 // ============================================
 // 🎨 提示词优化模块
@@ -175,7 +181,7 @@ function validateArkKey(key) {
   const trimmed = key.trim();
   
   // 核心校验：必须Agent Plan 专属
-  if (!trimmed.startsWith('ark-')) {
+  if (!/^ark-[A-Za-z0-9._-]+$/.test(trimmed)) {
     return { 
       valid: false, 
       reason: `API Key 必须以 \"ark-\" 开头（火山方舟 Agent Plan 专属格式）` 
@@ -285,6 +291,11 @@ function smartScanForArkKey() {
  * 自动检测 API Key（完整流程）
  */
 function autoDetectApiKey() {
+  if (process.env.ARK_API_KEY !== undefined) {
+    const validation = validateArkKey(process.env.ARK_API_KEY);
+    if (!validation.valid) throw new Error('ARK_API_KEY 格式无效，请在本地修正');
+    return {key:validation.trimmed,source:'ARK_API_KEY',found:true};
+  }
   const platform = detectPlatform();
   
   // 优先级 2: 根据当前平台读取对应配置
@@ -349,7 +360,7 @@ function sanitizeApiKeys(obj) {
   if (!obj || typeof obj !== 'object') return obj;
   const result = Array.isArray(obj) ? [] : {};
   for (const [key, value] of Object.entries(obj)) {
-    if (key.toLowerCase().includes('apikey') || key.toLowerCase() === 'api_key' || key.toLowerCase() === 'api-key') {
+    if (/api.?key|token|secret|password|authorization/i.test(key)) {
       result[key] = '***REDACTED***';
     } else if (typeof value === 'object') {
       result[key] = sanitizeApiKeys(value);
@@ -380,13 +391,15 @@ async function autoSaveApiKey(apiKey) {
         const backupPath = configPath + '.backup.before_agentplan';
         const originalConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
         const sanitizedBackup = sanitizeApiKeys(originalConfig);
-        fs.writeFileSync(backupPath, JSON.stringify(sanitizedBackup, null, 2));
+        fs.writeFileSync(backupPath, JSON.stringify(sanitizedBackup, null, 2), {mode:0o600});
+        fs.chmodSync(backupPath, 0o600);
         
         originalConfig.models = originalConfig.models || {};
         originalConfig.models.providers = originalConfig.models.providers || {};
         originalConfig.models.providers['volcengine-plan'] = originalConfig.models.providers['volcengine-plan'] || {};
         originalConfig.models.providers['volcengine-plan'].apiKey = apiKey;
-        fs.writeFileSync(configPath, JSON.stringify(originalConfig, null, 2));
+        fs.writeFileSync(configPath, JSON.stringify(originalConfig, null, 2), {mode:0o600});
+        fs.chmodSync(configPath, 0o600);
         // 🛡️ 设置严格的文件权限（仅所有者可读写）
         fs.chmodSync(configPath, 0o600);
         
@@ -410,7 +423,8 @@ async function autoSaveApiKey(apiKey) {
           /(api_key:\s*)["']?[^"'\s]+["']?/mg,
           '$1"***REDACTED***"'
         );
-        fs.writeFileSync(backupPath, sanitizedContent);
+        fs.writeFileSync(backupPath, sanitizedContent, {mode:0o600});
+        fs.chmodSync(backupPath, 0o600);
         
         let content = originalContent;
         const regex = /^(model:\s*(?:\n.*)*?api_key:\s*)["']?[^"'\s]+["']?/m;
@@ -422,7 +436,8 @@ async function autoSaveApiKey(apiKey) {
             `$1\n  api_key: "${apiKey}"`
           );
         }
-        fs.writeFileSync(configPath, content);
+        fs.writeFileSync(configPath, content, {mode:0o600});
+        fs.chmodSync(configPath, 0o600);
         // 🛡️ 设置严格的文件权限（仅所有者可读写）
         fs.chmodSync(configPath, 0o600);
         
@@ -451,7 +466,8 @@ async function autoSaveApiKey(apiKey) {
           const originalConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
           // 🛡️ 脱敏后备份，不泄漏已有密钥
           const sanitizedBackup = sanitizeApiKeys(originalConfig);
-          fs.writeFileSync(backupPath, JSON.stringify(sanitizedBackup, null, 2));
+          fs.writeFileSync(backupPath, JSON.stringify(sanitizedBackup, null, 2), {mode:0o600});
+        fs.chmodSync(backupPath, 0o600);
           try {
             config = originalConfig;
             config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
@@ -471,7 +487,8 @@ async function autoSaveApiKey(apiKey) {
           // 没有 Key，写入配置
           if (!config.env) config.env = {};
           config.env.ANTHROPIC_AUTH_TOKEN = apiKey;
-          fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
+          fs.writeFileSync(configPath, JSON.stringify(config, null, 2), {mode:0o600});
+        fs.chmodSync(configPath, 0o600);
           // 🛡️ 设置严格的文件权限（仅所有者可读写）
           fs.chmodSync(configPath, 0o600);
           
@@ -549,15 +566,15 @@ function getDefaultSavePath() {
 // ============================================
 
 // 自动检测 API Key
-const detected = autoDetectApiKey();
+// API Key 在参数校验与 dry-run 之后才读取。
 
 const CONFIG = {
   // Agent Plan 专属版本 - 使用 Agent Plan 统一 baseurl /api/plan/v3
   apiBaseUrl: process.env.ARK_SEEDREAM_API_BASE_URL || process.env.ARK_API_BASE_URL || 'https://ark.cn-beijing.volces.com/api/plan/v3',
-  // Agent Plan Seedream 5.0 lite 模型（可通过环境变量扩展其他模型）
-  model: process.env.ARK_SEEDREAM_MODEL || process.env.ARK_MODEL || 'doubao-seedream-5.0-lite',
+  // 模型偏好：命令行可覆盖，未指定时由能力路由选择 Flash / Pro
+  model: process.env.ARK_SEEDREAM_MODEL || process.env.ARK_MODEL || 'auto',
   // API Key：自动检测结果
-  apiKey: detected.found ? detected.key : '',
+  apiKey: '',
   savePath: getDefaultSavePath()
 };
 
@@ -572,7 +589,7 @@ function validateConfig() {
   if (!CONFIG.apiKey) {
     errors.push('❌ 未检测到有效的 Agent Plan API Key');
     errors.push('');
-    errors.push('💡 请直接在对话中发送 Agent Plan 专属 API Key（必须以 \"ark-\" 开头）');
+    errors.push('💡 请在本地配置 ARK_API_KEY（必须以 \"ark-\" 开头），不要把密钥发送到聊天中');
     errors.push('   本次会临时使用；如需保存为全局配置，请明确说明「保存这个 API Key」。');
     errors.push('');
     errors.push('📍 如果已经配置了但检测不到，请确认：');
@@ -593,100 +610,6 @@ function validateConfig() {
  * @param {Object} params - 输入参数
  * @returns {string[]} 错误列表，空数组表示校验通过
  */
-function validateParams(params) {
-  const errors = [];
-
-  // 1. prompt 必填且长度限制
-  if (!params.prompt || params.prompt.trim() === '') {
-    errors.push('prompt 不能为空');
-  } else if (params.prompt.length > 3000) {
-    errors.push(`prompt 长度不能超过 3000 字符（当前: ${params.prompt.length}）`);
-  }
-
-  // 2. size 校验：支持 K 值枚举或像素值格式
-  if (params.size) {
-    const validSizes = ['2K', '3K', '2k', '3k'];
-    const pixelRegex = /^\d+x\d+$/i;
-    
-    if (!validSizes.includes(params.size) && !pixelRegex.test(params.size)) {
-      errors.push(`size 参数无效（\"${params.size}\"），支持：2K/3K 或具体像素值如 2048x2048`);
-    }
-  }
-
-  // 3. count 范围校验（连贯图时）
-  if (params.count !== undefined) {
-    const count = parseInt(params.count);
-    if (isNaN(count) || count < 1 || count > 15) {
-      errors.push('count 参数必须是 1-15 之间的整数');
-    }
-  }
-
-  // 4. mode 枚举校验
-  if (params.mode && !['text-to-image', 'image-to-image'].includes(params.mode)) {
-    errors.push(`mode 参数无效（\"${params.mode}\"），支持：text-to-image / image-to-image`);
-  }
-
-  // 5. 参考图校验
-  if (params.reference_images) {
-    try {
-      const refs = parseReferenceImages(params.reference_images);
-      if (refs.length === 0) {
-        errors.push('参考图数组不能为空');
-      } else if (refs.length > 14) {
-        errors.push(`参考图数量不能超过 14 张（当前: ${refs.length}）`);
-      }
-      // 🐛 Bug 修复：校验参考图数量 + 生成图片数量 <= 15
-      const outputCount = params.sequential ? Number(params.count || 4) : 1;
-      if (refs.length + outputCount > 15) {
-        errors.push(`参考图数量 + 生成图片数量不能超过 15（当前: ${refs.length} + ${outputCount} = ${refs.length + outputCount}）`);
-      }
-      // 简单格式校验：URL 或 Base64
-      refs.forEach((ref, idx) => {
-        const isUrl = ref.startsWith('http://') || ref.startsWith('https://');
-        const isBase64 = ref.startsWith('data:image/');
-        if (!isUrl && !isBase64) {
-          errors.push(`第 ${idx + 1} 张参考图格式无效，必须是 HTTP URL 或 Base64 编码（data:image/xxx;base64,...）`);
-        }
-      });
-    } catch (e) {
-      errors.push('reference_images 格式无效，必须是 JSON 数组格式');
-    }
-  }
-
-  // 6. response_format 枚举校验
-  if (params.response_format && !['png', 'jpeg'].includes(params.response_format)) {
-    errors.push(`response_format 参数无效（\"${params.response_format}\"），支持：png / jpeg`);
-  }
-
-  // 7. 布尔类型参数校验
-  const booleanParams = ['sequential', 'watermark', 'stream', 'optimize', 'enable_web_search'];
-  booleanParams.forEach(key => {
-    if (params[key] !== undefined && typeof params[key] !== 'boolean') {
-      errors.push(`${key} 参数必须是布尔值（true/false）`);
-    }
-  });
-
-  // 8. user_id 长度限制
-  if (params.user_id && params.user_id.length > 128) {
-    errors.push('user_id 长度不能超过 128 字符');
-  }
-
-  // 9. model 长度校验（不做白名单限制，让 API 负责模型有效性）
-  if (params.model && params.model.length > 128) {
-    errors.push('model 参数长度不能超过 128 字符');
-  }
-  // reference_strength 参数校验（0~1）
-  if (params.reference_strength !== undefined) {
-    const strength = parseFloat(params.reference_strength);
-    if (isNaN(strength) || strength < 0 || strength > 1) {
-      errors.push('reference_strength 参数必须是 0 到 1 之间的数字');
-    }
-  }
-
-
-  return errors;
-}
-
 // 全局状态
 let startTime = Date.now();
 let generatedImages = [];
@@ -762,7 +685,8 @@ function requestStream(url, options, data, onChunk, onDone) {
         let errorBody = '';
         res.on('data', (chunk) => errorBody += chunk);
         res.on('end', () => {
-          reject(new Error(`HTTP ${res.statusCode}: ${errorBody}`));
+          let detail; try { detail = JSON.parse(errorBody); } catch {}
+          reject(Object.assign(new Error(`HTTP ${res.statusCode}: ${errorBody}`), { httpStatus: res.statusCode, apiCode: detail?.error?.code }));
         });
         return;
       }
@@ -794,9 +718,8 @@ function requestStream(url, options, data, onChunk, onDone) {
               json._event = currentEvent;  // 把 event 附上去
               onChunk && onChunk(json);
             } catch (e) {
-              // SSE 解析失败不中断流程，仅打印日志方便调试
-              console.error(`⚠️  SSE data 行解析失败: ${e.message}`);
-              console.error(`   data: ${dataStr.substring(0, 100)}${dataStr.length > 100 ? '...' : ''}`);
+              // 解析错误和原始响应都可能包含密钥或素材内容，不写入日志。
+              console.error('⚠️  SSE data 行处理失败；已省略响应内容，请检查服务端响应格式。');
             }
           }
         }
@@ -829,97 +752,38 @@ function requestStream(url, options, data, onChunk, onDone) {
 /**
  * 下载文件（带超时机制 + 错误清理）
  */
-function downloadFile(url, savePath, timeoutMs = 30000, redirectCount = 0) {
-  return new Promise((resolve, reject) => {
-    const MAX_REDIRECTS = 5;
-    
-    if (redirectCount > MAX_REDIRECTS) {
-      reject(new Error(`重定向次数超过限制（${MAX_REDIRECTS}次）`));
-      return;
+async function downloadFile(url, targetPath, timeoutMs = Number(process.env.ARK_SEEDREAM_DOWNLOAD_TIMEOUT_MS || 90000)) {
+  if (!Number.isFinite(timeoutMs) || timeoutMs < 1000 || timeoutMs > 300000) throw new Error('下载超时设置必须在 1000–300000 毫秒之间');
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  const partial = `${targetPath}.part.${process.pid}.${require('node:crypto').randomUUID()}`;
+  let handle;
+  try {
+    const response = await fetchMedia(url, { signal: controller.signal });
+    if (!response.ok) { response.body.destroy(); throw new Error(`HTTP ${response.status}`); }
+    const contentType = response.headers.get('content-type') || '';
+    if (!contentType.startsWith('video/') && !/^image\/(png|jpeg|webp|gif|tiff|bmp)(;|$)/.test(contentType) && !contentType.startsWith('application/octet-stream')) {
+      response.body.destroy(); throw new Error(`无效资源类型: ${contentType}`);
     }
-    
-    const parsedUrl = new URL(url);
-    const isHttps = parsedUrl.protocol === 'https:';
-    const lib = isHttps ? https : http;
-    
-    let file = null;
-    let request = null;
-    
-    // 超时机制
-    const timeout = setTimeout(() => {
-      reject(new Error(`下载超时（${timeoutMs/1000}s）`));
-      if (file) file.destroy();
-      if (request) request.destroy();
-      fs.unlink(savePath, () => {});
-    }, timeoutMs);
-    
-    request = lib.get(url, (response) => {
-      // 处理重定向
-      if ([301, 302, 307, 308].includes(response.statusCode) && response.headers.location) {
-        clearTimeout(timeout);
-        if (file) file.destroy();
-        const redirectUrl = new URL(response.headers.location, url).href;
-        resolve(downloadFile(redirectUrl, savePath, timeoutMs, redirectCount + 1));
-        return;
-      }
-      
-      // 校验 HTTP 状态码
-      if (response.statusCode !== 200) {
-        clearTimeout(timeout);
-        if (file) file.destroy();
-        fs.unlink(savePath, () => {});
-        reject(new Error(`HTTP ${response.statusCode} / content-type: ${response.headers['content-type'] || 'unknown'}`));
-        return;
-      }
-      
-      // 校验 Content-Type
-      const contentType = response.headers['content-type'] || '';
-      if (!contentType.startsWith('image/') && !contentType.startsWith('video/') && !contentType.startsWith('application/octet-stream')) {
-        clearTimeout(timeout);
-        if (file) file.destroy();
-        fs.unlink(savePath, () => {});
-        reject(new Error(`无效资源类型: ${contentType}（不是图片/视频）`));
-        return;
-      }
-      
-      // 开始下载
-      file = fs.createWriteStream(savePath);
-      response.pipe(file);
-      
-      file.on('finish', () => {
-        clearTimeout(timeout);
-        file.close();
-        
-        // 校验文件大小 > 0
-        try {
-          const stats = fs.statSync(savePath);
-          if (stats.size === 0) {
-            fs.unlink(savePath, () => {});
-            reject(new Error('下载文件大小为 0'));
-            return;
-          }
-          resolve(savePath);
-        } catch (e) {
-          fs.unlink(savePath, () => {});
-          reject(new Error(`文件校验失败: ${e.message}`));
-        }
-      });
-      
-      file.on('error', (err) => {
-        clearTimeout(timeout);
-        file.destroy();
-        fs.unlink(savePath, () => {});
-        reject(err);
-      });
-    });
-    
-    request.on('error', (err) => {
-      clearTimeout(timeout);
-      if (file) file.destroy();
-      fs.unlink(savePath, () => {});
-      reject(err);
-    });
-  });
+    const maxBytes = 1024 * 1024 * 1024;
+    if (Number(response.headers.get('content-length')) > maxBytes) { response.body.destroy(); throw new Error('下载文件超过1GiB上限'); }
+    handle = await fs.promises.open(partial, 'wx', 0o600);
+    let totalBytes = 0;
+    for await (const value of response.body) {
+      totalBytes += value.length;
+      if (totalBytes > maxBytes) { response.body.destroy(); throw new Error('下载文件超过1GiB上限'); }
+      await handle.writeFile(value);
+    }
+    if (!totalBytes) throw new Error('下载文件大小为0');
+    await handle.close(); handle = null;
+    await fs.promises.rename(partial, targetPath);
+    return targetPath;
+  } finally {
+    controller.abort();
+    clearTimeout(timeout);
+    if (handle) await handle.close();
+    await fs.promises.rm(partial, { force: true });
+  }
 }
 
 function ensureDir(dirPath) {
@@ -1024,45 +888,8 @@ async function handleStreamChunk(chunk, saveDir, timestamp, totalImages, params)
 // ============================================
 
 async function callSeedreamApi(params, saveDir, timestamp) {
-  const body = {
-    model: CONFIG.model,
-    prompt: params.prompt,
-    sequential_image_generation: params.sequential ? 'auto' : 'disabled',
-    response_format: 'url',
-    size: params.size || '2k',
-    stream: params.stream,
-    watermark: params.watermark !== false,
-    output_format: params.response_format || 'jpeg'  // 图片输出格式：png/jpeg（5.0 lite 默认 jpeg）
-  };
+  const body = buildRequestBody(params);
 
-  // 联网搜索开关
-  if (params.enable_web_search === true) {
-    body.tools = [{ type: 'web_search' }];
-  }
-  
-  // ⚠️ Bug 修复：Seedream Agent Plan API 不支持 sequential_image_generation_options.max_images
-  // 传了这个参数会导致 400 错误。只保留 sequential 开关即可，API 会自动根据 prompt 生成对应张数
-  // 注意：--count 不会透传为 API 数量字段，真正控制张数靠 prompt 中的"生成 X 张一组"语义
-  // --count 仅用于本地校验、进度展示和 metadata 记录
-  // 参考：Agent Plan 视频生成也有类似行为，无需传多余的 options
-  
-  if (params.mode === 'image-to-image' && params.reference_images) {
-    const refs = parseReferenceImages(params.reference_images);
-    // 支持两种参考图格式（官方 API 支持）：
-    // 1. HTTP URL 字符串：https://xxx.com/yyy.png
-    // 2. Base64 字符串：data:image/png;base64,xxx（png/jpeg/webp/bmp/tiff/gif 均可）
-    // 传参规则：
-    // - 长度为1时传字符串（Seedream API 约定）
-    // - 长度>1时传数组，支持最多 14 张参考图
-    // 总张数限制：输入参考图数量 + 生成图片数量 ≤ 15 张
-    body.image = refs.length === 1 ? refs[0] : refs;
-  }
-  
-  // 参考图影响强度
-  if (params.reference_strength !== undefined) {
-    body.reference_strength = Number(params.reference_strength);
-  }
-  
   const options = {
     method: 'POST',
     headers: {
@@ -1100,7 +927,7 @@ async function callSeedreamApi(params, saveDir, timestamp) {
     
     const response = await request(url, options, body);
     if (response.statusCode !== 200) {
-      throw new Error(`HTTP ${response.statusCode}: ${JSON.stringify(response.body)}`);
+      throw Object.assign(new Error(`HTTP ${response.statusCode}: ${JSON.stringify(response.body)}`), { httpStatus: response.statusCode, apiCode: response.body?.error?.code });
     }
     
     return { response: response.body, generationTime: (Date.now() - startTime) / 1000 };
@@ -1146,12 +973,37 @@ async function main() {
   try {
     // 先解析命令行参数（必须在 validateConfig 之前，因为 --api-key 会修改 CONFIG）
     const args = process.argv.slice(2);
-    const params = parseArgv(args);
+    const input = parseArgv(args);
+    for (const name of ['dry-run','refresh-models','offline-models','list-models','save-api-key','save_api_key','saveApiKey']) {
+      if (input[name] !== undefined && ![true,false,'true','false'].includes(input[name])) throw new Error(`${name} 必须是 true 或 false`);
+    }
+    const dryRun = input['dry-run'] !== undefined && parseBoolean(input['dry-run']);
+    if (dryRun && parseBoolean(input['save-api-key'] ?? input.save_api_key ?? input.saveApiKey)) throw new Error('--dry-run 不允许保存 API Key');
+    const registryOptions = { ...modes({ offline: input['offline-models'], force: input['refresh-models'], dryRun }, 'seedream'), requestedModel: input.model || CONFIG.model };
+    if (parseBoolean(input['list-models'])) {
+      const loaded = await loadRegistry(registryOptions);
+      console.log(JSON.stringify({ registry: loaded.metadata, models: listModels(loaded.registry) }, null, 2));
+      return;
+    }
+    CONFIG.apiBaseUrl = validateApiBase(CONFIG.apiBaseUrl);
+    const { loaded, prepared } = await runtime.route(registryOptions, registry => prepareParams(input, CONFIG.model, registry));
+    let params = prepared;
+    params.registry = loaded.metadata;
+    params.originalPrompt = params.prompt;
+    if (params.optimize !== false && params.prompt) {
+      const promptResult = optimizePrompt(params.prompt, true, params.sequential === true);
+      params.prompt = promptResult.optimized;
+      params.promptInfo = promptResult;
+    }
+    if (dryRun) {
+      console.log(JSON.stringify({ dry_run: true, registry: params.registry, model: params.model, routing_reason: params.routing_reason, request: sanitizeData(buildRequestBody(params)) }, null, 2));
+      return;
+    }
     
     // 🔑 优先处理用户传入的 API Key（支持三种写法：--api-key / --api_key / --apiKey）
     const apiKeyParam = params['api-key'] || params.api_key || params.apiKey;
     // 🔒 仅当显式传入 --save-api-key 时才保存到全局配置
-    const shouldSaveKey = params['save-api-key'] !== undefined || params.save_api_key !== undefined || params.saveApiKey !== undefined;
+    const shouldSaveKey = parseBoolean(params['save-api-key'] ?? params.save_api_key ?? params.saveApiKey ?? false);
     
     if (apiKeyParam) {
       const validation = validateArkKey(apiKeyParam);
@@ -1173,6 +1025,11 @@ async function main() {
       console.error('');
     }
 
+    if (!apiKeyParam) {
+      const detected = autoDetectApiKey();
+      CONFIG.apiKey = detected.found ? detected.key : '';
+    }
+
     // 配置验证
     const { valid, errors, warnings } = validateConfig();
     if (warnings.length > 0) {
@@ -1184,63 +1041,17 @@ async function main() {
       process.exit(1);
     }
     
-    // 解析参数类型
-    if (params.sequential !== undefined) params.sequential = parseBoolean(params.sequential);
-    // 🐛 Bug 9 修复：count 参数边界检查
-    if (params.count !== undefined) {
-      const count = parseInt(params.count);
-      if (isNaN(count)) {
-        console.error(`ℹ️  count 参数格式错误，已自动设为默认值 4`);
-        params.count = 4;  // 默认值
-      } else if (count < 1 || count > 15) {
-        const clamped = Math.max(1, Math.min(15, count));
-        console.error(`ℹ️  count 超出有效范围 1-15，已自动调整为 ${clamped}`);
-        console.error(`   （API 限制：参考图 + 生成图总数 ≤ 15）`);
-        params.count = clamped;
+    const availabilityContext = { apiKey: CONFIG.apiKey, baseUrl: CONFIG.apiBaseUrl };
+    const accountRegistry = registryOptions.force ? loaded.registry : applyAvailability(loaded.registry, runtime, availabilityContext);
+    const eligible = prepareParams(input, CONFIG.model, accountRegistry);
+    if (eligible.model !== params.model) {
+      params = { ...eligible, registry: loaded.metadata, originalPrompt: input.prompt };
+      if (params.optimize !== false && params.prompt) {
+        params.promptInfo = optimizePrompt(params.prompt, true, params.sequential === true);
+        params.prompt = params.promptInfo.optimized;
       }
     }
-    if (params.watermark !== undefined) params.watermark = parseBoolean(params.watermark);
-    if (params.stream !== undefined) params.stream = parseBoolean(params.stream);
-    if (params.optimize !== undefined) params.optimize = parseBoolean(params.optimize);
-    if (params.enable_web_search !== undefined) params.enable_web_search = parseBoolean(params.enable_web_search);
-    
-    // 🐛 Bug 修复：传了 reference_images 但没传 mode 时，自动推断为 image-to-image
-    if (params.reference_images && !params.mode) {
-      params.mode = 'image-to-image';
-    }
-    
-    // 🔒 安全校验：所有参数合法性校验
-    const validationErrors = validateParams(params);
-    if (validationErrors.length > 0) {
-      console.error('❌ 参数校验失败：');
-      validationErrors.forEach(err => console.error(`   - ${err}`));
-      process.exit(1);
-    }
-    
-    // 🐛 Bug 12 修复：无论 optimize 是否开启，都要保存原始提示词
-    params.originalPrompt = params.prompt;
-    
-    // 提示词优化：先判断是不是连贯图模式，再应用对应优化策略
-    if (params.optimize !== false) {
-      const isSequential = params.sequential === true;
-      const promptResult = optimizePrompt(params.prompt, params.optimize !== false, isSequential);
-      params.prompt = promptResult.optimized;
-      params.promptInfo = promptResult;
-    }
-    
-    // 自动判断流式输出
-    if (params.stream === undefined) {
-      params.stream = params.sequential || false;
-    }
-    
-    // 自动检测联网搜索：提示词包含相关关键词时自动开启
-    if (params.enable_web_search === undefined) {
-      const lowerPrompt = params.originalPrompt.toLowerCase();
-      if (/联网|搜索|实时|最新|新闻|赛事|今天|今日|现在|当前|刚|最新消息/i.test(lowerPrompt)) {
-        params.enable_web_search = true;
-      }
-    }
-    
+
     // 🐛 Bug 7 修复：完整重置所有全局状态
     startTime = Date.now();
     generatedImages = [];
@@ -1255,14 +1066,12 @@ async function main() {
 
 请使用以下任一方式配置：
 
-方式 1: 直接在对话中发送你的 API Key（Agent Plan 专属）
-方式 2: 设置环境变量 export API_KEY="ark-xxx"
-方式 3: 在平台配置文件中配置
+在本地环境中配置 ARK_API_KEY 或已有 AgentPlan 客户端配置，不要将密钥发送到聊天中。
 `);
     }
     
     // 检查必填参数
-    if (!params.prompt) {
+    if (!params.prompt && !params.layer_decomposition) {
       throw new Error('缺少 prompt 参数');
     }
     
@@ -1284,9 +1093,10 @@ async function main() {
       console.error(`📝 原提示词: ${params.promptInfo.original}`);
       console.error(`✨ 优化后: ${params.prompt}`);
     } else {
-      console.error(`📝 提示词: ${params.prompt}`);
+      console.error(`📝 提示词: ${params.prompt || '（自动识别并拆分图层）'}`);
     }
     
+    console.error(`🤖 模型: ${params.model}（${params.routing_reason}）`);
     console.error(`📐 尺寸: ${params.size || '2k'}`);
     console.error(`🎬 模式: ${params.mode || 'text-to-image'} ${params.stream ? '(流式)' : '(非流式)'}`);
     if (params.sequential) {
@@ -1300,15 +1110,17 @@ async function main() {
     console.error('');
     
     // 调用 API
-    const result = await callSeedreamApi(params, saveDir, timestamp);
+    const result = await submitOnce({ runtime, context: availabilityContext, registryOptions,
+      metadata: loaded.metadata, model: params.model, submit: () => callSeedreamApi(params, saveDir, timestamp) });
     
     // 非流式模式：手动下载所有图片
     if (!params.stream && result.response && result.response.data) {
       console.error('');
       // 🐛 Bug 修复：按实际输出格式决定文件扩展名
-      const ext = (params.response_format || 'jpeg') === 'png' ? 'png' : 'jpg';
       for (let i = 0; i < result.response.data.length; i++) {
         const imageData = result.response.data[i];
+        const details = outputDetails(imageData, params);
+        const ext = details.output_format === 'png' ? 'png' : 'jpg';
         const fileName = `seedream_${timestamp}_${i + 1}.${ext}`;
         const localPath = path.join(saveDir, fileName);
         
@@ -1320,6 +1132,7 @@ async function main() {
           console.error(`   ✅ 已保存: ${fileName}`);
           
           generatedImages.push({
+            ...details,
             url: imageData.url,
             local_path: localPath,
             prompt: params.prompt,
@@ -1330,6 +1143,7 @@ async function main() {
           console.error(`   ❌ 下载失败: ${e.message}`);
           
           generatedImages.push({
+            ...details,
             url: imageData.url,
             local_path: null,
             prompt: params.prompt,
@@ -1341,8 +1155,18 @@ async function main() {
       }
     }
     
+    const downloadedCount = generatedImages.filter(img => img.download_success).length;
+    const deliveryStatus = downloadedCount === generatedImages.length ? 'complete' : downloadedCount ? 'partial' : 'remote_only';
     // 保存 metadata
     const metadata = {
+      delivery_status: deliveryStatus,
+      downloaded_count: downloadedCount,
+      failed_download_count: generatedImages.length - downloadedCount,
+      model: params.model,
+      routing_reason: params.routing_reason,
+      registry: params.registry,
+      layer_decomposition: params.layer_decomposition || false,
+      output_format: params.output_format,
       prompt: params.prompt,
       original_prompt: params.originalPrompt,
       mode: params.mode || 'text-to-image',
@@ -1356,6 +1180,7 @@ async function main() {
       optimize: params.optimize,
       detected_style: params.promptInfo?.style || null,
       images: generatedImages.map(img => ({
+        ...outputDetails(img, params),
         url: img.url,
         file_name: img.local_path ? path.basename(img.local_path) : null,
         download_success: img.download_success,
@@ -1367,7 +1192,7 @@ async function main() {
     const metadataPath = path.join(saveDir, `seedream_${timestamp}_metadata.json`);
     // 🐛 Bug 13 修复：metadata 写入失败不崩溃
     try {
-      fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), 'utf-8');
+      fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2), {encoding:'utf8',mode:0o600});
     } catch (e) {
       console.error(`⚠️  metadata 写入失败: ${e.message}`);
     }
@@ -1377,21 +1202,27 @@ async function main() {
     
     // 🛡️ 统一兜底校验：无论流式还是非流式，0 张图都报错
     if (generatedImages.length === 0) {
-      console.error('❌ 生成失败：API 未返回任何可用图片');
-      console.error('   可能原因：API 返回格式变化、网络异常、或参数错误');
-      process.exit(1);
+      throw new Error('API 未返回任何可用图片；请检查返回格式，不自动重试生成');
     }
     
     const output = {
       success: true,
+      delivery_status: deliveryStatus,
       images: [...generatedImages],  // 返回副本防止后续意外修改
       error: null,
       metadata: {
+        model: params.model,
+        routing_reason: params.routing_reason,
+      registry: params.registry,
+        layer_decomposition: params.layer_decomposition || false,
+        output_format: params.output_format,
         generation_time: parseFloat(totalTime),
         size: params.size || '2k',
         mode: params.mode || 'text-to-image',
         stream: params.stream,
         image_count: generatedImages.length,
+        downloaded_count: downloadedCount,
+        failed_download_count: generatedImages.length - downloadedCount,
         style: params.promptInfo?.style || null,
         save_dir: saveDir,                    // 图片保存目录，方便 Agent 直接读取文件夹
         metadata_path: metadataPath           // metadata.json 完整路径
@@ -1399,13 +1230,16 @@ async function main() {
     };
     
     console.error('\n' + '='.repeat(50));
-    console.error('✅ 全部生成完成！');
+    console.error('✅ 图片生成完成！');
     console.error(`⏱️  总耗时: ${totalTime}s`);
     console.error(`📂 保存目录: ${saveDir}`);
     console.error(`🖼️  生成数量: ${generatedImages.length} 张`);
     console.error('');
-    console.error('💡 提示：图片已成功保存到本地目录');
-    console.error('   如果没有看到图片，可以直接去保存目录查看文件');
+    if (deliveryStatus === 'complete') {
+      console.error('💡 图片已全部保存到本地目录');
+    } else {
+      console.error(`⚠️ 已保存 ${downloadedCount}/${generatedImages.length} 张；其余下载失败，保留完整资源 URL，可重试下载，无需重新生图。`);
+    }
     console.error('='.repeat(50));
     console.error('');
     
@@ -1432,14 +1266,17 @@ async function main() {
     console.log(JSON.stringify(output, null, 2));
     
   } catch (error) {
+    const message = String(error.message).replaceAll(CONFIG.apiKey || '\u0000', '[REDACTED_API_KEY]')
+      .replace(/ark-[A-Za-z0-9._-]+/g, 'ark-***REDACTED***')
+      .replace(/data:[^;]+;base64,[A-Za-z0-9+/=]+/g, '[REDACTED_DATA_URL]');
     console.error('\n❌ 生成失败:');
-    console.error(error.message);
+    console.error(message);
     
     const output = {
       success: false,
       images: generatedImages,
-      error: error.message,
-      metadata: null
+      error: message,
+      metadata: { failure_kind: error.failureKind, registry_event: error.registryEvent, registry_check: error.registryCheck }
     };
     
     console.log(JSON.stringify(output, null, 2));
@@ -1447,4 +1284,5 @@ async function main() {
   }
 }
 
-main();
+module.exports = { downloadFile, sanitizeApiKeys, requestStream };
+if (require.main === module) main();

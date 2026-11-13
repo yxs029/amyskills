@@ -1,112 +1,29 @@
-# Seedream 配置指南
+# Seedream 配置
 
-本文档包含 Seedream Skill 的 API Key 检测策略、配置说明、技术实现细节。
+## 凭据
 
----
+优先在本地设置 `ARK_API_KEY`；不要要求用户在聊天中提供密钥。选择顺序是本次显式 `--api_key` / `--api-key` / `--apiKey`、`ARK_API_KEY`、当前平台的既有 AgentPlan 配置、通用凭据环境变量。显式临时 Key 不触发对其他平台配置的扫描。
 
-## 🔑 API Key 检测策略（三层优先级）
+当前平台配置支持 OpenClaw 的 `models.providers.*.apiKey`、Hermes 的 `model.api_key`、Claude Code 的 `ANTHROPIC_AUTH_TOKEN` 或 settings.json 中同名字段；只接受 `ark-` 格式。通用兼容变量包括 `ANTHROPIC_AUTH_TOKEN`、`API_KEY`、`API_Key`、`API_Keys`、`api_key`、`apiKey`。
 
-Skill 会按照以下优先级自动检测 API Key，**99% 的用户不需要手动配置**。
+临时 Key 默认不保存。只有用户明确要求持久保存时才使用 `--save_api_key true`；写入检测到的平台配置并创建脱敏备份，权限为0600。此设置会影响该平台其他 AgentPlan 功能。`--dry-run` 不读取或保存凭据，也不能同时要求保存 Key。
 
----
+## 路径与环境变量
 
-### 🥇 优先级 1：用户在对话中直接发送（最高优先级）
+| 变量 | 用途 |
+|---|---|
+| `ARK_SEEDREAM_MODEL` / `ARK_MODEL` | 默认模型；CLI `--model` 优先，`--model auto` 恢复自动路由 |
+| `ARK_SEEDREAM_SAVE_PATH` / `ARK_SAVE_PATH` | 保存目录；默认依次尝试桌面、主目录、当前目录中的 Seedream-Images |
+| `ARK_SEEDREAM_API_BASE_URL` / `ARK_API_BASE_URL` | 兼容旧配置，只接受 `https://ark.cn-beijing.volces.com/api/plan/v3`；其他地址在读取 Key 前拒绝 |
+| `ARK_SEEDREAM_REGISTRY_MODE` | `offline` 跳过飞书 |
+| `ARK_SEEDREAM_REGISTRY_CACHE_DIR` | 默认 `~/.cache/ark-seedream` |
+| `ARK_SEEDREAM_REGISTRY_FILE` | 运维指定的本地已发布 JSON，仍执行完整校验和缓存隔离 |
+| `LARK_CLI_BIN` | 运维指定 CLI 路径，否则从 PATH 查找；表格不能设置此项 |
+| `ARK_SEEDREAM_DOWNLOAD_TIMEOUT_MS` | 单文件下载时限，默认90000，允许1000–300000毫秒 |
+| `ARK_SEEDREAM_TIMEOUT_MS` | 生图 API 请求超时，默认120000毫秒 |
 
-用户直接在对话中发送以 `ark-` 开头的 API Key：
+模型数据和飞书读取规则见 [MODEL_REGISTRY.md](MODEL_REGISTRY.md)。表格不接管凭据、API地址或本地路径。缺少飞书登录不妨碍使用缓存/内置模型；公开网页分享不等于已配置 CLI 认证。
 
-```
-用户：ark-xxxxxxxxxxxx
-```
+## 提示词
 
-**处理逻辑：**
-1. ✅ 自动校验 Key 格式有效性（必须以 `ark-` 开头）
-2. ✅ 默认仅本次临时使用，不自动写入配置文件
-3. ✅ 如需保存为全局配置，请明确说「保存这个 API Key」，传入 `--save-api-key` 才写入
-4. ✅ 写入前自动备份原配置文件（API Key 已脱敏）
-
-> 💡 **这是最友好的体验**：用户只需要发一次 Key，以后就不用管了。
-
----
-
-### 🥈 优先级 2：平台专属检测（根据当前运行平台读取对应配置）
-
-Skill 先检测当前运行平台，然后从对应位置读取 API Key：
-
-| 平台 | 检测方法 | 字段名 | 说明 |
-|------|---------|--------|------|
-| **OpenClaw** | 检测 `~/.openclaw/` 目录存在 | `models.providers.*.apiKey` | 遍历所有 provider，找第一个有效 Key |
-| **Hermes** | 检测 `~/.hermes/` 目录存在 | `model.api_key` | YAML 配置文件中的字段 |
-| **Claude Code** | 检测 `~/.claude/` 目录或环境变量存在 | `~/.claude/settings.json` 中的 `env.ANTHROPIC_AUTH_TOKEN`，或会话环境变量 `ANTHROPIC_AUTH_TOKEN` | 已有 token 时不自动覆盖 |
-
-> ⚠️ **重要**：只读取对应平台的配置，不会跨平台读取其他工具的配置。
-
----
-
-### 🥉 优先级 3：兜底兼容（通用环境变量扫描）
-
-如果平台检测没有找到 Key，或者当前运行平台不是上面三个，会扫描 API Key**通用命名变体**（各平台常见的字段命名，避免误扫）：
-
-```
-ANTHROPIC_AUTH_TOKEN
-API_KEY
-API_Key
-API_Keys
-api_key
-apiKey
-```
-
----
-
-### ❌ 都没找到：明确提示用户
-
-以上三层都没找到的话，Skill 会明确提示用户：
-> 直接在对话中发送以 `ark-` 开头的 API Key，默认仅本次临时使用；如需保存到全局配置，请明确确认
-
----
-
-## 🔧 技术实现说明（高级用户）
-
-### 提示词自动优化逻辑
-默认开启，自动提升画质描述：
-```javascript
-// 自动添加的优化词：
-"电影质感, 专业摄影, 8K分辨率, 极致细节, 光影层次, 色彩饱满"
-```
-
-用户说"不要优化"、"用原提示词"时自动关闭。
-
-### 内置 10 大风格预设
-自动从用户输入中识别风格关键词：
-- 电影风、二次元、插画风、写实风、国潮风
-- 赛博朋克、水彩风、3D渲染、暗黑风、治愈系
-
-### 三级路径降级策略
-| 优先级 | 路径 | 说明 |
-|-------|------|------|
-| 1 | `~/Desktop/Seedream-Images/` | 桌面环境优先 |
-| 2 | `~/Seedream-Images/` | 无桌面环境时降级到主目录 |
-| 3 | `./Seedream-Images/` | 最终兜底，当前运行目录 |
-
----
-
-## 📋 常用模型速查表
-
-| 模型 ID | 说明 |
-|---------|------|
-| **`doubao-seedream-5.0-lite`** | **默认推荐**，速度快、质量好，适合绝大多数场景 |
-
----
-
-## 📋 高级配置（一般不需要）
-
-如需使用独立账号或自定义配置，可以通过以下环境变量覆盖：
-
-| 环境变量 | 说明 | 默认值 |
-|---------|------|--------|
-| `ARK_SEEDREAM_MODEL` | 自定义模型 ID | `doubao-seedream-5.0-lite` |
-| `ARK_SEEDREAM_API_BASE_URL` | 自定义 API 地址 | 官方地址 |
-| `ARK_SEEDREAM_SAVE_PATH` | 图片保存路径 | 自动检测 |
-| `ARK_API_BASE_URL` | 全局 API 地址（兜底） | - |
-| `ARK_SAVE_PATH` | 全局保存路径（兜底） | - |
-
-> 💡 API Key 通过三层自动检测策略获取，一般不需要通过环境变量配置。
+`optimize` 是本地提示词增强；`optimize_prompt_mode` 是模型服务端模式。用户要求保留原词时设置 `--optimize false`。精准编辑、拆图层、透明编辑默认关闭本地增强；具体参数见 [MODELS.md](MODELS.md)。

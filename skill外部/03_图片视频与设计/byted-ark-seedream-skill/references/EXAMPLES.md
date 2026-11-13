@@ -1,82 +1,35 @@
-# Seedream 典型场景示例
+# 调用示例
 
-本文档包含 Seedream Skill 的各种使用场景示例，供开发和测试参考。
+在 skill 根目录运行。示例 URL 需替换成用户实际参考图；添加 `--dry-run` 检查请求不会消耗额度。
 
----
+先用 `node scripts/generate.js --list-models` 查看当前已发布模型。单独 dry-run 使用离线配置；加 `--refresh-models` 可读取远端后预览。以下为内置 Flash / Pro 示例，实际状态与限制以当前配置为准。
 
-## 场景 1: 简单文生图
+## 普通生图与显式选模
 
-**用户输入:**
-```
-给我画一只可爱的英短蓝猫，趴在洒满阳光的木质窗台上
-```
-
-**参数映射:**
-```javascript
-{
-  prompt: "一只可爱的英短蓝猫，趴在洒满阳光的木质窗台上，背景是模糊的城市街景，暖色调，电影质感，8K分辨率",
-  size: "2K",
-  mode: "text-to-image",
-  optimize: true
-}
+```bash
+node scripts/generate.js --model auto --prompt '一只猫趴在窗台上'
+node scripts/generate.js --model flash --prompt '一张花卉插画' --size 1.5K --output_format png
+node scripts/generate.js --model doubao-seedream-5-0-flash --prompt '一张海边日落照片' --size 2048x1024
+node scripts/generate.js --model pro --prompt '高精度产品海报，标题为「夏日限定」' --size 2K
+node scripts/generate.js --model pro --prompt '一张花卉插画' --optimize_prompt_mode fast
 ```
 
----
+## 交互编辑、拆图层与透明编辑
 
-## 场景 2: 生成一组连贯图
+下列操作 Flash 和 Pro 均支持，可以显式选择任一模型。
 
-**用户输入:**
-```
-生成一组共4张治愈系插画，主题为同一间咖啡馆的四季变迁
-```
-
-**参数映射:**
-```javascript
-{
-  prompt: "生成4张一组的连贯插画：同一间温馨咖啡馆的四季变迁。第1张春天樱花飘落，第2张夏天阳光斑驳，第3张秋天金黄落叶，第4张冬天温暖雪景。统一吉卜力画风，保持构图和色彩一致，温暖明亮",
-  size: "2K",
-  sequential: true,  // 连贯组图模式
-  count: 4,
-  optimize: true
-}
+```bash
+node scripts/generate.js --model flash --interactive_edit true --reference_images '["https://example.com/marked.png"]' --prompt '在蓝色框内添加电视机，移除蓝框，保持其余布局不变'
+node scripts/generate.js --model flash --reference_images '["https://example.com/source.png","https://example.com/scene.png"]' --prompt '将图1<bbox>179 283 796 986</bbox>的主体放到图2<bbox>118 331 933 871</bbox>位置'
+node scripts/generate.js --model flash --layer_decomposition true --reference_images '["https://example.com/poster.png"]'
+node scripts/generate.js --model pro --layer_decomposition true --reference_images '["https://example.com/poster.png"]' --prompt '拆出人物、标题文字和右下角装饰图标' --size 2K
+node scripts/generate.js --model flash --background transparent --reference_images '["https://example.com/alpha-layer.png"]' --prompt '将鹦鹉改为孔雀，保持透明背景'
 ```
 
----
+透明编辑输入需实际带透明通道。坐标应来自用户提供的定位信息，不要猜测。
 
-## 场景 3: 图生图
+## 从 Lite 迁移
 
-**用户输入:**
-```
-[发了一张图片] 参考这张图的构图，把风格换成赛博朋克，保持主体不变
-```
+将原有 `--model lite` 或 Lite 模型 ID 更新为 `--model flash`；环境变量同样需要更新。仅替换模型名不等于参数兼容：移除组图、流式、联网与 reference_strength，分辨率调整为支持的档位，普通参考图最多 10 张。若这些是用户明确要求，先说明限制并取得新的需求，不要自动删除参数。
 
-**参数映射:**
-```javascript
-{
-  prompt: "赛博朋克风格，霓虹灯，雨夜，高科技感，蓝色紫色调",
-  reference_images: ["data:image/jpeg;base64,..."],
-  mode: "image-to-image",
-  reference_strength: 0.7,
-  optimize: true
-}
-```
-
----
-
-## 完整参数参考
-
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `prompt` | string | - | ✅ 图片描述提示词 |
-| `mode` | string | `text-to-image` | 生成模式：`text-to-image` / `image-to-image` |
-| `size` | string | `2K` | 分辨率：`2K` / `3K` / 具体像素值 |
-| `sequential` | boolean | `false` | 是否生成一组连贯图片（风格保持一致） |
-| `count` | integer | `4` | 连贯图数量（1~15张） |
-| `reference_images` | array | - | 参考图片列表（最多 14 张） |
-| `reference_strength` | number | `0.7` | 参考图影响强度（0~1） |
-| `optimize` | boolean | `true` | 是否自动优化提示词 |
-| `watermark` | boolean | `true` | 是否添加水印 |
-| `stream` | boolean | `auto` | 流式输出（sequential=true 时自动开启） |
-| `enable_web_search` | boolean | `false` | 是否开启联网搜索（实时新闻、赛事等） |
-| `response_format` | string | `jpeg` | 图片格式：`png` / `jpeg` |
-
+所有参数见 [SKILL.md](../SKILL.md)，输入限制见 [MODELS.md](MODELS.md)。

@@ -377,3 +377,9 @@
 - 新增技能：放进 `skill自建/<功能类>/<技能名>/`（含 `SKILL.md`），更新本文件与 `_skills.json`。
 - 机器可读台账：[`_skills.json`](./_skills.json)。
 - 全库总览见 [`README.md`](./README.md)。
+
+## 2026-11-13 收库（新增 2 + 更新 1）
+
+- `byted-ark-seedance-skill`（外部，volcengine 官方）→ `skill外部/03_图片视频与设计/`（Seedance 视频生成/修改/续写，v6.3.6，六项护栏补齐）
+- `volc-voice-mcp`（自建）→ `skill自建/08_AI与模型/`（火山 Agent Plan 语音 MCP：豆包 TTS2.0+ASR2.0，FastMCP server+闭环测试脚本，已接入 Hermes）
+- `byted-ark-seedream-skill`（外部，更新）← 官方源 2026-11-13 版同步（25 处变更），护栏块回插
