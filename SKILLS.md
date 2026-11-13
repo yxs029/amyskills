@@ -1,7 +1,7 @@
 # AmySkills · 技能维度台账（SKILLS）
 
 > **本文件只记录「技能」这一个维度**；插件维度见 [`PLUGINS.md`](./PLUGINS.md)。二者同属 `amyskills` 一个库。
-> 共 **232** 个技能（已去重合并同名多版本）｜双维度：**来源（自建/外部）× 功能分类（20 类）**
+> 共 **235** 个技能（已去重合并同名多版本）｜双维度：**来源（自建/外部）× 功能分类（20 类）**
 > 技能均以**解压目录**形式存放；原 zip 安装包仅在本地 `历史归档/` 保留（已 `.gitignore`，不入库）。
 
 ## 交叉矩阵
@@ -15,19 +15,19 @@
 | 写作/内容创作 Writing & Content | 8 | 9 | **17** |
 | 集成/连接器 Integrations | · | 16 | **16** |
 | 测试/质量 Testing & QA | 8 | 6 | **14** |
-| AI/模型/多模态 AI & ML | 5 | 9 | **14** |
+| AI/模型/多模态 AI & ML | 7 | 9 | **16** |
 | 浏览器/爬取/搜索 Browser & Scraping | · | 14 | **14** |
 | 研究/调研 Research | 3 | 4 | **7** |
 | 生活/消费 Lifestyle & Commerce | · | 7 | **7** |
 | 安全/合规 Security | 2 | 4 | **6** |
-| 自动化/工作流 Automation & Workflow | · | 5 | **5** |
+| 自动化/工作流 Automation & Workflow | · | 6 | **6** |
 | 人格/角色/共创 Persona & Co-creation | · | 5 | **5** |
 | 数据/分析 Data & Analytics | · | 4 | **4** |
 | 运维/DevOps Ops | · | 2 | **2** |
 | 效率/办公 Productivity | · | 1 | **1** |
 | 沟通/协作 Communication | · | 1 | **1** |
 | 未分类/通用 Other | · | 2 | **2** |
-| **合计** | **41** | **191** | **232** |
+| **合计** | **43** | **192** | **235** |
 
 ## 按分类索引
 
@@ -245,6 +245,7 @@
 | writing-shape | 外部 | "Writing, exploit: shape raw material into an article, paragraph by paragraph." | [`skill外部/08_AI与模型/writing-shape`](./skill外部/08_AI与模型/writing-shape) |
 | hermes-model-backup-failover | 自建 | "把一台 Hermes 的大模型配置方案（主模型 + 多级 fallback_providers 容灾链 + providers 模型目录 + custom_providers 扩展）连同备份/回滚机制，可复现地迁移集成到另一台 Herme | [`skill自建/08_AI与模型/hermes-model-backup-failover`](./skill自建/08_AI与模型/hermes-model-backup-failover) |
 | hermes-model-switchover-drill | 自建 | "Hermes 主备模型切换 + 断联容灾演练一条龙：改主模型、配多级 fallback_providers 容灾链（OpenAI/Anthropic 双协议）、.env 密钥分离、断言式精确改写 config、curl→config ch | [`skill自建/08_AI与模型/hermes-model-switchover-drill`](./skill自建/08_AI与模型/hermes-model-switchover-drill) |
+| hermes-longtask-commander | 自建 | Hermes 任务清单驱动的长任务执行指挥手册：todo 全生命周期方法论（何时建/怎么拆/状态流转铁律/熔断恢复）+ 长任务配置基线（max_turns/max_iterations/spawn 深度/notify_on_complete）+ 长终端命令副作用止血 + 失控识别。与 hermes-long-task（工具止血向）互补 | [`skill自建/08_AI与模型/hermes-longtask-commander`](./skill自建/08_AI与模型/hermes-longtask-commander) |
 | prompt-xray | 自建 | Agent 系统提示词语料库拆解分析。输入 ZIP/RAR/文件夹/文本，输出结构化解析报告（PDF+MD）。5步流程：解包→画像→分类→精读→输出，5层框架：人格/原则/资产/执行/表现。 | [`skill自建/08_AI与模型/prompt-xray`](./skill自建/08_AI与模型/prompt-xray) |
 | token-usage-meter | 自建 | Measure LLM token usage (total/input/output/cache_read/cache_write/reasoning) at session, project, and minimum-loop-unit | [`skill自建/08_AI与模型/token-usage-meter`](./skill自建/08_AI与模型/token-usage-meter) |
 | verify-slider-bypass | 自建 | Systematic bypass playbook for server-validated verify sliders (Element UI verify-move-block class, hCaptcha-style, 自研 v | [`skill自建/08_AI与模型/verify-slider-bypass`](./skill自建/08_AI与模型/verify-slider-bypass) |
@@ -382,4 +383,5 @@
 
 - `byted-ark-seedance-skill`（外部，volcengine 官方）→ `skill外部/03_图片视频与设计/`（Seedance 视频生成/修改/续写，v6.3.6，六项护栏补齐）
 - `volc-voice-mcp`（自建）→ `skill自建/08_AI与模型/`（火山 Agent Plan 语音 MCP：豆包 TTS2.0+ASR2.0，FastMCP server+闭环测试脚本，已接入 Hermes）
+- `hermes-longtask-commander`（自建）→ `skill自建/08_AI与模型/`（Hermes 长任务执行指挥手册：todo 全生命周期+配置基线+熔断恢复，2026-11-13 新增）
 - `byted-ark-seedream-skill`（外部，更新）← 官方源 2026-11-13 版同步（25 处变更），护栏块回插
